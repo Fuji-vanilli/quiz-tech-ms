@@ -1,0 +1,23 @@
+<nav class="navbar navbar-expand-lg ">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <img src="../../assets/Quiz.png" routerLink="">
+      </a>
+      
+      <div class="collapse navbar-collapse" id="navbarSupportedContent ms-auto">
+        <ul class="navbar-nav mb-lg-0 ms-auto" *ngIf="!profile">
+          <li class="nav-item">
+            <button class="btn-login" (click)="login()">Sign in</button>
+          </li>
+          <li class="nav-item">
+            <button class="btn-register" (click)="register()">Sign up</button>
+          </li>
+        </ul>
+        <ul class="navbar-nav">
+            <li class="nav-item" *ngIf="profile">
+                <button class="btn-register">logout</button>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
