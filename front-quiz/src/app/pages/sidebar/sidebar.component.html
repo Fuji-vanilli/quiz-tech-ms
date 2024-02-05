@@ -1,5 +1,5 @@
 <mat-card>
-    <mat-action-list>
+    <mat-action-list class="btn-sidebar">
         <div mat-subheader>Menu</div>
         <button mat-list-item routerLink="/admin/">
             <mat-icon mat-list-icon>home</mat-icon> Home
@@ -8,13 +8,19 @@
             <mat-icon mat-list-icon>account_circle</mat-icon> Profile
         </button>
         <button mat-list-item routerLink="/admin/profile">
-            <mat-icon mat-list-icon>class</mat-icon> Category
+            <mat-icon mat-list-icon>list</mat-icon> Category
         </button>
         <button mat-list-item routerLink="/admin/profile">
             <mat-icon mat-list-icon>playlist_add</mat-icon> Add category
         </button>
         <button mat-list-item routerLink="/admin/profile">
-            <mat-icon mat-list-icon>code</mat-icon> Quizzes
+            <mat-icon mat-list-icon>quiz</mat-icon> Quizzes
+        </button>
+        <button mat-list-item routerLink="/admin/profile">
+            <mat-icon mat-list-icon>add</mat-icon> Add Quizzes
+        </button>
+        <button mat-list-item routerLink="/admin/profile" class="mt-5">
+            <mat-icon mat-list-icon>settings</mat-icon> Settings
         </button>
     </mat-action-list>
 </mat-card>
