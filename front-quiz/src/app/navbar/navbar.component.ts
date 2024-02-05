@@ -25,12 +25,12 @@ export class NavbarComponent implements OnInit {
 
   async login() {
     await this.keycloakService.login({
-      redirectUri: window.location.origin
+      redirectUri: window.location.origin+'/admin'
     })
   }
 
   logout() {
-
+    this.keycloakService.logout(window.location.origin);
   }
 
   register() {
