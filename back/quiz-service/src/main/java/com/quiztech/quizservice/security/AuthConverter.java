@@ -1,4 +1,4 @@
-package com.quiztech.categoryservice.security;
+package com.quiztech.quizservice.security;
 
 import com.nimbusds.jwt.JWTClaimNames;
 import lombok.RequiredArgsConstructor;
@@ -11,7 +11,10 @@ import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationToken;
 import org.springframework.security.oauth2.server.resource.authentication.JwtGrantedAuthoritiesConverter;
 
-import java.util.*;
+import java.util.Collection;
+import java.util.Map;
+import java.util.Objects;
+import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
