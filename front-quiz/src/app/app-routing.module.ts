@@ -2,10 +2,10 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { AuthGuard } from './guards/auth.guard';
-import { NavbarComponent } from './navbar/navbar.component';
 import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
 import { ProfileComponent } from './pages/admin/profile/profile.component';
 import { WelcomComponent } from './pages/welcom/welcom.component';
+import { CategoryComponent } from './pages/category/category.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -15,6 +15,7 @@ const routes: Routes = [
     path:'admin', component: DashboardComponent, canActivate: [AuthGuard], data: {role: ['ADMIN']},
     children: [
       { path: '', component: WelcomComponent},
+      { path: 'category', component: CategoryComponent},
       { path:'profile', component: ProfileComponent }
     ]
   },

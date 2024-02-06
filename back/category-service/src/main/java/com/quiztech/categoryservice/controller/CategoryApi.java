@@ -5,6 +5,7 @@ import com.quiztech.categoryservice.dto.CategoryResponse;
 import com.quiztech.categoryservice.service.CategoryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,6 +16,7 @@ import static com.quiztech.categoryservice.utils.Root.APP_ROOT;
 @RestController
 @RequestMapping(APP_ROOT)
 @RequiredArgsConstructor
+@CrossOrigin("*")
 public class CategoryApi implements CategoryController{
     private final CategoryService categoryService;
 

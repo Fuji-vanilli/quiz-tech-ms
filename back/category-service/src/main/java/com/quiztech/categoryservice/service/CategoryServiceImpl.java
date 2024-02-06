@@ -53,7 +53,9 @@ public class CategoryServiceImpl implements CategoryService{
 
     @Override
     public List<CategoryResponse> all(int page, int size) {
-        return null;
+        return categoryRepository.findAll().stream()
+                .map(categoryMapper::mapToCategoryResponse)
+                .toList();
     }
 
     @Override

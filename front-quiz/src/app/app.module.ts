@@ -1,5 +1,6 @@
 import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,6 +17,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
 import { SidebarComponent } from './pages/sidebar/sidebar.component';
 import { WelcomComponent } from './pages/welcom/welcom.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 export function initializeKeycloak(keycloak: KeycloakService) {
@@ -46,6 +48,7 @@ export function initializeKeycloak(keycloak: KeycloakService) {
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     AppRoutingModule,
     MatIconModule,
     BrowserAnimationsModule,
@@ -53,7 +56,8 @@ export function initializeKeycloak(keycloak: KeycloakService) {
     MatListModule,
     MatCardModule,
     MatTableModule,
-    MatButtonModule
+    MatButtonModule,
+    HttpClientModule
   ],
   providers: [
     {
