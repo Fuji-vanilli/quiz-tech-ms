@@ -5,6 +5,7 @@ import jakarta.persistence.Id;
 import lombok.*;
 
 import java.util.Date;
+import java.util.List;
 
 @Getter @Setter
 @AllArgsConstructor @NoArgsConstructor
@@ -17,4 +18,5 @@ public class Category {
     private String description;
     private Date createdDate;
     private Date lastUpdateDate;
+    private List<String> quizsId;
 }
