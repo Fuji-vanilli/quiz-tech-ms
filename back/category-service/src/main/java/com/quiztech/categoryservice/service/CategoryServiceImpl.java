@@ -8,6 +8,8 @@ import com.quiztech.categoryservice.repository.CategoryRepository;
 import com.quiztech.categoryservice.validators.CategoryValidator;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -48,18 +50,39 @@ public class CategoryServiceImpl implements CategoryService{
 
     @Override
     public CategoryResponse get(String id) {
-        return null;
+        if (!categoryRepository.existsById(id)) {
+            log.error("sorry! the category with the id: {} doesn't exist on the database!", id);
+            return null;
+        }
+
+        Category category= categoryRepository.findById(id).orElseThrow(
+                ()-> new IllegalArgumentException("Error to fetch the category with the id: ",id)
+        );
+
+        log.info("category with the id: {} is getted successfully", id);
+        return categoryMapper.mapToCategoryResponse(category);
     }
 
     @Override
     public List<CategoryResponse> all(int page, int size) {
-        return categoryRepository.findAll().stream()
+        Pageable pageable = PageRequest.of(page, size);
+        log.info("all category getted successfully!");
+
+        return categoryRepository.findAll(pageable).stream()
                 .map(categoryMapper::mapToCategoryResponse)
                 .toList();
     }
 
     @Override
     public Boolean delete(String id) {
-        return null;
+        if (!categoryRepository.existsById(id)) {
+            log.error("sorry! the category with the id: {} doesn't exist on the database!", id);
+            return false;
+        }
+
+        categoryRepository.deleteById(id);
+        log.info("cateogry with the id: {} is deleted successfully", id);
+
+        return true;
     }
 }
