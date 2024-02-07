@@ -56,7 +56,7 @@ public class CategoryServiceImpl implements CategoryService{
         }
 
         Category category= categoryRepository.findById(id).orElseThrow(
-                ()-> new IllegalArgumentException("Error to fetch the category with the id: ",id)
+                ()-> new IllegalArgumentException("Error to fetch the category with the id: "+id)
         );
 
         log.info("category with the id: {} is getted successfully", id);
