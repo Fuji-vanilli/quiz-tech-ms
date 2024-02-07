@@ -4,8 +4,10 @@ import com.quiztech.categoryservice.dto.CategoryRequest;
 import com.quiztech.categoryservice.dto.CategoryResponse;
 import com.quiztech.categoryservice.entities.Category;
 import com.quiztech.categoryservice.mapper.CategoryMapper;
+import com.quiztech.categoryservice.models.Quiz;
 import com.quiztech.categoryservice.repository.CategoryRepository;
 import com.quiztech.categoryservice.validators.CategoryValidator;
+import com.quiztech.categoryservice.webClient.WebClientGetter;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.PageRequest;
@@ -15,6 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 @Service
@@ -24,6 +27,7 @@ import java.util.UUID;
 public class CategoryServiceImpl implements CategoryService{
     private final CategoryRepository categoryRepository;
     private final CategoryMapper categoryMapper;
+    private final WebClientGetter webClient;
     @Override
     public CategoryResponse add(CategoryRequest request) {
         List<String> errors= CategoryValidator.isValid(request);
@@ -49,6 +53,24 @@ public class CategoryServiceImpl implements CategoryService{
     }
 
     @Override
+    public CategoryResponse addQuizId(Map<String, String> patchRequest) {
+        final String idCategory= patchRequest.get("idCategory");
+        if (!categoryRepository.existsById(idCategory)) {
+            log.error("sorry! the category with the id: {} doesn't exist on the database!", idCategory);
+            return null;
+        }
+
+        Category category= categoryRepository.findById(idCategory).orElseThrow(
+                ()-> new IllegalArgumentException("Error to fetch the category with the id: "+idCategory)
+        );
+
+        category.getQuizsId().add(patchRequest.get("idQuiz"));
+        categoryRepository.save(category);
+
+        return categoryMapper.mapToCategoryResponse(category);
+    }
+
+    @Override
     public CategoryResponse get(String id) {
         if (!categoryRepository.existsById(id)) {
             log.error("sorry! the category with the id: {} doesn't exist on the database!", id);
@@ -59,6 +81,12 @@ public class CategoryServiceImpl implements CategoryService{
                 ()-> new IllegalArgumentException("Error to fetch the category with the id: "+id)
         );
 
+        List<String> quizsId = category.getQuizsId();
+        List<Quiz> quizzes = quizsId.stream()
+                .map(webClient::getQuiz)
+                .toList();
+
+        category.setQuizzes(quizzes);
         log.info("category with the id: {} is getted successfully", id);
         return categoryMapper.mapToCategoryResponse(category);
     }

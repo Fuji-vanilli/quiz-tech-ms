@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Map;
 
 import static com.quiztech.categoryservice.utils.Root.APP_ROOT;
 
@@ -23,6 +24,11 @@ public class CategoryApi implements CategoryController{
     @Override
     public ResponseEntity<CategoryResponse> add(CategoryRequest request) {
         return ResponseEntity.ok(categoryService.add(request));
+    }
+
+    @Override
+    public ResponseEntity<CategoryResponse> addQuizId(Map<String, String> patchRequest) {
+        return ResponseEntity.ok(categoryService.addQuizId(patchRequest));
     }
 
     @Override

@@ -6,10 +6,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 public interface CategoryController {
     @PostMapping("add")
     ResponseEntity<CategoryResponse> add( @RequestBody CategoryRequest request);
+    @PatchMapping("addQuiz")
+    ResponseEntity<CategoryResponse> addQuizId(@RequestBody Map<String, String> patchRequest);
     @GetMapping("get/{id}")
     ResponseEntity<CategoryResponse> get(@PathVariable String id);
     @GetMapping("all")

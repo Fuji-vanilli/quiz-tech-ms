@@ -1,5 +1,6 @@
 package com.quiztech.categoryservice.entities;
 
+import com.quiztech.categoryservice.models.Quiz;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import lombok.*;
@@ -19,4 +20,5 @@ public class Category {
     private Date createdDate;
     private Date lastUpdateDate;
     private List<String> quizsId;
+    private List<Quiz> quizzes;
 }
