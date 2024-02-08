@@ -77,8 +77,10 @@ public class CategoryServiceImpl implements CategoryService{
 
         if (category.getQuizsId().contains(idQuiz)) {
             log.error("quiz {} already exist on the category!!!",idQuiz);
+            return null;
         }
-        category.getQuizsId().add(patchRequest.get("idQuiz"));
+        category.getQuizsId().add(idQuiz);
+        //category.getQuizzes().add(webClient.getQuiz(idQuiz));
         categoryRepository.save(category);
         log.info("new Quiz added successfully to the category with id {}", idCategory);
 

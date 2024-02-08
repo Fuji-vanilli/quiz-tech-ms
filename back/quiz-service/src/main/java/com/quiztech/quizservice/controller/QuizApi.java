@@ -32,7 +32,7 @@ public class QuizApi implements QuizController{
     }
 
     @Override
-    public ResponseEntity<List<QuizResponse>> getByCategory(String idCategory) {
+    public ResponseEntity<Response> getByCategory(String idCategory) {
         return ResponseEntity.ok(quizService.quizByCategory(idCategory));
     }
 

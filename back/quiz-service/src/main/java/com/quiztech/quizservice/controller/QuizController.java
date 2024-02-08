@@ -15,7 +15,7 @@ public interface QuizController {
     @GetMapping("get/{id}")
     ResponseEntity<QuizResponse> get(@PathVariable String id);
     @GetMapping("getByCategory/{idCategory}")
-    ResponseEntity<List<QuizResponse>> getByCategory(@PathVariable String idCategory);
+    ResponseEntity<Response> getByCategory(@PathVariable String idCategory);
     @GetMapping("all")
     ResponseEntity<Response> all(
             @RequestParam(defaultValue = "0") int page,

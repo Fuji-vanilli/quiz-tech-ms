@@ -49,10 +49,12 @@ public class QuizServiceImpl implements QuizService {
         Quiz quiz= quizMapper.mapToQuiz(request);
         quiz.setId(UUID.randomUUID().toString());
 
-        webClient.addQuizToCategory(Map.of(
+        String s = webClient.addQuizToCategory(Map.of(
                 "idCategory", quiz.getCategoryId(),
                 "idQuiz", quiz.getId()
         ));
+
+        log.info("quiz added {}", s);
 
         quizRepository.save(quiz);
         log.info("new Quiz added successfully!!!");
@@ -73,11 +75,17 @@ public class QuizServiceImpl implements QuizService {
     }
 
     @Override
-    public List<QuizResponse> quizByCategory(String idCategory) {
+    public Response quizByCategory(String idCategory) {
         log.info("all quiz with the category: {} getted successfully!", idCategory);
-        return quizRepository.findByCategoryId(idCategory).stream()
-                .map(quizMapper::mapToQuizResponse)
-                .toList();
+        return generateResponse(
+                HttpStatus.OK,
+                Map.of(
+                        "quizzes", quizRepository.findAll().stream()
+                                .map(quizMapper::mapToQuizResponse)
+                                .collect(Collectors.toSet())
+                ),
+                "all quizzes getted successfully!"
+        );
     }
 
     @Override

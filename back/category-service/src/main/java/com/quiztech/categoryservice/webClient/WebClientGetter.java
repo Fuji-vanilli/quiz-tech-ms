@@ -53,22 +53,19 @@ public class WebClientGetter {
         } catch (JsonProcessingException e) {
             throw new RuntimeException("Error to deserilize the data from Quiz service!!!");
         }
-
         return quiz;
     }
 
     public List<Quiz> quizzesByCategory(String categoryId) {
         CompletableFuture<String> dataFuture = webClient.build().get()
                 .uri(urlServiceProperties.getQuizUrlCategory() + "/" + categoryId)
-                .accept(MediaType.APPLICATION_JSON)
                 .retrieve()
                 .bodyToMono(String.class)
                 .toFuture();
 
         List<Quiz> quizzes= new ArrayList<>();
-
         String dataBrute= "";
-        JSONArray results= new JSONArray();
+        JSONArray results= null;
 
         try {
             dataBrute= dataFuture.get();
@@ -80,14 +77,19 @@ public class WebClientGetter {
         objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 
         try {
-            JSONObject jsonObject= new JSONObject(dataBrute);
-            results= jsonObject.getJSONArray("quizzes");
+            JSONObject jsonObject = new JSONObject(dataBrute);
+            JSONObject data= jsonObject.getJSONObject("data");
+            results= data.getJSONArray("quizzes");
+        } catch (JSONException e) {
+            throw new RuntimeException("error to deserialize jsonArray and jsonObject!!!");
+        }
+
+        try {
             Quiz[] quizzesArray = objectMapper.readValue(results.toString(), Quiz[].class);
             quizzes.addAll(Arrays.asList(quizzesArray));
+            log.info("les quizzes recuperé: {}", dataBrute);
         } catch (JsonProcessingException e) {
             throw new RuntimeException("Error to deserialize the data from quiz service!!!");
-        } catch (JSONException e) {
-            throw new RuntimeException(e);
         }
 
         return quizzes;
