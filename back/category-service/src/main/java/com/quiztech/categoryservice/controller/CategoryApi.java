@@ -2,7 +2,9 @@ package com.quiztech.categoryservice.controller;
 
 import com.quiztech.categoryservice.dto.CategoryRequest;
 import com.quiztech.categoryservice.dto.CategoryResponse;
+import com.quiztech.categoryservice.models.Quiz;
 import com.quiztech.categoryservice.service.CategoryService;
+import com.quiztech.categoryservice.webClient.WebClientGetter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -20,6 +22,7 @@ import static com.quiztech.categoryservice.utils.Root.APP_ROOT;
 @CrossOrigin("*")
 public class CategoryApi implements CategoryController{
     private final CategoryService categoryService;
+    private final WebClientGetter webClient;
 
     @Override
     public ResponseEntity<CategoryResponse> add(CategoryRequest request) {
@@ -44,5 +47,10 @@ public class CategoryApi implements CategoryController{
     @Override
     public ResponseEntity<Boolean> delete(String id) {
         return ResponseEntity.ok(categoryService.delete(id));
+    }
+
+    @Override
+    public ResponseEntity<List<Quiz>> getQuiz() {
+        return ResponseEntity.ok( webClient.quizzesByCategory("fd309364-53da-47ac-8e1c-192261faf4d2"));
     }
 }

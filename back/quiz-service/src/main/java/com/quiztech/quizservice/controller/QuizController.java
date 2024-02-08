@@ -2,6 +2,7 @@ package com.quiztech.quizservice.controller;
 
 import com.quiztech.quizservice.dto.QuizRequest;
 import com.quiztech.quizservice.dto.QuizResponse;
+import com.quiztech.quizservice.utils.Response;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,7 +17,7 @@ public interface QuizController {
     @GetMapping("getByCategory/{idCategory}")
     ResponseEntity<List<QuizResponse>> getByCategory(@PathVariable String idCategory);
     @GetMapping("all")
-    ResponseEntity<Collection<QuizResponse>> all(
+    ResponseEntity<Response> all(
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "5") int size
     );

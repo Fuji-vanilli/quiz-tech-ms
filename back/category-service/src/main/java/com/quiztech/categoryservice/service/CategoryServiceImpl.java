@@ -96,10 +96,7 @@ public class CategoryServiceImpl implements CategoryService{
                 ()-> new IllegalArgumentException("Error to fetch the category with the id: "+id)
         );
 
-        List<String> quizsId = category.getQuizsId();
-        List<Quiz> quizzes = quizsId.stream()
-                .map(webClient::getQuiz)
-                .toList();
+        List<Quiz> quizzes = webClient.quizzesByCategory(category.getId());
 
         category.setQuizzes(quizzes);
         log.info("category with the id: {} is getted successfully", id);

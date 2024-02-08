@@ -5,15 +5,18 @@ import com.quiztech.quizservice.dto.QuizResponse;
 import com.quiztech.quizservice.entities.Quiz;
 import com.quiztech.quizservice.mapper.QuizMapper;
 import com.quiztech.quizservice.repository.QuizRepository;
+import com.quiztech.quizservice.utils.Response;
 import com.quiztech.quizservice.validators.QuizValidator;
 import com.quiztech.quizservice.webClient.WebClientGetter;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
@@ -71,18 +74,25 @@ public class QuizServiceImpl implements QuizService {
 
     @Override
     public List<QuizResponse> quizByCategory(String idCategory) {
+        log.info("all quiz with the category: {} getted successfully!", idCategory);
         return quizRepository.findByCategoryId(idCategory).stream()
                 .map(quizMapper::mapToQuizResponse)
                 .toList();
     }
 
     @Override
-    public Collection<QuizResponse> all(int page, int size) {
+    public Response all(int page, int size) {
         Pageable pageable = PageRequest.of(page, size);
 
-        return quizRepository.findAll(pageable).stream()
-                .map(quizMapper::mapToQuizResponse)
-                .collect(Collectors.toSet());
+        return generateResponse(
+                HttpStatus.OK,
+                Map.of(
+                        "quizzes", quizRepository.findAll(pageable).stream()
+                                .map(quizMapper::mapToQuizResponse)
+                                .collect(Collectors.toSet())
+                ),
+                "all quizzes getted successfully!"
+        );
     }
 
     @Override
@@ -95,5 +105,15 @@ public class QuizServiceImpl implements QuizService {
         quizRepository.deleteById(id);
 
         return true;
+    }
+
+    private Response generateResponse(HttpStatus status, Map<?, ?> data, String message) {
+        return Response.builder()
+                .timeStamp(LocalDateTime.now())
+                .status(status)
+                .statusCode(status.value())
+                .data(data)
+                .message(message)
+                .build();
     }
 }

@@ -2,6 +2,7 @@ package com.quiztech.categoryservice.controller;
 
 import com.quiztech.categoryservice.dto.CategoryRequest;
 import com.quiztech.categoryservice.dto.CategoryResponse;
+import com.quiztech.categoryservice.models.Quiz;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,4 +23,7 @@ public interface CategoryController {
     );
     @DeleteMapping("delete/{id}")
     ResponseEntity<Boolean> delete(@PathVariable String id);
+
+    @GetMapping("test")
+    ResponseEntity<List<Quiz>> getQuiz();
 }

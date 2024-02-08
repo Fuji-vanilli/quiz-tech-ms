@@ -7,9 +7,16 @@ import com.quiztech.categoryservice.models.Quiz;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.MediaType;
 import org.springframework.web.reactive.function.client.WebClient;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
@@ -48,5 +55,41 @@ public class WebClientGetter {
         }
 
         return quiz;
+    }
+
+    public List<Quiz> quizzesByCategory(String categoryId) {
+        CompletableFuture<String> dataFuture = webClient.build().get()
+                .uri(urlServiceProperties.getQuizUrlCategory() + "/" + categoryId)
+                .accept(MediaType.APPLICATION_JSON)
+                .retrieve()
+                .bodyToMono(String.class)
+                .toFuture();
+
+        List<Quiz> quizzes= new ArrayList<>();
+
+        String dataBrute= "";
+        JSONArray results= new JSONArray();
+
+        try {
+            dataBrute= dataFuture.get();
+        } catch (InterruptedException | ExecutionException e) {
+            throw new RuntimeException("error to fetch the dataFuture!!!");
+        }
+
+        ObjectMapper objectMapper= new ObjectMapper();
+        objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+
+        try {
+            JSONObject jsonObject= new JSONObject(dataBrute);
+            results= jsonObject.getJSONArray("quizzes");
+            Quiz[] quizzesArray = objectMapper.readValue(results.toString(), Quiz[].class);
+            quizzes.addAll(Arrays.asList(quizzesArray));
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException("Error to deserialize the data from quiz service!!!");
+        } catch (JSONException e) {
+            throw new RuntimeException(e);
+        }
+
+        return quizzes;
     }
 }

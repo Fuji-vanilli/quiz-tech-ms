@@ -3,6 +3,7 @@ package com.quiztech.quizservice.controller;
 import com.quiztech.quizservice.dto.QuizRequest;
 import com.quiztech.quizservice.dto.QuizResponse;
 import com.quiztech.quizservice.service.QuizService;
+import com.quiztech.quizservice.utils.Response;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -36,7 +37,7 @@ public class QuizApi implements QuizController{
     }
 
     @Override
-    public ResponseEntity<Collection<QuizResponse>> all(int page, int size) {
+    public ResponseEntity<Response> all(int page, int size) {
         return ResponseEntity.ok(quizService.all(page, size));
     }
 
