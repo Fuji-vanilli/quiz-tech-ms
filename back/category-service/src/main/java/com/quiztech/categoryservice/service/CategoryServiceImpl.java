@@ -12,13 +12,13 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationToken;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 
 @Service
 @Transactional
@@ -47,6 +47,15 @@ public class CategoryServiceImpl implements CategoryService{
         category.setCreatedDate(new Date());
         category.setLastUpdateDate(new Date());
 
+        List<Quiz> quizzes= new ArrayList<>();
+
+        if (!Objects.isNull(request.getQuizsId())) {
+            quizzes= request.getQuizsId().stream()
+                    .map(webClient::getQuiz)
+                    .toList();
+        }
+
+        category.setQuizzes(quizzes);
         categoryRepository.save(category);
 
         return categoryMapper.mapToCategoryResponse(category);
@@ -55,6 +64,8 @@ public class CategoryServiceImpl implements CategoryService{
     @Override
     public CategoryResponse addQuizId(Map<String, String> patchRequest) {
         final String idCategory= patchRequest.get("idCategory");
+        final String idQuiz= patchRequest.get("idQuiz");
+
         if (!categoryRepository.existsById(idCategory)) {
             log.error("sorry! the category with the id: {} doesn't exist on the database!", idCategory);
             return null;
@@ -64,6 +75,9 @@ public class CategoryServiceImpl implements CategoryService{
                 ()-> new IllegalArgumentException("Error to fetch the category with the id: "+idCategory)
         );
 
+        if (category.getQuizsId().contains(idQuiz)) {
+            log.error("quiz {} already exist on the category!!!",idQuiz);
+        }
         category.getQuizsId().add(patchRequest.get("idQuiz"));
         categoryRepository.save(category);
 
@@ -113,4 +127,5 @@ public class CategoryServiceImpl implements CategoryService{
 
         return true;
     }
+
 }

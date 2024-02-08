@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Collection;
+import java.util.List;
 
 import static com.quiztech.quizservice.utils.Root.APP_ROOT;
 
@@ -27,6 +28,11 @@ public class QuizApi implements QuizController{
     @Override
     public ResponseEntity<QuizResponse> get(String id) {
         return ResponseEntity.ok(quizService.get(id));
+    }
+
+    @Override
+    public ResponseEntity<List<QuizResponse>> getByCategory(String idCategory) {
+        return ResponseEntity.ok(quizService.quizByCategory(idCategory));
     }
 
     @Override

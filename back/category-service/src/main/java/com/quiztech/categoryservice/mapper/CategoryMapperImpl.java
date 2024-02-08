@@ -12,6 +12,7 @@ public class CategoryMapperImpl implements CategoryMapper{
         return Category.builder()
                 .title(request.getTitle())
                 .description(request.getDescription())
+                .quizsId(request.getQuizsId())
                 .build();
     }
 
@@ -23,6 +24,8 @@ public class CategoryMapperImpl implements CategoryMapper{
                 .description(category.getDescription())
                 .createdDate(category.getCreatedDate())
                 .lastUpdateDate(category.getLastUpdateDate())
+                .quizsId(category.getQuizsId())
+                .quizzes(category.getQuizzes())
                 .build();
     }
 }

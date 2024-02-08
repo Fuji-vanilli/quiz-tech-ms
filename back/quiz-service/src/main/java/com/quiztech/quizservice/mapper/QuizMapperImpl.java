@@ -16,6 +16,7 @@ public class QuizMapperImpl implements QuizMapper{
                 .marks(request.getMarks())
                 .numberOfQuestions(request.getNumberOfQuestions())
                 .active(request.isActive())
+                .categoryId(request.getCategoryId())
                 .build();
     }
 
@@ -28,6 +29,7 @@ public class QuizMapperImpl implements QuizMapper{
                 .active(quiz.isActive())
                 .marks(quiz.getMarks())
                 .numberOfQuestions(quiz.getNumberOfQuestions())
+                .categoryId(quiz.getCategoryId())
                 .build();
     }
 }

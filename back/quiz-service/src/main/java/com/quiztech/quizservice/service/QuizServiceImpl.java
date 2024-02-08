@@ -62,6 +62,13 @@ public class QuizServiceImpl implements QuizService {
     }
 
     @Override
+    public List<QuizResponse> quizByCategory(String idCategory) {
+        return quizRepository.findByCategoryId(idCategory).stream()
+                .map(quizMapper::mapToQuizResponse)
+                .toList();
+    }
+
+    @Override
     public Collection<QuizResponse> all(int page, int size) {
         Pageable pageable = PageRequest.of(page, size);
 

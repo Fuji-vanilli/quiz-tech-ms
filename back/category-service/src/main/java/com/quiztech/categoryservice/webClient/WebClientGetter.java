@@ -6,11 +6,13 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.quiztech.categoryservice.models.Quiz;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.reactive.function.client.WebClient;
 
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
+
 
 @Configuration
 @RequiredArgsConstructor
@@ -20,7 +22,9 @@ public class WebClientGetter {
     private final WebClientUrlServiceProperties urlServiceProperties;
 
     public Quiz getQuiz(String id) {
-        CompletableFuture<String> dataFuture = webClient.build().get().uri(urlServiceProperties.quizUrlGet + "/id")
+
+        final CompletableFuture<String> dataFuture = webClient.build().get()
+                .uri(urlServiceProperties.getQuizUrlGet()+"/"+id)
                 .retrieve()
                 .bodyToMono(String.class)
                 .toFuture();
@@ -35,14 +39,13 @@ public class WebClientGetter {
         }
 
         ObjectMapper objectMapper= new ObjectMapper();
-        objectMapper.configure(DeserializationFeature.FAIL_ON_IGNORED_PROPERTIES, false);
+        objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 
         try {
             quiz = objectMapper.readValue(dataBrute, Quiz.class);
         } catch (JsonProcessingException e) {
             throw new RuntimeException("Error to deserilize the data from Quiz service!!!");
         }
-
 
         return quiz;
     }

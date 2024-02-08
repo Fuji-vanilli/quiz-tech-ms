@@ -6,12 +6,15 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
+import java.util.List;
 
 public interface QuizController {
     @PostMapping("add")
     ResponseEntity<QuizResponse> add(@RequestBody QuizRequest request);
     @GetMapping("get/{id}")
     ResponseEntity<QuizResponse> get(@PathVariable String id);
+    @GetMapping("getByCategory/{idCategory}")
+    ResponseEntity<List<QuizResponse>> getByCategory(@PathVariable String idCategory);
     @GetMapping("all")
     ResponseEntity<Collection<QuizResponse>> all(
             @RequestParam(defaultValue = "0") int page,

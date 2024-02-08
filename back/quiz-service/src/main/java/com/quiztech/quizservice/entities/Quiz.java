@@ -23,7 +23,6 @@ public class Quiz {
     private List<String> questionsId;
     private boolean active;
     private String categoryId;
-    @Transient
     private Category category;
 }
 

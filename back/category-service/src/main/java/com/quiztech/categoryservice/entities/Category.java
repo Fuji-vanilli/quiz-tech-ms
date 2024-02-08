@@ -1,17 +1,18 @@
 package com.quiztech.categoryservice.entities;
 
 import com.quiztech.categoryservice.models.Quiz;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
 import lombok.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 @Getter @Setter
 @AllArgsConstructor @NoArgsConstructor
 @Builder
-@Entity
+@Document(value = "category")
 public class Category {
     @Id
     private String id;
@@ -19,6 +20,7 @@ public class Category {
     private String description;
     private Date createdDate;
     private Date lastUpdateDate;
-    private List<String> quizsId;
-    private List<Quiz> quizzes;
+    private List<String> quizsId= new ArrayList<>();
+    private List<Quiz> quizzes= new ArrayList<>();
+
 }
