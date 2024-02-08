@@ -6,6 +6,7 @@ import com.quiztech.quizservice.entities.Quiz;
 import com.quiztech.quizservice.mapper.QuizMapper;
 import com.quiztech.quizservice.repository.QuizRepository;
 import com.quiztech.quizservice.validators.QuizValidator;
+import com.quiztech.quizservice.webClient.WebClientGetter;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.PageRequest;
@@ -15,6 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
@@ -25,6 +27,7 @@ import java.util.stream.Collectors;
 public class QuizServiceImpl implements QuizService {
     private final QuizRepository quizRepository;
     private final QuizMapper quizMapper;
+    private final WebClientGetter webClient;
 
     @Override
     public QuizResponse add(QuizRequest request) {
@@ -42,6 +45,11 @@ public class QuizServiceImpl implements QuizService {
 
         Quiz quiz= quizMapper.mapToQuiz(request);
         quiz.setId(UUID.randomUUID().toString());
+
+        webClient.addQuizToCategory(Map.of(
+                "idCategory", quiz.getCategoryId(),
+                "idQuiz", quiz.getId()
+        ));
 
         quizRepository.save(quiz);
 
