@@ -2,11 +2,12 @@ package com.quiztech.quizservice.webClient;
 
 import com.mongodb.annotations.Sealed;
 import lombok.Getter;
+import lombok.Setter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.validation.annotation.Validated;
 
-@Getter @Sealed
+@Getter @Setter
 @Configuration
 @Validated
 @ConfigurationProperties(prefix = "other.service.url")

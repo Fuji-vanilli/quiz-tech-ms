@@ -12,7 +12,7 @@ import org.springframework.web.reactive.function.client.ExchangeFilterFunction;
 import org.springframework.web.reactive.function.client.WebClient;
 
 @Configuration
-public class WebClientConfig {
+public class WebClientConfiguration {
     @Bean
     public WebClient.Builder webClientConfig() {
 

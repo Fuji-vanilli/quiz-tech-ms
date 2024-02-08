@@ -80,6 +80,7 @@ public class CategoryServiceImpl implements CategoryService{
         }
         category.getQuizsId().add(patchRequest.get("idQuiz"));
         categoryRepository.save(category);
+        log.info("new Quiz added successfully to the category with id {}", idCategory);
 
         return categoryMapper.mapToCategoryResponse(category);
     }

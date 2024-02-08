@@ -52,7 +52,7 @@ public class QuizServiceImpl implements QuizService {
         ));
 
         quizRepository.save(quiz);
-
+        log.info("new Quiz added successfully!!!");
         return quizMapper.mapToQuizResponse(quiz);
     }
 
