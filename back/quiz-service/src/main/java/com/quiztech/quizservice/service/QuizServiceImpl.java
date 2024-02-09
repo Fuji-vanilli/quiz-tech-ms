@@ -15,7 +15,9 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.net.URI;
 import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.List;
@@ -33,17 +35,27 @@ public class QuizServiceImpl implements QuizService {
     private final WebClientGetter webClient;
 
     @Override
-    public QuizResponse add(QuizRequest request) {
+    public Response add(QuizRequest request) {
         List<String> errors= QuizValidator.isValid(request);
 
         if (!errors.isEmpty()) {
             log.error("some field not valid!!! {}", errors);
-            return null;
+            return generateResponse(
+                    HttpStatus.BAD_REQUEST,
+                    null,
+                    null,
+                    "some field not valid!!! - "+errors
+            );
         }
 
         if (quizRepository.existsByTitle(request.getTitle())) {
-            log.error("quiz already exist on the database:");
-            return null;
+            log.error("quiz already exist on the database§");
+            return generateResponse(
+                    HttpStatus.BAD_REQUEST,
+                    null,
+                    null,
+                    "quiz already exist on the database:"
+            );
         }
 
         Quiz quiz= quizMapper.mapToQuiz(request);
@@ -54,24 +66,80 @@ public class QuizServiceImpl implements QuizService {
                 "idQuiz", quiz.getId()
         ));
 
-        log.info("quiz added {}", s);
-
+        URI location= ServletUriComponentsBuilder.fromCurrentContextPath()
+                        .path("{id}")
+                                .buildAndExpand("api/quiz/get/"+quiz.getId())
+                                        .toUri();
         quizRepository.save(quiz);
         log.info("new Quiz added successfully!!!");
-        return quizMapper.mapToQuizResponse(quiz);
+        return generateResponse(
+            HttpStatus.OK,
+            location,
+            Map.of(
+                    "quiz", quizMapper.mapToQuizResponse(quiz)
+            ),
+            "quiz added successfully!"
+        );
     }
 
     @Override
-    public QuizResponse get(String id) {
+    public Response addQuestion(Map<String, String> questionRequest) {
+        final String idQuiz= questionRequest.get("idQuiz");
+        final String idQuestion= questionRequest.get("idQuestion");
+
+        if (!quizRepository.existsById(idQuiz)) {
+            log.error("quiz with the id: {} doesn't exist on the database!", idQuiz);
+            return generateResponse(
+                    HttpStatus.BAD_REQUEST,
+                    null,
+                    null,
+                    "quiz with the id: "+idQuiz+" doesn't exist on the database!"
+            );
+        }
+
+        Quiz quiz= quizRepository.findById(idQuiz).orElseThrow(
+                ()-> new IllegalArgumentException("error to fetch quiz with the id: "+idQuiz)
+        );
+
+        quiz.getQuestionsId().add(idQuestion);
+        quizRepository.save(quiz);
+
+        log.info("question added successfully to the quiz with the id: "+idQuiz);
+
+        return generateResponse(
+                HttpStatus.OK,
+                null,
+                Map.of(
+                        "quiz", quizMapper.mapToQuizResponse(quiz)
+                ),
+               "question added successfully to the quiz with the id: "+idQuiz
+        );
+    }
+
+    @Override
+    public Response get(String id) {
         if (!quizRepository.existsById(id)) {
             log.error("quiz with the id: {} doesn't exist on the database!", id);
-            return null;
+            return generateResponse(
+                    HttpStatus.BAD_REQUEST,
+                    null,
+                    null,
+                    "quiz with the id: "+id+" doesn't exist on the database!"
+            );
         }
         Quiz quiz= quizRepository.findById(id).orElseThrow(
                 ()-> new IllegalArgumentException("error to fetch quiz with the id: "+id)
         );
 
-        return quizMapper.mapToQuizResponse(quiz);
+        log.info("quiz with the id {} getted successfully!", id);
+        return generateResponse(
+                HttpStatus.OK,
+                null,
+                Map.of(
+                        "quiz", quizMapper.mapToQuizResponse(quiz)
+                ),
+                "quiz with the id: "+id+" getted successfully!"
+        );
     }
 
     @Override
@@ -79,12 +147,13 @@ public class QuizServiceImpl implements QuizService {
         log.info("all quiz with the category: {} getted successfully!", idCategory);
         return generateResponse(
                 HttpStatus.OK,
+                null,
                 Map.of(
                         "quizzes", quizRepository.findAll().stream()
                                 .map(quizMapper::mapToQuizResponse)
                                 .collect(Collectors.toSet())
                 ),
-                "all quizzes getted successfully!"
+                "all quizzes with the category: "+idCategory+" getted successfully!"
         );
     }
 
@@ -94,6 +163,7 @@ public class QuizServiceImpl implements QuizService {
 
         return generateResponse(
                 HttpStatus.OK,
+                null,
                 Map.of(
                         "quizzes", quizRepository.findAll(pageable).stream()
                                 .map(quizMapper::mapToQuizResponse)
@@ -104,21 +174,33 @@ public class QuizServiceImpl implements QuizService {
     }
 
     @Override
-    public Boolean delete(String id) {
+    public Response delete(String id) {
         if (!quizRepository.existsById(id)) {
             log.error("quiz with the id: {} doesn't exist on the database!", id);
-            return false;
+            return generateResponse(
+                    HttpStatus.BAD_REQUEST,
+                    null,
+                    null,
+                    "quiz with the id: "+id+" doesn't exist on the database!"
+            );
         }
 
         quizRepository.deleteById(id);
+        log.info("quiz with the id {} deleted successfully!", id);
 
-        return true;
+        return generateResponse(
+                HttpStatus.OK,
+                null,
+                null,
+                "quiz with the id: "+id+" deleted successfully!"
+        );
     }
 
-    private Response generateResponse(HttpStatus status, Map<?, ?> data, String message) {
+    private Response generateResponse(HttpStatus status, URI location, Map<?, ?> data, String message) {
         return Response.builder()
                 .timeStamp(LocalDateTime.now())
                 .status(status)
+                .location(location)
                 .statusCode(status.value())
                 .data(data)
                 .message(message)

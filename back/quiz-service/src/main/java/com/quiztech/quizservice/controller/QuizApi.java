@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Map;
 
 import static com.quiztech.quizservice.utils.Root.APP_ROOT;
 
@@ -22,12 +23,17 @@ import static com.quiztech.quizservice.utils.Root.APP_ROOT;
 public class QuizApi implements QuizController{
     private final QuizService quizService;
     @Override
-    public ResponseEntity<QuizResponse> add(QuizRequest request) {
+    public ResponseEntity<Response> add(QuizRequest request) {
         return ResponseEntity.ok(quizService.add(request));
     }
 
     @Override
-    public ResponseEntity<QuizResponse> get(String id) {
+    public ResponseEntity<Response> addQuestion(Map<String, String> questionRequest) {
+        return ResponseEntity.ok(quizService.addQuestion(questionRequest));
+    }
+
+    @Override
+    public ResponseEntity<Response> get(String id) {
         return ResponseEntity.ok(quizService.get(id));
     }
 
@@ -42,7 +48,7 @@ public class QuizApi implements QuizController{
     }
 
     @Override
-    public ResponseEntity<Boolean> delete(String id) {
+    public ResponseEntity<Response> delete(String id) {
         return ResponseEntity.ok(quizService.delete(id));
     }
 }

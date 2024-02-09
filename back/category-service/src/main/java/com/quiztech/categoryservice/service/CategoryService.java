@@ -2,15 +2,16 @@ package com.quiztech.categoryservice.service;
 
 import com.quiztech.categoryservice.dto.CategoryRequest;
 import com.quiztech.categoryservice.dto.CategoryResponse;
+import com.quiztech.categoryservice.utils.Response;
 
 import java.util.List;
 import java.util.Map;
 
 public interface CategoryService {
-    CategoryResponse add(CategoryRequest request);
-    CategoryResponse addQuizId(Map<String, String> patchRequest);
-    CategoryResponse get(String id);
-    List<CategoryResponse> all(int page, int size);
-    Boolean delete(String id);
+    Response add(CategoryRequest request);
+    Response addQuizId(Map<String, String> patchRequest);
+    Response get(String id);
+    Response all(int page, int size);
+    Response delete(String id);
 
 }

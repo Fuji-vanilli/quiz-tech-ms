@@ -7,12 +7,16 @@ import com.quiztech.questionservice.mapper.QuestionMapper;
 import com.quiztech.questionservice.repository.QuestionRepository;
 import com.quiztech.questionservice.utils.Response;
 import com.quiztech.questionservice.validators.QuestionValidator;
+import com.quiztech.questionservice.webClient.WebClientQuiz;
 import jakarta.servlet.ServletContext;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.reactive.function.client.WebClient;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
@@ -28,6 +32,7 @@ import java.util.UUID;
 public class QuestionServiceImpl implements QuestionService{
     private final QuestionRepository questionRepository;
     private final QuestionMapper questionMapper;
+    private final WebClientQuiz webClient;
     @Override
     public Response add(QuestionRequest request) {
         List<String> errors= QuestionValidator.isValid(request);
@@ -43,6 +48,15 @@ public class QuestionServiceImpl implements QuestionService{
 
         Question question= questionMapper.mapToQuestion(request);
         question.setId(UUID.randomUUID().toString());
+        Boolean isAdded = webClient.addQuestionToQuiz(
+                Map.of(
+                        "idQuiz", question.getQuizId(),
+                        "idQuestion", question.getId()
+                )
+        );
+
+        if (isAdded)
+            log.info("the new question added successfully to the quiz {}", question.getQuizId());
 
         URI location= ServletUriComponentsBuilder.fromCurrentContextPath()
                 .path("{id}")
@@ -50,11 +64,13 @@ public class QuestionServiceImpl implements QuestionService{
                 .toUri();
 
         questionRepository.save(question);
+        log.info("new question added successfully!!!");
         return generateResponse(
                 HttpStatus.OK,
                 location,
                 Map.of(
-                        "question", questionMapper.mapToQuestionResponse(question)
+                        "question", questionMapper.mapToQuestionResponse(question),
+                        "isAddedToQuiz", isAdded
                 ),
                 "new question added successfully"
         );
@@ -62,17 +78,68 @@ public class QuestionServiceImpl implements QuestionService{
 
     @Override
     public Response get(String id) {
-        return null;
+        if (!questionRepository.existsById(id)) {
+            log.error("question with the id: {} doesn't exist on the database!", id);
+            generateResponse(
+                    HttpStatus.BAD_REQUEST,
+                    null,
+                    null,
+                    "question with the id: "+id+" doesn't exist on the database!"
+            );
+        }
+
+        Question question= questionRepository.findById(id).orElseThrow(
+                ()-> new IllegalArgumentException("error to fetch the question on the database!")
+        );
+
+        log.info("question with the id  {} getted successfully!", id);
+        return generateResponse(
+                HttpStatus.OK,
+                null,
+                Map.of(
+                        "question", questionMapper.mapToQuestionResponse(question)
+                ),
+                "question with the id "+id+" getted successfully!"
+        );
     }
 
     @Override
     public Response all(int page, int size) {
-        return null;
+        Pageable pageable= PageRequest.of(page, size);
+
+        log.info("all question getted successfully!");
+        return generateResponse(
+                HttpStatus.OK,
+                null,
+                Map.of(
+                        "questions", questionRepository.findAll(pageable).stream()
+                                .map(questionMapper::mapToQuestionResponse)
+                                .toList()
+                ),
+                "all question getted successfully!"
+        );
     }
 
     @Override
     public Response delete(String id) {
-        return null;
+
+        if (!questionRepository.existsById(id)) {
+            log.error("question with the id: {} doesn't exist on the database!", id);
+            generateResponse(
+                    HttpStatus.BAD_REQUEST,
+                    null,
+                    null,
+                    "question with the id: "+id+" doesn't exist on the database!"
+            );
+        }
+
+        log.info("question with the id {} deleted successfully", id);
+        return generateResponse(
+                HttpStatus.OK,
+                null,
+                null,
+                "question with the id "+id+" deleted successfully"
+        );
     }
 
     private Response generateResponse(HttpStatus status, URI location, Map<?, ?> data, String message) {

@@ -8,12 +8,15 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Map;
 
 public interface QuizController {
     @PostMapping("add")
-    ResponseEntity<QuizResponse> add(@RequestBody QuizRequest request);
+    ResponseEntity<Response> add(@RequestBody QuizRequest request);
+    @PatchMapping("addQuestion")
+    ResponseEntity<Response> addQuestion(@RequestBody Map<String, String> questionRequest);
     @GetMapping("get/{id}")
-    ResponseEntity<QuizResponse> get(@PathVariable String id);
+    ResponseEntity<Response> get(@PathVariable String id);
     @GetMapping("getByCategory/{idCategory}")
     ResponseEntity<Response> getByCategory(@PathVariable String idCategory);
     @GetMapping("all")
@@ -22,5 +25,5 @@ public interface QuizController {
             @RequestParam(defaultValue = "5") int size
     );
     @DeleteMapping("delete/{id}")
-    ResponseEntity<Boolean> delete(@PathVariable String id);
+    ResponseEntity<Response> delete(@PathVariable String id);
 }

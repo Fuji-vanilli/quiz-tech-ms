@@ -7,6 +7,7 @@ import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter @Setter
@@ -20,7 +21,7 @@ public class Quiz {
     private String description;
     private BigDecimal marks;
     private BigDecimal numberOfQuestions;
-    private List<String> questionsId;
+    private List<String> questionsId= new ArrayList<>();
     private boolean active;
     private String categoryId;
     private Category category;
