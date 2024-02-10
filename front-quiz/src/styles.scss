@@ -1,12 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~bootstrap-icons/font/bootstrap-icons.css";
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
-
+a {
+  text-decoration: none;
+}
 
 body {
-    font-family: 'Roboto','Ubuntu';
+    font-family: 'Poppins','Roboto','Ubuntu';
     overflow-x: hidden;
     background: #27272a;
-  }
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #dc2626;
+  border-radius: 12px;
+  border: 6px solid #000000;
+}

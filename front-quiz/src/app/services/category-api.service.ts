@@ -13,4 +13,8 @@ export class CategoryApiService {
   fetchAll(): Observable<any> {
     return this.httpClient.get(environment.backEndCategory+"/all");
   }
+
+  addCategory() {
+    
+  }
 }

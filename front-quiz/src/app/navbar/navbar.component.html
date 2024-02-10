@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg ">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">
-        <img src="../../assets/Quiz.png" routerLink="">
+        <!--img src="../../assets/Quiz.png" routerLink=""-->
       </a>
       
       <div class="collapse navbar-collapse" id="navbarSupportedContent ms-auto">
@@ -13,7 +13,7 @@
             <button class="btn-register" (click)="register()" *ngIf="!profile">Sign up</button>
           </li>
           <li class="nav-item" *ngIf="profile">
-            <button class="btn-register" (click)="logout()">Logout</button>
+            <button class="btn-login" (click)="logout()">Logout</button>
         </li>
         </ul>
       </div>

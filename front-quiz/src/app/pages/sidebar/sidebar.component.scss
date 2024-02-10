@@ -1,3 +1,89 @@
+::after,
+::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 .btn-sidebar mat-icon{
     color: #ea580c;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+.wrapper {
+    display: flex;
+}
+#sidebar {
+    width: 70px;
+    min-width: 70px;
+    height: 90vh;
+    font-family: 'Poppins';
+    z-index: 1000;
+    transition: all .25s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    background: #0e223e;
+}
+
+#sidebar.expand {
+    width: 230px;
+    min-width: 230px;
+}
+
+#toggle-btn {
+    background: transparent;
+    cursor: pointer;
+    border: none;
+    padding: 1rem 1.5rem;
+}
+
+#toggle-btn i {
+    font-size: 1.5rem;
+    color: #ffffff;
+}
+
+.sidebar-logo {
+    margin: auto 0;
+}
+
+.sidebar-logo a {
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: #fff;
+}
+
+#sidebar:not(.expand) .sidebar-logo,
+#sidebar:not(.expand) a.sidebar-link span{
+    display: none;
+}
+
+.sidebar-nav {
+    padding: 3rem 0;
+    flex: 1 1 auto;
+}
+
+a.sidebar-link {
+    padding: .625rem 1.625rem;
+    color: #fff;
+    display: block;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    border-left: 3px solid transparent;
+}
+
+.sidebar-link i{
+    font-size: 1rem;
+    margin-right: .75rem;
+}
+
+a.sidebar-link:hover {
+    background: rgba(255, 255, 255, .075);
+    border-left: 3px solid #3b7ddd;
 }

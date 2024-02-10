@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CategoryApiService } from 'src/app/services/category-api.service';
+import { Category } from '../../models/category.model';
 
 @Component({
   selector: 'app-view-category',
@@ -8,7 +9,7 @@ import { CategoryApiService } from 'src/app/services/category-api.service';
 })
 export class ViewCategoryComponent implements OnInit {
 
-  categories: any[]= [];
+  categories: Category[]= [];
 
   constructor(private categoryService: CategoryApiService) {}
 

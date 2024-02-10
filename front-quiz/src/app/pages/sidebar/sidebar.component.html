@@ -1,4 +1,61 @@
-<mat-card>
+<div class="wrapper">
+    <aside id="sidebar">
+        <div class="d-flex">
+            <button id="toggle-btn">
+                <i class="bi bi-grid"></i>
+            </button>
+            <div class="sidebar-logo">
+                <a routerLink="/admin">QuizTech</a>
+            </div>
+        </div>
+        <ul class="sidebar-nav">
+            <li class="sidebar-item">
+                <a routerLink="/admin/profile" class="sidebar-link">
+                    <i class="bi bi-person"></i>
+                    <span class="ms-2">Profile</span>
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a routerLink="/admin/categories" class="sidebar-link">
+                    <i class="bi bi-bag"></i>
+                    <span class="ms-2">Category</span>
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a routerLink="/admin/add-category" class="sidebar-link">
+                    <i class="bi bi-bag-plus"></i>
+                    <span class="ms-2">Add category</span>
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="" class="sidebar-link">
+                    <i class="bi bi-cloud"></i>
+                    <span class="ms-2">Quiz</span>
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="" class="sidebar-link">
+                    <i class="bi bi-cloud-plus"></i>
+                    <span class="ms-2">Add quiz</span>
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="" class="sidebar-link">
+                    <i class="bi bi-gear"></i>
+                    <span class="ms-2">Settings</span>
+                </a>
+            </li>
+        </ul>
+        <div class="sidebar-footer">
+            <a href="" class="sidebar-link">
+                <i class="bi bi-box-arrow-in-right"></i>
+                <span>Logout</span>
+            </a>
+        </div>
+    </aside>
+</div>
+
+<!--mat-card>
     <mat-action-list class="btn-sidebar">
         <div mat-subheader>Menu</div>
         <button mat-list-item routerLink="/admin/">
@@ -23,4 +80,4 @@
             <mat-icon mat-list-icon>settings</mat-icon> Settings
         </button>
     </mat-action-list>
-</mat-card>
+</mat-card-->

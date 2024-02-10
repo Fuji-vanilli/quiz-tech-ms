@@ -1,5 +1,6 @@
 .navbar {
-    background-image: linear-gradient(to right, #a517ba, #5f1782);
+    background: #0e223e;
+    height: 3.5rem;
 }
 img {
     width: 150px;
@@ -9,9 +10,9 @@ img {
     border-radius: 25px;
     border: none;
     padding: 6px 14px ; 
-    background: #000;
-    color: #f59e0b;
-    font-family: 'Ubuntu';
+    background: #38bdf8;
+    color: #fff;
+    font-family: 'Poppins';
 }
 
 .btn-register {
@@ -19,7 +20,7 @@ img {
     border-radius: 25px;
     border: none;
     padding: 6px 14px ; 
-    background: #fff;
-    color: #f59e0b;
-    font-family: 'Ubuntu';
+    background: #0369a1;
+    color: #fff;
+    font-family: 'Poppins';
 }
