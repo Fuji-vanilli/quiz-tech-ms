@@ -1,4 +1,4 @@
 <mat-card class="mt-10" *ngFor="let quiz of quizzes">
     <mat-card-header>{{quiz.title}}</mat-card-header>
-    <mat-card-subtitle>{{quiz.description}}</mat-card-subtitle>
+    <mat-card-subtitle>{{quiz.category?.title}}</mat-card-subtitle>
 </mat-card>
