@@ -4,6 +4,7 @@ import com.quiztech.quizservice.dto.QuizRequest;
 import com.quiztech.quizservice.dto.QuizResponse;
 import com.quiztech.quizservice.entities.Quiz;
 import com.quiztech.quizservice.mapper.QuizMapper;
+import com.quiztech.quizservice.model.Category;
 import com.quiztech.quizservice.repository.QuizRepository;
 import com.quiztech.quizservice.utils.Response;
 import com.quiztech.quizservice.validators.QuizValidator;
@@ -65,6 +66,9 @@ public class QuizServiceImpl implements QuizService {
                 "idCategory", quiz.getCategoryId(),
                 "idQuiz", quiz.getId()
         ));
+
+        Category category= webClient.getCategory(quiz.getCategoryId());
+        quiz.setCategory(category);
 
         URI location= ServletUriComponentsBuilder.fromCurrentContextPath()
                         .path("{id}")

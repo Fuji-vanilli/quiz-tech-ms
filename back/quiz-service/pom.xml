@@ -67,6 +67,11 @@
             <artifactId>spring-webflux</artifactId>
             <version>6.1.2</version>
         </dependency>
+        <dependency>
+            <groupId>com.vaadin.external.google</groupId>
+            <artifactId>android-json</artifactId>
+            <version>0.0.20131108.vaadin1</version>
+        </dependency>
     </dependencies>
 	<dependencyManagement>
 		<dependencies>

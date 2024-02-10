@@ -12,5 +12,6 @@ import org.springframework.validation.annotation.Validated;
 @Validated
 @ConfigurationProperties(prefix = "other.service.url")
 public class WebClientUrlServiceProperties {
+    private String categoryUrlGet;
     private String categoryUrlPatch;
 }
