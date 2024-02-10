@@ -15,7 +15,9 @@ import org.springframework.web.reactive.function.server.ServerRequest;
 public class WCConfig {
     @Bean
     public WebClient.Builder webClient() {
-        return WebClient.builder();
+
+        return WebClient.builder()
+                .filter(addJwtToken());
     }
 
     private ExchangeFilterFunction addJwtToken() {

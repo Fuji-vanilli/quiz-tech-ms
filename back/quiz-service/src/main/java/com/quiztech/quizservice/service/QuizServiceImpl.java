@@ -101,6 +101,15 @@ public class QuizServiceImpl implements QuizService {
                 ()-> new IllegalArgumentException("error to fetch quiz with the id: "+idQuiz)
         );
 
+        if (quiz.getQuestionsId().contains(idQuestion)) {
+            log.error("question with the id {} already exist on the quiz!", idQuestion);
+            return generateResponse(
+                    HttpStatus.BAD_REQUEST,
+                    null,
+                    null,
+                    "question with the id: "+idQuestion+" already exist on the quiz!"
+            );
+        }
         quiz.getQuestionsId().add(idQuestion);
         quizRepository.save(quiz);
 

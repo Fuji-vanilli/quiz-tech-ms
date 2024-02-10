@@ -31,6 +31,7 @@ public class QuizMapperImpl implements QuizMapper{
                 .numberOfQuestions(quiz.getNumberOfQuestions())
                 .categoryId(quiz.getCategoryId())
                 .category(quiz.getCategory())
+                .questionsId(quiz.getQuestionsId())
                 .build();
     }
 }

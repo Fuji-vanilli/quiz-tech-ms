@@ -12,6 +12,7 @@ public class QuestionMapperImpl implements QuestionMapper{
         return Question.builder()
                 .content(request.getContent())
                 .id(request.getImage())
+                .answer(request.getAnswer())
                 .options(request.getOptions())
                 .quizId(request.getQuizId())
                 .build();
@@ -27,6 +28,7 @@ public class QuestionMapperImpl implements QuestionMapper{
                 .image(question.getImage())
                 .options(question.getOptions())
                 .quizId(question.getId())
+                .answer(question.getAnswer() )
                 .quiz(question.getQuiz())
                 .build();
     }

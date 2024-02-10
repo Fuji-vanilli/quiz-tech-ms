@@ -14,6 +14,7 @@ import java.util.List;
 public class QuestionRequest {
     private String content;
     private String image;
+    private String answer;
     private String quizId;
     private List<String> options= new ArrayList<>();
 }

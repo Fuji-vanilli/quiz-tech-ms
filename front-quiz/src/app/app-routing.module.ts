@@ -6,6 +6,8 @@ import { DashboardComponent } from './pages/admin/dashboard/dashboard.component'
 import { ProfileComponent } from './pages/admin/profile/profile.component';
 import { WelcomComponent } from './pages/welcom/welcom.component';
 import { CategoryComponent } from './pages/category/category.component';
+import { ViewCategoryComponent } from './pages/admin/view-category/view-category.component';
+import { AddCategoryComponent } from './pages/admin/add-category/add-category.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -16,6 +18,8 @@ const routes: Routes = [
     children: [
       { path: '', component: WelcomComponent},
       { path: 'category', component: CategoryComponent},
+      { path: 'categories', component:ViewCategoryComponent},
+      { path: 'add-category', component: AddCategoryComponent},
       { path:'profile', component: ProfileComponent }
     ]
   },

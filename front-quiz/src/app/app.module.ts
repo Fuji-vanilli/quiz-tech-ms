@@ -15,9 +15,14 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { SidebarComponent } from './pages/sidebar/sidebar.component';
 import { WelcomComponent } from './pages/welcom/welcom.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ViewCategoryComponent } from './pages/admin/view-category/view-category.component';
+import { AddCategoryComponent } from './pages/admin/add-category/add-category.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 export function initializeKeycloak(keycloak: KeycloakService) {
@@ -44,7 +49,9 @@ export function initializeKeycloak(keycloak: KeycloakService) {
     DashboardComponent,
     ProfileComponent,
     SidebarComponent,
-    WelcomComponent
+    WelcomComponent,
+    ViewCategoryComponent,
+    AddCategoryComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +64,10 @@ export function initializeKeycloak(keycloak: KeycloakService) {
     MatCardModule,
     MatTableModule,
     MatButtonModule,
-    HttpClientModule
+    MatFormFieldModule,
+    MatInputModule,
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [
     {

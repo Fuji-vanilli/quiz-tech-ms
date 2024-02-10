@@ -174,7 +174,8 @@ public class CategoryServiceImpl implements CategoryService{
                 Map.of(
                         "categories", categoryRepository.findAll(pageable).stream()
                                 .map(categoryMapper::mapToCategoryResponse)
-                                .toList()
+                                .toList(),
+                        "totalElement", categoryRepository.findAll(pageable).getTotalElements()
                 ),
                 "all category getted successfully!"
         );

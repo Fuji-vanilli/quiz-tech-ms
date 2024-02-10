@@ -18,6 +18,7 @@ public class Question {
     private Date createdDte;
     private Date lastUpdateDate;
     private String image;
+    private String answer;
     private String quizId;
     private List<String> options= new ArrayList<>();
     private Quiz quiz;

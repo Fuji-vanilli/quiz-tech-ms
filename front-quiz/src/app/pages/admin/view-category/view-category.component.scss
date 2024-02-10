@@ -1,0 +1,35 @@
+.card-body {
+    display: flex;
+    align-items: center; 
+}
+.card-header {
+    color: #ef4444;
+    font-weight: 500;
+    font-size: 18px;
+}
+.category-details h3 {
+    font-weight: 500;
+    color: #ef4444;
+}
+.category-details h3, p{
+    font-family: 'Roboto';
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.icon-category {
+    color: #ef4444;
+}
+
+.add-category {
+    width: 200px;
+    background: #ef4444;
+    border: none;
+    border-radius: 16px;
+    color: #fff;
+    padding: 8px 12px;
+    margin: 18px;
+}
+
+
+
