@@ -23,6 +23,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ViewCategoryComponent } from './pages/admin/view-category/view-category.component';
 import { AddCategoryComponent } from './pages/admin/add-category/add-category.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AddQuizzesComponent } from './pages/admin/add-quizzes/add-quizzes.component';
+import { ViewQuizzesComponent } from './pages/admin/view-quizzes/view-quizzes.component';
 
 
 export function initializeKeycloak(keycloak: KeycloakService) {
@@ -51,7 +53,9 @@ export function initializeKeycloak(keycloak: KeycloakService) {
     SidebarComponent,
     WelcomComponent,
     ViewCategoryComponent,
-    AddCategoryComponent
+    AddCategoryComponent,
+    AddQuizzesComponent,
+    ViewQuizzesComponent
   ],
   imports: [
     BrowserModule,

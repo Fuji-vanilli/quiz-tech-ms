@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { KeycloakService } from 'keycloak-angular';
 
 @Component({
   selector: 'app-sidebar',
@@ -6,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sidebar.component.scss']
 })
 export class SidebarComponent implements OnInit{
+
+  constructor(private kcService: KeycloakService) {
+
+  }
   ngOnInit(): void {
     this.loadSidebar();
   }
@@ -18,4 +23,9 @@ export class SidebarComponent implements OnInit{
     });
   }
 
+  logout() {
+    this.kcService.logout(
+      window.location.origin
+    )
+  }
 }

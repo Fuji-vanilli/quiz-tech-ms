@@ -1,11 +1,11 @@
 <mat-card class="card mt-3">
-    <h2 class="text-center mt-3">Add new category</h2>
+    <h2 class="text-center mt-3 ">Add new category</h2>
     <mat-divider></mat-divider>
     <mat-card-content class="mt-3">
         <div class="bootstrap-wrapper">
             <div class="row">
                 <div class="col-md-6 offset-md-3">
-                    <form [formGroup]="formGroup" (ngSubmit)="addCategory()" >
+                    <form [formGroup]="formGroup" (ngSubmit)="addCategory()" class="dark-theme" >
                         <mat-form-field  class="w400" appearance="outline">
                             <mat-label>Title</mat-label>
                             <input 
@@ -23,7 +23,7 @@
                             </mat-form-field>
                         </p>
                         
-                        <button class="btn btn-save">Save</button>
+                        <button class="btn btn-save" [disabled]="formGroup.invalid">Save</button>
                     </form>
                 </div>
             </div>

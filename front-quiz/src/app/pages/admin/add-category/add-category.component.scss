@@ -20,4 +20,15 @@ h2 {
     padding: 8px 24px;
     border-radius: 20px;
     color: #fff;
+    font-family: 'Poppins';
+}
+
+.btn-save:hover {
+    background: #0e223e;
+    transition: all 0.25ms;
+}
+
+.dark1 {
+    background: #333;
+    color: #fff;
 }

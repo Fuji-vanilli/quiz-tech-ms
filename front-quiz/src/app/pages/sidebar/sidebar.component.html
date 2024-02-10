@@ -28,13 +28,13 @@
                 </a>
             </li>
             <li class="sidebar-item">
-                <a href="" class="sidebar-link">
+                <a class="sidebar-link" routerLink="/admin/quizzes">
                     <i class="bi bi-cloud"></i>
                     <span class="ms-2">Quiz</span>
                 </a>
             </li>
             <li class="sidebar-item">
-                <a href="" class="sidebar-link">
+                <a class="sidebar-link" routerLink="/admin/add-quiz">
                     <i class="bi bi-cloud-plus"></i>
                     <span class="ms-2">Add quiz</span>
                 </a>
@@ -47,7 +47,7 @@
             </li>
         </ul>
         <div class="sidebar-footer">
-            <a href="" class="sidebar-link">
+            <a (click)="logout()" class="sidebar-link">
                 <i class="bi bi-box-arrow-in-right"></i>
                 <span>Logout</span>
             </a>
