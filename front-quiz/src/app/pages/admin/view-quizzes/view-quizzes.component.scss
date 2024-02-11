@@ -1,0 +1,72 @@
+.container {
+    background: #333;
+    margin-bottom: 24px;
+}
+.mt10 {
+    margin-top: 12px;
+    padding-bottom: 6px;
+}
+
+.example-header-image {
+    background-image: url('../../../../assets/examen-en-ligne.png');
+    background-size: cover;
+  }
+
+mat-card {
+    font-family: 'Ubuntu';
+}
+
+.btn-add-quiz {
+    margin: 12px 24px;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 24px;
+    background: #e11d48;
+    color: #fff;
+    font-family: 'Ubuntu';
+    transition: all 0.1s ease;
+}
+
+.btn-add-quiz:hover {
+    background: #0e223e;
+    color: #fff;
+}
+
+.btn-question {
+    background: #0e223e;
+    color: #fff;
+    border: none;
+    border-radius: 18px;
+    padding: 8px 16px;
+    transition: all 0.1s ease;
+}
+
+.btn-question:hover {
+    background: #0e223e;
+    color: #fff;
+    opacity: 0.8;
+
+}
+.btn-update {
+    background: #3b82f6;
+    color: #fff;
+    border: none;
+    border-radius: 18px;
+    padding: 8px 16px;
+}
+
+.btn-update:hover {
+    opacity: .8;
+}
+
+.btn-attempt {
+    background: #fb7185;
+    color: #fff;
+    border: none;
+    border-radius: 18px;
+    padding: 8px 16px;
+}
+
+.btn-attempt:hover {
+    opacity: .8;
+}

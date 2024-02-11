@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg ">
+<nav class="navbar navbar-expand-lg fixed-top">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">
         <!--img src="../../assets/Quiz.png" routerLink=""-->
@@ -7,6 +7,12 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent ms-auto">
         <ul class="navbar-nav mb-lg-0 ms-auto">
           <li class="nav-item">
+            <a class="nav-link active " aria-current="page" routerLink=""><i class="bi bi-house-gear-fill m-3"></i>Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active " aria-current="page" routerLink=""><i class="bi bi-search m-3"></i>Search</a>
+          </li>
+          <li class="nav-item ms-3">
             <button class="btn-login" (click)="login()" *ngIf="!profile">Sign in</button>
           </li>
           <li class="nav-item">

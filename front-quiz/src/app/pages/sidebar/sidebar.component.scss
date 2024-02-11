@@ -21,9 +21,10 @@ li {
     display: flex;
 }
 #sidebar {
+    position: fixed;
     width: 70px;
     min-width: 70px;
-    height: 90vh;
+    height: 94vh;
     font-family: 'Poppins';
     z-index: 1000;
     transition: all .25s ease-in-out;

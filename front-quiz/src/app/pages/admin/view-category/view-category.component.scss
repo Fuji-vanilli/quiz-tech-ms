@@ -26,13 +26,13 @@ h3, p{
 }
 
 .add-category {
-    width: 200px;
-    background: #e11d48;
+    margin: 12px 24px;
+    padding: 12px 24px;
     border: none;
-    border-radius: 16px;
+    border-radius: 24px;
+    background: #e11d48;
     color: #fff;
-    padding: 8px 12px;
-    margin: 18px;
+    font-family: 'Ubuntu';
 }
 
 .add-category:hover {

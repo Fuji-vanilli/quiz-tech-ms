@@ -17,6 +17,9 @@ import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { SidebarComponent } from './pages/sidebar/sidebar.component';
 import { WelcomComponent } from './pages/welcom/welcom.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -70,8 +73,11 @@ export function initializeKeycloak(keycloak: KeycloakService) {
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
+    MatSnackBarModule,
+    MatSelectModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatSlideToggleModule
   ],
   providers: [
     {

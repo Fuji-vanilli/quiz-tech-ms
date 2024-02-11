@@ -1,4 +1,24 @@
-<mat-card class="mt-10" *ngFor="let quiz of quizzes">
-    <mat-card-header>{{quiz.title}}</mat-card-header>
-    <mat-card-subtitle>{{quiz.category?.title}}</mat-card-subtitle>
-</mat-card>
+<div class="container">
+    <mat-card class="mt-3" *ngFor="let quiz of quizzes">
+        <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>{{quiz.title}} </mat-card-title>
+            <mat-card-subtitle>{{quiz.category?.title}} </mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+            <p>{{quiz.description}} </p>
+        </mat-card-content>
+        <mat-card-actions class="ms-2">
+            <button  class="btn-question">Questions</button>
+            <button mat-stroked-button color="primary" class="ms-3">Max marks: <span style="font-weight: 600; color: #e11d48;">{{quiz.marks}}</span></button>
+            <button mat-stroked-button color="primary" class="ms-3">Questions: <span style="font-weight: 600; color: #e11d48;">{{quiz.numberOfQuestions}}</span></button>
+            <button class="ms-3 btn-update"><i class="bi bi-pen"></i> Update</button>
+            <button class="ms-3 btn-attempt"><i class="bi bi-arrow-repeat"></i> Attempt</button>
+        </mat-card-actions>
+    </mat-card>
+    
+    <div class="container text-center mt-3">
+        <button class="btn-add-quiz" routerLink="/admin/add-quiz"><i class="bi bi-plus-circle" style="font-size: 18px;" ></i>  Add new Quiz</button>
+    </div>
+      
+</div>

@@ -1,0 +1,28 @@
+mat-card {
+    font-family: 'Ubuntu';
+}
+
+.btn-save {
+    background: #e11d48;
+    padding: 8px 24px;
+    border-radius: 20px;
+    color: #fff;
+    font-family: 'Poppins';
+    margin-bottom: 32px;
+}
+
+.btn-save:hover {
+    background: #0e223e;
+    transition: all 0.25ms;
+}
+
+.category::-webkit-scrollbar {
+    width: 20px;
+    background: #000000;
+}
+  
+.category::-webkit-scrollbar-thumb {
+    background: #dc2626;
+    border-radius: 12px;
+    border: 6px solid #000000;
+}

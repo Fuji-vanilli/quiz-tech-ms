@@ -12,7 +12,7 @@ export class CategoryApiService {
   constructor(private httpClient: HttpClient) { }
 
   fetchAll(): Observable<any> {
-    return this.httpClient.get(environment.backEndCategory+'/all');
+    return this.httpClient.get(environment.backEndCategory+'/all?page=0&size=10');
   }
 
   addCategory(category: Category): Observable<any> {
