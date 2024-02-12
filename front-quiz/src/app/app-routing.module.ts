@@ -11,6 +11,7 @@ import { AddCategoryComponent } from './pages/admin/add-category/add-category.co
 import { ViewQuizzesComponent } from './pages/admin/view-quizzes/view-quizzes.component';
 import { AddQuizzesComponent } from './pages/admin/add-quizzes/add-quizzes.component';
 import { UpdateCategoryComponent } from './pages/admin/update-category/update-category.component';
+import { UpdateQuizComponent } from './pages/admin/update-quiz/update-quiz.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -26,7 +27,8 @@ const routes: Routes = [
       { path: 'quizzes', component: ViewQuizzesComponent },
       { path: 'add-quiz', component: AddQuizzesComponent },
       { path: 'category/:id', component: UpdateCategoryComponent},
-      { path:'profile', component: ProfileComponent }
+      { path: 'quiz/:id', component: UpdateQuizComponent },
+      { path: 'profile', component: ProfileComponent }
     ]
   },
   { path:'user/profile', component: ProfileComponent, canActivate: [AuthGuard], data: {role: ['USER', 'ADMIN']}}

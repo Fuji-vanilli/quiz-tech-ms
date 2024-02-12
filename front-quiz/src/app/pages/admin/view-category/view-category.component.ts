@@ -17,7 +17,7 @@ export class ViewCategoryComponent implements OnInit {
   categoryId!: string;
 
 
-  constructor(private categoryService: CategoryApiService,
+  constructor(private categoryService: CategoryApiService, 
               private routeActive: ActivatedRoute) {}
 
   ngOnInit(): void {

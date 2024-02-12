@@ -11,6 +11,7 @@ public class QuizMapperImpl implements QuizMapper{
     @Override
     public Quiz mapToQuiz(QuizRequest request) {
         return Quiz.builder()
+                .id(request.getId())
                 .title(request.getTitle())
                 .description(request.getDescription())
                 .marks(request.getMarks())
@@ -27,6 +28,8 @@ public class QuizMapperImpl implements QuizMapper{
                 .title(quiz.getTitle())
                 .description(quiz.getDescription())
                 .active(quiz.isActive())
+                .createdDate(quiz.getCreatedDate())
+                .lastUpdateDate(quiz.getLastUpdateDate())
                 .marks(quiz.getMarks())
                 .numberOfQuestions(quiz.getNumberOfQuestions())
                 .categoryId(quiz.getCategoryId())

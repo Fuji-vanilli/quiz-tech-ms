@@ -14,7 +14,7 @@
                     style="font-weight: 600; color: #e11d48;">{{quiz.marks}}</span></button>
             <button mat-stroked-button color="primary" class="ms-3">Questions: <span
                     style="font-weight: 600; color: #e11d48;">{{quiz.numberOfQuestions}}</span></button>
-            <button mat-mini-fab color="primary" class="ms-3">
+            <button mat-mini-fab color="primary" class="ms-3" [routerLink]="'/admin/quiz/'+quiz.id" >
                 <mat-icon>edit</mat-icon>
             </button> 
             <button mat-mini-fab color="primary" class="ms-3 attempt"> 

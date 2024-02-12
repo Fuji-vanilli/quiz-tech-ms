@@ -19,6 +19,10 @@ export class QuizApiService {
     return this.httpClient.post(environment.backEndQuiz+'/add', quiz);
   }
 
+  getQuiz(id: string): Observable<any> {
+    return this.httpClient.get(environment.backEndQuiz+'/get/'+id);
+  }
+
   deleteQuiz(id: string): Observable<any> {
     return this.httpClient.delete(environment.backEndQuiz+'/delete/'+id);
   }

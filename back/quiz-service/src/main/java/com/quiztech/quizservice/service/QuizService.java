@@ -12,6 +12,7 @@ import java.util.Map;
 public interface QuizService {
     Response add(QuizRequest request);
     Response addQuestion(Map<String, String> questionRequest);
+    Response update(QuizRequest request);
     Response get(String id);
     Response quizByCategory(String idCategory);
     Response all(int page, int size);

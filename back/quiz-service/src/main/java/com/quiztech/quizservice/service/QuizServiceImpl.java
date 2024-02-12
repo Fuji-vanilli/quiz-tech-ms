@@ -20,10 +20,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
 import java.time.LocalDateTime;
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -126,6 +123,30 @@ public class QuizServiceImpl implements QuizService {
                         "quiz", quizMapper.mapToQuizResponse(quiz)
                 ),
                "question added successfully to the quiz with the id: "+idQuiz
+        );
+    }
+
+    @Override
+    public Response update(QuizRequest request) {
+        Quiz quiz= quizRepository.findById(request.getId()).orElseThrow(
+                ()-> new IllegalArgumentException("error to fetch quiz into the database!")
+        );
+
+        quiz.setActive(request.isActive());
+        quiz.setMarks(request.getMarks());
+        quiz.setNumberOfQuestions(request.getNumberOfQuestions());
+        quiz.setLastUpdateDate(new Date());
+
+        quizRepository.save(quiz);
+        log.info("quiz with the id: {} updated successfully!", quiz.getId());
+
+        return generateResponse(
+                HttpStatus.OK,
+                null,
+                Map.of(
+                        "quiz", quizMapper.mapToQuizResponse(quiz)
+                ),
+                "quiz with the id: "+quiz.getId()+" updated successfully"
         );
     }
 

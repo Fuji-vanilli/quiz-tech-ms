@@ -33,6 +33,11 @@ public class QuizApi implements QuizController{
     }
 
     @Override
+    public ResponseEntity<Response> update(QuizRequest request) {
+        return ResponseEntity.ok(quizService.update(request));
+    }
+
+    @Override
     public ResponseEntity<Response> get(String id) {
         return ResponseEntity.ok(quizService.get(id));
     }

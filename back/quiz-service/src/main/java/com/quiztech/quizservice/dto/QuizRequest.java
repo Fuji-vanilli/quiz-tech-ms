@@ -9,6 +9,7 @@ import java.util.List;
 @AllArgsConstructor @NoArgsConstructor
 @Builder
 public class QuizRequest {
+    private String id;
     private String title;
     private BigDecimal marks;
     private String description;
