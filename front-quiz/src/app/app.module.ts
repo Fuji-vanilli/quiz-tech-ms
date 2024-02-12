@@ -30,6 +30,7 @@ import { AddQuizzesComponent } from './pages/admin/add-quizzes/add-quizzes.compo
 import { ViewQuizzesComponent } from './pages/admin/view-quizzes/view-quizzes.component';
 import { UpdateCategoryComponent } from './pages/admin/update-category/update-category.component';
 import { UpdateQuizComponent } from './pages/admin/update-quiz/update-quiz.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 export function initializeKeycloak(keycloak: KeycloakService) {
@@ -79,6 +80,7 @@ export function initializeKeycloak(keycloak: KeycloakService) {
     MatInputModule,
     MatSnackBarModule,
     MatSelectModule,
+    MatDialogModule,
     HttpClientModule,
     ReactiveFormsModule,
     MatSlideToggleModule

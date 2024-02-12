@@ -135,6 +135,7 @@ public class QuizServiceImpl implements QuizService {
         quiz.setActive(request.isActive());
         quiz.setMarks(request.getMarks());
         quiz.setNumberOfQuestions(request.getNumberOfQuestions());
+        quiz.setCategoryId(request.getCategoryId());
         quiz.setLastUpdateDate(new Date());
 
         quizRepository.save(quiz);

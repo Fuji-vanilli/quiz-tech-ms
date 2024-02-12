@@ -3,7 +3,6 @@ import { QuizApiService } from 'src/app/services/quiz-api.service';
 import { Quiz } from '../../models/quiz.model';
 import { Category } from '../../models/category.model';
 import { CategoryApiService } from 'src/app/services/category-api.service';
-import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
@@ -27,7 +26,7 @@ export class AddQuizzesComponent implements OnInit{
 
   ngOnInit(): void {
     this.loadFormGoup();
-   this.categoryService.fetchAll(0, 3).subscribe({
+    this.categoryService.fetchAll(0, 3).subscribe({
     next: response=> {
       console.log(response.data.categories);
       this.categories= response.data.categories;

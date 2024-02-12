@@ -19,6 +19,10 @@ export class QuizApiService {
     return this.httpClient.post(environment.backEndQuiz+'/add', quiz);
   }
 
+  updateQuiz(quiz: Quiz): Observable<any> {
+    return this.httpClient.put(environment.backEndQuiz+'/update', quiz);
+  }
+
   getQuiz(id: string): Observable<any> {
     return this.httpClient.get(environment.backEndQuiz+'/get/'+id);
   }

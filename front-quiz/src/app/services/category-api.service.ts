@@ -24,6 +24,10 @@ export class CategoryApiService {
     return this.httpClient.post(environment.backEndCategory+'/add', category)
   }
 
+  getCategory(id: string): Observable<any> {
+    return this.httpClient.get(environment.backEndCategory+'/get/'+id);
+  }
+
   updateCategory(category: Category): Observable<any> {
     return this.httpClient.put(environment.backEndCategory+'/update', category)
   }

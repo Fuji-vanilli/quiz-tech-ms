@@ -5,6 +5,8 @@ import { CategoryApiService } from 'src/app/services/category-api.service';
 import Swal from 'sweetalert2';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { UpdateQuizComponent } from '../update-quiz/update-quiz.component';
 
 @Component({
   selector: 'app-view-quizzes',
@@ -18,7 +20,8 @@ export class ViewQuizzesComponent implements OnInit{
   constructor(private quizService: QuizApiService, 
               private categoryService: CategoryApiService,
               private snackBar: MatSnackBar,
-              private route: Router) {}
+              private route: Router,
+              private dialog: MatDialog) {}
 
   ngOnInit(): void {
    this.loadQuizzes();
@@ -64,6 +67,23 @@ export class ViewQuizzesComponent implements OnInit{
         })
     }
     });
+  }
+
+  openUpdate(quiz: Quiz) {
+    this.dialog.open(UpdateQuizComponent, {
+      width: '40%',
+      height: '600px',
+      enterAnimationDuration: '1000ms',
+      exitAnimationDuration: '1000ms',
+      data: {
+        titlePopup: 'Update quiz',
+        title: quiz.title,
+        description: quiz.description,
+        marks: quiz.marks,
+        numberOfQuestions: quiz.numberOfQuestions,
+        active: quiz.active
+      }
+    })
   }
 
 }

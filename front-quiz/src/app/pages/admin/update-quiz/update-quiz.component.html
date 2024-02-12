@@ -1,1 +1,45 @@
-<p>update-quiz works!</p>
+<form [formGroup]="formGroup" (ngSubmit)="update()">
+    <h1 class="text-center mt-2">{{data.titlePopup}}</h1>
+<div mat-dialog-content>
+    <mat-form-field class="w-100" appearance="outline">
+        <mat-label>Enter the title</mat-label>
+        <input autofocus matInput placeholder="new quiz..." formControlName="title">
+    </mat-form-field>
+    <mat-form-field class="w-100" appearance="outline">
+        <mat-label>Description</mat-label>
+        <textarea matInput rows="3" formControlName="description"></textarea>
+    </mat-form-field>
+    <mat-form-field class="w-100 category" appearance="outline">
+        <mat-label>Category</mat-label>
+        <mat-select formControlName="categoryId">
+            <mat-option>Categories</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+
+    <div class="row">
+        <div class="col-md-6">
+            <mat-form-field class="w-100" appearance="outline">
+                <mat-label>Maximum marks</mat-label>
+                <input autofocus matInput placeholder="new quiz..." formControlName="marks">
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100" appearance="outline">
+                <mat-label>Number of questions</mat-label>
+                <input autofocus matInput placeholder="new quiz..." formControlName="numberOfQuestions">
+            </mat-form-field>
+        </div>
+
+        <mat-slide-toggle color="primary" class="mb-2" formControlName="active">Publish status</mat-slide-toggle>
+    </div>
+
+    <div class="text-center">
+        <button class="btn-update" (click)="closeUpdate()">Update</button>
+    <button class="btn-cancel" [mat-dialog-close]="closedMessage">Cancel</button>
+    </div>
+</div>
+<div mat-dialog-actions>
+
+</div>
+</form>

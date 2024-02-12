@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Quiz } from '../../models/quiz.model';
 import { QuizApiService } from 'src/app/services/quiz-api.service';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { CategoryApiService } from 'src/app/services/category-api.service';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-update-quiz',
@@ -9,28 +12,36 @@ import { QuizApiService } from 'src/app/services/quiz-api.service';
   styleUrls: ['./update-quiz.component.scss']
 })
 export class UpdateQuizComponent implements OnInit{
-  quiz!: any;
-  quizId!: string;
+  
+  inputData: any;
+  closedMessage= 'closed using directive'
+  
 
-  constructor(private routeAcivate: ActivatedRoute,
-              private quizService: QuizApiService) {}
+  constructor(
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    private ref: MatDialogRef<UpdateQuizComponent>,
+    private formBuilder: FormBuilder,
+    private quizService: QuizApiService
+  ) {}
 
   ngOnInit(): void {
-    this.quizId= this.routeAcivate.snapshot.params['id'];
-    this.loadQuiz();
+    this.inputData= this.data;
   }
 
-  loadQuiz() {
-    this.quiz= this.quizService.getQuiz(this.quizId).subscribe({
-      next: response=> {
-        this.quiz= response.data.quiz;
-        console.table(response.data.quiz);
-      },
-      error: err=> {
-        console.log(err);
-        
-      }
-    })
+  closeUpdate() {
+    this.ref.close('closed using function!')
   }
 
+  formGroup= this.formBuilder.group({
+    title: this.formBuilder.control(this.data.title),
+    description: this.formBuilder.control(this.data.description),
+    marks: this.formBuilder.control(this.data.marks),
+    numberOfQuestions: this.formBuilder.control(this.data.numberOfQuestions),
+    active: this.formBuilder.control(this.data.active),
+    categoryId: this.formBuilder.control(this.data.categoryId)
+  })
+  
+  update() {
+
+  }
 }
