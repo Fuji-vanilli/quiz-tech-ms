@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environnments/environments';
+import { Quiz } from '../pages/models/quiz.model';
 
 @Injectable({
   providedIn: 'root'
@@ -12,5 +13,13 @@ export class QuizApiService {
 
   fetchAll(): Observable<any> {
     return this.httpClient.get(environment.backEndQuiz+'/all');
+  }
+
+  addQuiz(quiz: Quiz): Observable<any> {
+    return this.httpClient.post(environment.backEndQuiz+'/add', quiz);
+  }
+
+  deleteQuiz(id: string): Observable<any> {
+    return this.httpClient.delete(environment.backEndQuiz+'/delete/'+id);
   }
 }

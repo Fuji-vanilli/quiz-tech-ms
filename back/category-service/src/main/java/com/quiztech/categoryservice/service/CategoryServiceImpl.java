@@ -133,6 +133,29 @@ public class CategoryServiceImpl implements CategoryService{
     }
 
     @Override
+    public Response update(CategoryRequest request) {
+        Category category= categoryRepository.findById(request.getId()).orElseThrow(
+                ()-> new IllegalArgumentException("error to fetch category into the database!")
+        );
+
+        category.setTitle(request.getTitle());
+        category.setDescription(request.getDescription());
+        category.setLastUpdateDate(new Date());
+
+        categoryRepository.save(category);
+        log.info("category with the id: {} updated successfully!", category.getId());
+
+        return generateResponse(
+                HttpStatus.OK,
+                null,
+                Map.of(
+                        "category", categoryMapper.mapToCategoryResponse(category)
+                ),
+                "category with the id: "+category.getId()+" updated successfully!"
+        );
+    }
+
+    @Override
     public Response get(String id) {
         if (!categoryRepository.existsById(id)) {
             log.error("sorry! the category with the id: {} doesn't exist on the database!", id);

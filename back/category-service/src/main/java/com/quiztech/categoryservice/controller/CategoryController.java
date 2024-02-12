@@ -15,6 +15,8 @@ public interface CategoryController {
     ResponseEntity<Response> add(@RequestBody CategoryRequest request);
     @PatchMapping("addQuiz")
     ResponseEntity<Response> addQuizId(@RequestBody Map<String, String> patchRequest);
+    @PutMapping("update")
+    ResponseEntity<Response> update(@RequestBody CategoryRequest request);
     @GetMapping("get/{id}")
     ResponseEntity<Response> get(@PathVariable String id);
     @GetMapping("all")

@@ -1,20 +1,33 @@
 <div class="container mt-3">
     <div class="row">
         <div class="card">
-            <div class="card-header text-center">All category</div>
+            <div class="card-header text-center header-category">All category</div>
             <div class="card-body" *ngFor="let category of categories">
+               <div class="col-md-4 d-flex aling-items-center">
                 <div>
-                    <mat-icon class="icon-category">category</mat-icon>
+                    <img src="../../../../assets/menu.png" alt="">
                 </div>
                 <div class="category-details ms-3">
                     <h3>{{category.title}} </h3>
                     <p>{{category.description}}</p>
                 </div>
-                
+               </div>
+                <div class="col-md-4">
+                    <mat-card-actions class="ms-6">
+                    <button mat-mini-fab color="warn" class="ms-3 btn-edit" >
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                    <button mat-mini-fab color="warn" class="ms-3 btn-delete" (click)="deleteCategory(category.id)">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </mat-card-actions>
+                </div>
             </div>
             <div class="add">
-                <button class="add-category" routerLink="/admin/add-category"><i class="bi bi-plus-circle" style="font-size: 18px; margin-right: 10px;" ></i>Add new category</button>
+                <button class="add-category mb-5" routerLink="/admin/add-category"><i class="bi bi-plus-circle" style="font-size: 18px; margin-right: 10px;" ></i>Add new category</button>
             </div>
         </div>
     </div>
 </div>
+
+<!--Modal update category-->

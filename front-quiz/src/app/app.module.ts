@@ -28,6 +28,7 @@ import { AddCategoryComponent } from './pages/admin/add-category/add-category.co
 import { ReactiveFormsModule } from '@angular/forms';
 import { AddQuizzesComponent } from './pages/admin/add-quizzes/add-quizzes.component';
 import { ViewQuizzesComponent } from './pages/admin/view-quizzes/view-quizzes.component';
+import { UpdateCategoryComponent } from './pages/admin/update-category/update-category.component';
 
 
 export function initializeKeycloak(keycloak: KeycloakService) {
@@ -58,7 +59,8 @@ export function initializeKeycloak(keycloak: KeycloakService) {
     ViewCategoryComponent,
     AddCategoryComponent,
     AddQuizzesComponent,
-    ViewQuizzesComponent
+    ViewQuizzesComponent,
+    UpdateCategoryComponent
   ],
   imports: [
     BrowserModule,

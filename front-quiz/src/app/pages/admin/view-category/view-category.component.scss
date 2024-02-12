@@ -5,11 +5,16 @@ h3, p{
 .card-body {
     display: flex;
     align-items: center; 
+    font-family: 'Ubuntu';
 }
 .card-header {
     color: #e11d48;
     font-weight: 500;
     font-size: 18px;
+}
+
+.header-category {
+    margin: 24px;
 }
 .category-details h3 {
     font-weight: 500;
@@ -23,6 +28,7 @@ h3, p{
 
 .icon-category {
     color: #e11d48;
+    font-size: 26px;
 }
 
 .add-category {
@@ -39,3 +45,9 @@ h3, p{
     background: #0e223e;
     transition: all 0.25ms;
 }
+
+.btn-edit {
+    background: #0e223e;
+    
+}
+

@@ -9,16 +9,25 @@
             <p>{{quiz.description}} </p>
         </mat-card-content>
         <mat-card-actions class="ms-2">
-            <button  class="btn-question">Questions</button>
-            <button mat-stroked-button color="primary" class="ms-3">Max marks: <span style="font-weight: 600; color: #e11d48;">{{quiz.marks}}</span></button>
-            <button mat-stroked-button color="primary" class="ms-3">Questions: <span style="font-weight: 600; color: #e11d48;">{{quiz.numberOfQuestions}}</span></button>
-            <button class="ms-3 btn-update"><i class="bi bi-pen"></i> Update</button>
-            <button class="ms-3 btn-attempt"><i class="bi bi-arrow-repeat"></i> Attempt</button>
+            <button class="btn-question">Questions</button>
+            <button mat-stroked-button color="primary" class="ms-3">Max marks: <span
+                    style="font-weight: 600; color: #e11d48;">{{quiz.marks}}</span></button>
+            <button mat-stroked-button color="primary" class="ms-3">Questions: <span
+                    style="font-weight: 600; color: #e11d48;">{{quiz.numberOfQuestions}}</span></button>
+            <button mat-mini-fab color="primary" class="ms-3">
+                <mat-icon>edit</mat-icon>
+            </button> 
+            <button mat-mini-fab color="primary" class="ms-3 attempt"> 
+                <mat-icon>cached</mat-icon>
+            </button>
+            <button mat-mini-fab color="warn" class="ms-3" (click)="deleteQuiz(quiz.id)">
+                <mat-icon>delete</mat-icon>
+            </button>
         </mat-card-actions>
     </mat-card>
-    
+
     <div class="container text-center mt-3">
-        <button class="btn-add-quiz" routerLink="/admin/add-quiz"><i class="bi bi-plus-circle" style="font-size: 18px;" ></i>  Add new Quiz</button>
+        <button class="btn-add-quiz" routerLink="/admin/add-quiz"><i class="bi bi-plus-circle"style="font-size: 18px;"></i> Add new Quiz</button>
     </div>
-      
+
 </div>

@@ -7,5 +7,6 @@ export interface Quiz {
     marks?: BigInteger,
     numberOfQuestions?: BigInteger,
     active?: boolean,
+    categoryId?: string,
     category?: Category
 }

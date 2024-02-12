@@ -10,6 +10,7 @@ public class CategoryMapperImpl implements CategoryMapper{
     @Override
     public Category mapToCategory(CategoryRequest request) {
         return Category.builder()
+                .id(request.getId())
                 .title(request.getTitle())
                 .description(request.getDescription())
                 .quizsId(request.getQuizsId())

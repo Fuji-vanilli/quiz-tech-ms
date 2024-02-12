@@ -12,7 +12,7 @@ export class CategoryComponent implements OnInit{
   constructor(private categoryService: CategoryApiService) {}
 
   ngOnInit(): void {
-    this.categoryService.fetchAll().subscribe({
+    this.categoryService.fetchAll(0, 5).subscribe({
       next: data=> {
         this.categories= data;
         console.table(data);

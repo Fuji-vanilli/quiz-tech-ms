@@ -8,7 +8,7 @@
 }
 
 .example-header-image {
-    background-image: url('../../../../assets/examen-en-ligne.png');
+    background-image: url('../../../../assets/trophee.png');
     background-size: cover;
   }
 
@@ -69,4 +69,8 @@ mat-card {
 
 .btn-attempt:hover {
     opacity: .8;
+}
+
+.attempt {
+    background: #0e223e;
 }

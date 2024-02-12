@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, RequiredValidator, Validators } from '@angular/
 import { CategoryApiService } from 'src/app/services/category-api.service';
 import { Category } from '../../models/category.model';
 import { Router } from '@angular/router';
+import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-add-category',
@@ -15,7 +17,8 @@ export class AddCategoryComponent implements OnInit{
 
   constructor(private formBuilder: FormBuilder,
               private categoryService: CategoryApiService,
-              private route: Router) {}
+              private route: Router,
+              private snackBar: MatSnackBar) {}
 
   ngOnInit(): void {
     this.formGroup= this.formBuilder.group({
@@ -31,9 +34,11 @@ export class AddCategoryComponent implements OnInit{
       title: this.formGroup.value.title,
       description: this.formGroup.value.description
     }
+    
     this.categoryService.addCategory(category).subscribe({
       next: response=> {
         console.log(response.data.category);
+        Swal.fire('Success', 'new Category added successfully!', 'success')
         this.route.navigateByUrl('admin/categories');
       },
       error: err=> {

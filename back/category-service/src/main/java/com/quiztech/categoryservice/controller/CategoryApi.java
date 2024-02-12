@@ -36,6 +36,11 @@ public class CategoryApi implements CategoryController{
     }
 
     @Override
+    public ResponseEntity<Response> update(CategoryRequest request) {
+        return ResponseEntity.ok(categoryService.update(request));
+    }
+
+    @Override
     public ResponseEntity<Response> get(String id) {
         return ResponseEntity.ok(categoryService.get(id));
     }
