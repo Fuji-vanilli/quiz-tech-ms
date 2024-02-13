@@ -1,3 +1,41 @@
 .container {
     background: #fff;
+    padding-top: 12px;
+}
+
+.question {
+    width: 40px;
+    height: 40px;
+    border: none;
+    background: #0e223e;
+    color: #fff;
+    border-radius: 50%;
+    font-family: 'Ubuntu';
+    font-weight: 600;
+}
+
+span {
+    font-family: 'Ubuntu';
+    font-weight: 600;
+    margin-left: 14px;
+    font-size: 16px;
+}
+
+.title-question {
+    margin-left: 16px;
+}
+
+.btn-add {
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    color: #fff;
+    background: #22c55e;
+    cursor: pointer;
+    font-family: 'Ubuntu';
+}
+
+.btn-add:hover {
+    background: #0e223e;
+    color: #fff;
 }

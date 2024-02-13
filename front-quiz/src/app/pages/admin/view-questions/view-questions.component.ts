@@ -10,6 +10,7 @@ import { Question } from '../../models/question.module';
   styleUrls: ['./view-questions.component.scss']
 })
 export class ViewQuestionsComponent implements OnInit{
+  typesOfShoes: string[] = ['Boots', 'Clogs', 'Loafers', 'Moccasins', 'Sneakers'];
 
   quizId: string= 'a4af5f43-9a06-47e6-aa4b-15204408bf64';
   quizTitle!: string;

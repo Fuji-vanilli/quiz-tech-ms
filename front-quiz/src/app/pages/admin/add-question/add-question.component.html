@@ -1,0 +1,70 @@
+<div class="container mt-3">
+    <div class="bootstrap-wrapper">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Add new Question to : </h1>
+                <mat-card-header>
+                    <mat-card-subtitle><i>Enter the content of the question</i></mat-card-subtitle>
+                </mat-card-header>
+                <form action="">
+                    <mat-form-field class="w-100 mt-3" appearance="outline">
+                        <mat-label>Question content</mat-label>
+                        <textarea matInput rows="3" formControlName="content"></textarea>
+                    </mat-form-field>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <mat-form-field class="full-width">
+                                <mat-label>Option 1</mat-label>
+                                <input matInput #message maxlength="256" placeholder="Enter the option...">
+                                <mat-hint align="start"><strong>Don't disclose personal info</strong> </mat-hint>
+                                <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
+                              </mat-form-field>
+                        </div>
+                        <div class="col-md-6">
+                            <mat-form-field class="full-width">
+                                <mat-label>Option 2</mat-label>
+                                <input matInput #message maxlength="256" placeholder="Enter the option...">
+                                <mat-hint align="start"><strong>Don't disclose personal info</strong> </mat-hint>
+                                <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
+                              </mat-form-field>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-md-6">
+                                <mat-form-field class="full-width">
+                                    <mat-label>Option 3</mat-label>
+                                    <input matInput #message maxlength="256" placeholder="Enter the option...">
+                                    <mat-hint align="start"><strong>Don't disclose personal info</strong> </mat-hint>
+                                    <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
+                                  </mat-form-field>
+                            </div>
+                            <div class="col-md-6">
+                                <mat-form-field class="full-width">
+                                    <mat-label>Option 4 </mat-label>
+                                    <input matInput #message maxlength="256" placeholder="Enter the option...">
+                                    <mat-hint align="start"><strong>Don't disclose personal info</strong> </mat-hint>
+                                    <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
+                                  </mat-form-field>
+                            </div>
+                    </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-4">
+                            <mat-form-field class="full-width">
+                                <mat-label>Answer</mat-label>
+                                <mat-select [(value)]="selected">
+                                  <mat-option>None</mat-option>
+                                  <mat-option value="option1">Option 1</mat-option>
+                                  <mat-option value="option2">Option 2</mat-option>
+                                  <mat-option value="option3">Option 3</mat-option>
+                                </mat-select>
+                              </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <button  class="btn btn-success"><i class="bi bi-plus-lg" style="margin-right: 12px;"></i>Add</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

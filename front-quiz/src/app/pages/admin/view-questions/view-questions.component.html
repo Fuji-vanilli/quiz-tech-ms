@@ -1,16 +1,36 @@
-<div class="container mt-3">
-    <h1>Question of <span style="font-weight: 600;">{{quizTitle}}</span></h1>
-
+<div class="container mt-3 mb-3">
+    <div class="d-flex justify-content-between align-items-center">
+        <div class="title-question">
+            <h1 class="mt-3">Question of <span style="font-size: 18px; font-weight: 600;">{{quizTitle}}</span></h1>
+        </div>
+        <div>
+            <button class="btn-add" [routerLink]="'/admin/add-question/'+quizId"><i class="bi bi-plus-lg" style="margin-right: 12px; font-size: 16px; font-weight: 600;"></i> Question</button>
+        </div>
+    </div>
     <div class="bootstrap-wrapper">
         <div class="row">
             <div class="col-md-12">
-                <mat-card *ngFor="let question of questions let i= index" class="mt-20">
-                    <p><span>Q ({{i+1}})</span></p>
-                    <div class="container-fluid">
+                <mat-card *ngFor="let question of questions let i= index" class="mt-2 ;">
+                    <div class="container-fluid mt-2"> 
+                        <button class="question">{{i+1}}</button> <span>{{question.content}}</span>
                         <div class="row">
-                            <div class="col-md-6" *ngFor="let option of question.options let i= index">
-                                <p>{{i+1 +'-' +option}}</p>
-                            </div>
+                            <div class="col-md-6"> 
+                                <mat-selection-list #answer [multiple]="false">
+                                    <div *ngFor="let option of question.options let i= index">
+                                        <mat-list-option [value]="option" color="accent">{{option}}</mat-list-option>
+                                    </div>
+                                </mat-selection-list>
+                                <div class="row ms-2">
+                                     <!--p style="font-family: 'Ubuntu'; font-size: 14px;">Response choose: 
+                                        <span style="font-weight: 600; color: #e11d48;">
+                                            {{answer.selectedOptions.hasValue() ? answer.selectedOptions.selected[0].value : 'None'}}
+                                        </span>
+                                    </p-->
+                                    <p style="font-family: 'Ubuntu'; font-size: 14px;">Answer: 
+                                        <span style="font-weight: 600; color: #e11d48;">{{question.answer}}</span>
+                                    </p>
+                                </div>
+                            </div> 
                         </div>
                     </div>
                 </mat-card>

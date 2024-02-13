@@ -1,5 +1,6 @@
 .container {
     margin-bottom: 12px;
+    background: #fff;
 }
 .mt10 {
     margin-top: 12px;
@@ -15,12 +16,17 @@ mat-card {
     font-family: 'Ubuntu';
 }
 
+.title-question {
+    margin-left: 16px;
+    font-family: 'Ubuntu';
+}
+
 .btn-add-quiz {
 
-    padding: 12px 24px;
+    padding: 12px 20px;
     border: none;
-    border-radius: 24px;
-    background: #e11d48;
+    border-radius: 10px;
+    background: #22c55e;
     color: #fff;
     font-family: 'Ubuntu';
     transition: all 0.1s ease;
@@ -73,3 +79,4 @@ mat-card {
 .attempt {
     background: #0e223e;
 }
+
