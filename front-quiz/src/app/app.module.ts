@@ -31,6 +31,7 @@ import { ViewQuizzesComponent } from './pages/admin/view-quizzes/view-quizzes.co
 import { UpdateCategoryComponent } from './pages/admin/update-category/update-category.component';
 import { UpdateQuizComponent } from './pages/admin/update-quiz/update-quiz.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { ViewQuestionsComponent } from './pages/admin/view-questions/view-questions.component';
 
 
 export function initializeKeycloak(keycloak: KeycloakService) {
@@ -63,7 +64,8 @@ export function initializeKeycloak(keycloak: KeycloakService) {
     AddQuizzesComponent,
     ViewQuizzesComponent,
     UpdateCategoryComponent,
-    UpdateQuizComponent
+    UpdateQuizComponent,
+    ViewQuestionsComponent
   ],
   imports: [
     BrowserModule,

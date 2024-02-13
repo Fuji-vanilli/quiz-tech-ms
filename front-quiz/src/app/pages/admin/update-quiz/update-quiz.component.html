@@ -1,20 +1,20 @@
-<form [formGroup]="formGroup" (ngSubmit)="update()">
+<form [formGroup]="formGroup" (ngSubmit)="update()" class="update-quiz">
     <h1 class="text-center mt-2">{{data.titlePopup}}</h1>
 <div mat-dialog-content>
     <mat-form-field class="w-100" appearance="outline">
-        <mat-label>Enter the title</mat-label>
-        <input autofocus matInput placeholder="new quiz..." formControlName="title">
+        <mat-label >Enter the title</mat-label>
+        <input autofocus matInput placeholder="new quiz..." formControlName="title" [readonly]="true">
     </mat-form-field>
     <mat-form-field class="w-100" appearance="outline">
         <mat-label>Description</mat-label>
-        <textarea matInput rows="3" formControlName="description"></textarea>
+        <textarea matInput rows="3" formControlName="description" [readonly]="true"></textarea>
     </mat-form-field>
     <mat-form-field class="w-100 category" appearance="outline">
         <mat-label>Category</mat-label>
         <mat-select formControlName="categoryId">
-            <mat-option>Categories</mat-option>
+            <mat-option  *ngFor=" let category of categories" [value]="category.id" >{{category.title}}</mat-option>
         </mat-select>
-    </mat-form-field>
+    </mat-form-field> 
 
 
     <div class="row">

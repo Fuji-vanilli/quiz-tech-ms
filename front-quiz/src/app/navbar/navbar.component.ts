@@ -35,7 +35,7 @@ export class NavbarComponent implements OnInit {
 
   register() {
     this.keycloakService.register({
-      redirectUri: window.location.origin
+      redirectUri: window.location.origin+'/admin'
     })
   }
 }

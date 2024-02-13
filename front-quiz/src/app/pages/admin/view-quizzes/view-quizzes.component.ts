@@ -35,7 +35,6 @@ export class ViewQuizzesComponent implements OnInit{
       },
       error: err=> {
         console.log(err);
-        
       }
      });
   }
@@ -72,18 +71,22 @@ export class ViewQuizzesComponent implements OnInit{
   openUpdate(quiz: Quiz) {
     this.dialog.open(UpdateQuizComponent, {
       width: '40%',
-      height: '600px',
+      height: '550px',
       enterAnimationDuration: '1000ms',
       exitAnimationDuration: '1000ms',
       data: {
-        titlePopup: 'Update quiz',
+        id: quiz.id,
+        titlePopup: 'Update Quiz',
         title: quiz.title,
         description: quiz.description,
         marks: quiz.marks,
         numberOfQuestions: quiz.numberOfQuestions,
-        active: quiz.active
+        active: quiz.active,
+        categoryId: quiz.categoryId
       }
     })
+
+    this.loadQuizzes();
   }
 
 }
