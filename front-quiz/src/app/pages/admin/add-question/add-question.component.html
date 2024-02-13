@@ -23,7 +23,7 @@
                         <div class="col-md-6">
                             <mat-form-field class="full-width">
                                 <mat-label>Option 2</mat-label>
-                                <input matInput #message maxlength="256" placeholder="Enter the option..." formControlName="option2">
+                                <input [(ngModel)]="options.option2" matInput #message maxlength="256" placeholder="Enter the option..." formControlName="option2">
                                 <mat-hint align="start"><strong>Don't disclose personal info</strong> </mat-hint>
                                 <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
                               </mat-form-field>
@@ -32,7 +32,7 @@
                             <div class="col-md-6">
                                 <mat-form-field class="full-width">
                                     <mat-label>Option 3</mat-label>
-                                    <input matInput #message maxlength="256" placeholder="Enter the option..." formControlName="option3">
+                                    <input [(ngModel)]="options.option3" matInput #message maxlength="256" placeholder="Enter the option..." formControlName="option3">
                                     <mat-hint align="start"><strong>Don't disclose personal info</strong> </mat-hint>
                                     <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
                                   </mat-form-field>
@@ -40,7 +40,7 @@
                             <div class="col-md-6">
                                 <mat-form-field class="full-width">
                                     <mat-label>Option 4 </mat-label>
-                                    <input matInput #message maxlength="256" placeholder="Enter the option..." formControlName="option4">
+                                    <input [(ngModel)]="options.option4" matInput #message maxlength="256" placeholder="Enter the option..." formControlName="option4">
                                     <mat-hint align="start"><strong>Don't disclose personal info</strong> </mat-hint>
                                     <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
                                   </mat-form-field>
@@ -54,9 +54,9 @@
                                 <mat-select [(value)]="selected" formControlName="answer">
                                   <mat-option>None</mat-option>
                                   <mat-option value="{{options.option1}}">{{options.option1}}</mat-option>
-                                  <mat-option value="option2">Option 2</mat-option>
-                                  <mat-option value="option3">Option 3</mat-option>
-                                  <mat-option value="option4">Option 4</mat-option>
+                                  <mat-option value="{{options.option2}}">{{options.option2}}</mat-option>
+                                  <mat-option value="{{options.option3}}">{{options.option3}}</mat-option>
+                                  <mat-option value="{{options.option4}}">{{options.option4}}</mat-option>
                                 </mat-select>
                               </mat-form-field>
                         </div>
