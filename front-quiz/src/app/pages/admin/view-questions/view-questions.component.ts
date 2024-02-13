@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { QuestionApiService } from 'src/app/services/question-api.service';
 import { QuizApiService } from 'src/app/services/quiz-api.service';
-import { Question } from '../../models/question.module';
+import { Question } from '../../models/question.model';
 
 @Component({
   selector: 'app-view-questions',

@@ -16,7 +16,6 @@ export class ViewCategoryComponent implements OnInit {
   categories: Category[]= [];
   categoryId!: string;
 
-
   constructor(private categoryService: CategoryApiService, 
               private routeActive: ActivatedRoute) {}
 

@@ -2,6 +2,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environnments/environments';
+import { Question } from '../pages/models/question.model';
 
 @Injectable({
   providedIn: 'root'
@@ -16,5 +17,9 @@ export class QuestionApiService {
     params.set('size', size);
 
     return this.httpClient.get(environment.backEndQuestion+'/byQuiz/'+quizId, { params });
+  }
+
+  addQuestion(question: Question): Observable<any> {
+    return this.httpClient.post(environment.backEndQuestion+'/add', question);
   }
 }
