@@ -104,6 +104,21 @@ public class QuestionServiceImpl implements QuestionService{
     }
 
     @Override
+    public Response allByQuizId(String quizId) {
+        log.info("all Question with the quiz id: {} getted successfully!", quizId);
+        return generateResponse(
+                HttpStatus.OK,
+                null,
+                Map.of(
+                        "questions", questionRepository.findByQuizId(quizId).stream()
+                                .map(questionMapper::mapToQuestionResponse)
+                                .toList()
+                ),
+                "all question with the quiz id: "+quizId+" getted successfully!"
+        );
+    }
+
+    @Override
     public Response all(int page, int size) {
         Pageable pageable= PageRequest.of(page, size);
 

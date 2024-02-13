@@ -16,10 +16,10 @@
             <p>{{quiz.description}} </p>
         </mat-card-content>
         <mat-card-actions class="ms-2">
-            <button class="btn-question">Questions</button>
+            <button class="btn-question"  [routerLink]="'/admin/questions/'+quiz.id+'/'+quiz.title">Questions</button>
             <button mat-stroked-button color="primary" class="ms-3">Max marks: <span
                     style="font-weight: 600; color: #e11d48;">{{quiz.marks}}</span></button>
-            <button mat-stroked-button color="primary" class="ms-3" [routerLink]="'/admin/questions/'+quiz.id+'/'+quiz.title" >Questions: <span
+            <button mat-stroked-button color="primary" class="ms-3">Questions: <span
                     style="font-weight: 600; color: #e11d48;">{{quiz.numberOfQuestions}}</span></button>
             <button mat-mini-fab color="primary" class="ms-3" (click)="openUpdate(quiz)" >
                 <mat-icon>edit</mat-icon>

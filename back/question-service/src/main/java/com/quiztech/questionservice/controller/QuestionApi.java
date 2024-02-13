@@ -27,6 +27,11 @@ public class QuestionApi implements QuestionController {
     }
 
     @Override
+    public ResponseEntity<Response> allByQuiz(String quizId) {
+        return ResponseEntity.ok(questionService.allByQuizId(quizId));
+    }
+
+    @Override
     public ResponseEntity<Response> all(int page, int size) {
         return ResponseEntity.ok(questionService.all(page, size));
     }
