@@ -6,6 +6,7 @@ import com.quiztech.questionservice.services.QuestionService;
 import com.quiztech.questionservice.utils.Response;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -14,6 +15,7 @@ import static com.quiztech.questionservice.utils.Root.APP_ROOT;
 @RestController
 @RequestMapping(APP_ROOT)
 @RequiredArgsConstructor
+@CrossOrigin("*")
 public class QuestionApi implements QuestionController {
     private final QuestionService questionService;
     @Override

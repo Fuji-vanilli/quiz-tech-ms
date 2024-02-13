@@ -1,5 +1,20 @@
-<mat-card>
-    <mat-card-header>
-        <h3>Questions of <span>{{quizTitle}}</span></h3>
-    </mat-card-header>
-</mat-card>
+<div class="container mt-3">
+    <h1>Question of <span style="font-weight: 600;">{{quizTitle}}</span></h1>
+
+    <div class="bootstrap-wrapper">
+        <div class="row">
+            <div class="col-md-12">
+                <mat-card *ngFor="let question of questions let i= index" class="mt-20">
+                    <p><span>Q ({{i+1}})</span></p>
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-6" *ngFor="let option of question.options let i= index">
+                                <p>{{i+1 +'-' +option}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>

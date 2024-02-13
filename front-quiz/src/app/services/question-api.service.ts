@@ -10,11 +10,11 @@ export class QuestionApiService {
 
   constructor(private httpClient: HttpClient) { }
 
-  fetchAll(page: number, size: number): Observable<any> {
+  fetchAll(page: number, size: number, quizId: string): Observable<any> {
     let params= new HttpParams();
     params.set('page', page);
     params.set('size', size);
 
-    return this.httpClient.get(environment.backEndQuestion+'/all', { params });
+    return this.httpClient.get(environment.backEndQuestion+'/byQuiz/'+quizId, { params });
   }
 }
