@@ -12,7 +12,7 @@ import { Question } from '../../models/question.model';
 export class ViewQuestionsComponent implements OnInit{
   typesOfShoes: string[] = ['Boots', 'Clogs', 'Loafers', 'Moccasins', 'Sneakers'];
 
-  quizId: string= 'a4af5f43-9a06-47e6-aa4b-15204408bf64';
+  quizId!: string;
   quizTitle!: string;
 
   questions: Question[]= [];
@@ -22,7 +22,7 @@ export class ViewQuestionsComponent implements OnInit{
               private questionService: QuestionApiService) {}
 
   ngOnInit(): void {
-    //this.quizId= this.activeRoute.snapshot.params['id'];
+    this.quizId= this.activeRoute.snapshot.params['id'];
     this.quizTitle= this.activeRoute.snapshot.params['title'];
 
     this.loadQuestionByQuizId();
