@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 import Swal from 'sweetalert2';
 
+
 @Component({
   selector: 'app-add-category',
   templateUrl: './add-category.component.html',

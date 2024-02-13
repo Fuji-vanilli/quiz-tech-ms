@@ -3,5 +3,6 @@ export interface Question {
     content?: string,
     image?: string,
     answer?: string,
-    options?: string[]
+    options?: string[],
+    quizId?: string
 }
