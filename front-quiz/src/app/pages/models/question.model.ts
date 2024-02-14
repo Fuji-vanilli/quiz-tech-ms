@@ -1,8 +1,8 @@
 export interface Question {
     id?: string,
-    content?: string,
+    content?: any,
     image?: string,
-    answer?: string,
+    answer?: any,
     options?: string[],
     quizId?: string
 }

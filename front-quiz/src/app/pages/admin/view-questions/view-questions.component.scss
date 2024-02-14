@@ -1,5 +1,5 @@
 .container {
-    background: #fff;
+    background: #f3f4f6;
     padding-top: 12px;
     padding-bottom: 20px;
 }
@@ -10,8 +10,29 @@
 
 .nav-link:hover {
     color: #f59e0b;
+    opacity: .8;
 }
 
+.nav-link-read {
+    color: #f59e0b;
+    margin-right: 14px;
+    text-decoration: none;
+    cursor: pointer;
+    background: #fff;
+    border: 1px solid #f59e0b;
+    padding: 10px;
+}
+
+.nav-link-answer {
+    color: #f59e0b;
+    margin-right: 14px;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 10px;
+}
+.nav-link-read:hover {
+    opacity: .8;
+}
 .question {
     width: 40px;
     height: 40px;

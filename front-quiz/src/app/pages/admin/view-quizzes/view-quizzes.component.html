@@ -21,7 +21,9 @@
                     <p>{{quiz.description}} </p>
                 </mat-card-content>
                 <mat-card-actions class="ms-2">
-                    <button class="btn-question" [routerLink]="'/admin/questions/'+quiz.id+'/'+quiz.title">VIEW QUESTIONS</button>
+                    <button class="btn-question" [routerLink]="'/admin/questions/'+quiz.id+'/'+quiz.title">VIEW QUESTIONS 
+                        <i class="bi bi-eye-fill ms-2" style="font-size: 16px;"></i>
+                    </button>
                 </mat-card-actions>
                 <div class="m-3 d-flex align-items-center">
                     <a class="nav-link" (click)="openUpdate(quiz)"><i class="bi bi-pen-fill"></i><strong class="ms-2">Edit Quiz</strong></a>

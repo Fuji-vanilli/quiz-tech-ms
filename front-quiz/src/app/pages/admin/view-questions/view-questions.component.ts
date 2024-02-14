@@ -4,6 +4,8 @@ import { QuestionApiService } from 'src/app/services/question-api.service';
 import { QuizApiService } from 'src/app/services/quiz-api.service';
 import { Question } from '../../models/question.model';
 import Swal from 'sweetalert2';
+import { MatDialog } from '@angular/material/dialog';
+import { UpdateQuestionComponent } from '../update-question/update-question.component';
 
 @Component({
   selector: 'app-view-questions',
@@ -17,16 +19,24 @@ export class ViewQuestionsComponent implements OnInit{
   quizTitle!: string;
 
   questions: Question[]= [];
+  isContentExpanded: { [key: number]: boolean } = {};
 
   constructor(private activeRoute: ActivatedRoute,
               private quizService: QuizApiService,
-              private questionService: QuestionApiService) {}
+              private questionService: QuestionApiService,
+              private dialog: MatDialog) {}
 
   ngOnInit(): void {
     this.quizId= this.activeRoute.snapshot.params['id'];
     this.quizTitle= this.activeRoute.snapshot.params['title'];
 
     this.loadQuestionByQuizId();
+  }
+
+  toggleExpand(index: number) {
+    this.isContentExpanded[index] = !this.isContentExpanded[index];
+    console.log('expanded'+this.isContentExpanded);
+    
   }
 
   loadQuestionByQuizId() {
@@ -79,6 +89,15 @@ export class ViewQuestionsComponent implements OnInit{
       }
     })
 
+  }
+
+  openUpdate() {
+    this.dialog.open(UpdateQuestionComponent, {
+      width: '40%',
+      height: '550px',
+      enterAnimationDuration: '1000ms',
+      exitAnimationDuration: '1000ms',
+    });
   }
 
 }

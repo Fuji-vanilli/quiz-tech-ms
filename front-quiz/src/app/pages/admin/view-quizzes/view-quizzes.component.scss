@@ -1,6 +1,6 @@
 .container {
     margin-bottom: 12px;
-    background: #fff;
+    background: #f3f4f6;
     padding-bottom: 30px;
 }
 .mt10 {
@@ -50,9 +50,9 @@ mat-card {
 }
 
 .btn-question {
-    background: #d97706;
-    color: #FFF;
-    border: none;
+    background: #fff;
+    color: #0e223e;
+    border: 1px solid #0e223e;
     padding: 10px 24px;
     transition: all 0.1s ease;
     font-weight: 550;
@@ -61,7 +61,7 @@ mat-card {
 .btn-question:hover {
     background: #0e223e;
     color: #fff;
-    opacity: 0.8;
+    border: none;
 
 }
 .btn-update {

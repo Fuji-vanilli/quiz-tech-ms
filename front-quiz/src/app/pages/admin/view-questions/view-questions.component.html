@@ -17,21 +17,30 @@
                                 <mat-card class="mt-2">
                                     <!-- Contenu de la première carte -->
                                     <div class="container-fluid mt-2"> 
-                                        <button class="question">{{i+1}}</button> <span>{{question.content}}</span>
+                                        <button class="question">{{i+1}}</button> 
+                                        <span id="questionContent" *ngIf="!isContentExpanded[i]">{{ question.content | slice:0:50 }}</span>
+                                        <span id="questionContent" *ngIf="isContentExpanded[i]">{{ question.content }}</span>
+                                        <button class="nav-link-read ms-3" (click)="toggleExpand(i)" *ngIf="question.content.length> 50">
+                                            {{ isContentExpanded[i] ? 'Read Less' : 'Read More' }}<i class="bi bi-arrow-right-circle-fill ms-2"></i>
+                                        </button>
                                         <div class="row">
-                                            <div class="col-md-6"> 
+                                            <div class="col-md-12"> 
                                                 <mat-selection-list #answer [multiple]="false">
                                                     <div *ngFor="let option of question.options; let j = index">
                                                         <mat-list-option [value]="option" color="accent">{{option}}</mat-list-option>
                                                     </div>
                                                 </mat-selection-list>
                                                 <div class="row ms-2">
-                                                    <p style="font-family: 'Ubuntu'; font-size: 14px;">Answer: 
-                                                        <strong style="font-size: 18px; color: #22c55e;">{{question.answer}}</strong>
+                                                    <p style="font-family: 'Ubuntu'; font-size: 14px; color: #71717a">Answer: 
+                                                        <span id="questionContent" *ngIf="!isContentExpanded[i+4]">{{ question.answer | slice:0:40 }}</span>
+                                                        <span id="questionContent" *ngIf="isContentExpanded[i+4]">{{ question.answer }}</span>
+                                                        <a class="nav-link-answer ms-3" (click)="toggleExpand(i+4)" *ngIf="question.answer?.length> 40">
+                                                             {{ isContentExpanded[i+4] ? 'Read Less' : 'Read More' }}<i class="bi bi-arrow-right-circle-fill ms-2"></i>
+                                                        </a>
                                                     </p>
                                                     <div class="mb-3 mt-3 d-flex align-items-center">
-                                                        <a class="nav-link" (click)="updateQuestion(question)" ><i class="bi bi-pen-fill"></i><strong class="ms-2" style="color: #1d4ed8;">Edit Quiz</strong></a>
-                                                        <a class="nav-link " (click)="deleteQuestion(question.id)" style="margin-left: 60px;" ><i class="bi bi-trash-fill"></i><strong class="ms-2" style="color: #e11d48;">Delete Quiz</strong></a>
+                                                        <a class="nav-link" (click)="updateQuestion(question)" style="color: #1d4ed8;"><i class="bi bi-pen-fill"></i><strong class="ms-2">Edit Quiz</strong></a>
+                                                        <a class="nav-link " (click)="deleteQuestion(question.id)" style="margin-left: 60px; color: #e11d48;"><i class="bi bi-trash-fill"></i><strong class="ms-2">Delete Quiz</strong></a>
                                                     </div>
                                                 </div>
                                             </div> 
@@ -43,21 +52,30 @@
                                 <mat-card class="mt-2">
                                     <!-- Contenu de la deuxième carte -->
                                     <div class="container-fluid mt-2"> 
-                                        <button class="question">{{i+2}}</button> <span>{{questions[i+1].content}}</span>
+                                        <button class="question">{{i+2}}</button> 
+                                        <span id="questionContent" *ngIf="!isContentExpanded[i+1]">{{ questions[i+1].content | slice:0:48 }}</span>
+                                        <span id="questionContent" *ngIf="isContentExpanded[i+1]">{{ questions[i+1].content }}</span>
+                                        <button class="nav-link-read ms-3" (click)="toggleExpand(i+1)" *ngIf="questions[i+1].content.length> 50">
+                                            {{ isContentExpanded ? 'Read Less' : 'Read More' }}<i class="bi bi-arrow-right-circle-fill ms-2"></i>
+                                        </button>
                                         <div class="row">
-                                            <div class="col-md-6"> 
+                                            <div class="col-md-12"> 
                                                 <mat-selection-list #answer [multiple]="false">
                                                     <div *ngFor="let option of questions[i+1].options; let j = index">
                                                         <mat-list-option [value]="option" color="accent">{{option}}</mat-list-option>
                                                     </div>
                                                 </mat-selection-list>
-                                                <div class="row ms-2">
-                                                    <p style="font-family: 'Ubuntu'; font-size: 14px;">Answer: 
-                                                        <strong style="font-size: 18px; color: #22c55e;">{{questions[i+1].answer}}</strong>
+                                                <div class="row ms-2 d-flex ">
+                                                    <p style="font-family: 'Ubuntu'; font-size: 14px; color: #71717a">Answer: 
+                                                        <span id="questionContent" *ngIf="!isContentExpanded[i+6]">{{ questions[i+1].answer | slice:0:40 }}</span>
+                                                        <span id="questionContent" *ngIf="isContentExpanded[i+6]">{{ questions[i+1].answer }}</span>
+                                                        <a class="nav-link-answer ms-3" (click)="toggleExpand(i+6)" *ngIf="questions[i+1].answer?.length> 40">
+                                                             {{ isContentExpanded[i+6] ? 'Read Less' : 'Read More' }}<i class="bi bi-arrow-right-circle-fill ms-2"></i>
+                                                        </a>
                                                     </p>
-                                                    <div class="mb-3 mt-3 d-flex align-items-center">
-                                                        <a class="nav-link" (click)="updateQuestion(questions[i+1])" ><i class="bi bi-pen-fill"></i><strong class="ms-2" style="color: #1d4ed8;">Edit Quiz</strong></a>
-                                                        <a class="nav-link " (click)="deleteQuestion(questions[i+1].id)" style="margin-left: 60px;"><i class="bi bi-trash-fill"></i><strong class="ms-2" style="color: #e11d48;">Delete Quiz</strong></a>
+                                                     <div class="mb-3 mt-3 d-flex align-items-center">
+                                                        <a class="nav-link" (click)="updateQuestion(question)" style="color: #1d4ed8;"><i class="bi bi-pen-fill"></i><strong class="ms-2">Edit Quiz</strong></a>
+                                                        <a class="nav-link " (click)="deleteQuestion(question.id)" style="margin-left: 60px; color: #e11d48;"><i class="bi bi-trash-fill"></i><strong class="ms-2">Delete Quiz</strong></a>
                                                     </div>
                                                 </div>
                                             </div> 
@@ -69,7 +87,7 @@
                     </ng-container>
                 </ng-container>
             </div>
-            <div class="text-center m-3">
+            <div class="text-center" style="margin-top: 68px;">
                 <a class="nav-link" routerLink="/admin/quizzes"><i class="bi bi-arrow-return-left"></i><strong class="ms-3">Back to Question List</strong></a>
             </div>
         </div>

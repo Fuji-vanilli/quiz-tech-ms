@@ -87,9 +87,9 @@ export function initializeKeycloak(keycloak: KeycloakService) {
     MatSnackBarModule,
     MatSelectModule,
     MatDialogModule,
+    MatSlideToggleModule,
     HttpClientModule,
-    ReactiveFormsModule,
-    MatSlideToggleModule
+    ReactiveFormsModule
   ],
   providers: [
     {
