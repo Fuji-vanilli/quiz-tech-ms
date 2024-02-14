@@ -148,6 +148,7 @@ public class QuestionServiceImpl implements QuestionService{
             );
         }
 
+        questionRepository.deleteById(id);
         log.info("question with the id {} deleted successfully", id);
         return generateResponse(
                 HttpStatus.OK,

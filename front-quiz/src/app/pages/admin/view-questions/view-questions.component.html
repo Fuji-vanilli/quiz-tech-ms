@@ -10,30 +10,69 @@
     <div class="bootstrap-wrapper">
         <div class="row">
             <div class="col-md-12">
-                <mat-card *ngFor="let question of questions let i= index" class="mt-2 ;">
-                    <div class="container-fluid mt-2"> 
-                        <button class="question">{{i+1}}</button> <span>{{question.content}}</span>
+                <ng-container *ngFor="let question of questions; let i = index">
+                    <ng-container *ngIf="i % 2 === 0">
                         <div class="row">
-                            <div class="col-md-6"> 
-                                <mat-selection-list #answer [multiple]="false">
-                                    <div *ngFor="let option of question.options let i= index">
-                                        <mat-list-option [value]="option" color="accent">{{option}}</mat-list-option>
+                            <div class="col-md-6">
+                                <mat-card class="mt-2">
+                                    <!-- Contenu de la première carte -->
+                                    <div class="container-fluid mt-2"> 
+                                        <button class="question">{{i+1}}</button> <span>{{question.content}}</span>
+                                        <div class="row">
+                                            <div class="col-md-6"> 
+                                                <mat-selection-list #answer [multiple]="false">
+                                                    <div *ngFor="let option of question.options; let j = index">
+                                                        <mat-list-option [value]="option" color="accent">{{option}}</mat-list-option>
+                                                    </div>
+                                                </mat-selection-list>
+                                                <div class="row ms-2">
+                                                    <p style="font-family: 'Ubuntu'; font-size: 14px;">Answer: 
+                                                        <strong style="font-size: 18px; color: #22c55e;">{{question.answer}}</strong>
+                                                    </p>
+                                                    <div class="mb-3 mt-3 d-flex align-items-center">
+                                                        <a class="nav-link" (click)="updateQuestion(question)" ><i class="bi bi-pen-fill"></i><strong class="ms-2" style="color: #1d4ed8;">Edit Quiz</strong></a>
+                                                        <a class="nav-link " (click)="deleteQuestion(question.id)" style="margin-left: 60px;" ><i class="bi bi-trash-fill"></i><strong class="ms-2" style="color: #e11d48;">Delete Quiz</strong></a>
+                                                    </div>
+                                                </div>
+                                            </div> 
+                                        </div>
                                     </div>
-                                </mat-selection-list>
-                                <div class="row ms-2">
-                                    <p style="font-family: 'Ubuntu'; font-size: 14px;">Answer: 
-                                        <strong style="font-size: 18px; color: #22c55e;">{{question.answer}}</strong>
-                                    </p>
-                                    <div class="mb-3 mt-3 d-flex align-items-center">
-                                        <a class="nav-link" (click)="updateQuestion(question)" ><i class="bi bi-pen-fill"></i><strong class="ms-2" style="color: #1d4ed8;">Edit Quiz</strong></a>
-                                        <a class="nav-link ms-3" (click)="deleteQuestion(question.id)" ><i class="bi bi-trash-fill"></i><strong class="ms-2" style="color: #e11d48;">Delete Quiz</strong></a>
+                                </mat-card>
+                            </div>
+                            <div class="col-md-6" *ngIf="questions[i + 1]">
+                                <mat-card class="mt-2">
+                                    <!-- Contenu de la deuxième carte -->
+                                    <div class="container-fluid mt-2"> 
+                                        <button class="question">{{i+2}}</button> <span>{{questions[i+1].content}}</span>
+                                        <div class="row">
+                                            <div class="col-md-6"> 
+                                                <mat-selection-list #answer [multiple]="false">
+                                                    <div *ngFor="let option of questions[i+1].options; let j = index">
+                                                        <mat-list-option [value]="option" color="accent">{{option}}</mat-list-option>
+                                                    </div>
+                                                </mat-selection-list>
+                                                <div class="row ms-2">
+                                                    <p style="font-family: 'Ubuntu'; font-size: 14px;">Answer: 
+                                                        <strong style="font-size: 18px; color: #22c55e;">{{questions[i+1].answer}}</strong>
+                                                    </p>
+                                                    <div class="mb-3 mt-3 d-flex align-items-center">
+                                                        <a class="nav-link" (click)="updateQuestion(questions[i+1])" ><i class="bi bi-pen-fill"></i><strong class="ms-2" style="color: #1d4ed8;">Edit Quiz</strong></a>
+                                                        <a class="nav-link " (click)="deleteQuestion(questions[i+1].id)" style="margin-left: 60px;"><i class="bi bi-trash-fill"></i><strong class="ms-2" style="color: #e11d48;">Delete Quiz</strong></a>
+                                                    </div>
+                                                </div>
+                                            </div> 
+                                        </div>
                                     </div>
-                                </div>
-                            </div> 
+                                </mat-card>
+                            </div>
                         </div>
-                    </div>
-                </mat-card>
+                    </ng-container>
+                </ng-container>
+            </div>
+            <div class="text-center m-3">
+                <a class="nav-link" routerLink="/admin/quizzes"><i class="bi bi-arrow-return-left"></i><strong class="ms-3">Back to Question List</strong></a>
             </div>
         </div>
+        
     </div>
 </div>
