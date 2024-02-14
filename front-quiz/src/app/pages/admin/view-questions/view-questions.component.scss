@@ -1,6 +1,15 @@
 .container {
     background: #fff;
     padding-top: 12px;
+    padding-bottom: 20px;
+}
+
+.nav-link {
+    cursor: pointer;
+}
+
+.nav-link:hover {
+    color: #f59e0b;
 }
 
 .question {
@@ -28,7 +37,6 @@ span {
 .btn-add {
     border: none;
     padding: 12px 20px;
-    border-radius: 8px;
     color: #fff;
     background: #22c55e;
     cursor: pointer;
@@ -39,3 +47,4 @@ span {
     background: #0e223e;
     color: #fff;
 }
+

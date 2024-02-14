@@ -22,4 +22,13 @@ export class QuestionApiService {
   addQuestion(question: Question): Observable<any> {
     return this.httpClient.post(environment.backEndQuestion+'/add', question);
   }
+
+  updateQuestion(question: Question): Observable<any> {
+    return this.httpClient.put(environment.backEndQuestion+'/update', question);
+  }
+
+  deleteQuestion(id: string): Observable<any> {
+    return this.httpClient.delete(environment.backEndQuestion+'/delete/'+id);
+  }
+
 }

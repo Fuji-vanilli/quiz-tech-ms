@@ -4,7 +4,7 @@
             <h1 class="mt-3">Question of <span style="font-size: 22px; font-weight: 600; color: #22c55e">{{quizTitle}}</span></h1>
         </div>
         <div>
-            <button class="btn-add" [routerLink]="'/admin/add-question/'+quizId"><i class="bi bi-plus-lg" style="margin-right: 12px; font-size: 16px; font-weight: 600;"></i> Question</button>
+            <button class="btn-add" [routerLink]="'/admin/add-question/'+quizId"><i class="bi bi-plus-lg" style="margin-right: 12px; font-size: 16px; font-weight: 800;"></i> Question</button>
         </div>
     </div>
     <div class="bootstrap-wrapper">
@@ -22,8 +22,12 @@
                                 </mat-selection-list>
                                 <div class="row ms-2">
                                     <p style="font-family: 'Ubuntu'; font-size: 14px;">Answer: 
-                                        <span style="font-weight: 600; color: #e11d48;">{{question.answer}}</span>
+                                        <strong style="font-size: 18px; color: #22c55e;">{{question.answer}}</strong>
                                     </p>
+                                    <div class="mb-3 mt-3 d-flex align-items-center">
+                                        <a class="nav-link" (click)="updateQuestion(question)" ><i class="bi bi-pen-fill"></i><strong class="ms-2" style="color: #1d4ed8;">Edit Quiz</strong></a>
+                                        <a class="nav-link ms-3" (click)="deleteQuestion(question.id)" ><i class="bi bi-trash-fill"></i><strong class="ms-2" style="color: #e11d48;">Delete Quiz</strong></a>
+                                    </div>
                                 </div>
                             </div> 
                         </div>

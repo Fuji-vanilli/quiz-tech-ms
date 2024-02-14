@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { QuestionApiService } from 'src/app/services/question-api.service';
 import { QuizApiService } from 'src/app/services/quiz-api.service';
 import { Question } from '../../models/question.model';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-view-questions',
@@ -35,6 +36,49 @@ export class ViewQuestionsComponent implements OnInit{
         console.table(this.questions);
       }
     })
+  }
+
+  updateQuestion(question: Question) {
+    this.questionService.updateQuestion(question).subscribe({
+      next: response=> {
+        Swal.fire('Updated', 'Question updated successfully!', 'success');
+        console.log('question updated: ', response.data.question);
+        this.loadQuestionByQuizId();        
+      }, 
+      error: err=> {
+        console.log(err);
+        
+      }
+    })
+  }
+
+  deleteQuestion(id: any) {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'Are you sure to delete this Question?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#dc2626',
+      cancelButtonColor: '#2563eb',
+      confirmButtonText: 'Yes, Delete!',
+      cancelButtonText: 'Cancel'
+    }).then((result)=> {
+      if (result.isConfirmed) {
+        this.questionService.deleteQuestion(id).subscribe({
+          next: response=> {
+            if (response.statusCode== 200) {
+              Swal.fire('Deleted', 'Question deleted successfully!', 'success');
+              this.loadQuestionByQuizId();
+            }
+          },
+          error: err=> {
+            console.log(err);
+            
+          }
+        })
+      }
+    })
+
   }
 
 }

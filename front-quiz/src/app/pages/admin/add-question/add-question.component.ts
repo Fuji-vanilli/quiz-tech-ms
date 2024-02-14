@@ -13,7 +13,6 @@ import { QuizApiService } from 'src/app/services/quiz-api.service';
   styleUrls: ['./add-question.component.scss']
 })
 export class AddQuestionComponent implements OnInit{
-  selected: string='option2';
 
   quizId!: string;
   formGroup!: FormGroup;
@@ -41,7 +40,7 @@ export class AddQuestionComponent implements OnInit{
   loadFormGroup() {
     this.formGroup= this.formBuilder.group({
       content: this.formBuilder.control('', Validators.required),
-      option1: this.formBuilder.control(''),
+      option1: this.formBuilder.control('', Validators.required),
       option2: this.formBuilder.control(''),
       option3: this.formBuilder.control(''),
       option4: this.formBuilder.control(''),

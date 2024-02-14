@@ -4,13 +4,14 @@
             <div class="col-md-12">
                 <h1>Add new Question to : </h1>
                 <mat-card-header>
-                    <mat-card-subtitle><i>Enter the content of the question</i></mat-card-subtitle>
+                    <i class="bi bi-paragraph"></i><strong class="ms-2">Enter the content of Question</strong>
                 </mat-card-header>
                 <form [formGroup]="formGroup" (ngSubmit)="addQuestion()">
                     <mat-form-field class="w-100 mt-3" appearance="outline">
                         <mat-label>Question content</mat-label>
                         <textarea matInput rows="3" formControlName="content" formControlName="content"></textarea>
                     </mat-form-field>
+                    <i class="bi bi-question-diamond-fill"></i><strong class="ms-2">Give some option for the answer</strong>
                     <div class="row">
                         <div class="col-md-6">
                             <mat-form-field class="full-width">
@@ -47,12 +48,14 @@
                             </div>
                     </div>
                     </div>
+                    <div class="mt-3">
+                        <i class="bi bi-bookmark-star-fill"></i><strong class="ms-2">Give the true answer from the options</strong>
+                    </div>
                     <div class="row mt-3">
                         <div class="col-md-4">
                             <mat-form-field class="full-width">
                                 <mat-label>Answer</mat-label>
-                                <mat-select [(value)]="selected" formControlName="answer">
-                                  <mat-option>None</mat-option>
+                                <mat-select  formControlName="answer">
                                   <mat-option value="{{options.option1}}">{{options.option1}}</mat-option>
                                   <mat-option value="{{options.option2}}">{{options.option2}}</mat-option>
                                   <mat-option value="{{options.option3}}">{{options.option3}}</mat-option>
@@ -62,7 +65,7 @@
                         </div>
                     </div>
                     <div class="text-center">
-                        <button  class="btn btn-success"><i class="bi bi-plus-lg" style="margin-right: 12px;"></i>Add</button>
+                        <button  class="btn-add" [disabled]="formGroup.invalid" ><i class="bi bi-plus-lg" style="margin-right: 12px;"></i>Save new Question</button>
                     </div>
                 </form>
             </div>
