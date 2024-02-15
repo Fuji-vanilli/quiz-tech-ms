@@ -202,7 +202,8 @@ public class QuizServiceImpl implements QuizService {
                 Map.of(
                         "quizzes", quizRepository.findAll(pageable).stream()
                                 .map(quizMapper::mapToQuizResponse)
-                                .collect(Collectors.toSet())
+                                .collect(Collectors.toSet()),
+                        "total-quizzes", quizRepository.findAll(pageable).getTotalElements()
                 ),
                 "all quizzes getted successfully!"
         );

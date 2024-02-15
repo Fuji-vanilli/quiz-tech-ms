@@ -16,6 +16,7 @@ export class AddQuizzesComponent implements OnInit{
 
   quizzes: Quiz[]= [];
   categories: Category[]= [];
+  durations: number[]= [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
 
   formGroup!: FormGroup;
 
@@ -39,6 +40,7 @@ export class AddQuizzesComponent implements OnInit{
       title: this.formBuilder.control('', Validators.required),
       description: this.formBuilder.control(''),
       categoryId: this.formBuilder.control(''),
+      duration: this.formBuilder.control(5),
       marks: this.formBuilder.control(0, Validators.required),
       numberOfQuestions: this.formBuilder.control(0, Validators.required),
       active: this.formBuilder.control(false)

@@ -28,7 +28,7 @@ export class ViewQuizzesComponent implements OnInit{
   }
 
   loadQuizzes() {
-    this.quizService.fetchAll().subscribe({
+    this.quizService.fetchAll(0, 10).subscribe({
       next: response=> {
         this.quizzes= response.data.quizzes;
         console.log(this.quizzes);

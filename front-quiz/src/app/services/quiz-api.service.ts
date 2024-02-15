@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environnments/environments';
@@ -11,8 +11,12 @@ export class QuizApiService {
 
   constructor(private httpClient: HttpClient) { }
 
-  fetchAll(): Observable<any> {
-    return this.httpClient.get(environment.backEndQuiz+'/all');
+  fetchAll(page: number, size: number): Observable<any> {
+    let params= new HttpParams();
+    params.set('page', page);
+    params.set('size', size);
+
+    return this.httpClient.get(environment.backEndQuiz+'/all', {params});
   }
 
   addQuiz(quiz: Quiz): Observable<any> {

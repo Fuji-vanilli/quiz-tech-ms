@@ -9,4 +9,5 @@ export interface Quiz {
     active?: boolean,
     categoryId?: string,
     category?: Category
+    duration?: number
 }
