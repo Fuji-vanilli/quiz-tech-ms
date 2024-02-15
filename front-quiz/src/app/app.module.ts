@@ -34,6 +34,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { ViewQuestionsComponent } from './pages/admin/view-questions/view-questions.component';
 import { AddQuestionComponent } from './pages/admin/add-question/add-question.component';
 import { UpdateQuestionComponent } from './pages/admin/update-question/update-question.component';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
 
 export function initializeKeycloak(keycloak: KeycloakService) {
@@ -89,7 +90,8 @@ export function initializeKeycloak(keycloak: KeycloakService) {
     MatDialogModule,
     MatSlideToggleModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CKEditorModule
   ],
   providers: [
     {

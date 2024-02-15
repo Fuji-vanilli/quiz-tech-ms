@@ -6,6 +6,8 @@ import { Question } from '../../models/question.model';
 import Swal from 'sweetalert2';
 import { Quiz } from '../../models/quiz.model';
 import { QuizApiService } from 'src/app/services/quiz-api.service';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+
 
 @Component({
   selector: 'app-add-question',
@@ -13,6 +15,8 @@ import { QuizApiService } from 'src/app/services/quiz-api.service';
   styleUrls: ['./add-question.component.scss']
 })
 export class AddQuestionComponent implements OnInit{
+
+  public Editor= ClassicEditor;
 
   quizId!: string;
   formGroup!: FormGroup;

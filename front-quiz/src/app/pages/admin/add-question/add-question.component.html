@@ -7,10 +7,13 @@
                     <i class="bi bi-paragraph"></i><strong class="ms-2">Enter the content of Question</strong>
                 </mat-card-header>
                 <form [formGroup]="formGroup" (ngSubmit)="addQuestion()">
-                    <mat-form-field class="w-100 mt-3" appearance="outline">
-                        <mat-label>Question content</mat-label>
-                        <textarea matInput rows="3" formControlName="content" formControlName="content"></textarea>
-                    </mat-form-field>
+                    <div class="ckeditor-input">
+                        <ckeditor 
+                        [editor]="Editor" 
+                        name="content"
+                        formControlName="content">
+                    </ckeditor>
+                    </div>
                     <i class="bi bi-question-diamond-fill"></i><strong class="ms-2">Give some option for the answer</strong>
                     <div class="row">
                         <div class="col-md-6">
