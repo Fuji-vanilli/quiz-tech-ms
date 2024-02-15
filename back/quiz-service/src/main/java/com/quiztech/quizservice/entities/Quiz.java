@@ -24,6 +24,7 @@ public class Quiz {
     private Date lastUpdateDate;
     private BigDecimal marks;
     private BigDecimal numberOfQuestions;
+    private BigDecimal duration;
     private List<String> questionsId= new ArrayList<>();
     private boolean active;
     private String categoryId;

@@ -18,6 +18,7 @@ public class QuizResponse {
     private Date lastUpdateDate;
     private BigDecimal marks;
     private BigDecimal numberOfQuestions;
+    private BigDecimal duration;
     private List<String> questionsId;
     private boolean active;
     private String categoryId;

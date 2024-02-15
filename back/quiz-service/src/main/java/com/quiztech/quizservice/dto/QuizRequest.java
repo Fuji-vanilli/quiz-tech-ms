@@ -14,6 +14,7 @@ public class QuizRequest {
     private BigDecimal marks;
     private String description;
     private BigDecimal numberOfQuestions;
+    private BigDecimal duration;
     private List<String> questionsId;
     private boolean active;
     private String categoryId;
