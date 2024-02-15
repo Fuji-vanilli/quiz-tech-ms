@@ -2,17 +2,18 @@
     <div class="bootstrap-wrapper">
         <div class="row">
             <div class="col-md-12">
-                <h1>Add new Question to : </h1>
+                <div class="text-center">
+                    <h1>Add new Question to : <strong style="color: #22c55e;">{{quiz.title}}</strong> </h1>
+                </div>
                 <mat-card-header>
                     <i class="bi bi-paragraph"></i><strong class="ms-2">Enter the content of Question</strong>
                 </mat-card-header>
                 <form [formGroup]="formGroup" (ngSubmit)="addQuestion()">
-                    <div class="ckeditor-input">
-                        <ckeditor 
-                        [editor]="Editor" 
-                        name="content"
-                        formControlName="content">
-                    </ckeditor>
+                    <div class="mt-2">
+                        <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>Content of the Question</mat-label>
+                            <textarea matInput formControlName="content"></textarea>
+                          </mat-form-field>
                     </div>
                     <i class="bi bi-question-diamond-fill"></i><strong class="ms-2">Give some option for the answer</strong>
                     <div class="row">

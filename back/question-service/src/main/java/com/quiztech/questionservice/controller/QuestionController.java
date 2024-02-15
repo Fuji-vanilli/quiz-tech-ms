@@ -13,6 +13,8 @@ public interface QuestionController {
     ResponseEntity<Response> add(@RequestBody QuestionRequest request);
     @GetMapping("get/{id}")
     ResponseEntity<Response> get(@PathVariable String id);
+    @PutMapping("update")
+    ResponseEntity<Response> update(@RequestBody QuestionRequest request);
     @GetMapping("byQuiz/{quizId}")
     ResponseEntity<Response> allByQuiz(@PathVariable String quizId);
     @GetMapping("all")

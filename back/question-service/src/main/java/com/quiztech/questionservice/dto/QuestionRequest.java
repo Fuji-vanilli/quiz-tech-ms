@@ -12,6 +12,7 @@ import java.util.List;
 @NoArgsConstructor
 @Builder
 public class QuestionRequest {
+    private String id;
     private String content;
     private String image;
     private String answer;

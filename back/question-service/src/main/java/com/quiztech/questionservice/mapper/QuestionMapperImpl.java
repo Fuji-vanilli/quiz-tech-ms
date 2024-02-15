@@ -10,6 +10,7 @@ public class QuestionMapperImpl implements QuestionMapper{
     @Override
     public Question mapToQuestion(QuestionRequest request) {
         return Question.builder()
+                .id(request.getId())
                 .content(request.getContent())
                 .id(request.getImage())
                 .answer(request.getAnswer())
@@ -23,7 +24,7 @@ public class QuestionMapperImpl implements QuestionMapper{
         return QuestionResponse.builder()
                 .id(question.getId())
                 .content(question.getContent())
-                .createdDte(question.getCreatedDte())
+                .createdDate(question.getCreatedDate())
                 .lastUpdateDate(question.getLastUpdateDate())
                 .image(question.getImage())
                 .options(question.getOptions())

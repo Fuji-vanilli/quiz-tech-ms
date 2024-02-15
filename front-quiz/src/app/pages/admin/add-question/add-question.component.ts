@@ -80,6 +80,8 @@ export class AddQuestionComponent implements OnInit{
       next: response=> {
         Swal.fire('Success', 'Question added successfully!', 'success');
         this.route.navigateByUrl('/admin/questions/'+this.quizId+'/'+this.quiz.title);
+        console.log('content', this.formGroup.value.content);
+        
       }
     })
   }

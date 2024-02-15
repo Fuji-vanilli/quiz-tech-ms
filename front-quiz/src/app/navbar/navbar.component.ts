@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, HostListener, OnInit, Output } from '@angular/core';
 import { KeycloakService } from 'keycloak-angular';
 import { KeycloakProfile } from 'keycloak-js';
 
@@ -9,7 +9,7 @@ import { KeycloakProfile } from 'keycloak-js';
 })
 export class NavbarComponent implements OnInit {
 
-  profile?: KeycloakProfile;
+  profile?: KeycloakProfile | null= null;
 
   constructor(private keycloakService: KeycloakService) {}
   ngOnInit(): void {
@@ -30,6 +30,7 @@ export class NavbarComponent implements OnInit {
   }
 
   logout() {
+    event?.preventDefault();
     this.keycloakService.logout(window.location.origin);
   }
 
@@ -37,5 +38,12 @@ export class NavbarComponent implements OnInit {
     this.keycloakService.register({
       redirectUri: window.location.origin+'/admin'
     })
+  }
+
+  toggleMenu() {
+    const subMenu= document.getElementById("subMenu");
+    if (subMenu) {
+      subMenu.classList.toggle("open-menu");
+    }
   }
 }

@@ -17,13 +17,10 @@ mat-card {
     font-family: 'Ubuntu';
 }
 
-.custom-card {
-    //border: 1px solid #7dd3fc;
-}
-
 .title-question {
-    margin-left: 16px;
     font-family: 'Ubuntu';
+    color: #f59e0b;
+    margin-left: 16px;
 }
 
 .nav-link {
@@ -54,15 +51,12 @@ mat-card {
     color: #0e223e;
     border: 1px solid #0e223e;
     padding: 10px 24px;
-    transition: all 0.1s ease;
     font-weight: 550;
 }
 
 .btn-question:hover {
     background: #0e223e;
     color: #fff;
-    border: none;
-
 }
 .btn-update {
     background: #3b82f6;

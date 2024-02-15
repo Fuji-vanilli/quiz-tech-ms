@@ -5,4 +5,6 @@ export interface Question {
     answer?: any,
     options?: string[],
     quizId?: string
+    createdDate?: any
+    lastUpdateDate?: any
 }

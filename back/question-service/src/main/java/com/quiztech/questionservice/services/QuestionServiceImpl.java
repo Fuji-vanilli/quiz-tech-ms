@@ -1,14 +1,12 @@
 package com.quiztech.questionservice.services;
 
 import com.quiztech.questionservice.dto.QuestionRequest;
-import com.quiztech.questionservice.dto.QuestionResponse;
 import com.quiztech.questionservice.entities.Question;
 import com.quiztech.questionservice.mapper.QuestionMapper;
 import com.quiztech.questionservice.repository.QuestionRepository;
 import com.quiztech.questionservice.utils.Response;
 import com.quiztech.questionservice.validators.QuestionValidator;
 import com.quiztech.questionservice.webClient.WebClientQuiz;
-import jakarta.servlet.ServletContext;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.PageRequest;
@@ -16,11 +14,11 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.reactive.function.client.WebClient;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
 import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
@@ -48,6 +46,9 @@ public class QuestionServiceImpl implements QuestionService{
 
         Question question= questionMapper.mapToQuestion(request);
         question.setId(UUID.randomUUID().toString());
+        question.setCreatedDate(new Date());
+        question.setLastUpdateDate(new Date());
+
         Boolean isAdded = webClient.addQuestionToQuiz(
                 Map.of(
                         "idQuiz", question.getQuizId(),
@@ -100,6 +101,30 @@ public class QuestionServiceImpl implements QuestionService{
                         "question", questionMapper.mapToQuestionResponse(question)
                 ),
                 "question with the id "+id+" getted successfully!"
+        );
+    }
+
+    @Override
+    public Response update(QuestionRequest request) {
+        final String questionId= request.getId();
+        Question question = questionRepository.findById(questionId).orElseThrow(
+                () -> new IllegalArgumentException("error to fetch the question in database!!!")
+        );
+
+        question.setContent(request.getContent());
+        question.setAnswer(request.getAnswer());
+        question.setLastUpdateDate(new Date());
+
+        questionRepository.save(question);
+        log.info("question {} updated successfully!", questionId);
+
+        return generateResponse(
+                HttpStatus.OK,
+                null,
+                Map.of(
+                        "question", questionMapper.mapToQuestionResponse(question)
+                ),
+                "question :"+questionId+" updated successfully"
         );
     }
 

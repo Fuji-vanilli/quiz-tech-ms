@@ -45,16 +45,16 @@ h3 {
 
 .btn-add {
     padding: 12px 20px;
-    border: none;
-    border-radius: 10px;
-    background: #22c55e;
-    color: #fff;
+    border: 1px solid #22c55e;
+    background: #fff;
+    color: #22c55e;
     font-family: 'Ubuntu';
 }
 
 .btn-add:hover {
     background: #0e223e;
     transition: all 0.25ms;
+    border: none;
 }
 
 .btn-edit {

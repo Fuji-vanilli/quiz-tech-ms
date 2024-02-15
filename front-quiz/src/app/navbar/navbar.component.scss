@@ -10,7 +10,7 @@ img {
     border-radius: 25px;
     border: none;
     padding: 6px 14px ; 
-    background: #e11d48;
+    background: #ea580c;
     color: #fff;
     font-family: 'Poppins';
 }
@@ -28,4 +28,117 @@ img {
 .navbar-nav a, i {
     color: #fff;
     font-family: 'Ubuntu';
+}
+
+.btn-profile {
+    width: 40px; 
+    height: 40px; 
+    padding: 7px 10px; 
+    border-radius: 25px; 
+    font-size: 18px; 
+    text-align: center; 
+    margin-left: 30px;
+    cursor: pointer;
+    position: relative;
+    background: #ea580c;
+    color: #fff;
+}
+
+.sub-menu-wrap {
+    position: absolute;
+    top: 100%;
+    right: 0%;
+    width: 320px;
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height 0.5s;
+}
+
+.sub-menu-wrap.open-menu {
+    max-height: 500px;
+}
+
+.sub-menu {
+    background: #0e223e;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 12px;
+}
+
+
+.user-pic {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.user-info h3 {
+    font-family: 'Ubuntu', Arial, Helvetica, sans-serif;
+    font-weight: 100;
+    font-size: 20px;
+    color: #fff;
+}
+
+.user-info h6 {
+    font-family: 'Ubuntu';
+    font-weight: 100;
+    font-size: 12px;
+    color: #fff;
+}
+.user-info {
+    display: flex;
+    align-items: center;
+}
+
+.sub-menu hr {
+    width: 100%;
+    height: 2px;
+    background: #fff;
+    margin: 15px 0 10px;
+}
+
+.sub-menu-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #525252;
+    margin: 12px 0;
+}
+
+.sub-menu-link p {
+    width: 100%;
+    font-family: 'Ubuntu', Arial, Helvetica, sans-serif;
+    color: #cbd5e1;
+}
+
+.sub-menu-link i {
+    width: 40px;
+    background: #0c4a6e;
+    color: #a3a3a3;
+    border-radius: 50%;
+    padding: 8px;
+    margin-right: 15px;
+    transition: transform 0.5s;
+}
+
+.sub-menu-link:hover i {
+    transform: translateX(5px);
+    color: #fff;
+    background: #ea580c;
+}
+
+.sub-menu-link:hover span {
+    transform: translateX(5px);
+
+}
+
+.sub-menu-link:hover p {
+    font-weight: 600;
+    color: #ea580c;
+}
+.sub-menu-link span {
+    font-size: 18px;
+    transition: transform 0.5s;
+    color: #cbd5e1;
 }

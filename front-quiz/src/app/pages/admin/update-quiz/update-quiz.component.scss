@@ -1,18 +1,28 @@
 .btn-update {
     margin: 12px 24px;
     padding: 12px 24px;
-    border: none;
-    background: #f97316;
-    color: #fff;
+    border: 1px solid #22c55e;
+    background: #fff;
+    color: #22c55e;
     font-family: 'Ubuntu';
+}
+
+.btn-update:hover {
+    border: none;
+    background: #0e223e;
+}
+
+.btn-cancel:hover {
+    border: none;
+    background: #0e223e;
 }
 
 .btn-cancel {
     margin: 12px 24px;
     padding: 12px 24px;
-    border: none;
-    background: #dc2626;
-    color: #fff;
+    border: 1px solid #f97316;
+    background: #fff;
+    color: #f97316;
     font-family: 'Ubuntu';
 }
 

@@ -19,9 +19,45 @@
             <button class="btn-register" (click)="register()" *ngIf="!profile">Sign up</button>
           </li>
           <li class="nav-item" *ngIf="profile">
-            <button class="btn-login" (click)="logout()">Logout</button>
-        </li>
+            <button class="btn btn-profile" (click)="toggleMenu()">{{profile.username?.charAt(0)}}</button>
+          </li>
         </ul>
+        <div class="sub-menu-wrap" id="subMenu">
+          <div class="sub-menu">
+            <div class="user-info">
+              <img src="../../assets/download.jpg" alt="" class="user-pic">    
+              <div class="user-details">
+                <h3>{{profile?.firstName+" "+profile?.lastName}}</h3>
+                <h6>{{profile?.email}}</h6>   
+              </div>      
+            </div>
+            
+            <a routerLink="/admin/profile" class="sub-menu-link">
+              <i class="bi bi-person-fill"></i>
+              <p>Edit profile</p>
+              <span><i class="bi bi-chevron-right"></i></span>
+            </a>
+            <a href="" class="sub-menu-link">
+              <i class="bi bi-gear-fill"></i>
+              <p>Settings</p>
+              <span><i class="bi bi-chevron-right"></i></span>
+            </a>
+            <a href="" class="sub-menu-link">
+              <i class="bi bi-question-circle-fill"></i>
+              <p>Help</p>
+              <span><i class="bi bi-chevron-right"></i></span>
+            </a>
+            <hr>
+            
+            <a href="" class="sub-menu-link mt-4" (click)="logout()">
+              <i class="bi bi-escape"></i>
+              <p>Logout</p>
+              <span><i class="bi bi-chevron-right"></i></span>
+            </a>
+          </div>
+        </div>   
       </div>
     </div>
   </nav>
+
+  

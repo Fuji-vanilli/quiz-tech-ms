@@ -34,9 +34,9 @@
         <mat-slide-toggle color="primary" class="mb-2" formControlName="active">Publish status</mat-slide-toggle>
     </div>
 
-    <div class="text-center">
-        <button class="btn-update" (click)="closeUpdate()">UPDATE</button>
-    <button class="btn-cancel" [mat-dialog-close]="closedMessage">CANCEL</button>
+    <div class="d-flex justify-content-between">
+        <button class="btn-update" (click)="closeUpdate()"><strong>UPDATE</strong></button>
+        <button class="btn-cancel" [mat-dialog-close]="closedMessage"><strong>CANCEL</strong></button>
     </div>
 </div>
 <div mat-dialog-actions>

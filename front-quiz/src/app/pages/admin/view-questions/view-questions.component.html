@@ -20,9 +20,10 @@
                                         <button class="question">{{i+1}}</button> 
                                         <span id="questionContent" *ngIf="!isContentExpanded[i]">{{ question.content | slice:0:50 }}</span>
                                         <span id="questionContent" *ngIf="isContentExpanded[i]">{{ question.content }}</span>
-                                        <button class="nav-link-read ms-3" (click)="toggleExpand(i)" *ngIf="question.content.length> 50">
+                                        <button class="nav-link-read d-flex ms-auto" (click)="toggleExpand(i)" *ngIf="question.content.length> 50">
                                             {{ isContentExpanded[i] ? 'Read Less' : 'Read More' }}<i class="bi bi-arrow-right-circle-fill ms-2"></i>
                                         </button>
+
                                         <div class="row">
                                             <div class="col-md-12"> 
                                                 <mat-selection-list #answer [multiple]="false">
@@ -38,9 +39,13 @@
                                                              {{ isContentExpanded[i+4] ? 'Read Less' : 'Read More' }}<i class="bi bi-arrow-right-circle-fill ms-2"></i>
                                                         </a>
                                                     </p>
-                                                    <div class="mb-3 mt-3 d-flex align-items-center">
+                                                    <div class="mb-3 mt-3 d-flex justify-content-between align-items-center">
                                                         <a class="nav-link" (click)="updateQuestion(question)" style="color: #1d4ed8;"><i class="bi bi-pen-fill"></i><strong class="ms-2">Edit Quiz</strong></a>
                                                         <a class="nav-link " (click)="deleteQuestion(question.id)" style="margin-left: 60px; color: #e11d48;"><i class="bi bi-trash-fill"></i><strong class="ms-2">Delete Quiz</strong></a>
+                                                        <div class="m-3">
+                                                            <i class="bi bi-calendar-plus-fill"></i><strong class="ms-2">{{question.createdDate?.toString().split('T')[0]}}</strong>
+                                                            <i class="bi bi-arrow-repeat ms-3"></i><strong class="ms-2" style="font-weight: 600;">{{question.createdDate?.toString().split('T')[0]}}</strong>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div> 
@@ -55,9 +60,10 @@
                                         <button class="question">{{i+2}}</button> 
                                         <span id="questionContent" *ngIf="!isContentExpanded[i+1]">{{ questions[i+1].content | slice:0:48 }}</span>
                                         <span id="questionContent" *ngIf="isContentExpanded[i+1]">{{ questions[i+1].content }}</span>
-                                        <button class="nav-link-read ms-3" (click)="toggleExpand(i+1)" *ngIf="questions[i+1].content.length> 50">
-                                            {{ isContentExpanded ? 'Read Less' : 'Read More' }}<i class="bi bi-arrow-right-circle-fill ms-2"></i>
+                                        <button class="nav-link-read d-flex ms-auto " (click)="toggleExpand(i+1)" *ngIf="questions[i+1].content.length> 50">
+                                            {{ isContentExpanded[i+1] ? 'Read Less' : 'Read More' }}<i class="bi bi-arrow-right-circle-fill ms-2"></i>
                                         </button>
+                                      
                                         <div class="row">
                                             <div class="col-md-12"> 
                                                 <mat-selection-list #answer [multiple]="false">
@@ -73,9 +79,13 @@
                                                              {{ isContentExpanded[i+6] ? 'Read Less' : 'Read More' }}<i class="bi bi-arrow-right-circle-fill ms-2"></i>
                                                         </a>
                                                     </p>
-                                                     <div class="mb-3 mt-3 d-flex align-items-center">
+                                                    <div class="mb-3 mt-3 d-flex justify-content-between align-items-center">
                                                         <a class="nav-link" (click)="updateQuestion(question)" style="color: #1d4ed8;"><i class="bi bi-pen-fill"></i><strong class="ms-2">Edit Quiz</strong></a>
                                                         <a class="nav-link " (click)="deleteQuestion(question.id)" style="margin-left: 60px; color: #e11d48;"><i class="bi bi-trash-fill"></i><strong class="ms-2">Delete Quiz</strong></a>
+                                                        <div class="m-3">
+                                                            <i class="bi bi-calendar-plus-fill"></i><strong class="ms-2">{{question.createdDate?.toString().split('T')[0]}}</strong>
+                                                            <i class="bi bi-arrow-repeat ms-3"></i><strong class="ms-2" style="font-weight: 600;">{{question.createdDate?.toString().split('T')[0]}}</strong>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div> 

@@ -6,7 +6,10 @@
             <div class="row">
                 <div class="col-md-6 offset-md-3">
                     <form [formGroup]="formGroup" (ngSubmit)="addCategory()" class="dark-theme" >
-                        <mat-form-field  class="w400" appearance="outline">
+                        <div style="margin-bottom: 14px;">
+                            <i class="bi bi-paragraph"></i><strong class="ms-2">Enter the title of the category</strong>
+                        </div>                        
+                        <mat-form-field  class="full-width" appearance="outline">
                             <mat-label>Title</mat-label>
                             <input 
                                 autofocus
@@ -16,14 +19,20 @@
                                 placeholder="Enter title here..."
                                 formControlName="title">
                         </mat-form-field>
+                        <div style="margin-bottom: 14px;">
+                            <i class="bi bi-question-diamond-fill"></i><strong class="ms-2">Give the Descritpion here</strong>
+                        </div>
                         <p>
-                            <mat-form-field appearance="outline">
+                            <mat-form-field appearance="outline" class="full-width">
                                 <mat-label>Description</mat-label>
                                 <textarea matInput placeholder="Enter description here..." formControlName="description" rows="5"></textarea>
                             </mat-form-field>
                         </p>
                         
-                        <button class="btn btn-save" [disabled]="formGroup.invalid">Save</button>
+                        <div class="d-flex justify-content-between aling-items-center">
+                            <button class="btn-save" [disabled]="formGroup.invalid">Save New Category<i class="bi bi-cloud-download-fill ms-2"></i></button>
+                            <a class="nav-link" routerLink="/admin/categories"><i class="bi bi-arrow-left-circle-fill" style="margin-right: 14px;"></i><strong>Back to Category list</strong></a>
+                        </div>
                     </form>
                 </div>
             </div>

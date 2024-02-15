@@ -15,7 +15,7 @@ import java.util.List;
 public class Question {
     private String id;
     private String content;
-    private Date createdDte;
+    private Date createdDate;
     private Date lastUpdateDate;
     private String image;
     private String answer;
