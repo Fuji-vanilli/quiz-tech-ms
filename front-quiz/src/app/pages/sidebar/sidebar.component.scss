@@ -87,4 +87,10 @@ a.sidebar-link {
 a.sidebar-link:hover {
     background: rgba(255, 255, 255, .075);
     border-left: 3px solid #3b7ddd;
+    color: #ea580c;
+}
+
+.sidebar-link.active {
+    background: rgba(255, 255, 255, .075);
+    color: #ea580c;
 }

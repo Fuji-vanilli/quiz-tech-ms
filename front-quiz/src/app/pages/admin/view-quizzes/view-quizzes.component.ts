@@ -16,6 +16,7 @@ import { UpdateQuizComponent } from '../update-quiz/update-quiz.component';
 export class ViewQuizzesComponent implements OnInit{
 
   quizzes: Quiz[]= [];
+  totalQuizzes!: number;
   
   constructor(private quizService: QuizApiService, 
               private categoryService: CategoryApiService,
@@ -31,7 +32,8 @@ export class ViewQuizzesComponent implements OnInit{
     this.quizService.fetchAll(0, 10).subscribe({
       next: response=> {
         this.quizzes= response.data.quizzes;
-        console.log(this.quizzes);
+        this.totalQuizzes= response.data.totalQuizzes;
+        console.log('total elements:', response.data.totalQuizzes);
       },
       error: err=> {
         console.log(err);

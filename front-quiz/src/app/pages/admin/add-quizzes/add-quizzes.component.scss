@@ -3,12 +3,13 @@ mat-card {
 }
 
 .btn-save {
-    background: #e11d48;
+    background: #ea580c;
     padding: 8px 24px;
-    border-radius: 20px;
     color: #fff;
     font-family: 'Poppins';
     margin-bottom: 32px;
+    border: 1px solid #0e223e;
+    cursor: pointer;
 }
 
 .btn-save:hover {
@@ -25,4 +26,8 @@ mat-card {
     background: #dc2626;
     border-radius: 12px;
     border: 6px solid #000000;
+}
+
+.nav-link:hover {
+    color: #ea580c;
 }

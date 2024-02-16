@@ -24,7 +24,7 @@ public interface QuizController {
     @GetMapping("all")
     ResponseEntity<Response> all(
             @RequestParam(defaultValue = "0") int page,
-            @RequestParam(defaultValue = "5") int size
+            @RequestParam(defaultValue = "10") int size
     );
     @DeleteMapping("delete/{id}")
     ResponseEntity<Response> delete(@PathVariable String id);

@@ -27,7 +27,7 @@ export class AddQuizzesComponent implements OnInit{
 
   ngOnInit(): void {
     this.loadFormGoup();
-    this.categoryService.fetchAll(0, 3).subscribe({
+    this.categoryService.fetchAll(0, 10).subscribe({
     next: response=> {
       console.log(response.data.categories);
       this.categories= response.data.categories;
@@ -40,7 +40,7 @@ export class AddQuizzesComponent implements OnInit{
       title: this.formBuilder.control('', Validators.required),
       description: this.formBuilder.control(''),
       categoryId: this.formBuilder.control(''),
-      duration: this.formBuilder.control(5),
+      duration: this.formBuilder.control(0, Validators.required),
       marks: this.formBuilder.control(0, Validators.required),
       numberOfQuestions: this.formBuilder.control(0, Validators.required),
       active: this.formBuilder.control(false)
@@ -54,14 +54,25 @@ export class AddQuizzesComponent implements OnInit{
       categoryId: this.formGroup.value.categoryId,
       active: this.formGroup.value.active,
       marks: this.formGroup.value.marks,
+      duration: this.formGroup.value.duration,
       numberOfQuestions: this.formGroup.value.numberOfQuestions
     }
 
     this.quizService.addQuiz(quiz).subscribe({
       next: response=> {
-        console.log(quiz.categoryId);
-        Swal.fire('Success', 'new Quiz added successfully!', 'success')
-        this.route.navigateByUrl('/admin/quizzes');        
+
+        
+        if (response.statusCode== 400) {
+          Swal.fire('Error', 'Quiz already exist...Try again!!!', 'error')
+          this.route.navigateByUrl('/admin/add-quiz')
+        } else {
+          Swal.fire('Success', 'new Quiz added successfully!', 'success')
+          this.route.navigateByUrl('/admin/quizzes');        
+  
+          console.log('duration: ',quiz.duration);
+          console.log('status', response.statusCode);
+        }
+      
       },
       error: err=> {
         console.log(err);
