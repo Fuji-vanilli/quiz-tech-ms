@@ -1,5 +1,5 @@
 import { Component, EventEmitter, HostListener, OnInit, Output } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { KeycloakService } from 'keycloak-angular';
 import { KeycloakProfile } from 'keycloak-js';
 
@@ -11,10 +11,11 @@ import { KeycloakProfile } from 'keycloak-js';
 export class NavbarComponent implements OnInit {
 
   profile?: KeycloakProfile | null= null;
-  roles: string[]= [];
+  isAdmin: boolean= false;
 
   constructor(public keycloakService: KeycloakService,
-              private activateRoute: ActivatedRoute) {}
+              private activateRoute: ActivatedRoute,
+              private router: Router) {}
   ngOnInit(): void {
     if (this.keycloakService.isLoggedIn()) {
       this.keycloakService.loadUserProfile().then(
@@ -24,10 +25,18 @@ export class NavbarComponent implements OnInit {
         }
       )
     }
-    this.roles= this.keycloakService.getUserRoles();
-    console.log(this.roles)
+    if (this.keycloakService.getUserRoles().includes('ADMIN')) {
+      this.isAdmin= true;
+    }
   }
 
+  dashboard() {
+    if (this.isAdmin) {
+      this.router.navigateByUrl('/admin/profile')
+    } else {
+      this.router.navigateByUrl('/uer');
+    }
+  }
   async login() {
     await this.keycloakService.login({
       redirectUri: window.location.origin+'/admin'
