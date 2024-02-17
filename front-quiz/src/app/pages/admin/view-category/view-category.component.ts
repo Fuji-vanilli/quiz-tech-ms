@@ -3,6 +3,7 @@ import { CategoryApiService } from 'src/app/services/category-api.service';
 import { Category } from '../../models/category.model';
 import Swal from 'sweetalert2';
 import { ActivatedRoute } from '@angular/router';
+import { KeycloakService } from 'keycloak-angular';
 
 declare var window: any;
 
@@ -15,9 +16,11 @@ export class ViewCategoryComponent implements OnInit {
 
   categories: Category[]= [];
   categoryId!: string;
+  totalElements!: number
 
   constructor(private categoryService: CategoryApiService, 
-              private routeActive: ActivatedRoute) {}
+              private routeActive: ActivatedRoute,
+              public keycloakService: KeycloakService) {}
 
   ngOnInit(): void {
     this.loadCategories();
@@ -29,7 +32,10 @@ export class ViewCategoryComponent implements OnInit {
     this.categoryService.fetchAll(0, 5).subscribe({
       next: response=> {
         this.categories= response.data.categories;
+        this.totalElements= response.data.totalElement;
         console.log(response.data);
+        console.log('total elements: ', this.totalElements);
+        
       }, 
       error: err=>  {
         console.log(err);

@@ -3,13 +3,14 @@
         <div class="title-question text-center">
             <h1 class=""><strong>All Quizzes {{'('+totalQuizzes+')'}}</strong></h1>
         </div>
-        <app-search></app-search>
+
         <div>
             <button class="btn-add-quiz" routerLink="/admin/add-quiz">
                 <i class="bi bi-plus-lg" style="margin-right: 12px; font-size: 16px; font-weight: 600;"></i>QUIZ
             </button>
         </div>
     </div>
+    <app-search></app-search>
     <mat-card class="custom-card mt-3" *ngFor="let quiz of quizzes">
         <div class="row">
             <div class="col-md-6 " >

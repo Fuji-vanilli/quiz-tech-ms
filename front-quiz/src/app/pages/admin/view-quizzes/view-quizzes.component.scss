@@ -1,7 +1,7 @@
 .container {
-    margin-top: 16px;
+    padding-top: 16px;
     margin-bottom: 12px;
-    background: #f3f4f6;
+    background: #e5e7eb;
     padding-bottom: 30px;
 }
 .mt10 {
@@ -58,29 +58,6 @@ mat-card {
 .btn-question:hover {
     background: #0e223e;
     color: #fff;
-}
-.btn-update {
-    background: #3b82f6;
-    color: #fff;
-    border: none;
-    border-radius: 18px;
-    padding: 8px 16px;
-}
-
-.btn-update:hover {
-    opacity: .8;
-}
-
-.btn-attempt {
-    background: #fb7185;
-    color: #fff;
-    border: none;
-    border-radius: 18px;
-    padding: 8px 16px;
-}
-
-.btn-attempt:hover {
-    opacity: .8;
 }
 
 .attempt {

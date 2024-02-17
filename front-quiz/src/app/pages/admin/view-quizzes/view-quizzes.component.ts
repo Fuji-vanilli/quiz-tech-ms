@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { UpdateQuizComponent } from '../update-quiz/update-quiz.component';
 import { Observable, Subject } from 'rxjs';
+import { KeycloakService } from 'keycloak-angular';
 
 
 @Component({
@@ -25,10 +26,12 @@ export class ViewQuizzesComponent implements OnInit{
               private categoryService: CategoryApiService,
               private snackBar: MatSnackBar,
               private route: Router,
-              private dialog: MatDialog) {}
+              private dialog: MatDialog,
+              private keycloakService: KeycloakService) {}
 
   ngOnInit(): void {
    this.loadQuizzes();
+  
   }
 
   loadQuizzes() {

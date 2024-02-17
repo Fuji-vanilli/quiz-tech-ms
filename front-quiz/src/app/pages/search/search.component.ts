@@ -22,7 +22,7 @@ export class SearchComponent implements OnInit{
     this.quiz$= this.searchTerms.pipe(
       debounceTime(300),
       distinctUntilChanged(),
-      switchMap(term=> this.quizService.getQuizByTitleKeyword(term))
+      switchMap((term)=> this.quizService.getQuizByTitleKeyword(term))
     )
 
   }

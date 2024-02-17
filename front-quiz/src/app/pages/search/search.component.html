@@ -1,4 +1,4 @@
-<div class="contain p-3 mt-3">
+<div class="contain p-3">
     <form  class="d-flex justify-content-center">
         <div class="box-search">
             <i class="bi bi-search"></i>
@@ -7,14 +7,12 @@
                 (keyup)="search(searchBox.value)"
                 placeholder="Search Quiz here ....."
             />
-            <div class="collection">
-                <a 
-                    [routerLink]="'/admin/quiz/'"
-                    *ngFor="let quiz of quiz$ | async"
-                    (click)="goToDetails(quiz)"
-                    class="collection-item"
-                >{{quiz.title}}</a>
-            </div>
+        </div>
+        <div class="collection">
+            <a 
+                *ngFor="let quiz of quiz$ | async"
+                (click)="goToDetails(quiz)"
+            >{{quiz.title}}</a>
         </div>
     </form>
 </div>

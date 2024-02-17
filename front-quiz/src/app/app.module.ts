@@ -37,6 +37,7 @@ import { UpdateQuestionComponent } from './pages/admin/update-question/update-qu
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { QuizDetailsComponent } from './pages/admin/quiz-details/quiz-details.component';
 import { SearchComponent } from './pages/search/search.component';
+import { UserDashboardComponent } from './pages/user/user-dashboard/user-dashboard.component';
 
 
 export function initializeKeycloak(keycloak: KeycloakService) {
@@ -74,7 +75,8 @@ export function initializeKeycloak(keycloak: KeycloakService) {
     AddQuestionComponent,
     UpdateQuestionComponent,
     QuizDetailsComponent,
-    SearchComponent
+    SearchComponent,
+    UserDashboardComponent
   ],
   imports: [
     BrowserModule,

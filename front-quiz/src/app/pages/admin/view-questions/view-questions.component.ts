@@ -6,6 +6,7 @@ import { Question } from '../../models/question.model';
 import Swal from 'sweetalert2';
 import { MatDialog } from '@angular/material/dialog';
 import { UpdateQuestionComponent } from '../update-question/update-question.component';
+import { KeycloakService } from 'keycloak-angular';
 
 @Component({
   selector: 'app-view-questions',
@@ -21,16 +22,19 @@ export class ViewQuestionsComponent implements OnInit{
   questions: Question[]= [];
   isContentExpanded: { [key: number]: boolean } = {};
 
+
   constructor(private activeRoute: ActivatedRoute,
               private quizService: QuizApiService,
               private questionService: QuestionApiService,
-              private dialog: MatDialog) {}
+              private dialog: MatDialog,
+              private keycloakService: KeycloakService) {}
 
   ngOnInit(): void {
     this.quizId= this.activeRoute.snapshot.params['id'];
     this.quizTitle= this.activeRoute.snapshot.params['title'];
 
     this.loadQuestionByQuizId();
+
   }
 
   toggleExpand(index: number) {

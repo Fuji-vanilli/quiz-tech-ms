@@ -5,7 +5,6 @@ import { AuthGuard } from './guards/auth.guard';
 import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
 import { ProfileComponent } from './pages/admin/profile/profile.component';
 import { WelcomComponent } from './pages/welcom/welcom.component';
-import { CategoryComponent } from './pages/category/category.component';
 import { ViewCategoryComponent } from './pages/admin/view-category/view-category.component';
 import { AddCategoryComponent } from './pages/admin/add-category/add-category.component';
 import { ViewQuizzesComponent } from './pages/admin/view-quizzes/view-quizzes.component';
@@ -15,16 +14,16 @@ import { UpdateQuizComponent } from './pages/admin/update-quiz/update-quiz.compo
 import { ViewQuestionsComponent } from './pages/admin/view-questions/view-questions.component';
 import { AddQuestionComponent } from './pages/admin/add-question/add-question.component';
 import { QuizDetailsComponent } from './pages/admin/quiz-details/quiz-details.component';
+import { UserDashboardComponent } from './pages/user/user-dashboard/user-dashboard.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   //{ path:'admin/dashboard', component: DashboardComponent, canActivate: [AuthGuard], data: {role: ['ADMIN']}},
-  { path:'user/dashboard', component: DashboardComponent, canActivate: [AuthGuard], data: {role: ['USER', 'ADMIN']}},
+  { path:'user/dashboard', component: DashboardComponent, canActivate: [AuthGuard], data: {roles: ['USER']}},
   { 
-    path:'admin', component: DashboardComponent, canActivate: [AuthGuard], data: {role: ['ADMIN']},
+    path:'admin', component: UserDashboardComponent, canActivate: [AuthGuard], data: {roles: ['ADMIN']},
     children: [
       { path: '', component: WelcomComponent },
-      { path: 'category', component: CategoryComponent },
       { path: 'categories', component:ViewCategoryComponent },
       { path: 'add-category', component: AddCategoryComponent },
       { path: 'quizzes', component: ViewQuizzesComponent },

@@ -1,4 +1,5 @@
 import { Component, EventEmitter, HostListener, OnInit, Output } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { KeycloakService } from 'keycloak-angular';
 import { KeycloakProfile } from 'keycloak-js';
 
@@ -10,8 +11,10 @@ import { KeycloakProfile } from 'keycloak-js';
 export class NavbarComponent implements OnInit {
 
   profile?: KeycloakProfile | null= null;
+  roles: string[]= [];
 
-  constructor(private keycloakService: KeycloakService) {}
+  constructor(public keycloakService: KeycloakService,
+              private activateRoute: ActivatedRoute) {}
   ngOnInit(): void {
     if (this.keycloakService.isLoggedIn()) {
       this.keycloakService.loadUserProfile().then(
@@ -21,6 +24,8 @@ export class NavbarComponent implements OnInit {
         }
       )
     }
+    this.roles= this.keycloakService.getUserRoles();
+    console.log(this.roles)
   }
 
   async login() {

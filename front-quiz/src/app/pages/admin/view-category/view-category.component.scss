@@ -1,5 +1,5 @@
 .container {
-    background: #fff;
+    background: #f9fafb;
     padding-bottom: 24px;
     padding-left: 30px;
 }
@@ -62,3 +62,34 @@ h3 {
     
 }
 
+
+.category-card {
+    padding: 16px 16px;
+    margin-bottom: 14px;
+}
+
+.image-category  {
+    background-image: url('../../../../assets/examen-en-ligne.png');
+    background-size: cover;
+}
+
+.btn-question {
+    background: #fff;
+    color: #0e223e;
+    border: 1px solid #0e223e;
+    padding: 10px 24px;
+    font-weight: 550;
+}
+
+.btn-question:hover {
+    background: #0e223e;
+    color: #fff;
+}
+
+.nav-link {
+    cursor: pointer;
+}
+
+.nav-link:hover {
+    color: #f59e0b;
+}
