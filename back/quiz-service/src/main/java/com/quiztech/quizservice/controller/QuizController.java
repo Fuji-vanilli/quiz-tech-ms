@@ -27,7 +27,7 @@ public interface QuizController {
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "10") int size
     );
-    @GetMapping("byTitleKeyword")
+    @GetMapping("byTitleKeyword/{keyword}")
     ResponseEntity<Response> getByKeywordTitle(@PathVariable String keyword);
     @DeleteMapping("delete/{id}")
     ResponseEntity<Response> delete(@PathVariable String id);
