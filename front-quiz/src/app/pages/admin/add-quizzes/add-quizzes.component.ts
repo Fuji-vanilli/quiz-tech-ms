@@ -40,7 +40,7 @@ export class AddQuizzesComponent implements OnInit{
       title: this.formBuilder.control('', Validators.required),
       description: this.formBuilder.control(''),
       categoryId: this.formBuilder.control(''),
-      duration: this.formBuilder.control(0, Validators.required),
+      duration: this.formBuilder.control(5, Validators.required),
       marks: this.formBuilder.control(0, Validators.required),
       numberOfQuestions: this.formBuilder.control(0, Validators.required),
       active: this.formBuilder.control(false)
