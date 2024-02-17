@@ -2,6 +2,7 @@ package com.quiztech.quizservice.controller;
 
 import com.quiztech.quizservice.dto.QuizRequest;
 import com.quiztech.quizservice.dto.QuizResponse;
+import com.quiztech.quizservice.entities.Quiz;
 import com.quiztech.quizservice.service.QuizService;
 import com.quiztech.quizservice.utils.Response;
 import lombok.RequiredArgsConstructor;
@@ -50,6 +51,11 @@ public class QuizApi implements QuizController{
     @Override
     public ResponseEntity<Response> all(int page, int size) {
         return ResponseEntity.ok(quizService.all(page, size));
+    }
+
+    @Override
+    public ResponseEntity<Response> getByKeywordTitle(String keyword) {
+        return ResponseEntity.ok(quizService.getByKeyWordTitle(keyword));
     }
 
     @Override

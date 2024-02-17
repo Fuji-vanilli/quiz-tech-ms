@@ -16,5 +16,6 @@ public interface QuizService {
     Response get(String id);
     Response quizByCategory(String idCategory);
     Response all(int page, int size);
+    Response getByKeyWordTitle(String keywordTitle);
     Response delete(String id);
 }

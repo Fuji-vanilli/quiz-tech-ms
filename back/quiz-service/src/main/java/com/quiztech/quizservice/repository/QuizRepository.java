@@ -8,4 +8,5 @@ import java.util.List;
 public interface QuizRepository extends MongoRepository<Quiz, String> {
     boolean existsByTitle(String title);
     List<Quiz> findByCategoryId(String idCategory);
+    List<Quiz> findByTitleContainingIgnoreCase(String keywordTitle);
 }

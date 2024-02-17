@@ -2,6 +2,7 @@ package com.quiztech.quizservice.controller;
 
 import com.quiztech.quizservice.dto.QuizRequest;
 import com.quiztech.quizservice.dto.QuizResponse;
+import com.quiztech.quizservice.entities.Quiz;
 import com.quiztech.quizservice.utils.Response;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -26,6 +27,8 @@ public interface QuizController {
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "10") int size
     );
+    @GetMapping("byTitleKeyword")
+    ResponseEntity<Response> getByKeywordTitle(@PathVariable String keyword);
     @DeleteMapping("delete/{id}")
     ResponseEntity<Response> delete(@PathVariable String id);
 }

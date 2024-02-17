@@ -210,6 +210,23 @@ public class QuizServiceImpl implements QuizService {
     }
 
     @Override
+    public Response getByKeyWordTitle(String keywordTitle) {
+        List<Quiz> quizByTitleKeyword = quizRepository.findByTitleContainingIgnoreCase(keywordTitle);
+
+        log.info("all quiz with the keyword: {} are getted successfully!", keywordTitle);
+        return generateResponse(
+                HttpStatus.OK,
+                null,
+                Map.of(
+                        "quizzes", quizByTitleKeyword.stream()
+                                .map(quizMapper::mapToQuizResponse)
+                                .toList()
+                ),
+                "all quizzes with the keyword: "+keywordTitle+" are getted successfully!"
+        );
+    }
+
+    @Override
     public Response delete(String id) {
         if (!quizRepository.existsById(id)) {
             log.error("quiz with the id: {} doesn't exist on the database!", id);
