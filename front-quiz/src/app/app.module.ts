@@ -21,7 +21,6 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { SidebarComponent } from './pages/sidebar/sidebar.component';
-import { WelcomComponent } from './pages/welcom/welcom.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ViewCategoryComponent } from './pages/admin/view-category/view-category.component';
 import { AddCategoryComponent } from './pages/admin/add-category/add-category.component';
@@ -38,6 +37,7 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { QuizDetailsComponent } from './pages/admin/quiz-details/quiz-details.component';
 import { SearchComponent } from './pages/search/search.component';
 import { UserDashboardComponent } from './pages/user/user-dashboard/user-dashboard.component';
+import { UserSidebarComponent } from './pages/user/user-sidebar/user-sidebar.component';
 
 
 export function initializeKeycloak(keycloak: KeycloakService) {
@@ -64,7 +64,6 @@ export function initializeKeycloak(keycloak: KeycloakService) {
     DashboardComponent,
     ProfileComponent,
     SidebarComponent,
-    WelcomComponent,
     ViewCategoryComponent,
     AddCategoryComponent,
     AddQuizzesComponent,
@@ -76,7 +75,8 @@ export function initializeKeycloak(keycloak: KeycloakService) {
     UpdateQuestionComponent,
     QuizDetailsComponent,
     SearchComponent,
-    UserDashboardComponent
+    UserDashboardComponent,
+    UserSidebarComponent
   ],
   imports: [
     BrowserModule,
