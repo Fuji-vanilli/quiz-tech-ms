@@ -1,8 +1,9 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { environment } from 'src/environnments/environments';
 import { Quiz } from '../pages/models/quiz.model';
+import { env } from '@ckeditor/ckeditor5-utils';
 
 @Injectable({
   providedIn: 'root'
@@ -31,7 +32,14 @@ export class QuizApiService {
     return this.httpClient.get(environment.backEndQuiz+'/get/'+id);
   }
 
+  getQuizByTitleKeyword(keyword: string): Observable<Quiz[]> {
+    return this.httpClient.get<any>(environment.backEndQuiz+'/byTitleKeyword/'+keyword).pipe(
+      map(response=>  response.data.quizzes as Quiz[])
+    );
+  }
+
   deleteQuiz(id: string): Observable<any> {
     return this.httpClient.delete(environment.backEndQuiz+'/delete/'+id);
   }
+
 }

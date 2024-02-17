@@ -30,6 +30,7 @@
     "bootstrap-icons": "^1.11.3",
     "keycloak-angular": "^15.1.0",
     "keycloak-js": "^22.0.5",
+    "materialize-angular": "^0.7.10",
     "ngx-perfect-scrollbar": "^10.1.1",
     "rxjs": "~7.8.0",
     "sweetalert2": "^11.10.5",

@@ -1,0 +1,34 @@
+
+.box-search {
+    background: #0e223e;
+    border-radius: 30px;
+    border: 0.1px  #0a0a0a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 500px;
+    height: 50px;
+    padding: 20px;
+    
+}
+
+.box-search > i {
+    font-size: 20px;
+    color: #f59e0b;
+}
+
+.box-search > input { 
+    background: #0e223e;
+    color: #f59e0b;
+    flex: 1;
+    height: 40px;
+    border: none;
+    outline: none;   
+    font-size: 18px;
+    padding-left: 20px; 
+}
+
+box-search:focus-within {
+    border: 2px solid #0a0a0a;
+    transition: border-color 0.3s ease;
+}

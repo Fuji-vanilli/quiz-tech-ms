@@ -1,47 +1,43 @@
 import { Component, OnInit } from '@angular/core';
-import { QuizApiService } from 'src/app/services/quiz-api.service';
+import { ActivatedRoute } from '@angular/router';
 import { Quiz } from '../../models/quiz.model';
-import { CategoryApiService } from 'src/app/services/category-api.service';
-import Swal from 'sweetalert2';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { Router } from '@angular/router';
-import { MatDialog } from '@angular/material/dialog';
+import { QuizApiService } from 'src/app/services/quiz-api.service';
 import { UpdateQuizComponent } from '../update-quiz/update-quiz.component';
-import { Observable, Subject } from 'rxjs';
-
+import Swal from 'sweetalert2';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
-  selector: 'app-view-quizzes',
-  templateUrl: './view-quizzes.component.html',
-  styleUrls: ['./view-quizzes.component.scss']
+  selector: 'app-quiz-details',
+  templateUrl: './quiz-details.component.html',
+  styleUrls: ['./quiz-details.component.scss']
 })
-export class ViewQuizzesComponent implements OnInit{
+export class QuizDetailsComponent implements OnInit{
 
-  quizzes: Quiz[]= [];
-  quizzesByTitleKeyword: Quiz[]= [];
-  totalQuizzes!: number;
+  quizId!: string;
+  quiz!: Quiz;
 
-  constructor(private quizService: QuizApiService, 
-              private categoryService: CategoryApiService,
-              private snackBar: MatSnackBar,
-              private route: Router,
+  constructor(private activeRoute: ActivatedRoute,
+              private quizService: QuizApiService,
               private dialog: MatDialog) {}
 
   ngOnInit(): void {
-   this.loadQuizzes();
+    this.quizId= this.activeRoute.snapshot.params['id'];
+    console.log('idquiz: ', this.quizId);
+    
+    this.loadQuiz();
   }
 
-  loadQuizzes() {
-    this.quizService.fetchAll(0, 10).subscribe({
+  loadQuiz() {
+    this.quizService.getQuiz(this.quizId).subscribe({
       next: response=> {
-        this.quizzes= response.data.quizzes;
-        this.totalQuizzes= response.data.totalQuizzes;
-        console.log('total elements:', response.data.totalQuizzes);
+        this.quiz= response.data.quiz;
+        console.table(this.quiz);
       },
       error: err=> {
         console.log(err);
+        
       }
-     });
+    })
   }
 
   deleteQuiz(id: any) {
@@ -63,7 +59,7 @@ export class ViewQuizzesComponent implements OnInit{
               
               Swal.fire('Success', 'Quiz deleted successfully', 'success');
             }
-            this.loadQuizzes();
+            this.loadQuiz();
           },
           error: err=> {
             console.log(err);
@@ -90,8 +86,5 @@ export class ViewQuizzesComponent implements OnInit{
         categoryId: quiz.categoryId
       }
     })
-
-    this.loadQuizzes();
   }
-
 }

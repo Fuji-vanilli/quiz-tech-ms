@@ -1,0 +1,20 @@
+<div class="contain p-3 mt-3">
+    <form  class="d-flex justify-content-center">
+        <div class="box-search">
+            <i class="bi bi-search"></i>
+            <input 
+                #searchBox
+                (keyup)="search(searchBox.value)"
+                placeholder="Search Quiz here ....."
+            />
+            <div class="collection">
+                <a 
+                    [routerLink]="'/admin/quiz/'"
+                    *ngFor="let quiz of quiz$ | async"
+                    (click)="goToDetails(quiz)"
+                    class="collection-item"
+                >{{quiz.title}}</a>
+            </div>
+        </div>
+    </form>
+</div>

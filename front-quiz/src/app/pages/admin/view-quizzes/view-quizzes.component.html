@@ -3,14 +3,7 @@
         <div class="title-question text-center">
             <h1 class=""><strong>All Quizzes {{'('+totalQuizzes+')'}}</strong></h1>
         </div>
-        <div class="contain p-3 mt-3">
-            <form  class="d-flex justify-content-center">
-                <div class="box-search">
-                    <i class="bi bi-search"></i>
-                    <input type="text" placeholder="Search Quiz here ....." formControlName="keyword" id="searchInput">
-                </div>
-            </form>
-        </div>
+        <app-search></app-search>
         <div>
             <button class="btn-add-quiz" routerLink="/admin/add-quiz">
                 <i class="bi bi-plus-lg" style="margin-right: 12px; font-size: 16px; font-weight: 600;"></i>QUIZ
@@ -22,7 +15,9 @@
             <div class="col-md-6 " >
                 <mat-card-header>
                     <div mat-card-avatar class="example-header-image"></div>
-                    <mat-card-title>{{quiz.title}} </mat-card-title>
+                    <mat-card-title>
+                        <a class="nav-link" [routerLink]="'/admin/quiz/'+quiz.id">{{quiz.title}} </a>
+                    </mat-card-title>
                     <mat-card-subtitle>{{quiz.category?.title}} </mat-card-subtitle>
                 </mat-card-header>
                 <mat-card-content>
@@ -85,6 +80,4 @@
             </div>
         </div>
     </mat-card>
-
-
 </div>
