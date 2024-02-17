@@ -13,11 +13,15 @@ import { ViewQuestionsComponent } from './pages/admin/view-questions/view-questi
 import { AddQuestionComponent } from './pages/admin/add-question/add-question.component';
 import { QuizDetailsComponent } from './pages/admin/quiz-details/quiz-details.component';
 import { UserDashboardComponent } from './pages/user/user-dashboard/user-dashboard.component';
+import { LoadQuizComponent } from './pages/user/load-quiz/load-quiz.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { 
-    path:'user', component: UserDashboardComponent, canActivate: [AuthGuard], data: {roles: ['USER']}},
+    path:'user', component: UserDashboardComponent, canActivate: [AuthGuard], data: {roles: ['USER']},
+    children: [
+      { path: '', component: LoadQuizComponent }
+    ]},
   { 
     path:'admin', component: DashboardComponent, canActivate: [AuthGuard], data: {roles: ['ADMIN']},
     children: [

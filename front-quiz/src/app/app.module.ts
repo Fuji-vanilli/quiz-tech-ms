@@ -38,6 +38,7 @@ import { QuizDetailsComponent } from './pages/admin/quiz-details/quiz-details.co
 import { SearchComponent } from './pages/search/search.component';
 import { UserDashboardComponent } from './pages/user/user-dashboard/user-dashboard.component';
 import { UserSidebarComponent } from './pages/user/user-sidebar/user-sidebar.component';
+import { LoadQuizComponent } from './pages/user/load-quiz/load-quiz.component';
 
 
 export function initializeKeycloak(keycloak: KeycloakService) {
@@ -76,7 +77,8 @@ export function initializeKeycloak(keycloak: KeycloakService) {
     QuizDetailsComponent,
     SearchComponent,
     UserDashboardComponent,
-    UserSidebarComponent
+    UserSidebarComponent,
+    LoadQuizComponent
   ],
   imports: [
     BrowserModule,

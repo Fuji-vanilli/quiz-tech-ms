@@ -34,7 +34,7 @@ export class NavbarComponent implements OnInit {
     if (this.isAdmin) {
       this.router.navigateByUrl('/admin/profile')
     } else {
-      this.router.navigateByUrl('/uer');
+      this.router.navigateByUrl('/user');
     }
   }
   async login() {
