@@ -28,6 +28,8 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 @Slf4j
 public class QuizServiceImpl implements QuizService {
+    public static final int PAGE= 0;
+    public static final int SIZE= 20;
     private final QuizRepository quizRepository;
     private final QuizMapper quizMapper;
     private final WebClientGetter webClient;
@@ -179,14 +181,16 @@ public class QuizServiceImpl implements QuizService {
 
     @Override
     public Response quizByCategory(String idCategory) {
+        Pageable pageable= PageRequest.of(PAGE, SIZE);
         log.info("all quiz with the category: {} getted successfully!", idCategory);
         return generateResponse(
                 HttpStatus.OK,
                 null,
                 Map.of(
-                        "quizzes", quizRepository.findAll().stream()
+                        "quizzes", quizRepository.findAll(pageable).stream()
                                 .map(quizMapper::mapToQuizResponse)
-                                .collect(Collectors.toSet())
+                                .collect(Collectors.toSet()),
+                        "totalQuizzes", quizRepository.findAll(pageable).getTotalElements()
                 ),
                 "all quizzes with the category: "+idCategory+" getted successfully!"
         );

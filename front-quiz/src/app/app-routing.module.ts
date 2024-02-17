@@ -20,11 +20,13 @@ const routes: Routes = [
   { 
     path:'user', component: UserDashboardComponent, canActivate: [AuthGuard], data: {roles: ['USER']},
     children: [
-      { path: '', component: LoadQuizComponent }
+      { path: '', component: LoadQuizComponent },
+      { path: 'quizzes', component: LoadQuizComponent }
     ]},
   { 
     path:'admin', component: DashboardComponent, canActivate: [AuthGuard], data: {roles: ['ADMIN']},
     children: [
+      { path: '', component: ViewQuizzesComponent },
       { path: 'categories', component:ViewCategoryComponent },
       { path: 'add-category', component: AddCategoryComponent },
       { path: 'quizzes', component: ViewQuizzesComponent },

@@ -32,14 +32,14 @@ export class NavbarComponent implements OnInit {
 
   dashboard() {
     if (this.isAdmin) {
-      this.router.navigateByUrl('/admin/profile')
+      this.router.navigateByUrl('/admin/')
     } else {
       this.router.navigateByUrl('/user');
     }
   }
   async login() {
     await this.keycloakService.login({
-      redirectUri: window.location.origin+'/admin'
+      redirectUri: window.location.origin+'/admin/'
     })
   }
 
@@ -50,7 +50,7 @@ export class NavbarComponent implements OnInit {
 
   register() {
     this.keycloakService.register({
-      redirectUri: window.location.origin+'/admin'
+      redirectUri: window.location.origin+'/admin/'
     })
   }
 
