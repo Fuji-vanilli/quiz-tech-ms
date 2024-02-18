@@ -20,6 +20,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { SidebarComponent } from './pages/sidebar/sidebar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ViewCategoryComponent } from './pages/admin/view-category/view-category.component';
@@ -103,6 +104,7 @@ export function initializeKeycloak(keycloak: KeycloakService) {
     MatSelectModule,
     MatDialogModule,
     MatSlideToggleModule,
+    MatProgressSpinnerModule,
     HttpClientModule,
     ReactiveFormsModule,
     CKEditorModule

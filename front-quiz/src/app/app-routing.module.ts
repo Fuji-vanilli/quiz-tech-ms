@@ -26,6 +26,7 @@ const routes: Routes = [
       { path: '', component: LoadQuizComponent },
       { path: 'quizzes', component: LoadQuizComponent },
       { path: 'quizzes/:categoryId', component: LoadQuizByCategoryComponent },
+      { path: 'instructions/:quizId', component: InstructionsComponent }
     ]},
   { 
     path:'admin', component: DashboardComponent, canActivate: [AuthGuard], data: {roles: ['ADMIN']},
@@ -43,8 +44,7 @@ const routes: Routes = [
       { path: 'profile', component: ProfileComponent }
     ]
   },
-  { path:'user/profile', component: ProfileComponent, canActivate: [AuthGuard], data: {role: ['USER', 'ADMIN']}},
-  { path: 'quiz/instructions/:quizId', component: InstructionsComponent }
+  { path:'user/profile', component: ProfileComponent, canActivate: [AuthGuard], data: {role: ['USER', 'ADMIN']}}
 ];
 
 @NgModule({

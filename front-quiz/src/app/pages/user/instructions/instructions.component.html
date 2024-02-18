@@ -1,1 +1,56 @@
-<p class="mt-5">instructions works!</p>
+<div class="bootstrap-wrapper mt-4">
+    <div class="container-fluid pb-3">
+        <div class="row">
+            <div class="col-md-4" style="background: #9ca3af; height: 85vh;">
+                <div class="row">
+                    <div class="title-quiz col-md-12 ms-3" style="height: 20vh;">
+                        <img src="../../../../assets/securite-des-donnees.png" alt="">
+                        <div class="mt-2">
+                            <h2>{{quiz.title}}</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="content-quiz col-md-12" style="background: #e5e7eb; height: 65vh;">
+                        <div class="ms-3">
+                            <h1><strong>Quiz</strong></h1>
+                            <span>{{quiz.description}}</span>
+                            <mat-spinner
+                                mode="determinate"
+                                color="accent"
+                                style=" margin-top: 40px;"
+                                [value]="100"
+                                ></mat-spinner>
+                           <div class="mt-3" style="color: #0e223e;">
+                                <p>Time</p>
+                                <h2><i class="bi bi-alarm" style="font-size: 28px;"></i><strong class="ms-3">{{quiz.duration}} Minutes</strong></h2>
+                           </div>
+                           <div class="mt-2" style="color: #0e223e;">
+                                <p>Questions</p>
+                                <h2><i class="bi bi-question-circle" style="font-size: 28px;"></i><strong class="ms-3">{{quiz.numberOfQuestions}} Questions</strong></h2>
+                           </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="mt-5 m-5">
+                    <p>Before we begin, let's set the stage for what lies ahead. 
+                        This quiz aims to <strong>{{quiz.description}}</strong>, test your knowledge on <strong>{{quiz.title}}</strong>, 
+                        assess your understanding of [subject], challenge your skills in <strong>{{quiz.numberOfQuestions}}</strong>, 
+                        questions in <strong>{{quiz.duration}}</strong> Minutes. 
+                        Whether you're here for fun or seeking to expand your knowledge, 
+                        this quiz is designed to engage and stimulate your mind.
+                    </p>
+                    <ul class="mt-5">
+                        <li class="nav-item">1- Standard Mode: Dive straight into the quiz with a balanced mix of questions across various difficulty levels. Perfect for those seeking a well-rounded challenge.</li>
+                        <li class="nav-item mt-2" >Custom Mode: Tailor the quiz to your liking by selecting specific categories or topics you want to focus on. Personalize your quiz experience and make it uniquely yours!</li>
+                        <li class="nav-item mt-2" >Random Mode: Feeling adventurous? Let fate decide your quiz journey by opting for a random selection of questions from our vast database. Embrace the element of surprise and see where it takes you!</li>
+                    </ul>
+                </div>
+
+                
+            </div>
+        </div>
+    </div>
+</div>
