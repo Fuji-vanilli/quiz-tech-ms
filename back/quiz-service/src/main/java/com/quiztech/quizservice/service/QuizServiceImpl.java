@@ -181,7 +181,6 @@ public class QuizServiceImpl implements QuizService {
 
     @Override
     public Response quizByCategory(String idCategory) {
-        Pageable pageable= PageRequest.of(PAGE, SIZE);
         log.info("all quiz with the category: {} getted successfully!", idCategory);
         return generateResponse(
                 HttpStatus.OK,
@@ -190,7 +189,7 @@ public class QuizServiceImpl implements QuizService {
                         "quizzes", quizRepository.findByCategoryId(idCategory ).stream()
                                 .map(quizMapper::mapToQuizResponse)
                                 .collect(Collectors.toSet()),
-                        "totalQuizzes", quizRepository.findAll(pageable).getTotalElements()
+                        "totalQuizzes", quizRepository.findByCategoryId(idCategory).size()
                 ),
                 "all quizzes with the category: "+idCategory+" getted successfully!"
         );
