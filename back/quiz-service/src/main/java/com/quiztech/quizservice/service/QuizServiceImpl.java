@@ -5,6 +5,7 @@ import com.quiztech.quizservice.dto.QuizResponse;
 import com.quiztech.quizservice.entities.Quiz;
 import com.quiztech.quizservice.mapper.QuizMapper;
 import com.quiztech.quizservice.model.Category;
+import com.quiztech.quizservice.model.Question;
 import com.quiztech.quizservice.repository.QuizRepository;
 import com.quiztech.quizservice.utils.Response;
 import com.quiztech.quizservice.validators.QuizValidator;
@@ -170,6 +171,8 @@ public class QuizServiceImpl implements QuizService {
         Quiz quiz= quizRepository.findById(id).orElseThrow(
                 ()-> new IllegalArgumentException("error to fetch quiz with the id: "+id)
         );
+        List<Question> questionsByQuiz = webClient.getQuestionsByQuiz(quiz.getId());
+        quiz.setQuestions(questionsByQuiz);
 
         log.info("quiz with the id {} getted successfully!", id);
         return generateResponse(
@@ -207,7 +210,12 @@ public class QuizServiceImpl implements QuizService {
                 null,
                 Map.of(
                         "quizzes", quizRepository.findAll(pageable).stream()
-                                .map(quizMapper::mapToQuizResponse)
+                                .map(quiz -> {
+                                    List<Question> questionsByQuiz = webClient.getQuestionsByQuiz(quiz.getId());
+                                    quiz.setQuestions(questionsByQuiz);
+
+                                    return quizMapper.mapToQuizResponse(quiz);
+                                })
                                 .collect(Collectors.toSet()),
                         "totalQuizzes", quizRepository.findAll(pageable).getTotalElements()
                 ),

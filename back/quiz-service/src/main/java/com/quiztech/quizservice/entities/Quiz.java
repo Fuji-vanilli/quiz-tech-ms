@@ -1,6 +1,7 @@
 package com.quiztech.quizservice.entities;
 
 import com.quiztech.quizservice.model.Category;
+import com.quiztech.quizservice.model.Question;
 import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Transient;
@@ -26,6 +27,7 @@ public class Quiz {
     private BigDecimal numberOfQuestions;
     private BigDecimal duration;
     private List<String> questionsId= new ArrayList<>();
+    private List<Question> questions= new ArrayList<>();
     private boolean active;
     private String categoryId;
     private Category category;

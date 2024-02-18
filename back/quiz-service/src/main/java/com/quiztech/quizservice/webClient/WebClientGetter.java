@@ -99,13 +99,17 @@ public class WebClientGetter {
 
         try {
             JSONObject jsonObject= new JSONObject(dataBrute);
-            jsonArray= jsonObject.getJSONObject("data").getJSONArray("questions");
+            JSONObject data= jsonObject.getJSONObject("data");
+            jsonArray= data.getJSONArray("questions");
+        } catch (JSONException e) {
+            throw new RuntimeException("Error to deserialize the jsonObject to jsonArray!!!");
+        }
 
+        try {
             Question[] questions = objectMapper.readValue(jsonArray.toString(), Question[].class);
-            results= Arrays.asList(questions);
-
-        } catch (JSONException | JsonProcessingException e) {
-            throw new RuntimeException("Error to deserialize the data!!!");
+            results.addAll(Arrays.asList(questions));
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException("error to deserialize data!!!");
         }
 
         return results;
