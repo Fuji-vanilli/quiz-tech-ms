@@ -3,6 +3,7 @@ import { Quiz } from '../../models/quiz.model';
 import { QuizApiService } from 'src/app/services/quiz-api.service';
 import { ActivatedRoute } from '@angular/router';
 import { Question } from '../../models/question.model';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-start-quiz',
@@ -11,10 +12,15 @@ import { Question } from '../../models/question.model';
 })
 export class StartQuizComponent {
 
+  spinnerValue: number= 100
+  questionValue: number= 0
+  duration!: number;
+  choiceSelected!: string;
   
   quiz!: any;
   quizId!: string;
   currentQuestion: number= 0;
+  isCurrent: boolean= true;
 
   constructor(private quizService: QuizApiService,
               private activeRoute: ActivatedRoute) {}
@@ -22,13 +28,14 @@ export class StartQuizComponent {
   ngOnInit(): void {
     this.quizId= this.activeRoute.snapshot.params['quizId'];
     this.loadQuiz();
-    
+    this.startTimer();
   }
 
   loadQuiz() {
     this.quizService.getQuiz(this.quizId).subscribe({
       next: response=> {
         this.quiz= response.data.quiz,
+        this.duration= this.quiz.duration;
         console.log(this.quiz.questions);
       },
       error: err=> {
@@ -41,6 +48,9 @@ export class StartQuizComponent {
   onNextQuestion() {
     if (this.currentQuestion< this.quiz.questions?.length-1) {
       this.currentQuestion++;
+      this.questionValue+= 100/3;
+    } else {
+      this.isCurrent= false; 
     }
   }
 
@@ -50,5 +60,31 @@ export class StartQuizComponent {
     }
   }
 
+  startTimer(): void {
+    const interval = setInterval(() => {
+      this.spinnerValue -= (100 / (this.duration * 60)); 
+      if (this.spinnerValue <= 0) {
+        clearInterval(interval); 
+        this.timeUp();
+      }
+    }, 1000); 
+  }
 
+  timeUp() {
+    Swal.fire({
+      title: 'Time Up',
+      text: 'The Time of this Quiz is up',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#dc2626',
+      cancelButtonColor: '#2563eb',
+      confirmButtonText: 'SUBMIT',
+      cancelButtonText: 'CANCEL'
+    }).then((result)=> {
+    })
+  }
+  
+  selected(option: string) {
+    this.choiceSelected= option;
+  }
 }

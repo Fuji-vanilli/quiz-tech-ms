@@ -14,16 +14,68 @@
     font-family: 'Ubuntu';
 }
 
-.button-start {
-    background: #0e223e;
-    padding: 12px 12px;
-    border: none;
-    color: #f3f4f6;
+.button-action {
     position: absolute;
     bottom: 70px;
     right: 40px;
 }
+.button-start {
+    background: #0e223e;
+    padding: 12px 12px;
+    border: 1px solid #0e223e;
+    color: #f3f4f6;
+}
 
 .button-start:hover {
+    border: 1px solid #0e223e;
+    background: #fff;
+    color: #0e223e;
+}
+
+.button-back {
     background: #f59e0b;
+    padding: 12px 12px;
+    border: 1px solid #f59e0b;
+    color: #f3f4f6;
+
+}
+
+.button-back:hover {
+    border: 1px solid #f59e0b;
+    background: #fff;
+    color: #f59e0b;
+}
+.button-submit {
+    background: #dc2626;
+    padding: 12px 12px;
+    border: none;
+    color: #f3f4f6;
+}
+
+.button-submit:hover {
+    border: 1px solid #dc2626;
+    background-color: #fff;
+    color: #dc2626;
+}
+.choice {
+    width: 100%;
+    height: 50px;
+    border-radius: 20px;
+    background: #0e223e;
+    color: #fff;
+    font-family: 'Ubuntu';
+    font-size: 16px;
+    border: 1px solid #0e223e;
+}
+
+.choice:hover {
+    border: 2px solid #0e223e;
+    background: #fff;
+    color: #0e223e;
+}
+
+.choice.active {
+    border: 2px solid #0e223e;
+    background: #fff;
+    color: #0e223e;
 }
