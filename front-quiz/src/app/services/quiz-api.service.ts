@@ -32,6 +32,10 @@ export class QuizApiService {
     return this.httpClient.get(environment.backEndQuiz+'/get/'+id);
   }
 
+  getQuizByCategory(categoryId: string): Observable<any> {
+    return this.httpClient.get(environment.backEndQuiz+'/getByCategory/'+categoryId);
+  }
+
   getQuizByTitleKeyword(keyword: string): Observable<Quiz[]> {
     return this.httpClient.get<any>(environment.backEndQuiz+'/byTitleKeyword/'+keyword).pipe(
       map(response=>  response.data.quizzes as Quiz[])

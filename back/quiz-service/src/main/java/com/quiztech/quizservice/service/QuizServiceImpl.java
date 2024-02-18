@@ -187,7 +187,7 @@ public class QuizServiceImpl implements QuizService {
                 HttpStatus.OK,
                 null,
                 Map.of(
-                        "quizzes", quizRepository.findAll(pageable).stream()
+                        "quizzes", quizRepository.findByCategoryId(idCategory ).stream()
                                 .map(quizMapper::mapToQuizResponse)
                                 .collect(Collectors.toSet()),
                         "totalQuizzes", quizRepository.findAll(pageable).getTotalElements()

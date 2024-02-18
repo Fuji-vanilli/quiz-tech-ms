@@ -21,7 +21,8 @@ const routes: Routes = [
     path:'user', component: UserDashboardComponent, canActivate: [AuthGuard], data: {roles: ['USER']},
     children: [
       { path: '', component: LoadQuizComponent },
-      { path: 'quizzes', component: LoadQuizComponent }
+      { path: 'quizzes', component: LoadQuizComponent },
+      { path: 'quizzes/:categoryId', component: LoadQuizComponent }
     ]},
   { 
     path:'admin', component: DashboardComponent, canActivate: [AuthGuard], data: {roles: ['ADMIN']},
