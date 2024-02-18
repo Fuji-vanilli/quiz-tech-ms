@@ -43,6 +43,7 @@ import { LoadQuizComponent } from './pages/user/load-quiz/load-quiz.component';
 import { ViewQuizByCategoryComponent } from './pages/admin/view-quiz-by-category/view-quiz-by-category.component';
 import { LoadQuizByCategoryComponent } from './pages/user/load-quiz-by-category/load-quiz-by-category.component';
 import { InstructionsComponent } from './pages/user/instructions/instructions.component';
+import { StartQuizComponent } from './pages/user/start-quiz/start-quiz.component';
 
 
 export function initializeKeycloak(keycloak: KeycloakService) {
@@ -85,7 +86,8 @@ export function initializeKeycloak(keycloak: KeycloakService) {
     LoadQuizComponent,
     ViewQuizByCategoryComponent,
     LoadQuizByCategoryComponent,
-    InstructionsComponent
+    InstructionsComponent,
+    StartQuizComponent
   ],
   imports: [
     BrowserModule,

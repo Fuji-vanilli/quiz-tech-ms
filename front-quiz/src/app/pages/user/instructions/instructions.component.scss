@@ -13,3 +13,17 @@
     padding: 16px 20px;
     font-family: 'Ubuntu';
 }
+
+.button-start {
+    background: #0e223e;
+    padding: 12px 12px;
+    border: none;
+    color: #f3f4f6;
+    position: fixed;
+    bottom: 70px;
+    right: 40px;
+}
+
+.button-start:hover {
+    background: #f59e0b;
+}
