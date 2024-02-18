@@ -32,8 +32,8 @@ export class LoadQuizComponent implements OnInit {
     this.quizService.fetchAll(0, 20).subscribe({
       next: response=> {
         this.quizzes= response.data.quizzes;
+        this.totalQuizzes= response.data.totalQuizzes;
         console.log(this.quizzes);
-        
       },
       error: err=> {
         console.log(err);
@@ -49,7 +49,6 @@ export class LoadQuizComponent implements OnInit {
         this.totalQuizzes = response.data.totalQuizzes
         console.log("quiz by category: ", this.categoryId);
         console.table(this.quizzes);
-
       },
       error: err => {
         console.log(err);
