@@ -34,7 +34,17 @@
                 </div>
             </div>
             <div class="col-md-8">
-                <button class="button-start" [routerLink]="'/user/start/'+quiz.id">NEXT <i class="bi bi-skip-start-circle-fill ms-3"></i></button>
+                <div class="mt-5 m-5">
+                    <div>
+                        <button class="btn btn-primary">{{currentQuestion+1}}</button>
+                        <h2>{{quiz.questions[currentQuestion].content}}</h2>
+                        <h3 *ngFor="let option of quiz.questions[currentQuestion].options">{{option}}</h3>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                    <button class="button-start" (click)="onPreviousQuestion()">NEXT <i class="bi bi-skip-start-circle-fill ms-3"></i></button>
+                    <button class="button-start" (click)="onNextQuestion()">NEXT <i class="bi bi-skip-start-circle-fill ms-3"></i></button>
+                </div>
             </div>
         </div>
     </div>

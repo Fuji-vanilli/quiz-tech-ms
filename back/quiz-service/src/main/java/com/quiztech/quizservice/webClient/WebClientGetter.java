@@ -95,7 +95,7 @@ public class WebClientGetter {
 
         JSONArray jsonArray= new JSONArray();
         ObjectMapper objectMapper= new ObjectMapper();
-        objectMapper.configure(DeserializationFeature.FAIL_ON_IGNORED_PROPERTIES, false);
+        objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 
         try {
             JSONObject jsonObject= new JSONObject(dataBrute);

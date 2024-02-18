@@ -1,4 +1,5 @@
 import { Category } from "./category.model";
+import { Question } from "./question.model";
 
 export interface Quiz {
     id?: string,
@@ -8,6 +9,7 @@ export interface Quiz {
     numberOfQuestions?: BigInteger,
     active?: boolean,
     categoryId?: string,
-    category?: Category
-    duration?: number
+    category?: Category,
+    duration?: number,
+    questions?: Question[]
 }
