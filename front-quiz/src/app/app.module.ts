@@ -39,6 +39,7 @@ import { SearchComponent } from './pages/search/search.component';
 import { UserDashboardComponent } from './pages/user/user-dashboard/user-dashboard.component';
 import { UserSidebarComponent } from './pages/user/user-sidebar/user-sidebar.component';
 import { LoadQuizComponent } from './pages/user/load-quiz/load-quiz.component';
+import { ViewQuizByCategoryComponent } from './pages/admin/view-quiz-by-category/view-quiz-by-category.component';
 
 
 export function initializeKeycloak(keycloak: KeycloakService) {
@@ -78,7 +79,8 @@ export function initializeKeycloak(keycloak: KeycloakService) {
     SearchComponent,
     UserDashboardComponent,
     UserSidebarComponent,
-    LoadQuizComponent
+    LoadQuizComponent,
+    ViewQuizByCategoryComponent
   ],
   imports: [
     BrowserModule,
