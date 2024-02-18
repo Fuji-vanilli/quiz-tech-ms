@@ -16,6 +16,7 @@ import { UserDashboardComponent } from './pages/user/user-dashboard/user-dashboa
 import { LoadQuizComponent } from './pages/user/load-quiz/load-quiz.component';
 import { ViewQuizByCategoryComponent } from './pages/admin/view-quiz-by-category/view-quiz-by-category.component';
 import { LoadQuizByCategoryComponent } from './pages/user/load-quiz-by-category/load-quiz-by-category.component';
+import { InstructionsComponent } from './pages/user/instructions/instructions.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -24,7 +25,7 @@ const routes: Routes = [
     children: [
       { path: '', component: LoadQuizComponent },
       { path: 'quizzes', component: LoadQuizComponent },
-      { path: 'quizzes/:categoryId', component: LoadQuizByCategoryComponent }
+      { path: 'quizzes/:categoryId', component: LoadQuizByCategoryComponent },
     ]},
   { 
     path:'admin', component: DashboardComponent, canActivate: [AuthGuard], data: {roles: ['ADMIN']},
@@ -42,7 +43,8 @@ const routes: Routes = [
       { path: 'profile', component: ProfileComponent }
     ]
   },
-  { path:'user/profile', component: ProfileComponent, canActivate: [AuthGuard], data: {role: ['USER', 'ADMIN']}}
+  { path:'user/profile', component: ProfileComponent, canActivate: [AuthGuard], data: {role: ['USER', 'ADMIN']}},
+  { path: 'quiz/instructions/:quizId', component: InstructionsComponent }
 ];
 
 @NgModule({

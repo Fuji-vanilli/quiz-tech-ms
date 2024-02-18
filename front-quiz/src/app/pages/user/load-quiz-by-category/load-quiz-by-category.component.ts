@@ -25,6 +25,7 @@ export class LoadQuizByCategoryComponent {
   ngOnInit(): void {
     this.categoryId = this.activeRoute.snapshot.params['categoryId'];
     this.loadQuizByCategory();
+    this.loadCategory();
   }
 
   loadQuizByCategory() {
