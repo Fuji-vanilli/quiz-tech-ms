@@ -1,9 +1,11 @@
 package com.quiztech.quizservice.dto;
 
 import com.quiztech.quizservice.model.Category;
+import com.quiztech.quizservice.model.Question;
 import lombok.*;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -20,6 +22,7 @@ public class QuizResponse {
     private BigDecimal numberOfQuestions;
     private BigDecimal duration;
     private List<String> questionsId;
+    private List<Question> questions= new ArrayList<Question>();
     private boolean active;
     private String categoryId;
     private Category category;

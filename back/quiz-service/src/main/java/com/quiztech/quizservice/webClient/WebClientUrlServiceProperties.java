@@ -14,4 +14,5 @@ import org.springframework.validation.annotation.Validated;
 public class WebClientUrlServiceProperties {
     private String categoryUrlGet;
     private String categoryUrlPatch;
+    private String questionUrlByQuiz;
 }
