@@ -13,7 +13,7 @@
     <app-search></app-search>
     <mat-card class="custom-card mt-3" *ngFor="let quiz of quizzes">
         <div class="row">
-            <div class="col-md-6 " >
+            <div class="col-md-8 " >
                 <mat-card-header>
                     <div mat-card-avatar class="example-header-image"></div>
                     <mat-card-title>
@@ -35,7 +35,7 @@
                     <a class="nav-link ms-3" (click)="deleteQuiz(quiz.id)"><i class="bi bi-trash-fill"></i><strong class="ms-2">Delete Quiz</strong></a>
                 </div>
             </div>
-            <div class="col-md-6" style="background: #f9fafb;">
+            <div class="col-md-4" style="background: #f9fafb;">
                 <div class="quizz-details mt-3 text-start">
                     <div class="info-cards text-start">
                         <div class="info-card">

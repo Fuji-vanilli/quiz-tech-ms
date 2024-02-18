@@ -61,6 +61,8 @@ export class UpdateQuizComponent implements OnInit{
   update() {
     const quiz: Quiz= {
       id: this.data.id,
+      title: this.formGroup.value.title,
+      description: this.formGroup.value.description,
       marks: this.formGroup.value.marks,
       numberOfQuestions: this.formGroup.value.numberOfQuestions,
       categoryId: this.formGroup.value.categoryId,

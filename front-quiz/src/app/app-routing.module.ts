@@ -32,7 +32,7 @@ const routes: Routes = [
       { path: 'categories', component:ViewCategoryComponent },
       { path: 'add-category', component: AddCategoryComponent },
       { path: 'quizzes', component: ViewQuizzesComponent },
-      { path: 'quizzes/:cateogryId', component: ViewQuizByCategoryComponent },
+      { path: 'quizzes/:categoryId', component: ViewQuizByCategoryComponent },
       { path: 'add-quiz', component: AddQuizzesComponent },
       { path: 'category/:id', component: UpdateCategoryComponent},
       { path: 'quiz/:id', component: QuizDetailsComponent },

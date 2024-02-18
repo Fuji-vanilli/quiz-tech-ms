@@ -3,11 +3,11 @@
 <div mat-dialog-content>
     <mat-form-field class="w-100" appearance="outline">
         <mat-label >Enter the title</mat-label>
-        <input autofocus matInput placeholder="new quiz..." formControlName="title" [readonly]="true">
+        <input autofocus matInput placeholder="new quiz..." formControlName="title" [readonly]="false">
     </mat-form-field>
     <mat-form-field class="w-100" appearance="outline">
         <mat-label>Description</mat-label>
-        <textarea matInput rows="3" formControlName="description" [readonly]="true"></textarea>
+        <textarea matInput rows="3" formControlName="description" [readonly]="false"></textarea>
     </mat-form-field>
     <mat-form-field class="w-100 category" appearance="outline">
         <mat-label>Category</mat-label>

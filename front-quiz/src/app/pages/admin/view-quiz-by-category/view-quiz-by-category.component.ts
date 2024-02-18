@@ -31,8 +31,10 @@ export class ViewQuizByCategoryComponent {
               private keycloakService: KeycloakService) { }
 
   ngOnInit(): void {
+    this.categoryId= this.routeActivate.snapshot.params['categoryId'];
     this.loadQuizzes();
-    this.categoryId= this.routeActivate.snapshot.params['cateogryId'];
+    console.log('category id: ', this.categoryId);
+    
     this.loadCategory();
   }
 
@@ -48,12 +50,14 @@ export class ViewQuizByCategoryComponent {
       }
     })
   }
+
   loadQuizzes() {
     this.quizService.getQuizByCategory(this.categoryId).subscribe({
       next: response => {
         this.quizzes = response.data.quizzes;
         this.totalQuizzes = response.data.totalQuizzes;
         console.log('total elements:', response.data.totalQuizzes);
+        console.table(this.quizzes);
       },
       error: err => {
         console.log(err);
