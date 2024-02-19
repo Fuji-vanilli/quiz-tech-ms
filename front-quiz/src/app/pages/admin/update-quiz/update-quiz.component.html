@@ -30,8 +30,19 @@
                 <input autofocus matInput placeholder="new quiz..." formControlName="numberOfQuestions">
             </mat-form-field>
         </div>
-
-        <mat-slide-toggle color="primary" class="mb-2" formControlName="active">Publish status</mat-slide-toggle>
+        <div class="row">
+            <div class="col-md-6">
+                <mat-form-field class="full-width">
+                    <mat-label>Duration</mat-label>
+                    <mat-select formControlName="duration">
+                      <mat-option *ngFor="let duration of durations" [value]="duration*5">{{duration*5}}</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+            </div>
+            <div class="col-md-6 d-flex align-items-center">
+                <mat-slide-toggle color="primary" class="mb-2" formControlName="active">Publish status</mat-slide-toggle>
+            </div>
+        </div>
     </div>
 
     <div class="d-flex justify-content-between">

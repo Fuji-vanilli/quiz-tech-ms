@@ -18,6 +18,7 @@ export class UpdateQuizComponent implements OnInit{
   
   inputData: any;
   categories: Category[]= [];
+  durations: number[]= [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
   closedMessage= 'closed using directive';
   
 
@@ -54,6 +55,7 @@ export class UpdateQuizComponent implements OnInit{
     description: this.formBuilder.control(this.data.description),
     marks: this.formBuilder.control(this.data.marks),
     numberOfQuestions: this.formBuilder.control(this.data.numberOfQuestions),
+    duration: this.formBuilder.control(this.data.duration),
     active: this.formBuilder.control(this.data.active),
     categoryId: this.formBuilder.control(this.data.categoryId)
   })  
@@ -66,6 +68,7 @@ export class UpdateQuizComponent implements OnInit{
       marks: this.formGroup.value.marks,
       numberOfQuestions: this.formGroup.value.numberOfQuestions,
       categoryId: this.formGroup.value.categoryId,
+      duration: this.formGroup.value.duration,
       active: this.formGroup.value.active
     }
 

@@ -17,7 +17,7 @@ export class StartQuizComponent {
   timer: any;
 
   spinnerValue: number= 100
-  questionValue: number= 0
+  questionValue: number= 0;
   correctAnswer: number= 0;
   duration!: number;
   choiceSelected!: string;
@@ -34,6 +34,7 @@ export class StartQuizComponent {
     this.quizId= this.activeRoute.snapshot.params['quizId'];
     this.loadQuiz();
     this.startTimer();
+    this.questionValue= 10;
   }
 
   loadQuiz() {
@@ -62,7 +63,7 @@ export class StartQuizComponent {
   onPreviousQuestion() {
     if (this.currentQuestion>=1 ) {
       this.currentQuestion--;
-      this.questionValue-= 100/3;
+      this.questionValue-= 100/this.quiz.numberOfQuestions;
     }
   }
 

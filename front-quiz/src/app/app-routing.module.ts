@@ -22,7 +22,7 @@ import { StartQuizComponent } from './pages/user/start-quiz/start-quiz.component
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { 
-    path:'user', component: UserDashboardComponent, canActivate: [AuthGuard], data: {roles: ['USER']},
+    path:'user', component: UserDashboardComponent, canActivate: [AuthGuard], data: {roles: ['USER', 'ADMIN']},
     children: [
       { path: '', component: LoadQuizComponent },
       { path: 'quizzes', component: LoadQuizComponent },
