@@ -4,7 +4,7 @@
             <div class="col-md-4" style="background: #9ca3af; height: 85vh;">
                 <div class="row">
                     <div class="title-quiz col-md-12 ms-3" style="height: 20vh;">
-                        <img src="../../../../assets/securite-des-donnees.png" alt="">
+                        <img src="../../../../assets/conception-de-codes.png" alt="">
                         <div class="mt-2">
                             <h2>{{quiz.title}}</h2>
                         </div>
@@ -36,9 +36,9 @@
             </div>
             <div class="col-md-8">
                 <div class="mt-5 m-5">
-                    <div class="">
+                    <div class="ms-1">
                         <button class="btn btn-primary m-3 d-inline-block">{{currentQuestion+1}}</button>
-                        <h2 class="d-inline-block">{{quiz.questions[currentQuestion].content}}</h2>
+                        <p class="d-inline-block">{{quiz.questions[currentQuestion].content}}</p>
                     </div>
                     <div class="mt-4">
                         <div class="" *ngFor="let option of quiz.questions[currentQuestion].options" >
