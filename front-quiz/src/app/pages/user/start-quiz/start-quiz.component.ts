@@ -12,11 +12,16 @@ import Swal from 'sweetalert2';
 })
 export class StartQuizComponent {
 
+  minute: number= 0;
+  second: number= 0;
+  timer: any;
+
   spinnerValue: number= 100
   questionValue: number= 0
+  correctAnswer: number= 0;
   duration!: number;
   choiceSelected!: string;
-  
+
   quiz!: any;
   quizId!: string;
   currentQuestion: number= 0;
@@ -48,7 +53,7 @@ export class StartQuizComponent {
   onNextQuestion() {
     if (this.currentQuestion< this.quiz.questions?.length-1) {
       this.currentQuestion++;
-      this.questionValue+= 100/3;
+      this.questionValue+= 100/this.quiz.numberOfQuestions;
     } else {
       this.isCurrent= false; 
     }
@@ -57,6 +62,7 @@ export class StartQuizComponent {
   onPreviousQuestion() {
     if (this.currentQuestion>=1 ) {
       this.currentQuestion--;
+      this.questionValue-= 100/3;
     }
   }
 
@@ -68,6 +74,14 @@ export class StartQuizComponent {
         this.timeUp();
       }
     }, 1000); 
+
+    this.timer= setInterval(()=> {
+      this.second++;
+      if (this.second=== 60) {
+        this.second= 0;
+        this.minute++;
+      }
+    }, 1000)
   }
 
   timeUp() {
@@ -86,5 +100,13 @@ export class StartQuizComponent {
   
   selected(option: string) {
     this.choiceSelected= option;
+    if (this.quiz.questions[this.currentQuestion].answer=== option) {
+      this.correctAnswer++;
+    }
+  }
+
+  getResult() {
+    console.log("correct answer: ", this.correctAnswer);
+    
   }
 }
