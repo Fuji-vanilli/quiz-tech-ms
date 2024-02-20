@@ -19,14 +19,14 @@
     bottom: 70px;
     right: 40px;
 }
-.button-start {
+.button-next {
     background: #0e223e;
-    padding: 12px 12px;
+    padding: 12px 12px 12px 24px;
     border: 1px solid #0e223e;
     color: #f3f4f6;
 }
 
-.button-start:hover {
+.button-next:hover {
     border: 1px solid #0e223e;
     background: #fff;
     color: #0e223e;
@@ -34,7 +34,7 @@
 
 .button-back {
     background: #f59e0b;
-    padding: 12px 12px;
+    padding: 12px 12px 12px 24px;
     border: 1px solid #f59e0b;
     color: #f3f4f6;
 
@@ -53,9 +53,7 @@
 }
 
 .button-submit:hover {
-    border: 1px solid #dc2626;
-    background-color: #fff;
-    color: #dc2626;
+    opacity: .8;
 }
 .choice {
     width: 100%;

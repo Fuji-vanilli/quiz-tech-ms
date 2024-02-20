@@ -46,6 +46,7 @@ import { LoadQuizByCategoryComponent } from './pages/user/load-quiz-by-category/
 import { InstructionsComponent } from './pages/user/instructions/instructions.component';
 import { StartQuizComponent } from './pages/user/start-quiz/start-quiz.component';
 import { NgxUiLoaderModule, NgxUiLoaderHttpModule } from "ngx-ui-loader";
+import { ResultQuizComponent } from './pages/user/result-quiz/result-quiz.component';
 
 
 export function initializeKeycloak(keycloak: KeycloakService) {
@@ -89,7 +90,8 @@ export function initializeKeycloak(keycloak: KeycloakService) {
     ViewQuizByCategoryComponent,
     LoadQuizByCategoryComponent,
     InstructionsComponent,
-    StartQuizComponent
+    StartQuizComponent,
+    ResultQuizComponent
   ],
   imports: [
     BrowserModule,

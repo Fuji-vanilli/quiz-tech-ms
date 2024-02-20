@@ -42,12 +42,12 @@
                     </div>
                     <div class="mt-4">
                         <div class="" *ngFor="let option of quiz.questions[currentQuestion].options" >
-                            <button class="choice mt-4" [class.active]="choiceSelected=== option" (click)="selected(option)">{{option}}</button>
+                            <button class="choice mt-4" [class.active]="choiceSelected=== option" (click)="checkResponse(option)">{{option}}</button>
                         </div>
                     </div>
                     <div class="button-action">
                         <button class="button-back" *ngIf="isCurrent" (click)="onPreviousQuestion()">BACK <i class="bi bi-skip-start-circle-fill ms-3"></i></button>
-                        <button class="button-start ms-4" *ngIf="isCurrent" (click)="onNextQuestion()">NEXT <i class="bi bi-skip-start-circle-fill ms-3"></i></button>
+                        <button class="button-next ms-4" *ngIf="isCurrent" (click)="onNextQuestion()">NEXT <i class="bi bi-skip-start-circle-fill ms-3"></i></button>
                         <button class="button-submit" *ngIf="!isCurrent" (click)="getResult()">SUBMIT YOUR SKILLS</button>
                     </div>
                 </div>

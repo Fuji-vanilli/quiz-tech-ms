@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
-import { Quiz } from '../../models/quiz.model';
 import { QuizApiService } from 'src/app/services/quiz-api.service';
-import { ActivatedRoute } from '@angular/router';
-import { Question } from '../../models/question.model';
+import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -11,7 +9,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./start-quiz.component.scss']
 })
 export class StartQuizComponent {
-
+  
   minute: number= 0;
   second: number= 0;
   timer: any;
@@ -27,10 +25,11 @@ export class StartQuizComponent {
   currentQuestion: number= 0;
   isCurrent: boolean= true;
 
-  resultQuiz: Map<String, boolean>= new Map();
+  resultQuiz: Map<any, string>= new Map();
 
   constructor(private quizService: QuizApiService,
-              private activeRoute: ActivatedRoute) {}
+              private activeRoute: ActivatedRoute,
+              private router: Router) {}
 
   ngOnInit(): void {
     this.quizId= this.activeRoute.snapshot.params['quizId'];
@@ -101,17 +100,51 @@ export class StartQuizComponent {
     })
   }
   
-  selected(option: string) {
+  checkResponse(option: string) {
     this.choiceSelected= option;
-    const question= this.quiz.questions[this.currentQuestion];
+    this.resultQuiz.set(this.quiz.questions[this.currentQuestion], option);
 
     if (this.quiz.questions[this.currentQuestion].answer=== option) {
       this.correctAnswer++;
-      this.resultQuiz.set(question.id, true);
     }
   }
 
   getResult() {
-    console.log("correct answer: ", this.correctAnswer);
+    Swal.fire({
+      title: "You are finished the Quiz successfully",
+      width: 600,
+      padding: "3em",
+      color: "#cee8ff",
+      html: `
+      <strong>Result</strong>
+      <ul class="mt-3" style="list-style: none;">
+        <li class="list-item" style="color: #cee8ff;">
+          Correct Answer: <strong style="font-size: 24px;">${this.correctAnswer} / ${this.quiz.numberOfQuestions} </strong>
+          <span>Questions</span>
+        </li>
+      </ul>
+    `,
+      icon: 'success',
+      showConfirmButton: true,
+      confirmButtonColor: '#00668c',
+      confirmButtonText: 'View Details',
+      showCancelButton: true,
+      cancelButtonColor: '#ff6366',
+      cancelButtonText: 'Terminate',
+
+      background: "#1f2b3e",
+      backdrop: `
+      rgba(0,0,123,0.4)
+        url("../../../../assets/giphy (3).gif")
+      `
+    }).then((result)=> {
+      if (result.isConfirmed) {
+        this.router.navigateByUrl('/user/result');
+        console.log(this.resultQuiz);
+        
+      } else {
+        this.router.navigateByUrl('/user/quizzes');
+      }
+    });
   }
 }
