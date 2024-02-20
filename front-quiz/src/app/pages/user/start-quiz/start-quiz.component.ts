@@ -142,7 +142,7 @@ export class StartQuizComponent {
     }).then((result)=> {
       if (result.isConfirmed) {
         this.dataService.dataResult= this.resultQuiz;
-        this.router.navigateByUrl('/user/result');
+        this.router.navigateByUrl('/user/result/'+this.quizId);
         console.log(this.resultQuiz);
         
       } else {

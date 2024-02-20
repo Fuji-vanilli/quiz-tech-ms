@@ -30,7 +30,7 @@ const routes: Routes = [
       { path: 'quizzes/:categoryId', component: LoadQuizByCategoryComponent },
       { path: 'instructions/:quizId', component: InstructionsComponent },
       { path: 'start/:quizId', component: StartQuizComponent },
-      { path: 'result', component: ResultQuizComponent }
+      { path: 'result/:quizId', component: ResultQuizComponent }
     ]},
   { 
     path:'admin', component: DashboardComponent, canActivate: [AuthGuard], data: {roles: ['ADMIN']},
