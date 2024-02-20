@@ -1,3 +1,25 @@
 .bootstrap-wrapper {
     background: #cee8ff;
 }
+
+.correct-answer {
+    background: #fff;
+    color: #2E8B57;
+}
+
+.wrong-answer {
+    background: #de283b;
+    color: #fff;
+}
+
+.normal {
+    background: #fff;
+    color: #313d44;
+}
+
+.question-number {
+    padding: 10px 12px;
+    background: #ff983f;
+    color: #fff;
+    border: none;
+}
