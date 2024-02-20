@@ -5,9 +5,9 @@ import { Injectable } from '@angular/core';
 })
 export class ResultQuizService {
 
-  dataResult: Map<any, string>;
-  
+  dataResult: string[];
+
   constructor() { 
-    this.dataResult= new Map<any, string>();
+    this.dataResult= [];
   }
 }

@@ -15,14 +15,19 @@ export class ResultQuizComponent implements OnInit {
   dataResult: Map<any, string>= new Map();
   quizId!: string;
   quiz!: Quiz;
+  answer: string[]= [];
 
   constructor(private resultService: ResultQuizService,
               private activeRoute: ActivatedRoute,
               private quizService: QuizApiService) {}
 
   ngOnInit(): void {
+    this.answer= this.resultService.dataResult;
     this.quizId= this.activeRoute.snapshot.params['quizId'];
     this.loadQuiz();
+
+    console.log(this.answer);
+    
   }
 
   loadQuiz() {

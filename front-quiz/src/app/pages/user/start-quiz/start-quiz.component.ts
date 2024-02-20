@@ -26,7 +26,7 @@ export class StartQuizComponent {
   currentQuestion: number= 0;
   isCurrent: boolean= true;
 
-  resultQuiz: Map<any, string>= new Map();
+  resultQuiz: string[]= [];
 
   constructor(private quizService: QuizApiService,
               private dataService: ResultQuizService,
@@ -104,7 +104,7 @@ export class StartQuizComponent {
   
   checkResponse(option: string) {
     this.choiceSelected= option;
-    this.resultQuiz.set(this.quiz.questions[this.currentQuestion], option);
+    this.resultQuiz.push(option);
 
     if (this.quiz.questions[this.currentQuestion].answer=== option) {
       this.correctAnswer++;
