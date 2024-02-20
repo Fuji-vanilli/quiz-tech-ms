@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { QuizApiService } from 'src/app/services/quiz-api.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { ResultQuizService } from 'src/app/services/result-quiz.service';
 
 @Component({
   selector: 'app-start-quiz',
@@ -28,6 +29,7 @@ export class StartQuizComponent {
   resultQuiz: Map<any, string>= new Map();
 
   constructor(private quizService: QuizApiService,
+              private dataService: ResultQuizService,
               private activeRoute: ActivatedRoute,
               private router: Router) {}
 
@@ -139,6 +141,7 @@ export class StartQuizComponent {
       `
     }).then((result)=> {
       if (result.isConfirmed) {
+        this.dataService.dataResult= this.resultQuiz;
         this.router.navigateByUrl('/user/result');
         console.log(this.resultQuiz);
         

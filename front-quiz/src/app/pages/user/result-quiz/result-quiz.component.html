@@ -2,7 +2,9 @@
     <div class="container">
         <div class="row">
             <div class="col-md-10">
-                <h1>test</h1>
+                <ul>
+                    <li class="list-item" *ngFor="let question of questions">{{question.content}}</li>
+                </ul>
             </div>
         </div>
     </div>
