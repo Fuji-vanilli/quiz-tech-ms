@@ -45,6 +45,7 @@ import { ViewQuizByCategoryComponent } from './pages/admin/view-quiz-by-category
 import { LoadQuizByCategoryComponent } from './pages/user/load-quiz-by-category/load-quiz-by-category.component';
 import { InstructionsComponent } from './pages/user/instructions/instructions.component';
 import { StartQuizComponent } from './pages/user/start-quiz/start-quiz.component';
+import { NgxUiLoaderModule, NgxUiLoaderHttpModule } from "ngx-ui-loader";
 
 
 export function initializeKeycloak(keycloak: KeycloakService) {
@@ -111,7 +112,11 @@ export function initializeKeycloak(keycloak: KeycloakService) {
     MatProgressSpinnerModule,
     HttpClientModule,
     ReactiveFormsModule,
-    CKEditorModule
+    CKEditorModule,
+    NgxUiLoaderModule,
+    NgxUiLoaderHttpModule.forRoot({
+      showForeground: true
+    })
   ],
   providers: [
     {

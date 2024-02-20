@@ -1,15 +1,15 @@
 <nav class="navbar navbar-expand-lg fixed-top">
     <div class="container-fluid">
       <a class="navbar-brand" routerLink="/admin/dashboard">
-        <img src="../../assets/quiz.png">
+        <img src="../../assets/quiz tech (2).png">
       </a>
       <div class="collapse navbar-collapse" id="navbarSupportedContent ms-auto">
         <ul class="navbar-nav mb-lg-0 ms-auto">
           <li class="nav-item" *ngIf="profile">
             <a class="nav-link active " aria-current="page" (click)="dashboard()"><i class="bi bi-speedometer2 m-3"></i>Dashboard</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link active " aria-current="page" routerLink=""><i class="bi bi-search m-3"></i>Search</a>
+          <li class="nav-item ms-4">
+            <button class="nav-link-search active " aria-current="page" routerLink="/admin/quizzes"><i class="bi bi-search m-3"></i>Search</button>
           </li>
           <li class="nav-item ms-3">
             <button class="btn-login" (click)="login()" *ngIf="!profile">Sign in</button>

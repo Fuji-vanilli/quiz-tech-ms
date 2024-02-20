@@ -26,12 +26,12 @@ li {
     width: 230px;
     min-width: 70px;
     height: 94vh;
-    font-family: 'Poppins';
+    //font-family: 'Poppins';
     z-index: 1000;
     transition: all .25s ease-in-out;
     display: flex;
     flex-direction: column;
-    background: #0e223e;
+    background: #0F1C2E;
 }
 
 #sidebar.expand {
@@ -72,9 +72,8 @@ li {
 }
 
 a.sidebar-link {
-    cursor: pointer;
     padding: .625rem 1.625rem;
-    color: #fff;
+    color: #e0e0e0;
     display: block;
     font-size: 0.9rem;
     white-space: nowrap;
@@ -87,12 +86,21 @@ a.sidebar-link {
 }
 
 a.sidebar-link:hover {
-    background: rgba(255, 255, 255, .075);
+    background: #3D5A80;
     border-left: 3px solid #3b7ddd;
-    color: #f59e0b;
+    color: #cee8ff;
 }
 
 .sidebar-link.active {
-    background: rgba(255, 255, 255, .075);
+    background: #1f2b3e;
     color: #f59e0b;
+}
+
+.sidebar-footer {
+    margin-bottom: 30px;
+}
+
+.copyright {
+    margin-left: 12px;
+    margin-bottom: 30px;
 }

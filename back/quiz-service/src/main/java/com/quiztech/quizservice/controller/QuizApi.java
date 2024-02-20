@@ -62,4 +62,9 @@ public class QuizApi implements QuizController{
     public ResponseEntity<Response> delete(String id) {
         return ResponseEntity.ok(quizService.delete(id));
     }
+
+    @Override
+    public ResponseEntity<Response> evaluateQuiz(Map<String, Map<String, Boolean>> evaluateQuiz) {
+        return ResponseEntity.ok(quizService.evaluateQuiz(evaluateQuiz));
+    }
 }

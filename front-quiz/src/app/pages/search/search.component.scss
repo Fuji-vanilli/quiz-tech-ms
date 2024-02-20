@@ -1,8 +1,8 @@
 
 .box-search {
-    background: #0e223e;
-    border-radius: 30px;
-    border: 0.1px  #0a0a0a;
+    background: #f5f4f1;
+    border-radius: 6px;
+    border: 2px solid #00668c;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -14,12 +14,12 @@
 
 .box-search > i {
     font-size: 20px;
-    color: #f59e0b;
+    color: #00668c;
 }
 
 .box-search > input { 
-    background: #0e223e;
-    color: #f59e0b;
+    background: #f5f4f1;
+    color: #00668c;
     flex: 1;
     height: 40px;
     border: none;

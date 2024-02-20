@@ -31,4 +31,6 @@ public interface QuizController {
     ResponseEntity<Response> getByKeywordTitle(@PathVariable String keyword);
     @DeleteMapping("delete/{id}")
     ResponseEntity<Response> delete(@PathVariable String id);
+    @PatchMapping("evaluate")
+    ResponseEntity<Response> evaluateQuiz(@RequestBody Map<String, Map<String, Boolean>> evaluateQuiz);
 }

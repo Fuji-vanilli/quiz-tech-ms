@@ -15,6 +15,7 @@ public interface QuizService {
     Response update(QuizRequest request);
     Response get(String id);
     Response quizByCategory(String idCategory);
+    Response evaluateQuiz(Map<String, Map<String, Boolean>> evaluateQuiz);
     Response all(int page, int size);
     Response getByKeyWordTitle(String keywordTitle);
     Response delete(String id);

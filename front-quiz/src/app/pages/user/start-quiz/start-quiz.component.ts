@@ -27,6 +27,8 @@ export class StartQuizComponent {
   currentQuestion: number= 0;
   isCurrent: boolean= true;
 
+  resultQuiz: Map<String, boolean>= new Map();
+
   constructor(private quizService: QuizApiService,
               private activeRoute: ActivatedRoute) {}
 
@@ -101,13 +103,15 @@ export class StartQuizComponent {
   
   selected(option: string) {
     this.choiceSelected= option;
+    const question= this.quiz.questions[this.currentQuestion];
+
     if (this.quiz.questions[this.currentQuestion].answer=== option) {
       this.correctAnswer++;
+      this.resultQuiz.set(question.id, true);
     }
   }
 
   getResult() {
     console.log("correct answer: ", this.correctAnswer);
-    
   }
 }

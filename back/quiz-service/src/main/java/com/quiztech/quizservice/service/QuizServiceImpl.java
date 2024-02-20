@@ -202,6 +202,18 @@ public class QuizServiceImpl implements QuizService {
     }
 
     @Override
+    public Response evaluateQuiz(Map<String, Map<String, Boolean>> evaluateQuiz) {
+        final String quizId = evaluateQuiz.keySet().iterator().next();
+        Quiz quiz = quizRepository.findById(quizId).orElseThrow(
+                () -> new IllegalArgumentException("error to the fetch quiz from database!")
+        );
+
+
+
+        return null;
+    }
+
+    @Override
     public Response all(int page, int size) {
         Pageable pageable = PageRequest.of(page, size);
 
