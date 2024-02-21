@@ -47,6 +47,7 @@ import { InstructionsComponent } from './pages/user/instructions/instructions.co
 import { StartQuizComponent } from './pages/user/start-quiz/start-quiz.component';
 import { NgxUiLoaderModule, NgxUiLoaderHttpModule } from "ngx-ui-loader";
 import { ResultQuizComponent } from './pages/user/result-quiz/result-quiz.component';
+import { CanvasJSAngularChartsModule } from '@canvasjs/angular-charts';
 
 
 export function initializeKeycloak(keycloak: KeycloakService) {
@@ -115,6 +116,7 @@ export function initializeKeycloak(keycloak: KeycloakService) {
     HttpClientModule,
     ReactiveFormsModule,
     CKEditorModule,
+    CanvasJSAngularChartsModule,
     NgxUiLoaderModule,
     NgxUiLoaderHttpModule.forRoot({
       showForeground: true

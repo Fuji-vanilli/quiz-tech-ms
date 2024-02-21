@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ResultQuizService } from 'src/app/services/result-quiz.service';
-import { Question } from '../../models/question.model';
 import { ActivatedRoute } from '@angular/router';
 import { Quiz } from '../../models/quiz.model';
 import { QuizApiService } from 'src/app/services/quiz-api.service';
@@ -29,6 +28,27 @@ export class ResultQuizComponent implements OnInit {
     console.log(this.answer);
     
   }
+
+  chartOptions = {
+	  animationEnabled: true,
+	  theme: "dark2",
+	  exportEnabled: true,
+	  title: {
+		  text: "Result of Your Quiz"
+	  },
+	  subtitles: [{
+		  text: "Median hours/week"
+	  }],
+	  data: [{
+		  type: "pie", //change type to column, line, area, doughnut, etc
+		  indexLabel: "{name}: {y}%",
+		  dataPoints: [
+		  	{ name: "Correct answer", y: 9.1 },
+		  	{ name: "Wrong answer", y: 3.7 },
+		  	{ name: "No answer", y: 36.4 },
+		  ]
+	  }]
+	}
 
   loadQuiz() {
     this.quizService.getQuiz(this.quizId).subscribe({
