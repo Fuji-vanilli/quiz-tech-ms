@@ -9,18 +9,18 @@
                     <button class="question-number">{{(i+1)+' - '+question.content}}</button>
                     <mat-card-content class="mt-2">
                         <ul class="list-group">
-                            <li class="list-group-item" 
+                            <li class="list-group-item" style="background: #cee8ff;"
                                 *ngFor="let option of question.options"
                                 [ngClass]="question.answer === option ? 'correct-answer' : (answer[i]=== option)&& (answer[i]!== question.answer) ? 'wrong-answer' : 'normal'">
-                                <span class="ms-3" *ngIf="question.answer=== option"><img src="../../../../assets/check-mark.png" alt="">{{ option }}</span>
-                                <span class="ms-3" *ngIf="(option=== answer[i]) && (question.answer!== option)"><img src="../../../../assets/cancel.png" alt="">{{ option }}</span>
-                                <span class="ms-3" *ngIf="!(question.answer === option || (option === answer[i] && question.answer !== option))"><img src="../../../../assets/stop-button.png" alt="">{{ option }}</span>
+                                <span class="ms-3" *ngIf="question.answer=== option"><img src="../../../../assets/check-mark.png" alt="" style="margin-right: 16px;">{{ option }}</span>
+                                <span class="ms-3" *ngIf="(option=== answer[i]) && (question.answer!== option)"><img src="../../../../assets/cancel.png" alt="" style="margin-right: 16px;">{{ option }}</span>
+                                <span class="ms-3" *ngIf="!(question.answer === option || (option === answer[i] && question.answer !== option))"><img src="../../../../assets/stop-button.png" alt="" style="margin-right: 16px;">{{ option }}</span>
                             </li>
                         </ul>
                     </mat-card-content>
                     <mat-card-actions>
                         <div class="ms-3">
-                            <span>Correct Answer: </span><strong style="color: #4CAF50;">{{question.answer}}</strong>
+                            <span style="color: #fff;">Correct Answer: </span><strong style="color: #4CAF50;">{{question.answer}}</strong>
                         </div>
                     </mat-card-actions>
                 </mat-card>

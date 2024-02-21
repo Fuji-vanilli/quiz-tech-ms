@@ -109,6 +109,8 @@ export class StartQuizComponent {
     if (this.quiz.questions[this.currentQuestion].answer=== option) {
       this.correctAnswer++;
     }
+
+    this.onNextQuestion();
   }
 
   getResult() {

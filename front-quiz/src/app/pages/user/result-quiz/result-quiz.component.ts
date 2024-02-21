@@ -3,6 +3,8 @@ import { ResultQuizService } from 'src/app/services/result-quiz.service';
 import { ActivatedRoute } from '@angular/router';
 import { Quiz } from '../../models/quiz.model';
 import { QuizApiService } from 'src/app/services/quiz-api.service';
+import { KeycloakService } from 'keycloak-angular';
+import { KeycloakProfile } from 'keycloak-js';
 
 @Component({
   selector: 'app-result-quiz',
@@ -13,20 +15,32 @@ export class ResultQuizComponent implements OnInit {
 
   dataResult: Map<any, string>= new Map();
   quizId!: string;
-  quiz!: Quiz;
+  quiz!: any;
   answer: string[]= [];
+  correctAnswer= 0;
+  wrongAnswer= 0;
+  noAnswer= 0;
+  rateCorrect= 0;
+  rateWrong= 0;
+
+  profile!: KeycloakProfile | null;
 
   constructor(private resultService: ResultQuizService,
               private activeRoute: ActivatedRoute,
-              private quizService: QuizApiService) {}
+              private quizService: QuizApiService,
+              private keycloakService: KeycloakService) {}
 
   ngOnInit(): void {
     this.answer= this.resultService.dataResult;
     this.quizId= this.activeRoute.snapshot.params['quizId'];
-    this.loadQuiz();
+    this.loadQuiz();    
 
-    console.log(this.answer);
-    
+    this.keycloakService.loadUserProfile().then(
+      profile=> {
+        this.profile= profile;
+        console.log("profile: ", this.profile);
+      }
+    )
   }
 
   chartOptions = {
@@ -37,15 +51,15 @@ export class ResultQuizComponent implements OnInit {
 		  text: "Result of Your Quiz"
 	  },
 	  subtitles: [{
-		  text: "Median hours/week"
+		  text: "Correct answser / wrong answer : QUIZ TECH"
 	  }],
 	  data: [{
-		  type: "pie", //change type to column, line, area, doughnut, etc
+		  type: "doughnut", //change type to column, line, area, doughnut, etc
 		  indexLabel: "{name}: {y}%",
 		  dataPoints: [
-		  	{ name: "Correct answer", y: 9.1 },
-		  	{ name: "Wrong answer", y: 3.7 },
-		  	{ name: "No answer", y: 36.4 },
+		  	{ name: "Correct answer", y: 0},
+		  	{ name: "Wrong answer", y:  0},
+		  	{ name: "No answer", y: 0 },
 		  ]
 	  }]
 	}
@@ -55,12 +69,47 @@ export class ResultQuizComponent implements OnInit {
       next: response=>{
         this.quiz= response.data.quiz;
         console.table(this.quiz);
+        this.getCorrectAnswer();
+        console.log('correct:', this.correctAnswer);
+        console.log('wrong: ',this.wrongAnswer);
+        console.log('len: ', this.answer.length);
+        
+        this.rateCorrect= (this.correctAnswer*100)/this.quiz.questions.length; 
+        this.rateWrong= (this.wrongAnswer*100)/this.quiz.questions.length; 
+        
+        console.log('rateCorrect: ', this.rateCorrect);
+        console.log('rateWrong: ', this.rateWrong);
+
+        this.updateChartData();
+        
       },
       error: err=> {
         console.log(err);
         
       }
     })
+  }
+
+  getCorrectAnswer() {
+    for (let i= 0; i< this.quiz.questions.length; i++) {
+      if (this.quiz.questions[i].answer=== this.answer[i]) {
+        this.correctAnswer++;
+      } else if (this.quiz.questions[i].answer!==  this.answer[i]) {
+        this.wrongAnswer++;
+      } else {
+        this.noAnswer++; 
+      }
+    }
+  }
+
+  updateChartData() {
+    this.chartOptions.data[0].dataPoints = [
+      { name: "Correct answer", y: parseFloat(this.rateCorrect.toFixed(2))},
+      { name: "Wrong answer", y: parseFloat(this.rateWrong.toFixed(2))},
+      { name: "No answer", y: parseFloat((100- (this.rateCorrect+this.rateWrong)).toFixed(2)) },
+    ];
+
+    this.chartOptions.title.text= "Result of Quiz By "+this.profile?.firstName+' '+this.profile?.lastName+' [ '+this.quiz.title+' ]';
   }
 
 }
