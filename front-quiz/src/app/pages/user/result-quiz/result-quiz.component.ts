@@ -54,7 +54,7 @@ export class ResultQuizComponent implements OnInit {
 		  text: "Correct answser / wrong answer : QUIZ TECH"
 	  }],
 	  data: [{
-		  type: "doughnut", //change type to column, line, area, doughnut, etc
+		  type: "pie", //change type to column, line, area, doughnut, etc
 		  indexLabel: "{name}: {y}%",
 		  dataPoints: [
 		  	{ name: "Correct answer", y: 0},
@@ -91,13 +91,11 @@ export class ResultQuizComponent implements OnInit {
   }
 
   getCorrectAnswer() {
-    for (let i= 0; i< this.quiz.questions.length; i++) {
+    for (let i= 0; i< this.answer.length; i++) {
       if (this.quiz.questions[i].answer=== this.answer[i]) {
         this.correctAnswer++;
       } else if (this.quiz.questions[i].answer!==  this.answer[i]) {
         this.wrongAnswer++;
-      } else {
-        this.noAnswer++; 
       }
     }
   }

@@ -37,7 +37,6 @@ export class StartQuizComponent {
     this.quizId= this.activeRoute.snapshot.params['quizId'];
     this.loadQuiz();
     this.startTimer();
-    this.questionValue= 10;
   }
 
   loadQuiz() {
@@ -46,6 +45,7 @@ export class StartQuizComponent {
         this.quiz= response.data.quiz,
         this.duration= this.quiz.duration;
         console.log(this.quiz.questions);
+        this.questionValue= 100/this.quiz.questions.length;
       },
       error: err=> {
         console.log(err);
@@ -75,7 +75,7 @@ export class StartQuizComponent {
       this.spinnerValue -= (100 / (this.duration * 60)); 
       if (this.spinnerValue <= 0) {
         clearInterval(interval); 
-        this.timeUp();
+        this.getResult();
       }
     }, 1000); 
 

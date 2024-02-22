@@ -63,19 +63,21 @@
     color: #fff;
     font-family: 'Ubuntu';
     font-size: 14px;
-    border: 2px solid #0e223e;
+    border: none;
+   // border: 2px solid #0e223e;
 }
 
 .choice:hover {
-    border: 2px solid #0e223e;
-    background: #fff;
-    color: #0e223e;
+    //border: 2px solid #0e223e;
+    background: #00668c;
+    color: #fff;
+    border: none;
 }
 
 .choice.active {
     border: 2px solid #0e223e;
-    background: #fff;
-    color: #0e223e;
+    background: #71c4ef;
+    color: #fff;
 }
 
 .current-question {
