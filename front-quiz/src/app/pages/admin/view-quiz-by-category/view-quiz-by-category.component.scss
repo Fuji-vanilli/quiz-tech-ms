@@ -33,18 +33,19 @@ mat-card {
 }
 
 .btn-add-quiz {
-
     padding: 12px 20px;
-    border: none;
-    background: #f59e0b;
-    color: #fff;
+    border: 2px solid #00668c;
+    background: #fff;
+    color: #00668c;
     font-family: 'Ubuntu';
     transition: all 0.1s ease;
+    margin-right: 16px;
 }
 
 .btn-add-quiz:hover {
     background: #0e223e;
     color: #fff;
+    border: 2px solid #0e223e;
 }
 
 .btn-question {

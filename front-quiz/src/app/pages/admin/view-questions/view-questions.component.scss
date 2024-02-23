@@ -57,10 +57,10 @@ span {
 }
 
 .btn-add {
-    border: none;
+    border: 2px solid #00668c;
     padding: 12px 20px;
-    color: #fff;
-    background: #22c55e;
+    color: #00668c;
+    background: #fff;
     cursor: pointer;
     font-family: 'Ubuntu';
 }
@@ -68,4 +68,5 @@ span {
 .btn-add:hover {
     background: #0e223e;
     color: #fff;
+    border: 2px solid #0e223e;
 }

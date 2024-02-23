@@ -1,62 +1,63 @@
 <nav class="navbar navbar-expand-lg fixed-top">
-    <div class="container-fluid">
-      <a class="navbar-brand" routerLink="/admin/dashboard">
-        <img src="../../assets/quiz tech (2).png">
-      </a>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent ms-auto">
-        <ul class="navbar-nav mb-lg-0 ms-auto">
-          <li class="nav-item" *ngIf="profile">
-            <a class="nav-link active " aria-current="page" (click)="dashboard()"><i class="bi bi-speedometer2 m-3"></i>Dashboard</a>
-          </li>
-          <li class="nav-item ms-4">
-            <a class="nav-link active " aria-current="page" routerLink="/admin/quizzes"><i class="bi bi-search m-3"></i>Search</a>
-          </li>
-          <li class="nav-item ms-3">
-            <button class="btn-login" (click)="login()" *ngIf="!profile">Sign in</button> 
-          </li>
-          <li class="nav-item">
-            <button class="btn-register" (click)="register()" *ngIf="!profile">Sign up</button>
-          </li>
-          <li class="nav-item" *ngIf="profile">
-            <button class="btn btn-profile" (click)="toggleMenu()">{{profile.username?.charAt(0)}}</button>
-          </li>
-        </ul>
-        <div class="sub-menu-wrap" id="subMenu">
-          <div class="sub-menu">
-            <div class="user-info">
-              <img src="../../assets/download.jpg" alt="" class="user-pic">    
-              <div class="user-details">
-                <h3>{{profile?.firstName+" "+profile?.lastName}}</h3>
-                <h6>{{profile?.email}}</h6>   
-              </div>      
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="/admin/dashboard">
+      <img src="../../assets/quiz tech (2).png">
+    </a>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent ms-auto">
+      <ul class="navbar-nav mb-lg-0 ms-auto">
+        <li class="nav-item" *ngIf="profile">
+          <a class="nav-link active " aria-current="page" (click)="dashboard()"><i
+              class="bi bi-speedometer2 m-3"></i>Dashboard</a>
+        </li>
+        <li class="nav-item ms-4">
+          <a class="nav-link active " aria-current="page" routerLink="/admin/quizzes"><i
+              class="bi bi-search m-3"></i>Search</a>
+        </li>
+        <li class="nav-item ms-3">
+          <button class="btn-login" (click)="login()" *ngIf="!profile">Sign in</button>
+        </li>
+        <li class="nav-item">
+          <button class="btn-register" (click)="register()" *ngIf="!profile">Sign up</button>
+        </li>
+        <li class="nav-item" *ngIf="profile">
+          <button class="btn btn-profile" (click)="toggleMenu()">{{profile.username?.charAt(0)}}</button>
+        </li>
+      </ul>
+      <div class="sub-menu-wrap" id="subMenu">
+        <div class="sub-menu">
+          <div class="user-info">
+            <img src="../../assets/download.jpg" alt="" class="user-pic">
+            <div class="user-details">
+              <h3>{{profile?.firstName+" "+profile?.lastName}}</h3>
+              <h6>{{profile?.email}}</h6>
             </div>
-            
-            <a routerLink="/admin/profile" class="sub-menu-link">
-              <i class="bi bi-person-fill"></i>
-              <p>Edit profile</p>
-              <span><i class="bi bi-chevron-right"></i></span>
-            </a>
-            <a href="" class="sub-menu-link">
-              <i class="bi bi-gear-fill"></i>
-              <p>Settings</p>
-              <span><i class="bi bi-chevron-right"></i></span>
-            </a>
-            <a href="" class="sub-menu-link">
-              <i class="bi bi-question-circle-fill"></i>
-              <p>Help</p>
-              <span><i class="bi bi-chevron-right"></i></span>
-            </a>
-            <hr>
-            
-            <a href="" class="sub-menu-link mt-4" (click)="logout()">
-              <i class="bi bi-escape"></i>
-              <p>Logout</p>
-              <span><i class="bi bi-chevron-right"></i></span>
-            </a>
           </div>
-        </div>   
+
+          <a routerLink="/admin/profile" class="sub-menu-link">
+            <i class="bi bi-person-fill"></i>
+            <p>Edit profile</p>
+            <span><i class="bi bi-chevron-right"></i></span>
+          </a>
+
+          <a href="" class="sub-menu-link">
+            <i class="bi bi-gear-fill"></i>
+            <p>Settings</p>
+            <span><i class="bi bi-chevron-right"></i></span>
+          </a>
+          <a href="" class="sub-menu-link">
+            <i class="bi bi-question-circle-fill"></i>
+            <p>Help</p>
+            <span><i class="bi bi-chevron-right"></i></span>
+          </a>
+          <hr>
+
+          <a href="" class="sub-menu-link mt-4" (click)="logout()">
+            <i class="bi bi-escape"></i>
+            <p>Logout</p>
+            <span><i class="bi bi-chevron-right"></i></span>
+          </a>
+        </div>
       </div>
     </div>
-  </nav>
-
-  
+  </div>
+</nav>
