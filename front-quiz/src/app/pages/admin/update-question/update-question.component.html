@@ -74,9 +74,9 @@
                         </div>
                     </div>
                     <div class="text-center d-flex justify-content-between align-items-center">
-                        <button class="btn-add" ><i class="bi bi-plus-lg"
-                                style="margin-right: 12px;"></i>Update Question<i class="bi bi-cloud-download-fill ms-2"></i></button>
-                        <button class="btn-add" [mat-dialog-close]="closedMessage"><i class="bi bi-x-circle-fill"></i><strong class="ms-2">CANCEL</strong></button>
+                        <button class="btn-add" (click)="closeUpdate()">
+                            <i class="bi bi-plus-lg"style="margin-right: 12px;"></i>Update Question<i class="bi bi-cloud-download-fill ms-2"></i></button>
+                        <button class="btn-cancel" [mat-dialog-close]="closedMessage"><i class="bi bi-x-circle-fill"></i><strong class="ms-2">CANCEL</strong></button>
                     </div>
                 </form>
             </div>

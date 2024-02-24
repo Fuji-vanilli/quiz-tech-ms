@@ -83,27 +83,12 @@ export class UpdateQuestionComponent implements OnInit{
         console.log("question updated");
         console.table(response.data.question);
         Swal.fire('Updated', 'Question updated successfully!', 'success');
+        //window.location.reload();
+        this.route.navigateByUrl('admin/questions/'+question.id+'/'+this.quiz.title);
       }
     })
   }
 
-  update() {
-    const quiz: Quiz= {
-      id: this.data.id,
-      marks: this.formGroup.value.marks,
-      numberOfQuestions: this.formGroup.value.numberOfQuestions,
-      categoryId: this.formGroup.value.categoryId,
-      active: this.formGroup.value.active
-    }
-
-    this.quizService.updateQuiz(quiz).subscribe({
-      next: response=> {
-        console.table(response.data.quiz);
-        Swal.fire('Success', 'Quiz updated successfully', 'success');
-        this.route.navigateByUrl('/admin/quizzes');
-      }
-    })
-  }
   closeUpdate() {
     this.ref.close('closed using function!')
   }

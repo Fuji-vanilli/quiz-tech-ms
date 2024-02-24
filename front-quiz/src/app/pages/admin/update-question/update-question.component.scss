@@ -21,9 +21,20 @@
     border: 0.5px solid #333;
 }
 
+.btn-cancel {
+    background-color: #0e223e;
+    padding: 11px 28px;
+    border: none;
+    color: #fff;
+}
+
 .btn-add:hover {
-   
     background: #0e223e;
+    color: #fff;
+}
+
+.btn-cancel:hover {
+    background: #ea580c;
     color: #fff;
 }
 

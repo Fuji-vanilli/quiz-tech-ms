@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { QuestionApiService } from 'src/app/services/question-api.service';
 import { QuizApiService } from 'src/app/services/quiz-api.service';
 import { Question } from '../../models/question.model';
@@ -26,7 +26,7 @@ export class ViewQuestionsComponent implements OnInit{
               private quizService: QuizApiService,
               private questionService: QuestionApiService,
               private dialog: MatDialog,
-              private keycloakService: KeycloakService) {}
+              private route: Router) {}
 
   ngOnInit(): void {
     this.quizId= this.activeRoute.snapshot.params['id'];
@@ -48,6 +48,9 @@ export class ViewQuestionsComponent implements OnInit{
       next: response=> {
         this.questions= response.data.questions,
         console.table(this.questions);
+      },
+      error: err=> {
+        console.log(err);
       }
     })
   }
@@ -57,19 +60,6 @@ export class ViewQuestionsComponent implements OnInit{
       next: response=> {
         this.quiz= response.data.quiz
       },
-      error: err=> {
-        console.log(err);
-        
-      }
-    })
-  }
-  updateQuestion(question: Question) {
-    this.questionService.updateQuestion(question).subscribe({
-      next: response=> {
-        Swal.fire('Updated', 'Question updated successfully!', 'success');
-        console.log('question updated: ', response.data.question);
-        this.loadQuestionByQuizId();        
-      }, 
       error: err=> {
         console.log(err);
         
@@ -124,5 +114,7 @@ export class ViewQuestionsComponent implements OnInit{
         answer: question.answer
       }
     })
+
+    this.loadQuestionByQuizId();
   }
 }
