@@ -19,7 +19,7 @@ export class UpdateQuestionComponent implements OnInit{
   quizId!: string;
   formGroup!: FormGroup;
   quiz!: Quiz;
-  question!: Question;
+  question!: any;
   options: any= {
     option1: '',
     option2: '',
@@ -39,9 +39,16 @@ export class UpdateQuestionComponent implements OnInit{
     private route: Router) {}
 
   ngOnInit(): void {
+    this.quiz= this.data.quiz;
+    this.loadQuestion();
     this.formGroup= this.formBuilder.group({
-      
-    })
+      content: this.formBuilder.control(this.data.content),
+      option1: this.formBuilder.control(this.data.option1),
+      option2: this.formBuilder.control(this.data.option2),
+      option3: this.formBuilder.control(this.data.option3),
+      option4: this.formBuilder.control(this.data.option4),
+      answer: this.formBuilder.control(this.data.answer)
+    });
   }
   
   loadQuestion() {
@@ -58,7 +65,24 @@ export class UpdateQuestionComponent implements OnInit{
   }
 
   updateQuestion() {
+    const options: string[]= [
+      this.formGroup.value.option1,
+      this.formGroup.value.option2,
+      this.formGroup.value.option3,
+      this.formGroup.value.option4,
+    ]
+    const question: Question= {
+      content: this.formGroup.value.content,
+      options: options,
+      answer: this.formGroup.value.answer
+    }
 
+    this.questionService.updateQuestion(question).subscribe({
+      next: response=> {
+        console.log("question updated");
+        console.table(response.data.question);
+      }
+    })
   }
 
   update() {

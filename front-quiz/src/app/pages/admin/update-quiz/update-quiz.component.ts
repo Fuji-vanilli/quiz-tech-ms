@@ -32,7 +32,7 @@ export class UpdateQuizComponent implements OnInit{
 
   ngOnInit(): void {
     this.inputData= this.data;
-    this.loadCategory();
+    this.loadCategory(); 
   }
 
   loadCategory() {

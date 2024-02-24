@@ -106,7 +106,7 @@ export class ViewQuestionsComponent implements OnInit{
 
   }
 
-  openUpdate(question: Question) {
+  openUpdate(question: any) {
     this.dialog.open(UpdateQuestionComponent, {
       width: '40%',
       height: '550px',
@@ -114,7 +114,13 @@ export class ViewQuestionsComponent implements OnInit{
       exitAnimationDuration: '1000ms',
       data: {
         titlePopup: 'Update Quiz',
-
+        quiz: this.quiz,
+        content: question.content,
+        option1: question.options[0],
+        option2: question.options[1],
+        option3: question.options[2],
+        option4: question.options[3],
+        answer: question.answer
       }
     })
   }
