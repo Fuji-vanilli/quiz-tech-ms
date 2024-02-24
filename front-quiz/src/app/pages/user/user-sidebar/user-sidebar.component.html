@@ -28,7 +28,7 @@
                 </a>
             </li>
             <li class="sidebar-item" *ngFor="let category of categories">
-                <a [routerLink]="'/user/quizzes/'+category.id" class="sidebar-link" routerLinkActive="active">
+                <a (click)="toQuizByCategory(category.id)" class="sidebar-link" routerLinkActive="active">
                     <i class="bi bi-arrow-bar-right"></i>
                     <span class="ms-2">{{category.title}}</span>
                 </a>

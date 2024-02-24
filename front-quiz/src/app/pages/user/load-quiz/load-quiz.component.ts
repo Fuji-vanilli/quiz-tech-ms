@@ -33,7 +33,6 @@ export class LoadQuizComponent implements OnInit {
       },
       error: err=> {
         console.log(err);
-        
       }
     })
   }

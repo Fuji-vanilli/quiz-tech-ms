@@ -19,6 +19,7 @@ import { LoadQuizByCategoryComponent } from './pages/user/load-quiz-by-category/
 import { InstructionsComponent } from './pages/user/instructions/instructions.component';
 import { StartQuizComponent } from './pages/user/start-quiz/start-quiz.component';
 import { ResultQuizComponent } from './pages/user/result-quiz/result-quiz.component';
+import { ProfileUserComponent } from './pages/user/profile-user/profile-user.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -26,6 +27,7 @@ const routes: Routes = [
     path:'user', component: UserDashboardComponent, canActivate: [AuthGuard], data: {roles: ['USER', 'ADMIN']},
     children: [
       { path: '', component: LoadQuizComponent },
+      { path: 'profile', component: ProfileUserComponent },
       { path: 'quizzes', component: LoadQuizComponent },
       { path: 'quizzes/:categoryId', component: LoadQuizByCategoryComponent },
       { path: 'instructions/:quizId', component: InstructionsComponent },

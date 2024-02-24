@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { KeycloakService } from 'keycloak-angular';
 import { CategoryApiService } from 'src/app/services/category-api.service';
 import { Category } from '../../models/category.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-sidebar',
@@ -13,7 +14,8 @@ export class UserSidebarComponent implements OnInit {
   categories: Category[]= [];
 
   constructor(private keycloakService: KeycloakService,
-              private categoryService: CategoryApiService) {}
+              private categoryService: CategoryApiService,
+              private router: Router) {}
 
   ngOnInit(): void {
     this.loadCategories();
@@ -30,5 +32,9 @@ export class UserSidebarComponent implements OnInit {
         
       }
     })
+  }
+
+  toQuizByCategory(categoryId: any) {
+    this.router.navigateByUrl('/user/quizzes/'+categoryId);
   }
 }

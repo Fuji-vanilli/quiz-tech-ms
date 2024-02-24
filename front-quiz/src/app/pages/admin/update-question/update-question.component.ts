@@ -35,8 +35,11 @@ export class UpdateQuestionComponent implements OnInit{
     private route: Router) {}
 
   ngOnInit(): void {
-
+    this.formGroup= this.formBuilder.group({
+      
+    })
   }
+  
 
   updateQuestion() {
 

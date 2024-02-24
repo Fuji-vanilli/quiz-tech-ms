@@ -14,10 +14,9 @@ import { KeycloakService } from 'keycloak-angular';
   styleUrls: ['./view-questions.component.scss']
 })
 export class ViewQuestionsComponent implements OnInit{
-  typesOfShoes: string[] = ['Boots', 'Clogs', 'Loafers', 'Moccasins', 'Sneakers'];
-
   quizId!: string;
   quizTitle!: string;
+  quiz!: any;
 
   questions: Question[]= [];
   isContentExpanded: { [key: number]: boolean } = {};
@@ -34,6 +33,7 @@ export class ViewQuestionsComponent implements OnInit{
     this.quizTitle= this.activeRoute.snapshot.params['title'];
 
     this.loadQuestionByQuizId();
+    this.loadQuiz();
 
   }
 
@@ -52,6 +52,17 @@ export class ViewQuestionsComponent implements OnInit{
     })
   }
 
+  loadQuiz() {
+    this.quizService.getQuiz(this.quizId).subscribe({
+      next: response=> {
+        this.quiz= response.data.quiz
+      },
+      error: err=> {
+        console.log(err);
+        
+      }
+    })
+  }
   updateQuestion(question: Question) {
     this.questionService.updateQuestion(question).subscribe({
       next: response=> {

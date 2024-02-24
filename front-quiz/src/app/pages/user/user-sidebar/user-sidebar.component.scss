@@ -78,6 +78,7 @@ a.sidebar-link {
     font-size: 0.9rem;
     white-space: nowrap;
     border-left: 3px solid transparent;
+    cursor: pointer;
 }
 
 .sidebar-link i{
@@ -97,7 +98,7 @@ a.sidebar-link:hover {
 }
 
 .sidebar-footer {
-    margin-bottom: 30px;
+    margin-bottom: 10px;
 }
 
 .copyright {
