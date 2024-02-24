@@ -23,6 +23,9 @@ export class QuestionApiService {
     return this.httpClient.post(environment.backEndQuestion+'/add', question);
   }
 
+  getQuestion(questionId: string): Observable<any> {
+    return this.httpClient.get(environment.backEndQuestion+'/get/'+questionId);
+  }
   updateQuestion(question: Question): Observable<any> {
     return this.httpClient.put(environment.backEndQuestion+'/update', question);
   }
