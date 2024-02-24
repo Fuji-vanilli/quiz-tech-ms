@@ -7,6 +7,8 @@ import { CategoryApiService } from 'src/app/services/category-api.service';
 import { QuizApiService } from 'src/app/services/quiz-api.service';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { Question } from '../../models/question.model';
+import { QuestionApiService } from 'src/app/services/question-api.service';
 
 @Component({
   selector: 'app-update-question',
@@ -17,6 +19,7 @@ export class UpdateQuestionComponent implements OnInit{
   quizId!: string;
   formGroup!: FormGroup;
   quiz!: Quiz;
+  question!: Question;
   options: any= {
     option1: '',
     option2: '',
@@ -31,6 +34,7 @@ export class UpdateQuestionComponent implements OnInit{
     private ref: MatDialogRef<UpdateQuizComponent>,
     private formBuilder: FormBuilder,
     private quizService: QuizApiService,
+    private questionService: QuestionApiService,
     private categoryService: CategoryApiService,
     private route: Router) {}
 
@@ -40,6 +44,18 @@ export class UpdateQuestionComponent implements OnInit{
     })
   }
   
+  loadQuestion() {
+    this.questionService.getQuestion(this.data.questionId).subscribe({
+      next: response=> {
+        this.question= response.data.question;
+        console.log('question by id: ', this.data.questionId);
+        console.table(this.question);        
+      },
+      error: err=> {
+        console.log(err);
+      }
+    })
+  }
 
   updateQuestion() {
 
