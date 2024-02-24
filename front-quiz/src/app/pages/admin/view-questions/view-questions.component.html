@@ -80,7 +80,7 @@
                                                         </a>
                                                     </p>
                                                     <div class="mb-3 mt-3 d-flex justify-content-between align-items-center">
-                                                        <a class="nav-link" (click)="updateQuestion(question)" style="color: #1d4ed8;"><i class="bi bi-pen-fill"></i><strong class="ms-2">Edit Quiz</strong></a>
+                                                        <a class="nav-link" (click)="openUpdate(questions[i+1])" style="color: #1d4ed8;"><i class="bi bi-pen-fill"></i><strong class="ms-2">Edit Quiz</strong></a>
                                                         <a class="nav-link " (click)="deleteQuestion(question.id)" style="margin-left: 60px; color: #e11d48;"><i class="bi bi-trash-fill"></i><strong class="ms-2">Delete Quiz</strong></a>
                                                         <div class="m-3">
                                                             <i class="bi bi-calendar-plus-fill"></i><strong class="ms-2">{{question.createdDate?.toString().split('T')[0]}}</strong>

@@ -47,7 +47,7 @@ export class UpdateQuestionComponent implements OnInit{
       option2: this.formBuilder.control(this.data.option2),
       option3: this.formBuilder.control(this.data.option3),
       option4: this.formBuilder.control(this.data.option4),
-      answer: this.formBuilder.control(this.data.answer)
+      answer:  this.formBuilder.control(this.data.answer)
     });
   }
   
@@ -72,6 +72,7 @@ export class UpdateQuestionComponent implements OnInit{
       this.formGroup.value.option4,
     ]
     const question: Question= {
+      id: this.data.questionId,
       content: this.formGroup.value.content,
       options: options,
       answer: this.formGroup.value.answer
@@ -81,6 +82,7 @@ export class UpdateQuestionComponent implements OnInit{
       next: response=> {
         console.log("question updated");
         console.table(response.data.question);
+        Swal.fire('Updated', 'Question updated successfully!', 'success');
       }
     })
   }

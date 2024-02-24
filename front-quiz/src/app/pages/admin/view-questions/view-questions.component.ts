@@ -115,6 +115,7 @@ export class ViewQuestionsComponent implements OnInit{
       data: {
         titlePopup: 'Update Quiz',
         quiz: this.quiz,
+        questionId: question.id,
         content: question.content,
         option1: question.options[0],
         option2: question.options[1],
