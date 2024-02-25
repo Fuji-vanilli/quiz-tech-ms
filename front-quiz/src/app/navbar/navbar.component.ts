@@ -40,7 +40,7 @@ export class NavbarComponent implements OnInit {
   }
   async login() {
     await this.keycloakService.login({
-      redirectUri: window.location.origin+'/admin/'
+      redirectUri: window.location.origin+'/admin/quizzes'
     });
   }
 

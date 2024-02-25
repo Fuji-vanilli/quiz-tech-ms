@@ -114,42 +114,78 @@ export class StartQuizComponent {
   }
 
   getResult() {
-    Swal.fire({
-      title: "You are finished the Quiz successfully",
-      width: 600,
-      padding: "3em",
-      color: "#cee8ff",
-      html: `
-      <strong>Result</strong>
-      <ul class="mt-3" style="list-style: none;">
-        <li class="list-item" style="color: #cee8ff;">
-          Correct Answer: <strong style="font-size: 24px;">${this.correctAnswer} / ${this.quiz.numberOfQuestions} </strong>
-          <span>Questions</span>
-        </li>
-      </ul>
-    `,
-      icon: 'success',
-      showConfirmButton: true,
-      confirmButtonColor: '#00668c',
-      confirmButtonText: 'View Details',
-      showCancelButton: true,
-      cancelButtonColor: '#ff6366',
-      cancelButtonText: 'Terminate',
-
-      background: "#1f2b3e",
-      backdrop: `
-      rgba(0,0,123,0.4)
-        url("../../../../assets/giphy (3).gif")
-      `
-    }).then((result)=> {
-      if (result.isConfirmed) {
-        this.dataService.dataResult= this.resultQuiz;
-        this.router.navigateByUrl('/user/result/'+this.quizId);
-        console.log(this.resultQuiz);
-        
-      } else {
-        this.router.navigateByUrl('/user/quizzes');
-      }
-    });
-  }
+    if (this.correctAnswer>= 5) {
+      Swal.fire({
+        title: "You are finished the Quiz successfully",
+        width: 600,
+        padding: "3em",
+        color: "#cee8ff",
+        html: `
+        <strong>Result</strong>
+        <ul class="mt-3" style="list-style: none;">
+          <li class="list-item" style="color: #cee8ff;">
+            Correct Answer: <strong style="font-size: 24px;">${this.correctAnswer} / ${this.quiz.numberOfQuestions} </strong>
+            <span>Questions</span>
+          </li>
+        </ul>
+      `,
+        icon: 'success',
+        showConfirmButton: true,
+        confirmButtonColor: '#00668c',
+        confirmButtonText: 'View Details',
+        showCancelButton: true,
+        cancelButtonColor: '#ff6366',
+        cancelButtonText: 'Terminate',
+  
+        background: "#1f2b3e",
+        backdrop: `
+        rgba(0,0,123,0.4)
+          url("../../../../assets/giphy (3).gif")
+        `
+      }).then((result)=> {
+        if (result.isConfirmed) {
+          this.dataService.dataResult= this.resultQuiz;
+          this.router.navigateByUrl('/user/result/'+this.quizId);
+          console.log(this.resultQuiz);
+          
+        } else {
+          this.router.navigateByUrl('/user/quizzes');
+        }
+      });
+    } else  {
+      Swal.fire({
+        title: "You d'ont have a moyen on this Quiz",
+        width: 600,
+        padding: "3em",
+        color: "#cee8ff",
+        html: `
+        <strong>Result</strong>
+        <ul class="mt-3" style="list-style: none;">
+          <li class="list-item" style="color: #cee8ff;">
+            Correct Answer: <strong style="font-size: 24px;">${this.correctAnswer} / ${this.quiz.numberOfQuestions} </strong>
+            <span>Questions</span>
+          </li>
+        </ul>
+      `,
+        icon: 'warning',
+        showConfirmButton: true,
+        confirmButtonColor: '#00668c',
+        confirmButtonText: 'View Details',
+        showCancelButton: true,
+        cancelButtonColor: '#ff6366',
+        cancelButtonText: 'Terminate',
+  
+        background: "#1f2b3e",
+      }).then((result)=> {
+        if (result.isConfirmed) {
+          this.dataService.dataResult= this.resultQuiz;
+          this.router.navigateByUrl('/user/result/'+this.quizId);
+          console.log(this.resultQuiz);
+          
+        } else {
+          this.router.navigateByUrl('/user/quizzes');
+        }
+      });
+    }
+    }
 }
