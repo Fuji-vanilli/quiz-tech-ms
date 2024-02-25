@@ -79,7 +79,7 @@ export class ViewQuizzesComponent implements OnInit{
   openUpdate(quiz: Quiz) {
     this.dialog.open(UpdateQuizComponent, {
       width: '40%',
-      height: '550px',
+      height: '650px',
       enterAnimationDuration: '1000ms',
       exitAnimationDuration: '1000ms',
       data: {
