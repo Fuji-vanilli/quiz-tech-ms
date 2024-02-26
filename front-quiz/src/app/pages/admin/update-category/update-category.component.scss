@@ -1,0 +1,62 @@
+mat-form-field {
+    width: 500px;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.nav-link {
+    color: #333;
+    cursor: pointer;
+}
+
+.nav-link:hover {
+    color: #ea580c;
+}
+.card {
+    //min-height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    transition: all 0.35s ease-in-out;
+    //background: #1e293b;
+}
+
+h2 {
+    color: #0e223e;
+    font-weight: 500;
+    font-family: 'Poppins';
+}
+.btn-save {
+    background: #ea580c;
+    padding: 8px 24px;
+    border: none;
+    color: #fff;
+    font-family: 'Poppins';
+    cursor: pointer;
+    transition: all .7s ease;
+}
+
+.btn-save:hover {
+    opacity: .6;
+}
+
+.btn-cancel {
+    background: #de283b;
+    padding: 8px 24px;
+    border: none;
+    color: #fff;
+    font-family: 'Poppins';
+    cursor: pointer;
+    transition: all .7s ease;
+}
+
+.btn-cancel:hover {
+    opacity: .6;
+}
+
+.dark1 {
+    background: #333;
+    color: #fff;
+}
+

@@ -20,6 +20,7 @@ export class LoadQuizComponent implements OnInit {
   quizzes: Quiz[] = [];
   categories: Category[]= [];
   totalQuizzes!: number;
+  icon: string= 'bi bi-code-slash';
 
   constructor(private quizService: QuizApiService,
               private categoryService: CategoryApiService,
