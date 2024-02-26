@@ -14,10 +14,10 @@ import { CategoryApiService } from 'src/app/services/category-api.service';
 })
 export class LoadQuizComponent implements OnInit {
 
-  //imageUrl: string= '../../../../assets/core-value.png';
-
+  colors: string[]= ['#00FFFF', '#F18F01', '#2E8B57', '#FF6347', '#6c35de']
   categoryId!: string;
   quizzes: Quiz[] = [];
+  filterQuizzes: Quiz[]= [];
   categories: Category[]= [];
   totalQuizzes!: number;
   icon: string= 'bi bi-code-slash';
@@ -57,6 +57,14 @@ export class LoadQuizComponent implements OnInit {
         
       }
     })
+  }
+
+  filterQuizByCaegory(categoryId: any) {
+    if (categoryId=== 'all') {
+      this.filterQuizzes= this.quizzes;
+    } else {
+      this.filterQuizzes= this.quizzes.filter(quiz=> quiz.categoryId=== categoryId);
+    }
   }
 
 }

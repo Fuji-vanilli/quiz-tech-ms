@@ -15,7 +15,14 @@
     border-radius: 24px;
     background: #2d2d2d;
     color: #a3a3a3;
+    transition: all 0.6s ease;
 }
+
+.btn-category:hover {
+    background-color: #404040;
+    color: #fff;
+}
+
 mat-card {
     background: #2d2d2d;
     transition: background 0.9s ease;
@@ -176,7 +183,7 @@ h4, .h4 {
 span {
     border: none;
     border-radius: 24px;
-    padding: 0px 18px;
+    padding: 0px 14px;
 }
 
 .article-quizz .quizz-details .info-cards, .article-quizz .quizz-details .quizz-ratings {

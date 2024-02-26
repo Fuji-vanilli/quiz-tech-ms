@@ -3,9 +3,12 @@
         <div class="row">
             <h4 class="mt-3 ms-2 text-center">Available Quizzes {{'('+totalQuizzes+')'}}</h4>
             <div>
-                <button class="btn-category" *ngFor="let category of categories"><i [ngClass]="category.icon" style="color: #f59e0b;"></i> {{category.title}}</button>
+                <button class="btn-category" *ngFor="let category of categories; let i= index" (click)="filterQuizByCaegory(category.id)">
+                    <i [ngClass]="category.icon" [ngStyle]="{'color': colors[i%colors.length]}"></i>
+                    <span>{{category.title}}</span>
+                </button>
             </div>
-            <div class="col-md-4" *ngFor="let quiz of quizzes">
+            <div class="col-md-4" *ngFor="let quiz of filterQuizzes">
                 <mat-card class="mt-2">
                     <mat-card-header>
                         <div mat-card-avatar class="image-quiz" [style.backgroundImage]="'url('+quiz.imageUrl+')'"></div>
