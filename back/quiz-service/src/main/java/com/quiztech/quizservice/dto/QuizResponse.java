@@ -19,6 +19,7 @@ public class QuizResponse {
     private Date createdDate;
     private Date lastUpdateDate;
     private BigDecimal marks;
+    private String imageUrl;
     private BigDecimal numberOfQuestions;
     private BigDecimal duration;
     private List<String> questionsId;

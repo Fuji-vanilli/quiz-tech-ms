@@ -12,6 +12,8 @@ import { logWarning } from '@ckeditor/ckeditor5-utils';
 })
 export class LoadQuizComponent implements OnInit {
 
+  imageUrl: string= '../../../../assets/data-server.png';
+
   categoryId!: string;
   quizzes: Quiz[] = [];
   totalQuizzes!: number;

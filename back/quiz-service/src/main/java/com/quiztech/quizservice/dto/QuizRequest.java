@@ -12,6 +12,7 @@ public class QuizRequest {
     private String id;
     private String title;
     private BigDecimal marks;
+    private String imageUrl;
     private String description;
     private BigDecimal numberOfQuestions;
     private BigDecimal duration;

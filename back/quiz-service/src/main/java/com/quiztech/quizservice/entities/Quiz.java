@@ -23,6 +23,7 @@ public class Quiz {
     private String description;
     private Date createdDate;
     private Date lastUpdateDate;
+    private String imageUrl;
     private BigDecimal marks;
     private BigDecimal numberOfQuestions;
     private BigDecimal duration;

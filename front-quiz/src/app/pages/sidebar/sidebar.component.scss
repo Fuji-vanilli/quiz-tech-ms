@@ -22,8 +22,8 @@ li {
 }
 #sidebar {
     position: fixed;
-    //width: 70px;
-    width: 250px;
+    width: 70px;
+    //width: 250px;
     min-width: 70px;
     height: 94vh;
     //font-family: 'Poppins';
@@ -63,7 +63,7 @@ li {
 
 #sidebar:not(.expand) .sidebar-logo,
 #sidebar:not(.expand) a.sidebar-link span{
-   // display: none;
+   display: none;
 }
 
 .sidebar-nav {

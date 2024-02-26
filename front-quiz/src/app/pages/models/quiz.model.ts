@@ -6,10 +6,11 @@ export interface Quiz {
     title?: string,
     description?: string,
     marks?: BigInteger,
-    numberOfQuestions?: BigInteger,
+    imageUrl?: any,
+    numberOfQuestions?: BigInteger, 
     active?: boolean,
-    categoryId?: string,
-    category?: Category,
-    duration?: number,
+    categoryId?: string, 
+    category?: Category, 
+    duration?: number, 
     questions?: Question[]
 }

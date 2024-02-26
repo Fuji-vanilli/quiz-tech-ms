@@ -5,7 +5,7 @@
             <div class="col-md-4" *ngFor="let quiz of quizzes">
                 <mat-card class="mt-2">
                     <mat-card-header>
-                        <div mat-card-avatar class="image-quiz"></div>
+                        <div mat-card-avatar class="image-quiz" [style.backgroundImage]="'url('+imageUrl+')'"></div>
                         <mat-card-title>{{quiz.title}}</mat-card-title>
                         <mat-card-subtitle>{{quiz.category?.title}}</mat-card-subtitle>
                     </mat-card-header>
@@ -23,7 +23,7 @@
                                                 <i class="bi bi-question-lg"></i>
                                                 <span>QUESTIONS</span></div>
                                             <div class="info-value">
-                                                <h4>{{quiz.numberOfQuestions}}</h4>
+                                                <span>{{quiz.numberOfQuestions}}</span>
                                             </div>
                                         </div>
                                         <div class="info-card ms-4">
@@ -32,7 +32,7 @@
                                                 <span>MINUTES</span>
                                             </div>
                                             <div class="info-value">
-                                                <h4> {{quiz.duration}}</h4>
+                                                <span> {{quiz.duration}}</span>
                                             </div>
                                         </div>
                                         <div class="info-card ms-4">
@@ -41,7 +41,7 @@
                                                 <span>MARKS</span>
                                             </div>
                                             <div class="info-value">
-                                                <h4>{{quiz.marks}}</h4>
+                                                <span>{{quiz.marks}}</span>
                                             </div>
                                         </div>
                                     </div>
@@ -64,8 +64,8 @@
 
                     <mat-card-actions>
                         <div class="mb-2 ms-4">
-                            <button class="button-view">VIEW <i class="bi bi-eye-fill ms-2"></i></button>
-                            <button class="button-start ms-2" [routerLink]="'/user/instructions/'+quiz.id">START<i class="bi bi-skip-start-circle-fill ms-2"></i></button>
+                            <button class="button-view">View <i class="bi bi-eye-fill ms-2" style="color: #f59e0b;"></i></button>
+                            <button class="button-start ms-2" [routerLink]="'/user/instructions/'+quiz.id">Start<i class="bi bi-skip-start-circle-fill ms-2" style="color: #0ea5e9;"></i></button>
                         </div>
                     </mat-card-actions>
                 </mat-card>
