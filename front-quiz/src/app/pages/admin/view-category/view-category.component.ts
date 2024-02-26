@@ -4,6 +4,8 @@ import { Category } from '../../models/category.model';
 import Swal from 'sweetalert2';
 import { ActivatedRoute } from '@angular/router';
 import { KeycloakService } from 'keycloak-angular';
+import { MatDialog } from '@angular/material/dialog';
+import { UpdateCategoryComponent } from '../update-category/update-category.component';
 
 declare var window: any;
 
@@ -20,6 +22,7 @@ export class ViewCategoryComponent implements OnInit {
 
   constructor(private categoryService: CategoryApiService, 
               private routeActive: ActivatedRoute,
+              private dialog: MatDialog,
               public keycloakService: KeycloakService) {}
 
   ngOnInit(): void {
@@ -71,4 +74,19 @@ export class ViewCategoryComponent implements OnInit {
        }
     })
   }
+
+  openUpdate(category: Category) {
+    this.dialog.open(UpdateCategoryComponent, {
+      width: '40%',
+      height: '650px',
+      enterAnimationDuration: '1000ms',
+      exitAnimationDuration: '1000ms',
+      data: {
+        id: category.id,
+        title: category.title,
+        description: category.description,
+        icon: category.icon
+      }
+    })
+  } 
 }

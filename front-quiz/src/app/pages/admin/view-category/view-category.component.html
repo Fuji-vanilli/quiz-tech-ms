@@ -29,7 +29,7 @@
                     </div>
                    </mat-card-actions>
                     <div class="d-flex align-items-center">
-                        <a class="nav-link" ><i class="bi bi-pen-fill"></i><strong class="ms-2">Edit</strong></a>
+                        <a class="nav-link" (click)="openUpdate(category)" ><i class="bi bi-pen-fill"></i><strong class="ms-2">Edit</strong></a>
                         <a class="nav-link ms-3" (click)="deleteCategory(category.id)"><i class="bi bi-trash-fill"></i><strong class="ms-2">Delete</strong></a>
                     </div>
                 </div>

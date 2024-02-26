@@ -24,7 +24,8 @@ export class AddCategoryComponent implements OnInit{
   ngOnInit(): void {
     this.formGroup= this.formBuilder.group({
       title: this.formBuilder.control('', Validators.required),
-      description: this.formBuilder.control('', Validators.required)
+      description: this.formBuilder.control('', Validators.required),
+      icon: this.formBuilder.control('')
     });
   }
 
@@ -33,7 +34,8 @@ export class AddCategoryComponent implements OnInit{
 
     const category: Category= {
       title: this.formGroup.value.title,
-      description: this.formGroup.value.description
+      description: this.formGroup.value.description,
+      icon: this.formGroup.value.icon
     }
     
     this.categoryService.addCategory(category).subscribe({

@@ -28,6 +28,19 @@
                                 <textarea matInput placeholder="Enter description here..." formControlName="description" rows="5"></textarea>
                             </mat-form-field>
                         </p>
+                        <div style="margin-bottom: 14px;">
+                            <i class="bi bi-paragraph"></i><strong class="ms-2">Enter the icon of the category</strong>
+                        </div>   
+                        <mat-form-field  class="full-width" appearance="outline">
+                            <mat-label>Icon</mat-label>
+                            <input 
+                                autofocus
+                                type="text" 
+                                name="Icon" 
+                                matInput 
+                                placeholder="Enter title here..."
+                                formControlName="icon">
+                        </mat-form-field>
                         
                         <div class="d-flex justify-content-between aling-items-center">
                             <button class="btn-save" [disabled]="formGroup.invalid">Save New Category<i class="bi bi-cloud-download-fill ms-2"></i></button>
