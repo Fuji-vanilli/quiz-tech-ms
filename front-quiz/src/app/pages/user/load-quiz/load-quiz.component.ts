@@ -4,6 +4,8 @@ import { Quiz } from '../../models/quiz.model';
 import { ActivatedRoute } from '@angular/router';
 import Swal from 'sweetalert2';
 import { logWarning } from '@ckeditor/ckeditor5-utils';
+import { Category } from '../../models/category.model';
+import { CategoryApiService } from 'src/app/services/category-api.service';
 
 @Component({
   selector: 'app-load-quiz',
@@ -16,14 +18,17 @@ export class LoadQuizComponent implements OnInit {
 
   categoryId!: string;
   quizzes: Quiz[] = [];
+  categories: Category[]= [];
   totalQuizzes!: number;
 
   constructor(private quizService: QuizApiService,
+              private categoryService: CategoryApiService,
               private activeRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.categoryId = this.activeRoute.snapshot.params['categoryId'];
     this.loadQuizzes();
+    this.loadCategory();
   }
 
   loadQuizzes() {
@@ -35,6 +40,20 @@ export class LoadQuizComponent implements OnInit {
       },
       error: err=> {
         console.log(err);
+      }
+    })
+  }
+
+  loadCategory() {
+    this.categoryService.fetchAll(0, 20).subscribe({
+      next: response=> {
+        this.categories= response.data.categories;
+        console.log('categories: ',this.categories);
+        
+      },
+      error: err=> {
+        console.log(err);
+        
       }
     })
   }

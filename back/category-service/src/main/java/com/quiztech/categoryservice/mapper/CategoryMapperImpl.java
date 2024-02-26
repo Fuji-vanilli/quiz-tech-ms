@@ -13,6 +13,7 @@ public class CategoryMapperImpl implements CategoryMapper{
                 .id(request.getId())
                 .title(request.getTitle())
                 .description(request.getDescription())
+                .icon(request.getIcon())
                 .quizsId(request.getQuizsId())
                 .build();
     }
@@ -23,6 +24,7 @@ public class CategoryMapperImpl implements CategoryMapper{
                 .id(category.getId())
                 .title(category.getTitle())
                 .description(category.getDescription())
+                .icon(category.getIcon())
                 .createdDate(category.getCreatedDate())
                 .lastUpdateDate(category.getLastUpdateDate())
                 .quizsId(category.getQuizsId())

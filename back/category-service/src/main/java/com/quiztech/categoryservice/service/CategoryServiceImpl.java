@@ -140,6 +140,7 @@ public class CategoryServiceImpl implements CategoryService{
 
         category.setTitle(request.getTitle());
         category.setDescription(request.getDescription());
+        category.setIcon(request.getIcon());
         category.setLastUpdateDate(new Date());
 
         categoryRepository.save(category);
