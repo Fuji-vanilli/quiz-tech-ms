@@ -12,7 +12,7 @@ import { logWarning } from '@ckeditor/ckeditor5-utils';
 })
 export class LoadQuizComponent implements OnInit {
 
-  imageUrl: string= '../../../../assets/data-server.png';
+  //imageUrl: string= '../../../../assets/core-value.png';
 
   categoryId!: string;
   quizzes: Quiz[] = [];

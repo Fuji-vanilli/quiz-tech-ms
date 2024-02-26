@@ -14,6 +14,7 @@ export class StartQuizComponent {
   minute: number= 0;
   second: number= 0;
   timer: any;
+  interval: any;
 
   spinnerValue: number= 100
   questionValue: number= 0;
@@ -71,10 +72,10 @@ export class StartQuizComponent {
   }
 
   startTimer(): void {
-    const interval = setInterval(() => {
+    this.interval = setInterval(() => {
       this.spinnerValue -= (100 / (this.duration * 60)); 
       if (this.spinnerValue <= 0) {
-        clearInterval(interval); 
+        clearInterval(this.interval); 
         this.getResult();
       }
     }, 1000); 
@@ -114,7 +115,7 @@ export class StartQuizComponent {
   }
 
   getResult() {
-    if (this.correctAnswer>= 5) {
+    if (this.correctAnswer>= this.quiz.numberOfQuestions/2) {
       Swal.fire({
         title: "You are finished the Quiz successfully",
         width: 600,
@@ -187,5 +188,6 @@ export class StartQuizComponent {
         }
       });
     }
+    clearInterval(this.interval);
     }
 }

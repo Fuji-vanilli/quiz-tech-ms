@@ -9,12 +9,12 @@
                     <button class="question-number">{{(i+1)+' - '+question.content}}</button>
                     <mat-card-content class="mt-2">
                         <ul class="list-group">
-                            <li class="list-group-item" style="background: #cee8ff;"
+                            <li class="list-group-item" style="background: #2d2d2d; border: red;"
                                 *ngFor="let option of question.options"
                                 [ngClass]="question.answer === option ? 'correct-answer' : (answer[i]=== option)&& (answer[i]!== question.answer) ? 'wrong-answer' : 'normal'">
-                                <span class="ms-3" *ngIf="question.answer=== option"><img src="../../../../assets/check-mark.png" alt="" style="margin-right: 16px;">{{ option }}</span>
-                                <span class="ms-3" *ngIf="(option=== answer[i]) && (question.answer!== option)"><img src="../../../../assets/cancel.png" alt="" style="margin-right: 16px;">{{ option }}</span>
-                                <span class="ms-3" *ngIf="!(question.answer === option || (option === answer[i] && question.answer !== option))"><img src="../../../../assets/stop-button.png" alt="" style="margin-right: 16px;">{{ option }}</span>
+                                <span class="ms-3" *ngIf="question.answer=== option"><img src="../../../../assets/correct.png" alt="" style="margin-right: 16px;">{{ option }}</span>
+                                <span class="ms-3" *ngIf="(option=== answer[i]) && (question.answer!== option)"><img src="../../../../assets/wrong.png" alt="" style="margin-right: 16px;">{{ option }}</span>
+                                <span class="ms-3" *ngIf="!(question.answer === option || (option === answer[i] && question.answer !== option))"><img src="../../../../assets/normal.png" alt="" style="margin-right: 16px;">{{ option }}</span>
                             </li>
                         </ul>
                     </mat-card-content>

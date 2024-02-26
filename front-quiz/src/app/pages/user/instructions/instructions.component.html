@@ -1,26 +1,26 @@
 <div class="bootstrap-wrapper mt-4">
     <div class="container-fluid pb-3">
         <div class="row">
-            <div class="col-md-4" style="background: #9ca3af; height: 85vh;">
+            <div class="col-md-4" style="background: #292e3b; height: 85vh;">
                 <div class="row">
                     <div class="title-quiz col-md-12 ms-3" style="height: 20vh;">
-                        <img src="../../../../assets/programming.png" alt="">
-                        <div class="mt-2">
+                        <img src="{{quiz.imageUrl}}" alt="">
+                        <div class="mt-3 ms-4">
                             <h2>{{quiz.title}}</h2>
                         </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="content-quiz col-md-12" style="background: #e5e7eb; height: 65vh;">
+                    <div class="content-quiz col-md-12" style="background: #56647b; color: #fff; height: 65vh;">
                         <div class="ms-3">
                             <h1><strong>Quiz</strong></h1>
                             <span>{{quiz.description}}</span>
                     
-                           <div class="mt-5" style="color: #0e223e;">
+                           <div class="mt-5" style="color: #e0e0e0;">
                                 <p>Time</p>
                                 <h2><i class="bi bi-alarm" style="font-size: 28px;"></i><strong class="ms-3">{{quiz.duration}} Minutes</strong></h2>
                            </div>
-                           <div class="mt-2" style="color: #0e223e;">
+                           <div class="mt-2" style="color: #e0e0e0;">
                                 <p>Questions</p>
                                 <h2><i class="bi bi-question-circle" style="font-size: 28px;"></i><strong class="ms-3">{{quiz.numberOfQuestions}} Questions</strong></h2>
                            </div>

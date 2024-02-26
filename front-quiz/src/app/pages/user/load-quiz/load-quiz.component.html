@@ -5,7 +5,7 @@
             <div class="col-md-4" *ngFor="let quiz of quizzes">
                 <mat-card class="mt-2">
                     <mat-card-header>
-                        <div mat-card-avatar class="image-quiz" [style.backgroundImage]="'url('+imageUrl+')'"></div>
+                        <div mat-card-avatar class="image-quiz" [style.backgroundImage]="'url('+quiz.imageUrl+')'"></div>
                         <mat-card-title>{{quiz.title}}</mat-card-title>
                         <mat-card-subtitle>{{quiz.category?.title}}</mat-card-subtitle>
                     </mat-card-header>

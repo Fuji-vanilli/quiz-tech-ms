@@ -87,6 +87,8 @@ export class ViewQuizzesComponent implements OnInit{
         titlePopup: 'Update Quiz',
         title: quiz.title,
         description: quiz.description,
+        duration: quiz.duration,
+        imageUrl: quiz.imageUrl,
         marks: quiz.marks,
         numberOfQuestions: quiz.numberOfQuestions,
         active: quiz.active,

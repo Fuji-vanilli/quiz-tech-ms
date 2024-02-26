@@ -54,7 +54,7 @@ export class UpdateQuizComponent implements OnInit{
     title: this.formBuilder.control(this.data.title),
     description: this.formBuilder.control(this.data.description),
     marks: this.formBuilder.control(this.data.marks),
-    imageUrl: this.formBuilder.control(''),
+    imageUrl: this.formBuilder.control(this.data.imageUrl),
     numberOfQuestions: this.formBuilder.control(this.data.numberOfQuestions),
     duration: this.formBuilder.control(this.data.duration),
     active: this.formBuilder.control(this.data.active),

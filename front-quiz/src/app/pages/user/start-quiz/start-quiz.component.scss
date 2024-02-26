@@ -7,6 +7,9 @@
     padding: 16px 16px;
     font-family: 'Ubuntu';
     color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .row .content-quiz {
@@ -46,7 +49,7 @@
     color: #f59e0b;
 }
 .button-submit {
-    background: #dc2626;
+    background: #2E8B57;
     padding: 12px 12px;
     border: none;
     color: #f3f4f6;
@@ -87,10 +90,18 @@
     padding: 10px 12px;
 }
 
+.time {
+    color: #e0e0e0;
+}
+
+.question {
+    color: #e0e0e0;
+}
 .time h2 {
-    color: #0F1C2E;
+    color: #e0e0e0;
 }
 
 .question h2 {
-    color: #0F1C2E;
+    color: #e0e0e0;
 }
+
