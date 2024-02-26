@@ -1,6 +1,7 @@
 .navbar {
-    background: #00668c;
+    background: #292929;
     height: 4rem;
+    border-bottom: 1px solid #374151;
 }
 
 .navbar-brand {
@@ -145,8 +146,11 @@
     color: #cbd5e1;
 }
 
+.nav-item a, i {
+    color: #a3a3a3;
+}
 .nav-item:hover a {
-    color: #cee8ff;
+    color: #fff;
 }
 
 .nav-link {

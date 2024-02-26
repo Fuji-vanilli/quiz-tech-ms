@@ -1,5 +1,5 @@
 .bootstrap-wrapper {
-    background: #f3f4f6;
+    background: #1D1F21;
 }
 
 .image-quiz {
@@ -7,21 +7,82 @@
     background-size: cover;
 }
 
+
+mat-card {
+    background: #2d2d2d;
+    transition: background 0.9s ease;
+}
+
+mat-card:hover {
+    background: #404040;
+}
+
+mat-card-title {
+    color: #fff;
+}
+
+mat-card-subtitle {
+    color: #e0e0e0;
+}
+
+mat-card-content {
+    color: #e0e0e0;
+}
+
+.card-details {
+    background: transparent;
+    transition: background 0.9s ease;
+}
+
+.card-details:hover {
+    background: #404040;
+}
+mat-card {
+    background: #2d2d2d;
+    transition: background 0.9s ease;
+}
+
+mat-card:hover {
+    background: #404040;
+}
+
+mat-card-title {
+    color: #fff;
+}
+
+mat-card-subtitle {
+    color: #e0e0e0;
+}
+
+mat-card-content {
+    color: #e0e0e0;
+}
+
+.card-details {
+    background: transparent;
+    transition: background 0.9s ease;
+}
+
+.card-details:hover {
+    background: #404040;
+}
+
 h4 {
     font-family: 'Ubuntu';
+    color: #e0e0e0;
 }
 .button-view {
     padding: 10px 16px;
     border: 1px solid #f59e0b;
-    background: #fff;
+    background: #1E2022;
     color: #f59e0b;
 }
 
 .button-start {
     padding: 10px 16px;
-    border: 1px solid #0e223e;
-    background: #fff;
-    color: #0e223e;
+    border: 1px solid #fff;
+    background: #1E2022;
+    color: #fff;
 }
 
 .button-view:hover {
