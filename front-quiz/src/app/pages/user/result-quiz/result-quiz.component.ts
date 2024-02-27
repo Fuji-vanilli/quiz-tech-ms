@@ -54,7 +54,7 @@ export class ResultQuizComponent implements OnInit {
 		  text: "Correct answser / wrong answer : QUIZ TECH"
 	  }],
 	  data: [{
-		  type: "pie", //change type to column, line, area, doughnut, etc
+		  type: "area", //change type to column, line, area, doughnut, etc
 		  indexLabel: "{name}: {y}%",
 		  dataPoints: [
 		  	{ name: "Correct answer", y: 0},

@@ -10,6 +10,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
 import { ProfileComponent } from './pages/admin/profile/profile.component';
+import { FormsModule } from '@angular/forms';
 import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
@@ -49,6 +50,7 @@ import { NgxUiLoaderModule, NgxUiLoaderHttpModule } from "ngx-ui-loader";
 import { ResultQuizComponent } from './pages/user/result-quiz/result-quiz.component';
 import { CanvasJSAngularChartsModule } from '@canvasjs/angular-charts';
 import { ProfileUserComponent } from './pages/user/profile-user/profile-user.component';
+import { SearchQuizComponent } from './pages/search-quiz/search-quiz.component';
 
 
 export function initializeKeycloak(keycloak: KeycloakService) {
@@ -94,15 +96,17 @@ export function initializeKeycloak(keycloak: KeycloakService) {
     InstructionsComponent,
     StartQuizComponent,
     ResultQuizComponent,
-    ProfileUserComponent
+    ProfileUserComponent,
+    SearchQuizComponent
   ],
   imports: [
     BrowserModule,
     CommonModule,
     AppRoutingModule,
-    MatIconModule,
+    FormsModule,
     BrowserAnimationsModule,
     KeycloakAngularModule,
+    MatIconModule,
     MatListModule,
     MatCardModule,
     MatTableModule,

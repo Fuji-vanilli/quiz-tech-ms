@@ -6,13 +6,35 @@
     background-size: cover;
 }
 
+.title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 16px;
+}
+
+.title span, i {
+    color: #e0e0e0;
+    font-size: 22px;
+    font-family: 'Poppins';
+}
+
+.title button {
+    border: 0;;
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.2);
+    color: #a3a3a3;
+    padding: 6px 14px;
+}
+
 .form-search {
-    margin: 14px 0 14px 10px;
+    margin-top: 14px; 
+    margin-bottom: 20px;
     width: 100%;
     max-width: 700px;
     display: flex;
     align-items: center;
-    border-radius: 60px;
+    border-radius: 8px;
     background: rgba(255, 255, 255, 0.2);
     padding: 8px 20px;
 }

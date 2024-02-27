@@ -24,6 +24,8 @@ export class LoadQuizComponent implements OnInit {
   totalQuizzes!: number;
   icon: string= 'bi bi-code-slash';
 
+
+
   constructor(private quizService: QuizApiService,
               private categoryService: CategoryApiService,
               private activeRoute: ActivatedRoute) { }

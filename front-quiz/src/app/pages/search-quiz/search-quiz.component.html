@@ -1,0 +1,11 @@
+<div class="d-flex justify-content-center align-items-center">
+    <form action="" class="form-search">
+        <input type="text"  [(ngModel)]="searchTerm" placeholder="Search Quiz....">
+        <button><i class="bi bi-search"></i></button>
+    </form>
+</div>
+<div class="mt-2">
+    <ul>
+        <li *ngFor="let quizFilter of filterQuizzesBySearchTerm">{{quizFilter.title}}</li>
+    </ul>
+</div>
