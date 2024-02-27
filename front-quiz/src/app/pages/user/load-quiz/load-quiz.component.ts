@@ -85,10 +85,7 @@ export class LoadQuizComponent implements OnInit {
     );
   }
 
-  @HostListener('document:click', ['$event'])
-  onClick(event: MouseEvent) {
-    if (!this.elementRef.nativeElement.contains(event.target)) {
-      this.showList = false;
-    }
+  quizSearch(quizid: any) {
+    this.filterQuizzes= this.quizzes.filter(quiz=> quiz.id=== quizid);
   }
 }
