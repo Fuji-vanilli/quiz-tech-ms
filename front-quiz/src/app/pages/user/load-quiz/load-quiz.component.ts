@@ -20,11 +20,12 @@ export class LoadQuizComponent implements OnInit {
   categoryId!: string;
   quizzes: Quiz[] = [];
   filterQuizzes: Quiz[]= [];
+  filterQuizzesBySearchTerm: Quiz[]= [];
   categories: Category[]= [];
   totalQuizzes!: number;
-  icon: string= 'bi bi-code-slash';
 
 
+  searchterm: string= '';
 
   constructor(private quizService: QuizApiService,
               private categoryService: CategoryApiService,
@@ -76,4 +77,9 @@ export class LoadQuizComponent implements OnInit {
     }
   }
 
+  filterBySearchTerm() {
+    this.filterQuizzesBySearchTerm= this.quizzes.filter(
+      quiz=> quiz.title?.toLocaleLowerCase().includes(this.searchterm.toLocaleLowerCase())
+    );
+  }
 }

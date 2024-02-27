@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class ProfileUserComponent {
 
+  searchTerm: string='test term';
+
+  onSearchChange(event: any) {
+    this.searchTerm = event.target.value;
+  }
 }
