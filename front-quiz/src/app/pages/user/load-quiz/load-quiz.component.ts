@@ -2,8 +2,6 @@ import { Component, ElementRef, HostListener, OnInit } from '@angular/core';
 import { QuizApiService } from 'src/app/services/quiz-api.service';
 import { Quiz } from '../../models/quiz.model';
 import { ActivatedRoute } from '@angular/router';
-import Swal from 'sweetalert2';
-import { logWarning } from '@ckeditor/ckeditor5-utils';
 import { Category } from '../../models/category.model';
 import { CategoryApiService } from 'src/app/services/category-api.service';
 

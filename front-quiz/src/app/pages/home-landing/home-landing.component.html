@@ -1,0 +1,18 @@
+<div class="contain">
+    <div class="row">
+        <div class="col-md-8 offset-md-2 content-home mt-3" >
+           <div class="row">
+                <div class="col-md-8 content">
+
+                </div>
+                <div class="col-md-4">
+                    <div class="card" *ngFor="let quiz of homeQuizzes">
+                        <span class="title">{{quiz.title}}</span>
+                        <span class="subtitle">{{quiz.description}}</span>
+                        <button>Start this Quiz</button>
+                    </div>
+                </div>
+           </div>
+        </div>
+    </div>
+</div>

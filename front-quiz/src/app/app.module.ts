@@ -51,7 +51,8 @@ import { CanvasJSAngularChartsModule } from '@canvasjs/angular-charts';
 import { ProfileUserComponent } from './pages/user/profile-user/profile-user.component';
 import { SearchQuizComponent } from './pages/search-quiz/search-quiz.component';
 import { SearchPipePipe } from './search-pipe.pipe';
-import { LandingPageComponent } from './landing-page/landing-page.component';
+import { LandingPageComponent } from './pages/landing-page/landing-page.component';
+import { HomeLandingComponent } from './pages/home-landing/home-landing.component';
 
 
 export function initializeKeycloak(keycloak: KeycloakService) {
@@ -98,7 +99,8 @@ export function initializeKeycloak(keycloak: KeycloakService) {
     ResultQuizComponent,
     ProfileUserComponent,
     SearchQuizComponent,
-    SearchPipePipe
+    SearchPipePipe,
+    HomeLandingComponent
   ],
   imports: [
     BrowserModule,

@@ -19,10 +19,11 @@ import { InstructionsComponent } from './pages/user/instructions/instructions.co
 import { StartQuizComponent } from './pages/user/start-quiz/start-quiz.component';
 import { ResultQuizComponent } from './pages/user/result-quiz/result-quiz.component';
 import { ProfileUserComponent } from './pages/user/profile-user/profile-user.component';
-import { LandingPageComponent } from './landing-page/landing-page.component';
+import { LandingPageComponent } from './pages/landing-page/landing-page.component';
+import { HomeLandingComponent } from './pages/home-landing/home-landing.component';
 
 const routes: Routes = [
-  { path: '', component: LandingPageComponent },
+  { path: '', component: HomeLandingComponent },
   { 
     path:'user', component: UserDashboardComponent, canActivate: [AuthGuard], data: {roles: ['USER', 'ADMIN']},
     children: [

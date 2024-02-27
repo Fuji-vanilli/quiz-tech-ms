@@ -1,0 +1,42 @@
+.contain {
+    width: 100%;
+    height: 100%;
+    //background: #fff;
+    margin-top: 70px;
+}
+
+.content-home {
+    border: 1px solid gray;
+}
+
+.content {
+    border-right: 1px solid #525252;
+}
+
+.card {
+    height: 120px;
+    margin: 14px 12px;
+    background: #ef4444;
+}
+
+.card button {
+    border: 0;
+    background: #fff;
+    padding: 12px 16px;
+    width: 50%;
+    border-radius: 10px;
+    margin-left: 12px;
+}
+
+.card span .title{
+    margin: 16px 12px;
+    margin-bottom: 16px;
+    color:#fff;
+    font-size: 16px;
+}
+
+.card span .subtitle {
+    margin: 14px 12px;
+    color:#fff;
+    font-size: 12px;
+}
