@@ -11,10 +11,12 @@
                     <input type="text" [(ngModel)]="searchterm" (ngModelChange)="filterBySearchTerm()" placeholder="Search Quiz...">
                     <button><i class="bi bi-search"></i></button>
                 </span>
-                <div class="result-container" > 
+                <div class="result-container" *ngIf="searchterm!== '' && showList"> 
                     <div class="list-result">
-                        <ul class="nav-item">
-                            <li class="nav-item" style="color: #fff;"*ngFor="let filter of filterQuizzesBySearchTerm">{{filter.title}}</li>
+                        <ul class="list-group list-group-flush" *ngIf="filterQuizzesBySearchTerm.length!== quizzes.length">
+                            <li class="list-group" *ngFor="let filter of filterQuizzesBySearchTerm">
+                                <a href="" class="nav-link">{{filter.title}}</a>
+                            </li>
                         </ul>
                     </div>
                 </div>

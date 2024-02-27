@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit } from '@angular/core';
 import { QuizApiService } from 'src/app/services/quiz-api.service';
 import { Quiz } from '../../models/quiz.model';
 import { ActivatedRoute } from '@angular/router';
@@ -26,10 +26,12 @@ export class LoadQuizComponent implements OnInit {
 
 
   searchterm: string= '';
+  showList: boolean= false;
 
   constructor(private quizService: QuizApiService,
               private categoryService: CategoryApiService,
-              private activeRoute: ActivatedRoute) { }
+              private activeRoute: ActivatedRoute,
+              private elementRef: ElementRef) { }
 
   ngOnInit(): void {
     this.categoryId = this.activeRoute.snapshot.params['categoryId'];
@@ -81,5 +83,12 @@ export class LoadQuizComponent implements OnInit {
     this.filterQuizzesBySearchTerm= this.quizzes.filter(
       quiz=> quiz.title?.toLocaleLowerCase().includes(this.searchterm.toLocaleLowerCase())
     );
+  }
+
+  @HostListener('document:click', ['$event'])
+  onClick(event: MouseEvent) {
+    if (!this.elementRef.nativeElement.contains(event.target)) {
+      this.showList = false;
+    }
   }
 }
