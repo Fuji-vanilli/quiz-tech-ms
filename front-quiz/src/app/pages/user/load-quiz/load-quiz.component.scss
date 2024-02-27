@@ -3,8 +3,42 @@
 }
 
 .image-quiz {
-    //background-image: url('../../../../assets/codage.png');
     background-size: cover;
+}
+
+.form-search {
+    margin: 14px 0 14px 10px;
+    width: 100%;
+    max-width: 700px;
+    display: flex;
+    align-items: center;
+    border-radius: 60px;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 8px 20px;
+}
+
+
+.form-search input {
+    background: transparent;
+    border: 0;
+    flex: 1;
+    outline: none;
+    color: #e0e0e0;
+    font-size: 16px;
+}
+
+.form-search button {
+    border: 0;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    cursor: pointer;
+}
+
+.form-search button i {
+    color: #a3a3a3;
+    font-size: 20px;
 }
 
 .btn-category {
@@ -39,20 +73,23 @@ mat-card:hover {
 }
 
 mat-card-title {
-    color: #fff;
+    font-family: 'Poppins';
+    color: #a3a3a3;
 }
 
 mat-card-subtitle {
-    color: #e0e0e0;
+    font-family: 'Poppins';
+    color: #737373;
 }
 
 mat-card-content {
-    color: #e0e0e0;
+    font-family: 'Poppins';
+    color: #a3a3a3;
 }
 
 .card-details {
     background: transparent;
-    transition: background 0.9s ease;
+    transition: background 0.9s ease; 
 }
 
 h4 {
@@ -62,7 +99,7 @@ h4 {
 .button-view {
     padding: 10px 16px;
     width: 6rem;
-    //border: 1px solid #f59e0b;
+    font-family: 'Poppins';
     background: #1E2022;
     color: #fff;
     border-radius: 24px;
@@ -73,7 +110,7 @@ h4 {
 .button-start {
     padding: 10px 16px;
     width: 6rem;
-   // border: 1px solid #fff;
+    font-family: 'Poppins';
     border: none;
     border-radius: 24px;
     background: #1E2022;
@@ -168,6 +205,8 @@ h4 {
 
 .quizz-details .info-card .info-value {
     background: #22242b;
+    font-family: 'Poppins';
+    font-size: 14px;
 }
 
 .quizz-details .info-card .info-value {
