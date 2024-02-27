@@ -31,7 +31,8 @@ li {
     transition: all .25s ease-in-out;
     display: flex;
     flex-direction: column;
-    background: #0F1C2E;
+    background: #34373b;
+    border-right: 1px solid #626262;
 }
 
 #sidebar.expand {

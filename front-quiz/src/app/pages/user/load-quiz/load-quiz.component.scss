@@ -23,6 +23,12 @@
     color: #fff;
 }
 
+.btn-category.active {
+    border: 1px solid #fff;
+    background-color: #404040;
+    color: #fff;
+}
+
 mat-card {
     background: #2d2d2d;
     transition: background 0.9s ease;

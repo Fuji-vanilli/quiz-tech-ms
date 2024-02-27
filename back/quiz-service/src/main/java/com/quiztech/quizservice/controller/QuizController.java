@@ -25,7 +25,7 @@ public interface QuizController {
     @GetMapping("all")
     ResponseEntity<Response> all(
             @RequestParam(defaultValue = "0") int page,
-            @RequestParam(defaultValue = "20") int size
+            @RequestParam(defaultValue = "50") int size
     );
     @GetMapping("byTitleKeyword/{keyword}")
     ResponseEntity<Response> getByKeywordTitle(@PathVariable String keyword);

@@ -78,7 +78,7 @@ export class ViewCategoryComponent implements OnInit {
   openUpdate(category: Category) {
     this.dialog.open(UpdateCategoryComponent, {
       width: '40%',
-      height: '650px',
+      height: '850px',
       enterAnimationDuration: '1000ms',
       exitAnimationDuration: '1000ms',
       data: {

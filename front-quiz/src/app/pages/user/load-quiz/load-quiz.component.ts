@@ -14,7 +14,9 @@ import { CategoryApiService } from 'src/app/services/category-api.service';
 })
 export class LoadQuizComponent implements OnInit {
 
-  colors: string[]= ['#00FFFF', '#F18F01', '#2E8B57', '#FF6347', '#6c35de']
+  colors: string[]= ['#00FFFF', '#F18F01', '#2E8B57', '#FF6347', '#6c35de'];
+  selectedCategory!: string;
+
   categoryId!: string;
   quizzes: Quiz[] = [];
   filterQuizzes: Quiz[]= [];
@@ -30,6 +32,8 @@ export class LoadQuizComponent implements OnInit {
     this.categoryId = this.activeRoute.snapshot.params['categoryId'];
     this.loadQuizzes();
     this.loadCategory();
+    this.filterQuizByCaegory('all');
+    console.log('all quizzes', this.filterQuizzes);
   }
 
   loadQuizzes() {
@@ -37,6 +41,7 @@ export class LoadQuizComponent implements OnInit {
       next: response=> {
         this.quizzes= response.data.quizzes;
         this.totalQuizzes= response.data.totalQuizzes;
+        this.filterQuizzes= this.quizzes;
         console.log(this.quizzes);
       },
       error: err=> {
@@ -60,8 +65,10 @@ export class LoadQuizComponent implements OnInit {
   }
 
   filterQuizByCaegory(categoryId: any) {
+    this.selectedCategory= categoryId;
+
     if (categoryId=== 'all') {
-      this.filterQuizzes= this.quizzes;
+      this.filterQuizzes= this.quizzes;  
     } else {
       this.filterQuizzes= this.quizzes.filter(quiz=> quiz.categoryId=== categoryId);
     }
