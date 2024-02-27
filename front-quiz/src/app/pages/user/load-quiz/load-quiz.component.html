@@ -11,7 +11,7 @@
                     <input type="text" [(ngModel)]="searchterm" (ngModelChange)="filterBySearchTerm()" placeholder="Search Quiz...">
                     <button><i class="bi bi-search"></i></button>
                 </span>
-                <div class="result-container" *ngIf="searchterm!== ''"> 
+                <!--div class="result-container" *ngIf="searchterm!== ''"> 
                     <div class="list-result">
                         <ul class="list-group list-group-flush" *ngIf="filterQuizzesBySearchTerm.length!== quizzes.length">
                             <li class="list-group" *ngFor="let filter of filterQuizzesBySearchTerm">
@@ -19,7 +19,7 @@
                             </li>
                         </ul>
                     </div>
-                </div>
+                </div-->
             </div>
             
             <div class="mt-2">
@@ -34,7 +34,7 @@
                     <span>{{category.title+' ('+category.quizsId.length+')'}}</span>
                 </button>
             </div>
-            <div class="col-md-4" *ngFor="let quiz of filterQuizzes">
+            <div class="col-md-4" *ngFor="let quiz of filterQuizzes | searchPipe: searchterm">
                 <mat-card class="mt-2">
                     <mat-card-header>
                         <div mat-card-avatar class="image-quiz" [style.backgroundImage]="'url('+quiz.imageUrl+')'"></div>

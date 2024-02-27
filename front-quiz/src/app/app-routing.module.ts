@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './pages/home/home.component';
 import { AuthGuard } from './guards/auth.guard';
 import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
 import { ProfileComponent } from './pages/admin/profile/profile.component';
@@ -20,9 +19,10 @@ import { InstructionsComponent } from './pages/user/instructions/instructions.co
 import { StartQuizComponent } from './pages/user/start-quiz/start-quiz.component';
 import { ResultQuizComponent } from './pages/user/result-quiz/result-quiz.component';
 import { ProfileUserComponent } from './pages/user/profile-user/profile-user.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', component: LandingPageComponent },
   { 
     path:'user', component: UserDashboardComponent, canActivate: [AuthGuard], data: {roles: ['USER', 'ADMIN']},
     children: [

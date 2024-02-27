@@ -6,7 +6,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
-import { HomeComponent } from './pages/home/home.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
 import { ProfileComponent } from './pages/admin/profile/profile.component';
@@ -51,6 +50,8 @@ import { ResultQuizComponent } from './pages/user/result-quiz/result-quiz.compon
 import { CanvasJSAngularChartsModule } from '@canvasjs/angular-charts';
 import { ProfileUserComponent } from './pages/user/profile-user/profile-user.component';
 import { SearchQuizComponent } from './pages/search-quiz/search-quiz.component';
+import { SearchPipePipe } from './search-pipe.pipe';
+import { LandingPageComponent } from './landing-page/landing-page.component';
 
 
 export function initializeKeycloak(keycloak: KeycloakService) {
@@ -72,7 +73,6 @@ export function initializeKeycloak(keycloak: KeycloakService) {
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
     NavbarComponent,
     DashboardComponent,
     ProfileComponent,
@@ -97,7 +97,8 @@ export function initializeKeycloak(keycloak: KeycloakService) {
     StartQuizComponent,
     ResultQuizComponent,
     ProfileUserComponent,
-    SearchQuizComponent
+    SearchQuizComponent,
+    SearchPipePipe
   ],
   imports: [
     BrowserModule,
