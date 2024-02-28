@@ -6,7 +6,7 @@
 }
 
 .content-home {
-    border: 1px solid gray;
+
 }
 
 .content {
@@ -14,7 +14,7 @@
 }
 
 .card {
-    height: 120px;
+    height: 140px;
     margin: 14px 12px;
     background: #ef4444;
 }
@@ -28,15 +28,15 @@
     margin-left: 12px;
 }
 
-.card span .title{
-    margin: 16px 12px;
-    margin-bottom: 16px;
+.card .title{
+    margin: 10px 12px;
     color:#fff;
     font-size: 16px;
 }
 
-.card span .subtitle {
-    margin: 14px 12px;
+.card .subtitle {
+    margin-left: 12px;
+    margin-bottom: 6px;
     color:#fff;
     font-size: 12px;
 }
