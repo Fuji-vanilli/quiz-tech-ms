@@ -3,10 +3,14 @@
         <div class="col-md-8 offset-md-2 content-home mt-3" >
            <div class="row">
                 <div class="col-md-8 content">
-
+                    <div class="card">
+                        <div class="m-3">
+                            <h2>Welcome to QuizTech</h2>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="card" *ngFor="let quiz of homeQuizzes">
+                    <div class="card" *ngFor="let quiz of homeQuizzes" [ngStyle]="{'background': quiz.color}">
                         <span class="title">{{quiz.title}}</span>
                         <span class="subtitle">{{quiz.description}}</span>
                         <button routerLink="/user">Start this Quiz</button>
