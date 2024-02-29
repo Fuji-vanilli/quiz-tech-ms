@@ -2,10 +2,15 @@
     position: fixed;
     background: #f3f4f6;
     height: 85vh;
+    overflow-y: hidden;
+}
+
+.row .quiz-title-head {
+    background: #21262d;
 }
 
 .row .title-quiz {
-   // padding: 16px 16px;
+    height: 20vh;
     font-family: 'Ubuntu';
     color: #fff;
     display: flex;
@@ -16,19 +21,25 @@
 .row .content-quiz {
     padding: 16px 20px;
     font-family: 'Ubuntu';
+    background: #56647b; 
+    color: #fff; 
+    height: 65vh;
 }
 
 .button-start {
-    background: #0e223e;
-    padding: 12px 12px;
-    border: none;
+    background: #21262d;
+    padding: 8px 16px;
+    border: 1px solid #21262d;
+    border-radius: 6px;
     color: #f3f4f6;
     position: absolute;
     bottom: 70px;
     right: 40px;
-    transition: opacity .6s ease;
+    transition: all .6s ease;
 }
 
 .button-start:hover {
-    opacity: .8;
+    background: transparent;
+    color: #21262d;
+    border: 1px solid #21262d;
 }

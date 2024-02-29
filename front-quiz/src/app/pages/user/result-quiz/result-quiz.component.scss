@@ -1,5 +1,5 @@
 .bootstrap-wrapper {
-    background: #1D1F21;
+    background: #0d1117;
     padding-bottom: 30px;
 }
 
@@ -9,7 +9,7 @@
 }
 
 mat-card {
-    background: #2d2d2d;
+    background: #21262d;
 }
 .wrong-answer {
     background: #fff;
@@ -23,8 +23,9 @@ mat-card {
 
 .question-number {
     padding: 10px 12px;
-    background: #2d2d2d;
+    background: #21262d;
     color: #fff;
     border: none;
+    border-radius: 2px 2px;
     border-bottom: 2px solid #52616B;
 }

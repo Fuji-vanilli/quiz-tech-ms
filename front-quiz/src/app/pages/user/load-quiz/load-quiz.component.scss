@@ -39,13 +39,12 @@
     margin-top: 14px; 
     margin-bottom: 20px;
     width: 100%;
-    max-width: 700px;
     display: flex;
     align-items: center;
     border-radius: 8px;
-    background: rgba(255, 255, 255, 0.1);
+    background: #000;
     padding: 8px 20px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid #404040;
 }
 
 
@@ -73,7 +72,7 @@
 }
 
 .box-search:focus-within {
-    border: 1px solid #fff;
+    border: 1px solid #89929b;
     transition: border-color 0.5s ease;
 }
 
@@ -137,12 +136,13 @@ mat-card:hover {
 
 mat-card-title {
     font-family: 'Roboto';
-    color: #C9C9C9;
+    color: #FFF;
+    margin-bottom: 10px;
 }
 
 mat-card-subtitle {
     font-family: 'Roboto';
-    color: #737373;
+    color: #C6CDD5;
 }
 
 mat-card-content {
@@ -220,7 +220,7 @@ h4 {
     max-width: 200px;
 }
 
-.quizz-details .info-cards, .quizz-details .quizz-ratings {
+.quizz-details .info-cards, .quizz-details {
     width: auto;
     display: inline-block;
     -webkit-transform: translateX(-50%);
@@ -245,14 +245,14 @@ h4 {
     -moz-border-radius: 5px;
     -ms-border-radius: 5px;
     border-radius: 5px;
-    background-color: #18181e;
+    background-color: #89929b;
    // border: 2px solid #0e223e;
     text-align: center;
 }
 
 .quizz-details .info-card .info-type {
     padding: 0.625rem;
-    color: #C9C9C9;
+    color: #161b22;
 }
 .quizz-details .info-card .info-type {
     padding-bottom: 0.5rem;
@@ -261,7 +261,7 @@ h4 {
 .quizz-details .info-card .info-type i {
     display: block;
     font-size: 1.875rem;
-    color: #0ea5e9;
+    color: #161b22;
 }
 
 .quizz-details .info-card .info-type span {
@@ -326,7 +326,7 @@ span {
 }
 
 .quizz-rating__stars.star_3 i:nth-child(-n+3) {
-    color: #0ea5e9;
+    color: #faa356;
 }
 .quizz-rating__stars i {
     color: gray;
