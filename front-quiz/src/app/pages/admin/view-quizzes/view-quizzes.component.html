@@ -10,10 +10,13 @@
             </button>
         </div>
     </div>
-    <app-search></app-search>
-    <mat-card class="custom-card mt-3" *ngFor="let quiz of quizzes">
+    <div class="box-search">
+        <input type="text" [(ngModel)]="searchTerm" (ngModelChange)="filterBySearchTerm()" placeholder="Search Quiz here ....">
+        <button><i class="bi bi-search"></i></button>
+    </div>
+    <mat-card class="custom-card mt-3" *ngFor="let quiz of filterQuizBySearchTerm | searchPipe: searchTerm">
         <div class="row">
-            <div class="col-md-8 " >
+            <div class="col-md-8">
                 <mat-card-header>
                     <div mat-card-avatar class="example-header-image"></div>
                     <mat-card-title>

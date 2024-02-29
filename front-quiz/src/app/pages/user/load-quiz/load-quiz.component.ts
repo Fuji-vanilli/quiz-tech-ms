@@ -82,9 +82,9 @@ export class LoadQuizComponent implements OnInit {
       quiz=> quiz.title?.toLocaleLowerCase().includes(this.searchterm.toLocaleLowerCase())
     );
   }
-
+/*
   quizSearch(quizid: any) {
     this.filterQuizzes= this.quizzes.filter(quiz=> quiz.id=== quizid);
   }
-  
+  */
 }

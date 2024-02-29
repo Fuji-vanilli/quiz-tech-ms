@@ -22,16 +22,20 @@ export class ViewQuizzesComponent implements OnInit{
   quizzesByTitleKeyword: Quiz[]= [];
   totalQuizzes!: number;
 
+  searchTerm: string= '';
+  filterQuizBySearchTerm: Quiz[]= [];
+
   constructor(private quizService: QuizApiService, 
               private categoryService: CategoryApiService,
               private snackBar: MatSnackBar,
               private route: Router,
               private dialog: MatDialog,
-              private keycloakService: KeycloakService) {}
+              private keycloakService: KeycloakService) {} 
 
   ngOnInit(): void {
-   this.loadQuizzes();
-  
+    this.loadQuizzes();
+    console.log('quiz by search: ',this.filterQuizBySearchTerm);
+    
   }
 
   loadQuizzes() {
@@ -39,6 +43,7 @@ export class ViewQuizzesComponent implements OnInit{
       next: response=> {
         this.quizzes= response.data.quizzes;
         this.totalQuizzes= response.data.totalQuizzes;
+        this.filterQuizBySearchTerm= this.quizzes;
         console.log('total elements:', response.data.totalQuizzes);
       },
       error: err=> {
@@ -97,6 +102,12 @@ export class ViewQuizzesComponent implements OnInit{
     })
 
     this.loadQuizzes();
+  }
+
+  filterBySearchTerm() {
+    this.filterQuizBySearchTerm= this.quizzes.filter(
+      quiz=> quiz.title?.toLowerCase().includes(this.searchTerm.toLowerCase())
+    )
   }
 
 }

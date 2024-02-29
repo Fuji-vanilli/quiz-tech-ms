@@ -205,35 +205,43 @@ h4, .h4 {
 /*****/
 
 .box-search {
-    background: #0e223e;
-    border-radius: 30px;
-    border: 0.1px  #0a0a0a;
+    margin-top: 14px; 
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 700px;
     display: flex;
     align-items: center;
-    justify-content: center;
-    width: 500px;
-    height: 50px;
-    padding: 20px;
-    
+    border-radius: 8px;
+    background: #a3a3a3;
+    padding: 8px 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.box-search > i {
-    font-size: 20px;
-    color: #f59e0b;
-}
 
-.box-search > input { 
-    background: #0e223e;
-    color: #f59e0b;
+.box-search input {
+    background: transparent;
+    border: 0;
     flex: 1;
-    height: 40px;
-    border: none;
-    outline: none;   
-    font-size: 18px;
-    padding-left: 20px; 
+    outline: none;
+    color: #e0e0e0;
+    font-size: 16px;
 }
 
-box-search:focus-within {
-    border: 2px solid #0a0a0a;
-    transition: border-color 0.3s ease;
+.box-search button {
+    border: 0;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    cursor: pointer;
+}
+
+.box-search button i {
+    color: #3b3c3d;
+    font-size: 20px;
+}
+
+.box-search:focus-within {
+    border: 1px solid #fff;
+    transition: border-color 0.5s ease;
 }
