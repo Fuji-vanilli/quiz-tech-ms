@@ -1,0 +1,102 @@
+.contain {
+    width: 100%;
+    height: 100vh;
+    background: #fff;
+}
+
+.content {
+    border-right: 1px solid #737373;
+}
+
+.content h2 {
+    margin: 14px 12px;
+}
+
+.card-left {
+    margin: 14px 12px;
+    padding: 12px 14px;
+    border: 1px solid #737373;
+}
+
+.card-left .title {
+    font-size: 16px;
+    color: #737373;
+
+}
+
+.card-left .subtitle {
+    font-size: 14px;
+    color: #a3a3a3;
+}
+
+.requiz {
+    background: #fd5732;
+    color: #fff;
+    padding: 8px 18px;
+    border: 1px solid #fd5732;
+    transition: all .6s ease;
+}
+
+.requiz:hover  {
+    opacity: .7;
+}
+
+.card-left .right {
+    border-left: 1px solid #d4d4d4;
+}
+
+.title-right {
+    margin-left: 14px;
+    margin-right: 14px;
+}
+
+.card {
+    height: 140px;
+    width: 100x;
+    margin: 14px 12px;
+    transition: all .6s ease;
+}
+
+.card:hover {
+    opacity: .8;
+}
+
+.card button {
+    border: 0;
+    background: #fff;
+    padding: 6px ;
+    width: 50%;
+    border-radius: 8px;
+    margin-left: 12px;
+    margin-top: 14px;
+    font-family: 'Roboto';
+    transition: all 0.6s ease;
+}
+
+.card button:hover {
+    background: #d4d4d4;
+    opacity: .7s;
+}
+
+.card .title{
+    margin-top: 10px;
+    margin-left: 14px;
+    margin-bottom: 10px;
+    color:#fff;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: 'Poppins';
+}
+
+.card .subtitle {
+    margin-left: 12px;
+    margin-bottom: 2px;
+    color:#fff;
+    font-size: 12px;
+}
+
+.copyright {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}

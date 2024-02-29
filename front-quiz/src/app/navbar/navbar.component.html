@@ -4,14 +4,25 @@
       <span class="logo">QTech</span>
     </a>
     <div class="collapse navbar-collapse" id="navbarSupportedContent ms-auto">
+      <ul class="navbar-nav content-left ms-auto">
+        <li class="nav-item">
+          <a class="nav-link problems" href="">Problems</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link solutions" href="">Solutions</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="">Contest</a>
+        </li>
+      </ul>
       <ul class="navbar-nav mb-lg-0 ms-auto">
         <li class="nav-item" *ngIf="profile">
           <a class="nav-link active " aria-current="page" (click)="dashboard()"><i
-              class="bi bi-speedometer2 m-3"></i>Dashboard</a>
+              class="bi bi-gear"></i><span style="margin-left: 8px;">Settings</span></a>
         </li>
-        <li class="nav-item ms-4">
+        <li class="nav-item ms-4" *ngIf="profile">
           <a class="nav-link active " aria-current="page" routerLink="/admin/quizzes"><i
-              class="bi bi-search m-3"></i>Search</a>
+              class="bi bi-search "></i><span style="margin-left: 8px;">Search</span></a>
         </li>
         <li class="nav-item ms-3">
           <button class="btn-login" (click)="login()" *ngIf="!profile">Sign in</button>

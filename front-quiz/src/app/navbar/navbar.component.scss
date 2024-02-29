@@ -10,6 +10,28 @@
     font-weight: 600;
     font-family: 'Ubuntu';
 }
+.content-left {
+    color: #a3a3a3;
+}
+
+.content-left a {
+    transition: all 0.9s ease;
+}
+.content-left a:hover{
+    background: #f59e0b;
+}
+
+.content-left .nav-link {
+    color: #d4d4d4;
+    padding-right: 16px;
+    padding-left: 16px;
+    font-family: "Ubuntu", sans-serif;
+    font-size: 16px;
+}
+
+.problems, .solutions {
+    border-right: 2px solid #525252;
+}
 
 .navbar-brand {
     margin: 12px 16px;
@@ -20,27 +42,43 @@
     height: 60px;
 }
 .btn-login {
-    border-radius: 25px;
-    border: none;
+    border-radius: 5px;
+    border: 1px solid #292929;
     padding: 6px 14px ; 
-    background: #fff;
-    color: #0e223e;
+    background: #EE1D52;
+    color: #fff;
     font-family: 'Ubuntu';
+    margin-right: 14px;
+    transition: all 0.6s ease;
+}
+
+.btn-login:hover {
+    background: #292929;
+    color: #EE1D52;
+    border: 1px solid #EE1D52;
 }
 
 .btn-register {
     margin-left: 12px;
     border-radius: 5px;
-    border: 2px solid #fff;
+    border: 1px solid #EE1D52;
     padding: 6px 14px ; 
-    background: #0e223e;
-    color: #fff;
+    background: #292929;
+    color: #EE1D52;
     font-family: 'Ubuntu';
+    transition: all 0.6s ease;
+}
+
+.btn-register:hover {
+    background: #EE1D52;
+    color: #fff;
+    border: 1px solid #292929;
 }
 
 .navbar-nav a, i {
     color: #fff;
-    font-family: 'Ubuntu';
+    font-family: sans-serif;
+    font-size: 14px;
 }
 
 .btn-profile {

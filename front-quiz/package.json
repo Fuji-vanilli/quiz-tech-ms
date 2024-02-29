@@ -28,6 +28,8 @@
     "@ckeditor/ckeditor5-engine": "^41.1.0",
     "@ckeditor/ckeditor5-utils": "^41.1.0",
     "@ckeditor/ckeditor5-watchdog": "^41.1.0",
+    "@tsparticles/angular": "^3.0.0",
+    "@tsparticles/engine": "^3.3.0",
     "bootstrap": "^5.3.2",
     "bootstrap-icons": "^1.11.3",
     "keycloak-angular": "^15.1.0",

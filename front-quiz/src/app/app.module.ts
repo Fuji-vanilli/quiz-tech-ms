@@ -10,6 +10,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
 import { ProfileComponent } from './pages/admin/profile/profile.component';
 import { FormsModule } from '@angular/forms';
+import { NgxParticlesModule } from "@tsparticles/angular";
 import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
@@ -51,8 +52,8 @@ import { CanvasJSAngularChartsModule } from '@canvasjs/angular-charts';
 import { ProfileUserComponent } from './pages/user/profile-user/profile-user.component';
 import { SearchQuizComponent } from './pages/search-quiz/search-quiz.component';
 import { SearchPipePipe } from './search-pipe.pipe';
-import { LandingPageComponent } from './pages/landing-page/landing-page.component';
 import { HomeLandingComponent } from './pages/home-landing/home-landing.component';
+import { HomeUserComponent } from './pages/user/home-user/home-user.component';
 
 
 export function initializeKeycloak(keycloak: KeycloakService) {
@@ -100,7 +101,8 @@ export function initializeKeycloak(keycloak: KeycloakService) {
     ProfileUserComponent,
     SearchQuizComponent,
     SearchPipePipe,
-    HomeLandingComponent
+    HomeLandingComponent,
+    HomeUserComponent
   ],
   imports: [
     BrowserModule,
@@ -126,6 +128,7 @@ export function initializeKeycloak(keycloak: KeycloakService) {
     ReactiveFormsModule,
     CKEditorModule,
     CanvasJSAngularChartsModule,
+    NgxParticlesModule,
     NgxUiLoaderModule,
     NgxUiLoaderHttpModule.forRoot({
       showForeground: true

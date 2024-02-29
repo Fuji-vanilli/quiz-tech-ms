@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Quiz } from '../models/quiz.model';
-import { Category } from '../models/category.model';
-import { QuizApiService } from 'src/app/services/quiz-api.service';
-import { CategoryApiService } from 'src/app/services/category-api.service';
-import { HomeQuiz } from '../models/homeQuiz.model';
+import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
+import { KeycloakService } from 'keycloak-angular';
 
 @Component({
   selector: 'app-home-landing',
@@ -11,35 +9,47 @@ import { HomeQuiz } from '../models/homeQuiz.model';
   styleUrls: ['./home-landing.component.scss']
 })
 export class HomeLandingComponent implements OnInit {
-  
-  homeQuizzes: HomeQuiz[]= [
-    {
-      title: 'Programming',
-      description: 'All about kind of Programming language',
-      color: '#6c35de'
-    },
-    {
-      title: 'Network',
-      description: 'Technologie of network and his requirements',
-      color: '#2E8B57'
-    },
-    {
-      title: 'Blockchain',
-      description: 'Technologie of blockchain and crypto and minner',
-      color: '#de283b'
-    },
-    {
-      title: 'Cryptography',
-      description: 'Security bases fo cryptography and cipher',
-      color: '#FF6600'
-    }
-  ]
-  
-  constructor() {}
+ 
+  constructor(private route: Router,
+              private keycloakService: KeycloakService) {}
 
   ngOnInit(): void {
 
   }
 
+  loginRequired() {
+    if (this.keycloakService.isLoggedIn()) {
+      this.route.navigateByUrl('/user');
+    } else {
+      Swal.fire({
+        title: "You must connected!",
+        text: "To started yo must be identified!",
+        icon: "info",
+        confirmButtonColor: "#00668c",
+        confirmButtonText: "Login or Register",
+        background: "#1f2b3e"
+      }).then((result) => {
+        if (result.isConfirmed) {
+          this.login();
+        } 
+      });
+    }
+    
+  }
+
+  login() {
+    this.keycloakService.login({
+      redirectUri: window.location.origin+'/user'
+    });
+  }
+
+  register() {
+    this.keycloakService.register({
+      redirectUri: window.location.origin+'/user'
+    });
+  }
+
+
+  
 
 }

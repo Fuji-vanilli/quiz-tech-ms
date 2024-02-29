@@ -43,7 +43,7 @@
     display: flex;
     align-items: center;
     border-radius: 8px;
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.1);
     padding: 8px 20px;
 }
 
@@ -101,7 +101,7 @@
     margin-right: 16px;
     margin-bottom: 16px;
     padding: 8px 12px;
-    border: none;
+    border: 1px solid #2d2d2d;
     border-radius: 24px;
     background: #2d2d2d;
     color: #a3a3a3;
@@ -121,7 +121,7 @@
 
 mat-card {
     background: #2d2d2d;
-    transition: background 0.9s ease;
+    transition: all 0.9s ease;
 }
 
 mat-card:hover {
@@ -329,4 +329,23 @@ span {
     text-rendering: auto;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+
+.rowposter::-webkit-scrollbar {
+    //display: none;
+    background: #27272a;
+    border-radius: 12px;
+    margin-bottom: 12px;
+}
+
+.rowposter::-webkit-scrollbar-thumb {
+    //display: none;
+    background: #737373;
+    border-radius: 20px;
+    border: 6px solid #27272a;
+    
+}
+.rowposter {
+    scrollbar-width: 50px;
 }

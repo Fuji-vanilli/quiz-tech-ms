@@ -37,4 +37,10 @@ export class UserSidebarComponent implements OnInit {
   toQuizByCategory(categoryId: any) {
     this.router.navigateByUrl('/user/quizzes/'+categoryId);
   }
+
+  logout() {
+    this.keycloakService.logout(
+      window.location.origin
+    )
+  }
 }

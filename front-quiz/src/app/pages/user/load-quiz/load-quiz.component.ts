@@ -86,4 +86,5 @@ export class LoadQuizComponent implements OnInit {
   quizSearch(quizid: any) {
     this.filterQuizzes= this.quizzes.filter(quiz=> quiz.id=== quizid);
   }
+  
 }

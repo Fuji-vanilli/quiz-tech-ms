@@ -1,22 +1,24 @@
 <div class="contain">
-    <div class="row">
-        <div class="col-md-8 offset-md-2 content-home mt-3" >
-           <div class="row">
-                <div class="col-md-8 content">
-                    <div class="card">
-                        <div class="m-3">
-                            <h2>Welcome to QuizTech</h2>
+    <div class="background"></div>
+    <div class="row content-content">
+        <div class="col-md-12 content-home" >
+            <div class="row">
+                <div class="col-md-6 offset-md-3">
+                    <div class="card-left">
+                        <div class="m-3 text-center">
+                            <h1>Welcome to QuizTech</h1>
+                            <p>your ultimate platform for assessing and enhancing your technology skills. 
+                                Dive into our diverse collection of meticulously crafted quizzes, spanning a wide range of technological topics. 
+                                Test your knowledge, challenge yourself, and track your progress over time
+                            </p>
+                            <button class="started" (click)="loginRequired()">Get Started</button>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="card" *ngFor="let quiz of homeQuizzes" [ngStyle]="{'background': quiz.color}">
-                        <span class="title">{{quiz.title}}</span>
-                        <span class="subtitle">{{quiz.description}}</span>
-                        <button routerLink="/user">Start this Quiz</button>
-                    </div>
-                </div>
-           </div>
+            </div>
         </div>
+    </div>
+    <div class="copyright">
+        <span>© Created by Fuji Vanilli</span>
     </div>
 </div>

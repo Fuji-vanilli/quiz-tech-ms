@@ -31,8 +31,8 @@ li {
     transition: all .25s ease-in-out;
     display: flex;
     flex-direction: column;
-    background: #34373b;
-    border-right: 1px solid #626262;
+    background: #18181b;
+    border-right: 1px solid #404040;
 }
 
 #sidebar.expand {
@@ -60,6 +60,7 @@ li {
     font-size: 1.15rem;
     font-weight: 500;
     color: #fff;
+
 }
 
 #sidebar:not(.expand) .sidebar-logo,

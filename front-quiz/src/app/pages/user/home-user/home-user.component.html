@@ -1,0 +1,63 @@
+<div class="contain">
+    <div class="row">
+        <div class="col-md-12 mt-3">
+            <div class="row">
+                <div class="col-md-9 mt-3 content">
+                    <h2>Quiz already Finished</h2>
+                    <div class="card-left">
+                        <div class="row">
+                            <div class="col-md-8 d-flex align-items-center">
+                                <img src="../../../../assets/crypto.png" alt="">
+                                <div class="ms-3">
+                                    <p class="title">Circuit Conondrum</p>
+                                    <p class="subtitle">Hardware</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4 right">
+                                <div class="d-flex align justify-content-center align-items-center">
+                                    <mat-progress-spinner class="answer" color="warn" [value]="value"></mat-progress-spinner>
+                                    <span style="font-size: 26px; margin-left: 18px;">37%</span>
+                                </div>
+                                <div class="text-center">
+ 
+                                    <span style="font-size: 16px; margin-left: 16px;">7/25 Correct answer</span>
+                                    <button class="requiz ms-3">ReQuiz</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-left">
+                        <div class="row">
+                            <div class="col-md-8 d-flex align-items-center">
+                                <img src="../../../../assets/ai.png" alt="">
+                                <div class="ms-3">
+                                    <p class="title">Artificial Intelligency</p>
+                                    <p class="subtitle">Bockchain</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4 right">
+                                <div class="d-flex align justify-content-center align-items-center">
+                                    <mat-progress-spinner class="answer" color="primary" value="84"></mat-progress-spinner>
+                                    <span style="font-size: 26px; margin-left: 18px;">84%</span>
+                                </div>
+                                <div class="text-center">
+                                    
+                                    <span style="font-size: 16px; margin-left: 16px;">14/20 Correct answer</span>
+                                    <button class="requiz ms-3">ReQuiz</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mt-3">
+                    <span class="title-right">Popular Quizzes</span><i class="bi bi-code-slash"></i>
+                    <div class="card" *ngFor="let quiz of homeQuizzes" [ngStyle]="{'background': quiz.color}">
+                        <span class="title">{{quiz.title}}</span>
+                        <span class="subtitle">{{quiz.description}}</span>
+                        <button routerLink="/user">Start this Quiz</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

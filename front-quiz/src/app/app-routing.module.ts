@@ -19,15 +19,15 @@ import { InstructionsComponent } from './pages/user/instructions/instructions.co
 import { StartQuizComponent } from './pages/user/start-quiz/start-quiz.component';
 import { ResultQuizComponent } from './pages/user/result-quiz/result-quiz.component';
 import { ProfileUserComponent } from './pages/user/profile-user/profile-user.component';
-import { LandingPageComponent } from './pages/landing-page/landing-page.component';
 import { HomeLandingComponent } from './pages/home-landing/home-landing.component';
+import { HomeUserComponent } from './pages/user/home-user/home-user.component';
 
 const routes: Routes = [
   { path: '', component: HomeLandingComponent },
   { 
     path:'user', component: UserDashboardComponent, canActivate: [AuthGuard], data: {roles: ['USER', 'ADMIN']},
     children: [
-      { path: '', component: LoadQuizComponent },
+      { path: '', component: HomeUserComponent },
       { path: 'profile', component: ProfileUserComponent },
       { path: 'quizzes', component: LoadQuizComponent },
       { path: 'quizzes/:categoryId', component: LoadQuizByCategoryComponent },
