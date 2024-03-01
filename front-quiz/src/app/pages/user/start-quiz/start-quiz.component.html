@@ -36,20 +36,22 @@
             </div>
             <div class="col-md-8" style="background: #e0e0e0;">
                 <div class="mt-5 m-5">
-                    <div class="ms-1" *ngIf="isCurrent">
-                        <button class="current-question m-3 d-inline-block">{{currentQuestion+1}}</button>
-                        <h2 class="d-inline-block">{{quiz.questions[currentQuestion].content}}</h2>
+                    <div class="row ms-1" *ngIf="isCurrent">
+                        <div class="col-md-2">
+                            <button class="current-question m-3 d-inline-block">{{currentQuestion+1}}</button>
+                        </div>
+                        <div class="col-md-10 d-flex align-items-center">
+                            <h2 class="d-inline-block">{{quiz.questions[currentQuestion].content}}</h2>
+                        </div>
                     </div>
                     <div class="mt-4">
                         <div class="" *ngFor="let option of quiz.questions[currentQuestion].options" > 
                             <button *ngIf="isCurrent" class="choice mt-4" [class.active]="choiceSelected=== option" (click)="checkResponse(option)">{{option}}</button>
                         </div>
                     </div>
-                    <div class="button-action d-flex justify-content-center align-items-center">
-                        <!--button class="button-back" *ngIf="isCurrent" (click)="onPreviousQuestion()">BACK <i class="bi bi-skip-start-circle-fill ms-3"></i></button>
-                        <button class="button-next ms-4" *ngIf="isCurrent" (click)="onNextQuestion()">NEXT <i class="bi bi-skip-start-circle-fill ms-3"></i></button-->
-                        <button class="button-submit" *ngIf="!isCurrent" (click)="getResult()">Show Result</button>
-                    </div>
+                </div>
+                <div class="d-flex justify-content-center align-items-center">
+                    <button class="button-submit" *ngIf="!isCurrent" (click)="getResult()">Show Result</button>
                 </div>
             </div>
         </div>

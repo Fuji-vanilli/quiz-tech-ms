@@ -1,16 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HomeQuiz } from '../../models/homeQuiz.model';
+import { Quiz } from '../../models/quiz.model';
+import { QuizApiService } from 'src/app/services/quiz-api.service';
 
 @Component({
   selector: 'app-home-user',
   templateUrl: './home-user.component.html',
   styleUrls: ['./home-user.component.scss']
 })
-export class HomeUserComponent {
+export class HomeUserComponent implements OnInit{
 
   color: string= '#c21d03';
   mode: string= 'normal';
   value: number= 37;
+
+  quizzes: Quiz[]= [];
 
   homeQuizzes: HomeQuiz[]= [
     {
@@ -34,4 +38,21 @@ export class HomeUserComponent {
       color: '#FF6600'
     }
   ]
+
+  constructor(private quizService: QuizApiService) {}
+
+  ngOnInit(): void {
+    this.loadQuiz();
+  }
+
+  loadQuiz() {
+    this.quizService.fetchAll(0, 20).subscribe({
+      next: response=> {
+        this.quizzes= response.data.quizzes;
+      },
+      error: err=> {
+        console.log(err);
+      }
+    })
+  }
 }

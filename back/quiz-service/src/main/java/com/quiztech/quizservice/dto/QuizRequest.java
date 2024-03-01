@@ -11,6 +11,7 @@ import java.util.List;
 public class QuizRequest {
     private String id;
     private String title;
+    private String difficulty;
     private BigDecimal marks;
     private String imageUrl;
     private String description;

@@ -104,8 +104,19 @@
 
 .btn-scroll {
     border: 0;
-    background: transparent;
+    background: #21262D;
+    margin: 8px;
+    padding: 4px;
+    border-radius: 4px;
+}
+
+.btn-scroll i {
     color: #89929b;
+    height: 14px;
+}
+
+.btn-scroll:hover i {
+    color: #C9C9C9;
 }
 
 .btn-category {
@@ -165,16 +176,6 @@ h4 {
     color: #e0e0e0;
     font-family: 'Ubuntu';
 }
-.button-view {
-    padding: 10px 16px;
-    width: 6rem;
-    font-family: 'Poppins';
-    background: #161B22 ;
-    color: #C9C9C9;
-    border-radius: 4px;
-    border: none;
-    transition: opacity 0.7s ease;
-}
 
 .button-start {
     padding: 4px 16px;
@@ -184,12 +185,7 @@ h4 {
     background: #21262d;
     color: #C9C9C9;
     border: 1px solid #404040;
-    transition: all 0.7s ease;
-}
-
-.button-view:hover {
-    opacity: .8;
- 
+    transition: all 0.5s ease;
 }
 
 .button-start:hover {
