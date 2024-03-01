@@ -8,4 +8,5 @@ import lombok.*;
 public class Quiz {
     private String title;
     private String description;
+    private String difficulty;
 }

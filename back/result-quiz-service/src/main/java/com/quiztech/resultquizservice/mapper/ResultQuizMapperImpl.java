@@ -23,6 +23,7 @@ public class ResultQuizMapperImpl implements ResultQuizMapper{
                 .quizId(resultQuiz.getQuizId())
                 .active(resultQuiz.isActive())
                 .createdDate(resultQuiz.getCreatedDate())
+                .frequency(resultQuiz.getFrequency())
                 .lastUpdateDate(resultQuiz.getLastUpdateDate())
                 .rate(resultQuiz.getRate())
                 .emailUser(resultQuiz.getEmailUser())

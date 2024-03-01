@@ -39,6 +39,7 @@ public class WebClientGetter {
             quiz= Quiz.builder()
                     .title(data.getString("title"))
                     .description(data.getString("description"))
+                    .difficulty(data.getString("difficulty"))
                     .build();
 
         } catch (JSONException e) {

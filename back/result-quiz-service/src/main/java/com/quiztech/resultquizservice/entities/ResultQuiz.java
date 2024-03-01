@@ -5,6 +5,7 @@ import com.quiztech.resultquizservice.models.User;
 import lombok.*;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 @Getter @Setter
@@ -16,6 +17,7 @@ public class ResultQuiz {
     private String quizId;
     private Date createdDate;
     private Date lastUpdateDate;
+    private BigDecimal frequency= new BigDecimal(1);
     private Double rate;
     private boolean active;
     private String emailUser;

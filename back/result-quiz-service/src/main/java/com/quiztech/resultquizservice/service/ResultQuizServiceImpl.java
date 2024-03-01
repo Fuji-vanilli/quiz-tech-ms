@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.math.BigDecimal;
 import java.net.URI;
 import java.time.LocalDateTime;
 import java.util.*;
@@ -44,23 +45,13 @@ public class ResultQuizServiceImpl implements ResultQuizService {
             );
         }
 
-        if (resultQuizRepository.existsByQuizId(request.getQuizId())) {
-            log.error("result already exist on the database!!!");
-            generateResponse(
-                    HttpStatus.BAD_REQUEST,
-                    null,
-                    null,
-                    "result already exist on the database!!"
-            );
-
-        }
-
         ResultQuiz resultQuiz = resultQuizMapper.mapToResultQuiz(request);
         Quiz quiz = webClient.getQuiz(resultQuiz.getQuizId());
 
         resultQuiz.setCreatedDate(new Date());
         resultQuiz.setId(UUID.randomUUID().toString());
         resultQuiz.setQuiz(quiz);
+        resultQuiz.getFrequency().add(new BigDecimal(1));
 
         resultQuizRepository.save(resultQuiz);
         log.info("new result  of the quiz {} added successfully", resultQuiz.getQuizId());

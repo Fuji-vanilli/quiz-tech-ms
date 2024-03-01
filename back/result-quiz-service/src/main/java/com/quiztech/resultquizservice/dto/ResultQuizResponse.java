@@ -4,6 +4,7 @@ import com.quiztech.resultquizservice.models.Quiz;
 import com.quiztech.resultquizservice.models.User;
 import lombok.*;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 @Getter
@@ -17,6 +18,7 @@ public class ResultQuizResponse {
     private Date createdDate;
     private Date lastUpdateDate;
     private Double rate;
+    private BigDecimal frequency;
     private boolean active;
     private String emailUser;
     private Quiz quiz;
