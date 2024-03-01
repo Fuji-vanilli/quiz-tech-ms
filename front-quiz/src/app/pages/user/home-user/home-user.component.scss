@@ -28,16 +28,23 @@
     color: #a3a3a3;
 }
 
-.requiz {
-    background: #fd5732;
-    color: #fff;
-    padding: 8px 18px;
-    border: 1px solid #fd5732;
+.btn-requiz {
+    background: #21262d;
+    color: #89929b;
+    padding: 4 12px;
+    border: 1px solid #21262d;
+    border-radius: 6px;
     transition: all .6s ease;
 }
 
-.requiz:hover  {
+.btn-requiz:hover  {
     opacity: .7;
+}
+
+.quiz {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .card-left .right {

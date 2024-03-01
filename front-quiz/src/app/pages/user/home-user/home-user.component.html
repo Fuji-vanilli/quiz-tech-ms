@@ -3,25 +3,30 @@
         <div class="col-md-12 mt-3">
             <div class="row">
                 <div class="col-md-9 mt-3 content">
-                    <h2>Quiz already Finished</h2>
+                    <h2 class="ms-3">Quiz already Finished</h2>
                     <div class="ms-3">
-                        <table class="table">
+                        <table class="table table-striped">
                             <thead>
                                 <tr>
-                                    <th>Status</th>
-                                    <th>Title</th>
-                                    <th>Solution</th>
-                                    <th>Difficulty</th>
-                                    <th>Frequence</th>
+                                    <th class="text-center">Status</th>
+                                    <th class="text-center">Title</th>
+                                    <th class="text-center">Difficulty</th>
+                                    <th class="text-center">Rate</th>
+                                    <th class="text-center">Frequence</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr *ngFor="let quiz of quizzes">
-                                    <td>{{quiz.status}}</td>
+                                    <td class="text-center"><i class="bi bi-check2-circle" style="color: #22c55e; font-weight: 600; font-size: 16px;" *ngIf="quiz.active"></i></td>
                                     <td>{{quiz.title}}</td>
-                                    <td><i class="bi bi-file-earmark-check" style="color: #e9aa2b;"></i></td>
-                                    <td>Easy</td>
-                                    <td>3</td>
+                                    <td class="text-center">Easy</td>
+                                    <td class="text-center">37%</td>
+                                    <td class="text-center"> 
+                                        <div class="quiz">
+                                            <span>3</span>
+                                            <button class="btn-requiz">Requiz</button>
+                                        </div>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>

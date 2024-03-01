@@ -26,6 +26,7 @@ public class QuizResponse {
     private List<String> questionsId;
     private List<Question> questions= new ArrayList<Question>();
     private boolean active;
+    private boolean status;
     private String categoryId;
     private Category category;
 }

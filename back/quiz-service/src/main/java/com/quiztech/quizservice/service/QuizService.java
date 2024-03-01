@@ -13,6 +13,7 @@ public interface QuizService {
     Response add(QuizRequest request);
     Response addQuestion(Map<String, String> questionRequest);
     Response update(QuizRequest request);
+    Response playQuiz(String id);
     Response get(String id);
     Response quizByCategory(String idCategory);
     Response evaluateQuiz(Map<String, Map<String, Boolean>> evaluateQuiz);

@@ -159,6 +159,27 @@ public class QuizServiceImpl implements QuizService {
     }
 
     @Override
+    public Response playQuiz(String id) {
+        Quiz quiz = quizRepository.findById(id).orElseThrow(
+                () -> new IllegalArgumentException("error to fetch quiz into the database")
+        );
+
+        quiz.setStatus(true);
+        quizRepository.save(quiz);
+
+        log.info("quiz playing successfully!!!");
+
+        return generateResponse(
+                HttpStatus.OK,
+                null,
+                Map.of(
+                        "quiz", quizMapper.mapToQuizResponse(quiz)
+                ),
+                "quiz playing successfully!!"
+        );
+    }
+
+    @Override
     public Response get(String id) {
         if (!quizRepository.existsById(id)) {
             log.error("quiz with the id: {} doesn't exist on the database!", id);

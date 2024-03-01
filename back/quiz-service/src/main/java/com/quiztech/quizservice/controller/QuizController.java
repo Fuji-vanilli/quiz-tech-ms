@@ -18,6 +18,8 @@ public interface QuizController {
     ResponseEntity<Response> addQuestion(@RequestBody Map<String, String> questionRequest);
     @PutMapping("update")
     ResponseEntity<Response> update(@RequestBody QuizRequest request);
+    @PatchMapping("play/{id}")
+    ResponseEntity<Response> playQuiz(@PathVariable String id);
     @GetMapping("get/{id}")
     ResponseEntity<Response> get(@PathVariable String id);
     @GetMapping("getByCategory/{idCategory}")
