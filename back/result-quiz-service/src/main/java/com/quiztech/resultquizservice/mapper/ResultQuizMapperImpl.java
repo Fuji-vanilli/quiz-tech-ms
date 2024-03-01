@@ -1,0 +1,31 @@
+package com.quiztech.resultquizservice.mapper;
+
+import com.quiztech.resultquizservice.dto.ResultQuizRequest;
+import com.quiztech.resultquizservice.dto.ResultQuizResponse;
+import com.quiztech.resultquizservice.entities.ResultQuiz;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class ResultQuizMapperImpl implements ResultQuizMapper{
+    @Override
+    public ResultQuiz mapToResultQuiz(ResultQuizRequest request) {
+        return ResultQuiz.builder()
+                .quizId(request.getQuizId())
+                .rate(request.getRate())
+                .user(request.getUser())
+                .build();
+    }
+
+    @Override
+    public ResultQuizResponse mapToResultQuizResponse(ResultQuiz resultQuiz) {
+        return ResultQuizResponse.builder()
+                .id(resultQuiz.getId())
+                .quizId(resultQuiz.getQuizId())
+                .active(resultQuiz.isActive())
+                .createdDate(resultQuiz.getCreatedDate())
+                .lastUpdateDate(resultQuiz.getLastUpdateDate())
+                .rate(resultQuiz.getRate())
+                .user(resultQuiz.getUser())
+                .build();
+    }
+}
