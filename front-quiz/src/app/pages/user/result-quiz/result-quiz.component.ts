@@ -5,6 +5,8 @@ import { Quiz } from '../../models/quiz.model';
 import { QuizApiService } from 'src/app/services/quiz-api.service';
 import { KeycloakService } from 'keycloak-angular';
 import { KeycloakProfile } from 'keycloak-js';
+import { Category } from '../../models/category.model';
+import { CategoryApiService } from 'src/app/services/category-api.service';
 
 @Component({
   selector: 'app-result-quiz',
@@ -13,10 +15,10 @@ import { KeycloakProfile } from 'keycloak-js';
 })
 export class ResultQuizComponent implements OnInit {
 
-  dataResult: Map<any, string>= new Map();
   quizId!: string;
   quiz!: any;
   answer: string[]= [];
+  categories: Category[]= [];
   correctAnswer= 0;
   wrongAnswer= 0;
   noAnswer= 0;
@@ -28,13 +30,15 @@ export class ResultQuizComponent implements OnInit {
   constructor(private resultService: ResultQuizService,
               private activeRoute: ActivatedRoute,
               private quizService: QuizApiService,
+              private categoryService: CategoryApiService,
               private keycloakService: KeycloakService) {}
 
   ngOnInit(): void {
     this.answer= this.resultService.dataResult;
     this.quizId= this.activeRoute.snapshot.params['quizId'];
     this.loadQuiz();    
-
+    this.loadCategory();
+    
     this.keycloakService.loadUserProfile().then(
       profile=> {
         this.profile= profile;
@@ -54,7 +58,7 @@ export class ResultQuizComponent implements OnInit {
 		  text: "Correct answser / wrong answer : QUIZ TECH"
 	  }],
 	  data: [{
-		  type: "area", //change type to column, line, area, doughnut, etc
+		  type: "pie", //change type to column, line, area, doughnut, etc
 		  indexLabel: "{name}: {y}%",
 		  dataPoints: [
 		  	{ name: "Correct answer", y: 0},
@@ -70,18 +74,23 @@ export class ResultQuizComponent implements OnInit {
         this.quiz= response.data.quiz;
         console.table(this.quiz);
         this.getCorrectAnswer();
-        console.log('correct:', this.correctAnswer);
-        console.log('wrong: ',this.wrongAnswer);
-        console.log('len: ', this.answer.length);
         
         this.rateCorrect= (this.correctAnswer*100)/this.quiz.questions.length; 
         this.rateWrong= (this.wrongAnswer*100)/this.quiz.questions.length; 
-        
-        console.log('rateCorrect: ', this.rateCorrect);
-        console.log('rateWrong: ', this.rateWrong);
 
         this.updateChartData();
+      },
+      error: err=> {
+        console.log(err);
         
+      }
+    })
+  }
+
+  loadCategory() {
+    this.categoryService.fetchAll(0, 30).subscribe({
+      next: response=> {
+        this.categories= response.data.categories;
       },
       error: err=> {
         console.log(err);

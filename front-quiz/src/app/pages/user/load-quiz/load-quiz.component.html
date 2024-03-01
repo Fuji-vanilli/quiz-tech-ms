@@ -15,8 +15,12 @@
                         </span>
                     </div>
                 </div>
-                
-                <div class="mt-2 rowposter" style="overflow-x: auto; white-space: nowrap;">
+                <div class="d-flex justify-content-end m-3">
+                    <button class="btn-scroll" (click)="scrollLeft()"><i class="bi bi-chevron-double-left"></i></button>
+                    <button class="btn-scroll" (click)="scrollRight()"><i class="bi bi-chevron-double-right"></i></button>
+                </div>
+                <div class="mt-2 rowposter" style="overflow-x: auto; white-space: nowrap;" #scrollContainer>
+                    
                     <button class="btn-category" [ngClass]="{'active': selectedCategory==='all'}" (click)="filterQuizByCaegory('all')"><i class="bi bi-archive" style="color: #FFD700;"></i><span>All Quizzes ({{quizzes.length}})</span></button>
                     <button 
                         class="btn-category" 
@@ -27,6 +31,7 @@
                         <i [ngClass]="category.icon" [ngStyle]="{'color': colors[i%colors.length]}"></i>
                         <span>{{category.title+' ('+category.quizsId.length+')'}}</span>
                     </button>
+                    
                 </div>
                 
                 <div class="row">

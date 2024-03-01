@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostListener, OnInit } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 import { QuizApiService } from 'src/app/services/quiz-api.service';
 import { Quiz } from '../../models/quiz.model';
 import { ActivatedRoute } from '@angular/router';
@@ -82,9 +82,14 @@ export class LoadQuizComponent implements OnInit {
       quiz=> quiz.title?.toLocaleLowerCase().includes(this.searchterm.toLocaleLowerCase())
     );
   }
-/*
-  quizSearch(quizid: any) {
-    this.filterQuizzes= this.quizzes.filter(quiz=> quiz.id=== quizid);
+
+  @ViewChild('scrollContainer') scrollContainer!: ElementRef;
+
+  scrollLeft(): void {
+    this.scrollContainer.nativeElement.scrollLeft -= 100;
   }
-  */
+
+  scrollRight(): void {
+    this.scrollContainer.nativeElement.scrollLeft += 100;
+  }
 }

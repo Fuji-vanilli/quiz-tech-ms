@@ -102,6 +102,12 @@
     color: #e0e0e0;
 }
 
+.btn-scroll {
+    border: 0;
+    background: transparent;
+    color: #89929b;
+}
+
 .btn-category {
     margin-right: 16px;
     margin-bottom: 16px;
@@ -343,7 +349,7 @@ span {
 
 
 .rowposter::-webkit-scrollbar {
-    //display: none;
+    display: none;
     background: #27272a;
     border-radius: 12px;
     margin-bottom: 12px;
