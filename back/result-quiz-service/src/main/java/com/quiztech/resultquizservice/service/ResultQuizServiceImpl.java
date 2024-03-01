@@ -3,9 +3,11 @@ package com.quiztech.resultquizservice.service;
 import com.quiztech.resultquizservice.dto.ResultQuizRequest;
 import com.quiztech.resultquizservice.entities.ResultQuiz;
 import com.quiztech.resultquizservice.mapper.ResultQuizMapper;
+import com.quiztech.resultquizservice.models.Quiz;
 import com.quiztech.resultquizservice.repository.ResultQuizRepository;
 import com.quiztech.resultquizservice.utils.Response;
 import com.quiztech.resultquizservice.validators.ResultQuizValidators;
+import com.quiztech.resultquizservice.webClient.WebClientGetter;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -25,6 +27,7 @@ public class ResultQuizServiceImpl implements ResultQuizService {
 
     private final ResultQuizRepository resultQuizRepository;
     private final ResultQuizMapper resultQuizMapper;
+    private final WebClientGetter webClient;
     @Override
     public Response add(ResultQuizRequest request) {
         List<String> errors= ResultQuizValidators.isValid(request);
@@ -53,8 +56,11 @@ public class ResultQuizServiceImpl implements ResultQuizService {
         }
 
         ResultQuiz resultQuiz = resultQuizMapper.mapToResultQuiz(request);
+        Quiz quiz = webClient.getQuiz(resultQuiz.getQuizId());
+
         resultQuiz.setCreatedDate(new Date());
         resultQuiz.setId(UUID.randomUUID().toString());
+        resultQuiz.setQuiz(quiz);
 
         resultQuizRepository.save(resultQuiz);
         log.info("new result  of the quiz {} added successfully", resultQuiz.getQuizId());
@@ -99,6 +105,22 @@ public class ResultQuizServiceImpl implements ResultQuizService {
                         "resultQuiz", resultQuizMapper.mapToResultQuizResponse(resultQuiz)
                 ),
                 "result quiz : "+id+" getted successfully!"
+        );
+    }
+
+    @Override
+    public Response getByUserEmail(String emailUser) {
+        log.info("all result with the user : {} getted successfully!", emailUser);
+
+        return generateResponse(
+                HttpStatus.OK,
+                null,
+                Map.of(
+                        "resultQuizzes", resultQuizRepository.findByEmailUser(emailUser).stream()
+                                .map(resultQuizMapper::mapToResultQuizResponse)
+                                .toList()
+                ),
+                "all result with the user: "+emailUser+" getted successfully!"
         );
     }
 

@@ -17,8 +17,8 @@ public class ResultQuizValidators {
         if (request.getRate()== null) {
             errors.add("rate required!");
         }
-        if (Objects.isNull(request.getUser())) {
-            errors.add("user required!");
+        if (Objects.isNull(request.getEmailUser())) {
+            errors.add("email user required!");
         }
         return errors;
     }

@@ -12,6 +12,8 @@ public interface ResultQuizController {
     ResponseEntity<Response> add(@RequestBody ResultQuizRequest request);
     @GetMapping("get/{id}")
     ResponseEntity<Response> get(@PathVariable String id);
+    @GetMapping("getByEmailUser/{emailUser}")
+    ResponseEntity<Response> getByEmailUser(@PathVariable String emailUser);
     @GetMapping("all")
     ResponseEntity<Response> all();
     @PatchMapping("update")

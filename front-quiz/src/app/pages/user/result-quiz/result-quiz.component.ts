@@ -31,6 +31,7 @@ export class ResultQuizComponent implements OnInit {
               private activeRoute: ActivatedRoute,
               private quizService: QuizApiService,
               private categoryService: CategoryApiService,
+              private resultQuizService: ResultQuizService,
               private keycloakService: KeycloakService) {}
 
   ngOnInit(): void {
@@ -38,7 +39,7 @@ export class ResultQuizComponent implements OnInit {
     this.quizId= this.activeRoute.snapshot.params['quizId'];
     this.loadQuiz();    
     this.loadCategory();
-    
+
     this.keycloakService.loadUserProfile().then(
       profile=> {
         this.profile= profile;

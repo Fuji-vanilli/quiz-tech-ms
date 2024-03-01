@@ -1,5 +1,6 @@
 package com.quiztech.resultquizservice.dto;
 
+import com.quiztech.resultquizservice.models.Quiz;
 import com.quiztech.resultquizservice.models.User;
 import lombok.*;
 
@@ -17,5 +18,6 @@ public class ResultQuizResponse {
     private Date lastUpdateDate;
     private Double rate;
     private boolean active;
-    private User user;
+    private String emailUser;
+    private Quiz quiz;
 }

@@ -1,5 +1,6 @@
 package com.quiztech.resultquizservice.entities;
 
+import com.quiztech.resultquizservice.models.Quiz;
 import com.quiztech.resultquizservice.models.User;
 import lombok.*;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -17,5 +18,6 @@ public class ResultQuiz {
     private Date lastUpdateDate;
     private Double rate;
     private boolean active;
-    private User user;
+    private String emailUser;
+    private Quiz quiz;
 }

@@ -7,8 +7,9 @@ import java.util.Map;
 
 public interface ResultQuizService {
     Response add(ResultQuizRequest request);
-    Response get(String id);
     Response updateRate(Map<String, Object> rate);
+    Response get(String id);
+    Response getByUserEmail(String emailUser);
     Response all();
     Response delete(String id);
 }

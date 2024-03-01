@@ -10,5 +10,5 @@ public class ResultQuizRequest {
     private String id;
     private String quizId;
     private Double rate;
-    private User user;
+    private String emailUser;
 }

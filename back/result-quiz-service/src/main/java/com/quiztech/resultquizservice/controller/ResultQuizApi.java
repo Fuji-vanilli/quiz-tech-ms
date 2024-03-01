@@ -5,6 +5,7 @@ import com.quiztech.resultquizservice.service.ResultQuizService;
 import com.quiztech.resultquizservice.utils.Response;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,6 +16,7 @@ import static com.quiztech.resultquizservice.utils.Root.APP_ROOT;
 @RestController
 @RequestMapping(APP_ROOT)
 @RequiredArgsConstructor
+@CrossOrigin("*")
 public class ResultQuizApi implements ResultQuizController{
     private final ResultQuizService resultQuizService;
     @Override
@@ -25,6 +27,11 @@ public class ResultQuizApi implements ResultQuizController{
     @Override
     public ResponseEntity<Response> get(String id) {
         return ResponseEntity.ok(resultQuizService.get(id));
+    }
+
+    @Override
+    public ResponseEntity<Response> getByEmailUser(String emailUser) {
+        return ResponseEntity.ok(resultQuizService.getByUserEmail(emailUser));
     }
 
     @Override

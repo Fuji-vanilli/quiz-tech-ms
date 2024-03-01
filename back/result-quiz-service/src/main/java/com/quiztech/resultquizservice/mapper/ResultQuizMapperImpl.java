@@ -12,7 +12,7 @@ public class ResultQuizMapperImpl implements ResultQuizMapper{
         return ResultQuiz.builder()
                 .quizId(request.getQuizId())
                 .rate(request.getRate())
-                .user(request.getUser())
+                .emailUser(request.getEmailUser())
                 .build();
     }
 
@@ -25,7 +25,8 @@ public class ResultQuizMapperImpl implements ResultQuizMapper{
                 .createdDate(resultQuiz.getCreatedDate())
                 .lastUpdateDate(resultQuiz.getLastUpdateDate())
                 .rate(resultQuiz.getRate())
-                .user(resultQuiz.getUser())
+                .emailUser(resultQuiz.getEmailUser())
+                .quiz(resultQuiz.getQuiz())
                 .build();
     }
 }

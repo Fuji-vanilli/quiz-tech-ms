@@ -3,6 +3,10 @@ import { QuizApiService } from 'src/app/services/quiz-api.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { ResultQuizService } from 'src/app/services/result-quiz.service';
+import { Result } from '../../models/result.model';
+import { User } from '../../models/user.model';
+import { KeycloakService } from 'keycloak-angular';
+import { KeycloakProfile } from 'keycloak-js';
 
 @Component({
   selector: 'app-start-quiz',
@@ -28,17 +32,25 @@ export class StartQuizComponent {
   isCurrent: boolean= true;
 
   resultQuiz: string[]= [];
+  profile!: KeycloakProfile | null;
 
   constructor(private quizService: QuizApiService,
-              private dataService: ResultQuizService,
+              private resultService: ResultQuizService,
               private activeRoute: ActivatedRoute,
-              private router: Router) {}
+              private router: Router,
+              private keycloakService: KeycloakService) {}
 
   ngOnInit(): void {
     this.quizId= this.activeRoute.snapshot.params['quizId'];
     this.loadQuiz();
     this.startTimer();
     this.playQuiz();
+
+    this.keycloakService.loadUserProfile().then(
+      profile=> {
+        this.profile= profile;
+      }
+    )
   }
 
   playQuiz() {
@@ -128,6 +140,27 @@ export class StartQuizComponent {
   }
 
   getResult() {
+    const user: User= {
+      username: this.profile?.username,
+      email: this.profile?.email
+    }
+    const result: Result= {
+      rate: (this.correctAnswer/this.quiz.questions.length)*100,
+      quizId: this.quiz.id,
+      user: user,
+    }
+
+    this.resultService.addResult(result).subscribe({
+      next: response=> {
+        console.log(response.data.resultQuiz);
+      
+      },
+      error: err=> {
+        console.log(err);
+        
+      }
+    })
+
     if (this.correctAnswer>= this.quiz.numberOfQuestions/2) {
       Swal.fire({
         title: "You are finished the Quiz successfully",
@@ -158,7 +191,7 @@ export class StartQuizComponent {
         `
       }).then((result)=> {
         if (result.isConfirmed) {
-          this.dataService.dataResult= this.resultQuiz;
+          this.resultService.dataResult= this.resultQuiz;
           this.router.navigateByUrl('/user/result/'+this.quizId);
           console.log(this.resultQuiz);
           
@@ -192,7 +225,7 @@ export class StartQuizComponent {
         background: "#1f2b3e",
       }).then((result)=> {
         if (result.isConfirmed) {
-          this.dataService.dataResult= this.resultQuiz;
+          this.resultService.dataResult= this.resultQuiz;
           this.router.navigateByUrl('/user/result/'+this.quizId);
           console.log(this.resultQuiz);
           
