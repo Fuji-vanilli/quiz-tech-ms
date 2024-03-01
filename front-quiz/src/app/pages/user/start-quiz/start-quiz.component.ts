@@ -38,8 +38,21 @@ export class StartQuizComponent {
     this.quizId= this.activeRoute.snapshot.params['quizId'];
     this.loadQuiz();
     this.startTimer();
+    this.playQuiz();
   }
 
+  playQuiz() {
+    this.quizService.playQuiz(this.quizId).subscribe({
+      next: response=> {
+        console.log('active: ', response.data.quiz);
+        
+      },
+      error: err=> {
+        console.log(err);
+        
+      }
+    });
+  }
   loadQuiz() {
     this.quizService.getQuiz(this.quizId).subscribe({
       next: response=> {

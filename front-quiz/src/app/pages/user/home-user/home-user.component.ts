@@ -15,6 +15,7 @@ export class HomeUserComponent implements OnInit{
   value: number= 37;
 
   quizzes: Quiz[]= [];
+  quizzesFilter: Quiz[]= [];
 
   homeQuizzes: HomeQuiz[]= [
     {
@@ -49,6 +50,11 @@ export class HomeUserComponent implements OnInit{
     this.quizService.fetchAll(0, 20).subscribe({
       next: response=> {
         this.quizzes= response.data.quizzes;
+        this.quizzesFilter= this.quizzes.filter(
+          (quiz)=> quiz.status=== true
+        );
+        console.log(this.quizzes);
+        
       },
       error: err=> {
         console.log(err);

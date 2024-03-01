@@ -32,6 +32,7 @@ public class QuizMapperImpl implements QuizMapper{
                 .description(quiz.getDescription())
                 .difficulty(quiz.getDifficulty())
                 .active(quiz.isActive())
+                .status(quiz.isStatus())
                 .createdDate(quiz.getCreatedDate())
                 .lastUpdateDate(quiz.getLastUpdateDate())
                 .marks(quiz.getMarks())

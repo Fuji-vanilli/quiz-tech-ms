@@ -16,12 +16,12 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let quiz of quizzes">
-                                    <td class="text-center"><i class="bi bi-check2-circle" style="color: #22c55e; font-weight: 600; font-size: 16px;" *ngIf="quiz.active"></i></td>
+                                <tr *ngFor="let quiz of quizzesFilter">
+                                    <td class="text-center"><i class="bi bi-check2-circle" style="color: #22c55e; font-weight: 600; font-size: 16px;" *ngIf="quiz.status"></i></td>
                                     <td>{{quiz.title}}</td>
                                     <td class="text-center">Easy</td>
                                     <td class="text-center">37%</td>
-                                    <td class="text-center"> 
+                                    <td> 
                                         <div class="quiz">
                                             <span>3</span>
                                             <button class="btn-requiz">Requiz</button>
