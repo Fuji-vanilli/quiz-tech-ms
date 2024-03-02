@@ -6,6 +6,7 @@ import lombok.*;
 @AllArgsConstructor @NoArgsConstructor
  @Builder
 public class Quiz {
+    private String id;
     private String title;
     private String description;
     private String difficulty;

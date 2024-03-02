@@ -31,4 +31,8 @@ export class ResultQuizService {
     return this.httpClient.patch(environment.backEndResultQuiz+'/update', rate);
   }
 
+  deleteResult(quizId: any, emailUser: any, frequency: any): Observable<any> {
+    return this.httpClient.delete(environment.backEndResultQuiz+'/delete/'+quizId+'/'+emailUser+'/'+frequency);
+  }
+
 }

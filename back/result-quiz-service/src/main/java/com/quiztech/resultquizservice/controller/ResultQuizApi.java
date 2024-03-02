@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.math.BigDecimal;
 import java.util.Map;
 
 import static com.quiztech.resultquizservice.utils.Root.APP_ROOT;
@@ -45,7 +46,7 @@ public class ResultQuizApi implements ResultQuizController{
     }
 
     @Override
-    public ResponseEntity<Response> delete(String id) {
-        return ResponseEntity.ok(resultQuizService.delete(id));
+    public ResponseEntity<Response> delete(String quizId, String emailUser, BigDecimal frequency) {
+        return ResponseEntity.ok(resultQuizService.delete(quizId, emailUser, frequency));
     }
 }

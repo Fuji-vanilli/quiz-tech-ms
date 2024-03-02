@@ -5,6 +5,7 @@ import com.quiztech.resultquizservice.utils.Response;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigDecimal;
 import java.util.Map;
 
 public interface ResultQuizController {
@@ -18,7 +19,11 @@ public interface ResultQuizController {
     ResponseEntity<Response> all();
     @PatchMapping("update")
     ResponseEntity<Response> update(@RequestBody Map<String, Object> rate);
-    @DeleteMapping("delete/{id}")
-    ResponseEntity<Response> delete(@PathVariable String id);
+    @DeleteMapping("delete/{quizId}/{emailUser}/{frequency}")
+    ResponseEntity<Response> delete(
+            @PathVariable String quizId,
+            @PathVariable String emailUser,
+            @PathVariable BigDecimal frequency
+    );
 
 }

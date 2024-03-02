@@ -6,6 +6,8 @@ import { Result } from '../../models/result.model';
 import { ResultQuizService } from 'src/app/services/result-quiz.service';
 import { KeycloakProfile } from 'keycloak-js';
 import { KeycloakService } from 'keycloak-angular';
+import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home-user',
@@ -19,8 +21,14 @@ export class HomeUserComponent implements OnInit{
   value: number= 37;
 
   resultQuizzes: Result[]= [];
+  resutByQuizId: Result[]= [];
+  resutByFrequency: Result[]= [];
+  resutByRate: Result[]= [];
 
   profile!: KeycloakProfile | null;
+
+  menuTypeOpen: boolean= false;
+  menuSortOpen: boolean= false;
 
   homeQuizzes: HomeQuiz[]= [
     {
@@ -46,7 +54,8 @@ export class HomeUserComponent implements OnInit{
   ]
 
   constructor(private resultQuiz: ResultQuizService,
-              private keycloakService: KeycloakService) {}
+              private keycloakService: KeycloakService,
+              private route: Router) {}
 
   ngOnInit(): void {
     this.loadProfile();   
@@ -67,8 +76,7 @@ export class HomeUserComponent implements OnInit{
             });
            
             console.log('result quizzes: ', this.resultQuizzes);
-           
-               
+
           },
           error: err=> {
             console.log(err);
@@ -76,6 +84,48 @@ export class HomeUserComponent implements OnInit{
         })
       }
     )
+  }
+
+  deleteResult(quizId: any, emailUser: any, frequency: any) {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'Are you sure to delete this Result?',
+      icon: 'warning',
+      color: '#fff',
+      showCancelButton: true,
+      confirmButtonColor: '#dc2626',
+      cancelButtonColor: '#2563eb',
+      confirmButtonText: 'Yes, Delete!',
+      cancelButtonText: 'Cancel',
+      background: '#21262d'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.resultQuiz.deleteResult(quizId, emailUser, frequency).subscribe({
+          next: data=> {
+            Swal.fire('Deleted', 'Result Quiz deleted Successfully!', 'success');
+            window.location.reload();
+          }, 
+          error: err=> {
+            console.log(err);
+            
+          }
+        })
+    }
+    });
+  }
+
+  filterByQuizId (){
+    this.resultQuizzes.filter(
+      (result)=> result
+    )
+  }
+
+  toggleTypeMenu() {
+    this.menuTypeOpen= !this.menuTypeOpen;
+  }
+
+  toggleSortMenu() {
+    this.menuSortOpen= !this.menuSortOpen;
   }
 
 }

@@ -10,6 +10,8 @@ import com.quiztech.resultquizservice.validators.ResultQuizValidators;
 import com.quiztech.resultquizservice.webClient.WebClientGetter;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -52,7 +54,15 @@ public class ResultQuizServiceImpl implements ResultQuizService {
         resultQuiz.setId(UUID.randomUUID().toString());
         resultQuiz.setQuiz(quiz);
 
-        resultQuiz.setFrequency(new BigDecimal(1));
+        BigDecimal frequency= new BigDecimal(1);
+
+        if (resultQuizRepository.existsByQuizIdAndEmailUser(request.getQuizId(), request.getEmailUser())){
+            ResultQuiz byQuizIdAndEmailUser = resultQuizRepository.findFirstByQuizIdAndEmailUserOrderByCreatedDateDesc(request.getQuizId(), request.getEmailUser());
+            log.info("frequency: {}", byQuizIdAndEmailUser.getFrequency());
+            frequency= frequency.add(byQuizIdAndEmailUser.getFrequency());
+        }
+
+        resultQuiz.setFrequency(frequency);
 
         resultQuizRepository.save(resultQuiz);
         log.info("new result  of the quiz {} added successfully", resultQuiz.getQuizId());
@@ -168,19 +178,19 @@ public class ResultQuizServiceImpl implements ResultQuizService {
     }
 
     @Override
-    public Response delete(String id) {
-        if (!resultQuizRepository.existsById(id)) {
-            log.error("result with the id: {} doesn't exist on the database!", id);
+    public Response delete(String quizId, String emailUser, BigDecimal frequency) {
+        if (!resultQuizRepository.existsByQuizIdAndEmailUser(quizId, emailUser)) {
+            log.error("result with the id: {} doesn't exist on the database!", quizId);
             return generateResponse(
                     HttpStatus.BAD_REQUEST,
                     null,
                     null,
-                    "result with the id: "+id+" doesn't exist on the database!"
+                    "result with the id: "+quizId+" doesn't exist on the database!"
             );
         }
 
-        resultQuizRepository.deleteById(id);
-        log.info("result quiz {} deleted successfully!", id);
+        resultQuizRepository.deleteByQuizIdAndEmailUserAndFrequency(quizId, emailUser, frequency);
+        log.info("result quiz {} deleted successfully!", quizId);
 
         return generateResponse(
                 HttpStatus.OK,
@@ -188,7 +198,7 @@ public class ResultQuizServiceImpl implements ResultQuizService {
                 Map.of(
                         "is deleted", true
                 ),
-                "result quiz: "+id+" deleted successfully!"
+                "result quiz: "+quizId+" deleted successfully!"
         );
     }
 

@@ -37,6 +37,7 @@ public class WebClientGetter {
             JSONObject data= jsonObject.getJSONObject("data").getJSONObject("quiz");
 
             quiz= Quiz.builder()
+                    .id(data.getString("id"))
                     .title(data.getString("title"))
                     .description(data.getString("description"))
                     .difficulty(data.getString("difficulty"))

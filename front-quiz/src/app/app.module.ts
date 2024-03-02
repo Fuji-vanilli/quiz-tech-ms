@@ -54,6 +54,7 @@ import { SearchQuizComponent } from './pages/search-quiz/search-quiz.component';
 import { SearchPipePipe } from './search-pipe.pipe';
 import { HomeLandingComponent } from './pages/home-landing/home-landing.component';
 import { HomeUserComponent } from './pages/user/home-user/home-user.component';
+import { HistoryComponent } from './pages/user/history/history.component';
 
 
 export function initializeKeycloak(keycloak: KeycloakService) {
@@ -102,7 +103,8 @@ export function initializeKeycloak(keycloak: KeycloakService) {
     SearchQuizComponent,
     SearchPipePipe,
     HomeLandingComponent,
-    HomeUserComponent
+    HomeUserComponent,
+    HistoryComponent
   ],
   imports: [
     BrowserModule,

@@ -2,9 +2,54 @@
     <div class="row">
         <div class="col-md-12 mt-3">
             <div class="row">
-                <div class="col-md-9 mt-3 content">
-                    <h2 class="ms-3">Quiz already Finished</h2>
-                    <div class="ms-3 content-result">
+                <div class="col-md-9 mt-4 content">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="head-card">
+                                <div class="row" style="margin-right: 16px;">
+                                    <div class="col-md-6 history">
+                                        <span class="ms-3">History<i class="bi bi-clock-history ms-2"></i></span>
+                                    </div>
+                                    <div class="col-md-6 d-flex justify-content-center align-items-center">
+                                        <span>Follow your progress Quiz Successfully</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+
+                        </div>
+                        <div class="col-md-6 d-flex justify-content-end align-items-center">
+                                <div class="dropdown" (click)="toggleTypeMenu()">
+                                    <div class="select">
+                                        <span>Type</span>
+                                        <div class="caret" [class.caret-rotate]="menuTypeOpen"></div>
+                                    </div>
+                                    <ul class="menu" [class.menu-open]="menuTypeOpen">
+                                        <li><a class="nav-link">Quiz</a></li> 
+                                        <li class="active"><a class="nav-link">Frequency</a></li> 
+                                        <li><a class="nav-link">Rate</a></li> 
+                                    </ul> 
+                                </div>
+                                <div class="dropdown" (click)="toggleSortMenu()">
+                                    <div class="select">
+                                        <span>Sort</span>
+                                        <div class="caret" [class.caret-rotate]="menuSortOpen"></div>
+                                    </div>
+                                    <ul class="menu" [class.menu-open]="menuSortOpen">
+                                        <li><a class="nav-link">Date</a></li> 
+                                        <li class="active"><a class="nav-link">Name</a></li> 
+                                        <li><a class="nav-link">Rate</a></li> 
+                                    </ul> 
+                                </div>
+                        </div>
+                    </div>
+                    <div class="text-result">
+                        <span>17 results of quiz are you finished...!</span>
+                    </div>
+                    <div class="ms-3 mt-3 content-result">
                         <table class="table table-striped">
                             <thead>
                                 <tr>
@@ -14,6 +59,7 @@
                                     <th>Rate</th>
                                     <th>Date</th>
                                     <th>Frequence</th>
+                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -28,8 +74,11 @@
                                     <td> 
                                         <div class="quiz">
                                             <span>{{result.frequency}}</span>
-                                            <button class="btn-requiz">Requiz</button>
+                                            <button class="btn-requiz" [routerLink]="'/user/instructions/'+result.quiz?.id">Requiz</button>
                                         </div>
+                                    </td>
+                                    <td>
+                                        <a class="nav-link" (click)="deleteResult(result.quiz?.id, result.emailUser, result.frequency)"><i class="bi bi-trash-fill"></i></a>
                                     </td>
                                 </tr>
                             </tbody>

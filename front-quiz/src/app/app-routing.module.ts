@@ -21,6 +21,7 @@ import { ResultQuizComponent } from './pages/user/result-quiz/result-quiz.compon
 import { ProfileUserComponent } from './pages/user/profile-user/profile-user.component';
 import { HomeLandingComponent } from './pages/home-landing/home-landing.component';
 import { HomeUserComponent } from './pages/user/home-user/home-user.component';
+import { HistoryComponent } from './pages/user/history/history.component';
 
 const routes: Routes = [
   { path: '', component: HomeLandingComponent },
@@ -33,7 +34,8 @@ const routes: Routes = [
       { path: 'quizzes/:categoryId', component: LoadQuizByCategoryComponent },
       { path: 'instructions/:quizId', component: InstructionsComponent },
       { path: 'start/:quizId', component: StartQuizComponent },
-      { path: 'result/:quizId', component: ResultQuizComponent }
+      { path: 'result/:quizId', component: ResultQuizComponent },
+      { path: 'history', component: HistoryComponent }
     ]},
   { 
     path:'admin', component: DashboardComponent, canActivate: [AuthGuard], data: {roles: ['ADMIN']},
