@@ -35,7 +35,7 @@ export class LoadQuizComponent implements OnInit {
     this.categoryId = this.activeRoute.snapshot.params['categoryId'];
     this.loadQuizzes();
     this.loadCategory();
-    this.filterQuizByCaegory('all');
+    this.filterQuizByCategory('all');
     console.log('all quizzes', this.filterQuizzes);
   }
 
@@ -67,7 +67,7 @@ export class LoadQuizComponent implements OnInit {
     })
   }
 
-  filterQuizByCaegory(categoryId: any) {
+  filterQuizByCategory(categoryId: any) {
     this.selectedCategory= categoryId;
 
     if (categoryId=== 'all') {

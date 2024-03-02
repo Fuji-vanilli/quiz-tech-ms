@@ -18,7 +18,7 @@
         <div class="row">
             <div class="col-md-8">
                 <mat-card-header>
-                    <div mat-card-avatar class="example-header-image"></div>
+                    <div mat-card-avatar class="image-quiz" [style.backgroundImage]="'url('+quiz.imageUrl+')'"></div>
                     <mat-card-title>
                         <a class="nav-link" [routerLink]="'/admin/quiz/'+quiz.id">{{quiz.title}} </a>
                     </mat-card-title>

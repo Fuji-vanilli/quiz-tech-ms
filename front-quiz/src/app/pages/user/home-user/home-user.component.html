@@ -22,67 +22,78 @@
 
                         </div>
                         <div class="col-md-6 d-flex justify-content-end align-items-center">
-                                <div class="dropdown" (click)="toggleTypeMenu()">
-                                    <div class="select">
-                                        <span>Type</span>
-                                        <div class="caret" [class.caret-rotate]="menuTypeOpen"></div>
-                                    </div>
-                                    <ul class="menu" [class.menu-open]="menuTypeOpen">
-                                        <li><a class="nav-link">Quiz</a></li> 
-                                        <li class="active"><a class="nav-link">Frequency</a></li> 
-                                        <li><a class="nav-link">Rate</a></li> 
-                                    </ul> 
+                            <div class="dropdown" (click)="toggleTypeMenu()">
+                                <div class="select">
+                                    <span>Type</span>
+                                    <div class="caret" [class.caret-rotate]="menuTypeOpen"></div>
                                 </div>
-                                <div class="dropdown" (click)="toggleSortMenu()">
-                                    <div class="select">
-                                        <span>Sort</span>
-                                        <div class="caret" [class.caret-rotate]="menuSortOpen"></div>
-                                    </div>
-                                    <ul class="menu" [class.menu-open]="menuSortOpen">
-                                        <li><a class="nav-link">Date</a></li> 
-                                        <li class="active"><a class="nav-link">Name</a></li> 
-                                        <li><a class="nav-link">Rate</a></li> 
-                                    </ul> 
+                                <ul class="menu" [class.menu-open]="menuTypeOpen">
+                                    <li><a class="nav-link" (click)="loadResultQuizzes()">All</a></li>
+                                    <li *ngFor="let quizTitle of resultQuizNoDuplicate"><a class="nav-link"
+                                            (click)="filterByQuizTitle(quizTitle)">{{quizTitle}}</a></li>
+                                </ul>
+                            </div>
+                            <div class="dropdown" (click)="toggleSortMenu()">
+                                <div class="select">
+                                    <span>Sort</span>
+                                    <div class="caret" [class.caret-rotate]="menuSortOpen"></div>
                                 </div>
+                                <ul class="menu" [class.menu-open]="menuSortOpen">
+                                    <li class="active"><a class="nav-link">Date</a></li>
+                                    <li><a class="nav-link">Name</a></li>
+                                    <li><a class="nav-link">Rate</a></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                     <div class="text-result">
-                        <span>17 results of quiz are you finished...!</span>
+                        <strong>{{numberOfResult}}</strong><span>results of quiz that you are finished...</span>
                     </div>
                     <div class="ms-3 mt-3 content-result">
                         <table class="table table-striped">
                             <thead>
                                 <tr>
                                     <th class="text-center">Status</th>
-                                    <th>Title</th>
+                                    <th>Quiz</th>
                                     <th>Difficulty</th>
                                     <th>Rate</th>
                                     <th>Date</th>
-                                    <th>Frequence</th>
+                                    <th>Frequency</th>
                                     <th></th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let result of resultQuizzes">
-                                    <td class="text-center"><i class="bi bi-check2-circle" style="color: #22c55e; font-weight: 600; font-size: 18px;"></i></td>
+                                <tr *ngFor="let result of resultByQuizTitle">
+                                    <td class="text-center"><i class="bi bi-check2-circle"
+                                            style="color: #22c55e; font-weight: 600; font-size: 18px;"></i></td>
                                     <td>{{result.quiz?.title}}</td>
-                                    <td 
-                                        [ngStyle]="{'color': result.quiz?.difficulty=== 'Easy' ? '#019b98' : result.quiz?.difficulty=== 'Medium' ? '#FF6600' : '#dd0025'}">{{result.quiz?.difficulty}}
+                                    <td
+                                        [ngStyle]="{'color': result.quiz?.difficulty=== 'Easy' ? '#019b98' : result.quiz?.difficulty=== 'Medium' ? '#FF6600' : '#dd0025'}">
+                                        {{result.quiz?.difficulty}}
                                     </td>
-                                    <td [ngStyle]="{'color': result.rate<50 ? '#ff6366': '#22c55e'}">{{result.rate+' %'}}</td>
+                                    <td [ngStyle]="{'color': result.rate<50 ? '#ff6366': '#22c55e'}">{{result.rate+'
+                                        %'}}</td>
                                     <td>{{result.createdDate | date: 'dd-MM-yyyy HH:mm'}}</td>
-                                    <td> 
+                                    <td>
                                         <div class="quiz">
                                             <span>{{result.frequency}}</span>
-                                            <button class="btn-requiz" [routerLink]="'/user/instructions/'+result.quiz?.id">Requiz</button>
+                                            <button class="btn-requiz"
+                                                [routerLink]="'/user/instructions/'+result.quiz?.id">Requiz</button>
                                         </div>
                                     </td>
                                     <td>
-                                        <a class="nav-link" (click)="deleteResult(result.quiz?.id, result.emailUser, result.frequency)"><i class="bi bi-trash-fill"></i></a>
+                                        <a class="nav-link"
+                                            (click)="deleteResult(result.quiz?.id, result.emailUser, result.frequency)"><i
+                                                class="bi bi-trash-fill"></i></a>
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
+                        <div class="d-flex justify-content-center align-items-center">
+                            <mat-paginator [length]="resultByQuizTitle.length" [pageSize]="5" [pageSizeOptions]="[5, 10, 15, 20]"
+                                (page)="onPageChange($event)" aria-label="Select page">
+                            </mat-paginator>
+                        </div>
                     </div>
                 </div>
 
@@ -93,7 +104,8 @@
                         <span class="subtitle">{{quiz.description}}</span>
                         <button routerLink="/user/quizzes">Start this Quiz</button>
                     </div>
-                    <button class="btn-all-quizzes" routerLink="/user/quizzes">View all Quizzes<i class="bi bi-arrow-right ms-3"></i></button>
+                    <button class="btn-all-quizzes" routerLink="/user/quizzes">View all Quizzes<i
+                            class="bi bi-arrow-right ms-3"></i></button>
                 </div>
             </div>
         </div>

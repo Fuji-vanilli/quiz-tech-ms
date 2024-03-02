@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { HomeQuiz } from '../../models/homeQuiz.model';
 import { Quiz } from '../../models/quiz.model';
 import { QuizApiService } from 'src/app/services/quiz-api.service';
@@ -8,6 +8,7 @@ import { KeycloakProfile } from 'keycloak-js';
 import { KeycloakService } from 'keycloak-angular';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-home-user',
@@ -21,9 +22,12 @@ export class HomeUserComponent implements OnInit{
   value: number= 37;
 
   resultQuizzes: Result[]= [];
-  resutByQuizId: Result[]= [];
-  resutByFrequency: Result[]= [];
-  resutByRate: Result[]= [];
+  resultByQuizTitle: Result[]= [];
+  resultByFrequency: Result[]= [];
+  resultByRate: Result[]= [];
+  resultQuizNoDuplicate: any[]= [];
+
+  numberOfResult: number= 0;
 
   profile!: KeycloakProfile | null;
 
@@ -59,7 +63,7 @@ export class HomeUserComponent implements OnInit{
 
   ngOnInit(): void {
     this.loadProfile();   
-
+    this.removeDuplicateResult();
   }
 
   loadProfile() {
@@ -74,7 +78,10 @@ export class HomeUserComponent implements OnInit{
               const dateB = new Date(b.createdDate);
               return dateB.getTime() - dateA.getTime();
             });
-           
+
+            this.numberOfResult= this.resultQuizzes.length;
+            this.resultByQuizTitle= this.resultQuizzes;
+            this.removeDuplicateResult();
             console.log('result quizzes: ', this.resultQuizzes);
 
           },
@@ -84,6 +91,10 @@ export class HomeUserComponent implements OnInit{
         })
       }
     )
+  }
+
+  loadResultQuizzes() {
+    this.resultByQuizTitle= this.resultQuizzes;
   }
 
   deleteResult(quizId: any, emailUser: any, frequency: any) {
@@ -114,10 +125,21 @@ export class HomeUserComponent implements OnInit{
     });
   }
 
-  filterByQuizId (){
-    this.resultQuizzes.filter(
-      (result)=> result
+  removeDuplicateResult() {
+    const temp: any= [];
+    this.resultQuizzes.forEach(
+      (result)=>  {
+        temp.push(result.quiz?.title); 
+      }
     )
+
+    this.resultQuizNoDuplicate= Array.from(new Set(temp));
+  }
+
+  filterByQuizTitle (quizTitle: any){
+    this.resultByQuizTitle= this.resultQuizzes.filter(
+      (result)=> result.quiz?.title=== quizTitle
+    );
   }
 
   toggleTypeMenu() {
@@ -128,4 +150,13 @@ export class HomeUserComponent implements OnInit{
     this.menuSortOpen= !this.menuSortOpen;
   }
 
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+
+  // Cette fonction sera appelée à chaque fois que vous changerez de page.
+  onPageChange(event: { pageIndex: number; pageSize: number; }) {
+      const startIndex = event.pageIndex * event.pageSize;
+      const endIndex = startIndex + event.pageSize;
+      // Mettez à jour votre liste de résultats selon les indices de début et de fin.
+      this.resultByQuizTitle = this.resultByQuizTitle.slice(startIndex, endIndex);
+  }
 }

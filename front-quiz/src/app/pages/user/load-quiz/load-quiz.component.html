@@ -19,11 +19,11 @@
                 
                 <div class="mt-2 rowposter" style="overflow-x: auto; white-space: nowrap;" #scrollContainer>
                     
-                    <button class="btn-category" [ngClass]="{'active': selectedCategory==='all'}" (click)="filterQuizByCaegory('all')"><i class="bi bi-archive" style="color: #FFD700;"></i><span>All Quizzes ({{quizzes.length}})</span></button>
+                    <button class="btn-category" [ngClass]="{'active': selectedCategory==='all'}" (click)="filterQuizByCategory('all')"><i class="bi bi-archive" style="color: #FFD700;"></i><span>All Quizzes ({{quizzes.length}})</span></button>
                     <button 
                         class="btn-category" 
                         *ngFor="let category of categories; let i= index" 
-                        (click)="filterQuizByCaegory(category.id)"
+                        (click)="filterQuizByCategory(category.id)"
                         [ngClass]="{'active': category.id=== selectedCategory}"
                         >
                         <i [ngClass]="category.icon" [ngStyle]="{'color': colors[i%colors.length]}"></i>

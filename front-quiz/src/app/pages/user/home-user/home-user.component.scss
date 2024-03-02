@@ -8,6 +8,10 @@
     padding-right: 26px;
 }
 
+.content-result {
+    height: 50px;
+}
+
 .head-card {
     background: #89929b;
     width: 100%;
@@ -45,7 +49,7 @@
     padding: 0.3em 0.7em;
     margin-right: 6px;
     margin-top: 14px;
-    border-radius: 0.5rem;
+    border-radius: 0.4rem;
     transition: all 0.5s ease;
     cursor: pointer;
 }
@@ -113,6 +117,21 @@
     margin: 14px 12px;
     padding: 12px 14px;
     border: 1px solid #737373;
+}
+
+.text-result {
+    border-top: 1px solid #c6cdd5;
+    border-bottom: 1px solid #c6cdd5;
+    margin-left: 16px;
+    margin-top: 12px;
+    padding: 16px;
+    font-family: 'Anta';
+}
+
+.text-result strong {
+    color: #363a43;
+    margin-right: 10px;
+    font-size: 14px;
 }
 
 .card-left .title {

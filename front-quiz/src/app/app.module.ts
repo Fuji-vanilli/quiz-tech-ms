@@ -32,6 +32,7 @@ import { ViewQuizzesComponent } from './pages/admin/view-quizzes/view-quizzes.co
 import { UpdateCategoryComponent } from './pages/admin/update-category/update-category.component';
 import { UpdateQuizComponent } from './pages/admin/update-quiz/update-quiz.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { ViewQuestionsComponent } from './pages/admin/view-questions/view-questions.component';
 import { AddQuestionComponent } from './pages/admin/add-question/add-question.component';
@@ -126,6 +127,7 @@ export function initializeKeycloak(keycloak: KeycloakService) {
     MatProgressBarModule,
     MatSlideToggleModule,
     MatProgressSpinnerModule,
+    MatPaginatorModule,
     HttpClientModule,
     ReactiveFormsModule,
     CKEditorModule,

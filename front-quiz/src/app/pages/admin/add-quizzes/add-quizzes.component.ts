@@ -59,7 +59,7 @@ export class AddQuizzesComponent implements OnInit{
       imageUrl: this.formGroup.value.imageUrl,
       duration: this.formGroup.value.duration,
       difficulty: this.formGroup.value.duration,
-      numberOfQuestions: this.formGroup.value.numberOfQuestion 
+      numberOfQuestions: this.formGroup.value.numberOfQuestions 
       
     }
 
