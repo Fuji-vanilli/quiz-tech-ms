@@ -53,6 +53,7 @@
                         <table class="table table-striped">
                             <thead>
                                 <tr>
+                                    <th>N°</th>
                                     <th class="text-center">Status</th>
                                     <th matSort>Quiz</th>
                                     <th matSort>Difficulty</th>
@@ -63,7 +64,8 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let result of resultByQuizTitle">
+                                <tr *ngFor="let result of dataResult; let index= index">
+                                    <td>{{pageIndex*pageSize+index+1}}</td>
                                     <td class="text-center"><i class="bi bi-check2-circle"
                                             style="color: #22c55e; font-weight: 600; font-size: 18px;"></i></td>
                                     <td>{{result.quiz?.title}}</td>

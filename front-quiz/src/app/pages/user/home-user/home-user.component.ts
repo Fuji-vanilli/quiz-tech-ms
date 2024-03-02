@@ -28,6 +28,7 @@ export class HomeUserComponent implements OnInit{
   resultByFrequency: Result[]= [];
   resultByRate: Result[]= [];
   resultQuizNoDuplicate: any[]= [];
+  dataResult: any[]= [];
 
   numberOfResult: number= 0;
 
@@ -89,14 +90,8 @@ export class HomeUserComponent implements OnInit{
     const startIndex= this.pageIndex*this.pageSize;
     const endIndex= startIndex+ this.pageSize;
 
-    this.resultByQuizTitle= this.resultByQuizTitle.slice(startIndex, endIndex);
+    this.dataResult= this.resultByQuizTitle.slice(startIndex, endIndex);
 
-  }
-
-  setPageSizeOptions(setPageSizeOptionsInput: string) {
-    if (setPageSizeOptionsInput) {
-      this.pageSizeOptions = setPageSizeOptionsInput.split(',').map(str => +str);
-    }
   }
 
   loadProfile() {
@@ -117,7 +112,7 @@ export class HomeUserComponent implements OnInit{
             this.removeDuplicateResult();
 
             this.length= this.resultQuizzes.length;
-            console.log('result quizzes: ', this.resultQuizzes);
+            this.dataResult= this.resultQuizzes.slice(0, this.pageSize);
 
           },
           error: err=> {
