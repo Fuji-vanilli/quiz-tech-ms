@@ -8,7 +8,9 @@ import { KeycloakProfile } from 'keycloak-js';
 import { KeycloakService } from 'keycloak-angular';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
-import { MatPaginator } from '@angular/material/paginator';
+import { MatPaginator, PageEvent } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-home-user',
@@ -57,6 +59,18 @@ export class HomeUserComponent implements OnInit{
     }
   ]
 
+  length = 0;;
+  pageSize = 5;
+  pageIndex = 0;
+  pageSizeOptions = [5, 10, 15, 25];
+
+  hidePageSize = false;
+  showPageSizeOptions = true;
+  showFirstLastButtons = true;
+  disabled = false;
+
+  pageEvent!: PageEvent;
+
   constructor(private resultQuiz: ResultQuizService,
               private keycloakService: KeycloakService,
               private route: Router) {}
@@ -64,6 +78,25 @@ export class HomeUserComponent implements OnInit{
   ngOnInit(): void {
     this.loadProfile();   
     this.removeDuplicateResult();
+  }
+
+  handlePageEvent(e: PageEvent) {
+    this.pageEvent = e;
+    this.length = e.length;
+    this.pageSize = e.pageSize;
+    this.pageIndex = e.pageIndex;
+
+    const startIndex= this.pageIndex*this.pageSize;
+    const endIndex= startIndex+ this.pageSize;
+
+    this.resultByQuizTitle= this.resultByQuizTitle.slice(startIndex, endIndex);
+
+  }
+
+  setPageSizeOptions(setPageSizeOptionsInput: string) {
+    if (setPageSizeOptionsInput) {
+      this.pageSizeOptions = setPageSizeOptionsInput.split(',').map(str => +str);
+    }
   }
 
   loadProfile() {
@@ -82,6 +115,8 @@ export class HomeUserComponent implements OnInit{
             this.numberOfResult= this.resultQuizzes.length;
             this.resultByQuizTitle= this.resultQuizzes;
             this.removeDuplicateResult();
+
+            this.length= this.resultQuizzes.length;
             console.log('result quizzes: ', this.resultQuizzes);
 
           },
@@ -150,7 +185,6 @@ export class HomeUserComponent implements OnInit{
     this.menuSortOpen= !this.menuSortOpen;
   }
 
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   // Cette fonction sera appelée à chaque fois que vous changerez de page.
   onPageChange(event: { pageIndex: number; pageSize: number; }) {

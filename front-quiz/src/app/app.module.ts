@@ -56,6 +56,7 @@ import { SearchPipePipe } from './search-pipe.pipe';
 import { HomeLandingComponent } from './pages/home-landing/home-landing.component';
 import { HomeUserComponent } from './pages/user/home-user/home-user.component';
 import { HistoryComponent } from './pages/user/history/history.component';
+import { MatSortModule } from '@angular/material/sort';
 
 
 export function initializeKeycloak(keycloak: KeycloakService) {
@@ -128,6 +129,8 @@ export function initializeKeycloak(keycloak: KeycloakService) {
     MatSlideToggleModule,
     MatProgressSpinnerModule,
     MatPaginatorModule,
+    MatSortModule,
+    MatTableModule,
     HttpClientModule,
     ReactiveFormsModule,
     CKEditorModule,
