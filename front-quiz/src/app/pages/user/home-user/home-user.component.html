@@ -4,26 +4,30 @@
             <div class="row">
                 <div class="col-md-9 mt-3 content">
                     <h2 class="ms-3">Quiz already Finished</h2>
-                    <div class="ms-3">
+                    <div class="ms-3 content-result">
                         <table class="table table-striped">
                             <thead>
                                 <tr>
                                     <th class="text-center">Status</th>
-                                    <th class="text-center">Title</th>
-                                    <th class="text-center">Difficulty</th>
-                                    <th class="text-center">Rate</th>
-                                    <th class="text-center">Frequence</th>
+                                    <th>Title</th>
+                                    <th>Difficulty</th>
+                                    <th>Rate</th>
+                                    <th>Date</th>
+                                    <th>Frequence</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let quiz of quizzesFilter">
-                                    <td class="text-center"><i class="bi bi-check2-circle" style="color: #22c55e; font-weight: 600; font-size: 16px;" *ngIf="quiz.status"></i></td>
-                                    <td>{{quiz.title}}</td>
-                                    <td class="text-center">Easy</td>
-                                    <td class="text-center">37%</td>
+                                <tr *ngFor="let result of resultQuizzes">
+                                    <td class="text-center"><i class="bi bi-check2-circle" style="color: #22c55e; font-weight: 600; font-size: 18px;"></i></td>
+                                    <td>{{result.quiz?.title}}</td>
+                                    <td 
+                                        [ngStyle]="{'color': result.quiz?.difficulty=== 'Easy' ? '#019b98' : result.quiz?.difficulty=== 'Medium' ? '#FF6600' : '#dd0025'}">{{result.quiz?.difficulty}}
+                                    </td>
+                                    <td [ngStyle]="{'color': result.rate<50 ? '#ff6366': '#22c55e'}">{{result.rate+' %'}}</td>
+                                    <td>{{result.createdDate | date: 'dd-MM-yyyy HH:mm'}}</td>
                                     <td> 
                                         <div class="quiz">
-                                            <span>3</span>
+                                            <span>{{result.frequency}}</span>
                                             <button class="btn-requiz">Requiz</button>
                                         </div>
                                     </td>
@@ -31,36 +35,14 @@
                             </tbody>
                         </table>
                     </div>
-
-                    <!--div class="card-left">
-                        <div class="row">
-                            <div class="col-md-8 d-flex align-items-center">
-                                <img src="../../../../assets/crypto.png" alt="">
-                                <div class="ms-3">
-                                    <p class="title">Circuit Conondrum</p>
-                                    <p class="subtitle">Hardware</p>
-                                </div>
-                            </div>
-                            <div class="col-md-4 right">
-                                <div class="d-flex align justify-content-center align-items-center">
-                                    <mat-progress-spinner class="answer" color="warn" [value]="value"></mat-progress-spinner>
-                                    <span style="font-size: 26px; margin-left: 18px;">37%</span>
-                                </div>
-                                <div class="text-center">
- 
-                                    <span style="font-size: 16px; margin-left: 16px;">7/25 Correct answer</span>
-                                    <button class="requiz ms-3">ReQuiz</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div-->
                 </div>
+
                 <div class="col-md-3 mt-3">
                     <span class="title-right">Popular Quizzes</span><i class="bi bi-code-slash"></i>
                     <div class="card" *ngFor="let quiz of homeQuizzes" [ngStyle]="{'background': quiz.color}">
                         <span class="title">{{quiz.title}}</span>
                         <span class="subtitle">{{quiz.description}}</span>
-                        <button routerLink="/user">Start this Quiz</button>
+                        <button routerLink="/user/quizzes">Start this Quiz</button>
                     </div>
                     <button class="btn-all-quizzes" routerLink="/user/quizzes">View all Quizzes<i class="bi bi-arrow-right ms-3"></i></button>
                 </div>

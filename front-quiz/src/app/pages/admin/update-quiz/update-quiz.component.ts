@@ -57,6 +57,7 @@ export class UpdateQuizComponent implements OnInit{
     imageUrl: this.formBuilder.control(this.data.imageUrl),
     numberOfQuestions: this.formBuilder.control(this.data.numberOfQuestions),
     duration: this.formBuilder.control(this.data.duration),
+    difficulty: this.formBuilder.control(this.data.difficulty),
     active: this.formBuilder.control(this.data.active),
     categoryId: this.formBuilder.control(this.data.categoryId)
   })  
@@ -68,6 +69,7 @@ export class UpdateQuizComponent implements OnInit{
       description: this.formGroup.value.description,
       marks: this.formGroup.value.marks,
       imageUrl: this.formGroup.value.imageUrl,
+      difficulty: this.formGroup.value.difficulty,
       numberOfQuestions: this.formGroup.value.numberOfQuestions,
       categoryId: this.formGroup.value.categoryId,
       duration: this.formGroup.value.duration,

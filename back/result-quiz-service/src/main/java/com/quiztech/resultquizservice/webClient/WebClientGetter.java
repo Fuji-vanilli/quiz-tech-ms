@@ -18,7 +18,7 @@ public class WebClientGetter {
 
     public Quiz getQuiz(String quizId) {
         CompletableFuture<String> dataFuture = webClient.build().get()
-                .uri(properties.getQuizUrlGet())
+                .uri(properties.getQuizUrlGet()+"/"+quizId)
                 .retrieve()
                 .bodyToMono(String.class)
                 .toFuture();
@@ -34,7 +34,7 @@ public class WebClientGetter {
 
         try {
             JSONObject jsonObject= new JSONObject(daraBrute);
-            JSONObject data= jsonObject.getJSONObject("data");
+            JSONObject data= jsonObject.getJSONObject("data").getJSONObject("quiz");
 
             quiz= Quiz.builder()
                     .title(data.getString("title"))

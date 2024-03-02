@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { HomeQuiz } from '../../models/homeQuiz.model';
 import { Quiz } from '../../models/quiz.model';
 import { QuizApiService } from 'src/app/services/quiz-api.service';
+import { Result } from '../../models/result.model';
+import { ResultQuizService } from 'src/app/services/result-quiz.service';
+import { KeycloakProfile } from 'keycloak-js';
+import { KeycloakService } from 'keycloak-angular';
 
 @Component({
   selector: 'app-home-user',
@@ -14,8 +18,9 @@ export class HomeUserComponent implements OnInit{
   mode: string= 'normal';
   value: number= 37;
 
-  quizzes: Quiz[]= [];
-  quizzesFilter: Quiz[]= [];
+  resultQuizzes: Result[]= [];
+
+  profile!: KeycloakProfile | null;
 
   homeQuizzes: HomeQuiz[]= [
     {
@@ -40,25 +45,37 @@ export class HomeUserComponent implements OnInit{
     }
   ]
 
-  constructor(private quizService: QuizApiService) {}
+  constructor(private resultQuiz: ResultQuizService,
+              private keycloakService: KeycloakService) {}
 
   ngOnInit(): void {
-    this.loadQuiz();
+    this.loadProfile();   
+
   }
 
-  loadQuiz() {
-    this.quizService.fetchAll(0, 20).subscribe({
-      next: response=> {
-        this.quizzes= response.data.quizzes;
-        this.quizzesFilter= this.quizzes.filter(
-          (quiz)=> quiz.status=== true
-        );
-        console.log(this.quizzes);
-        
-      },
-      error: err=> {
-        console.log(err);
+  loadProfile() {
+    this.keycloakService.loadUserProfile().then(
+      profile=> {
+        this.profile= profile;
+        this.resultQuiz.fetchByEmailUser(this.profile?.email).subscribe({
+          next: response=> {
+            this.resultQuizzes= response.data.resultQuizzes     
+            this.resultQuizzes.sort((a, b) => {
+              const dateA = new Date(a.createdDate);
+              const dateB = new Date(b.createdDate);
+              return dateB.getTime() - dateA.getTime();
+            });
+           
+            console.log('result quizzes: ', this.resultQuizzes);
+           
+               
+          },
+          error: err=> {
+            console.log(err);
+          }
+        })
       }
-    })
+    )
   }
+
 }

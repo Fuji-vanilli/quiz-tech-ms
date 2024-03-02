@@ -21,7 +21,6 @@ public class ResultQuizMapperImpl implements ResultQuizMapper{
         return ResultQuizResponse.builder()
                 .id(resultQuiz.getId())
                 .quizId(resultQuiz.getQuizId())
-                .active(resultQuiz.isActive())
                 .createdDate(resultQuiz.getCreatedDate())
                 .frequency(resultQuiz.getFrequency())
                 .lastUpdateDate(resultQuiz.getLastUpdateDate())

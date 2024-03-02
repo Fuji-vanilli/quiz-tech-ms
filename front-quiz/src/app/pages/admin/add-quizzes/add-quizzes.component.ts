@@ -40,6 +40,7 @@ export class AddQuizzesComponent implements OnInit{
       title: this.formBuilder.control('', Validators.required),
       description: this.formBuilder.control(''),
       categoryId: this.formBuilder.control(''),
+      difficulty: this.formBuilder.control(''),
       duration: this.formBuilder.control(5, Validators.required),
       marks: this.formBuilder.control(0, Validators.required),
       imageUrl: this.formBuilder.control(''),
@@ -57,7 +58,9 @@ export class AddQuizzesComponent implements OnInit{
       marks: this.formGroup.value.marks,
       imageUrl: this.formGroup.value.imageUrl,
       duration: this.formGroup.value.duration,
-      numberOfQuestions: this.formGroup.value.numberOfQuestions
+      difficulty: this.formGroup.value.duration,
+      numberOfQuestions: this.formGroup.value.numberOfQuestion 
+      
     }
 
     this.quizService.addQuiz(quiz).subscribe({

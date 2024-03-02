@@ -86,10 +86,10 @@ export class LoadQuizComponent implements OnInit {
   @ViewChild('scrollContainer') scrollContainer!: ElementRef;
 
   scrollLeft(): void {
-    this.scrollContainer.nativeElement.scrollLeft -= 100;
+    this.scrollContainer.nativeElement.scrollLeft -= 150;
   }
 
   scrollRight(): void {
-    this.scrollContainer.nativeElement.scrollLeft += 100;
+    this.scrollContainer.nativeElement.scrollLeft += 150;
   }
 }

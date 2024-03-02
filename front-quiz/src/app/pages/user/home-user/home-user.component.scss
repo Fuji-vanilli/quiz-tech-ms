@@ -30,7 +30,8 @@
 
 .btn-requiz {
     background: #21262d;
-    color: #89929b;
+    color: #a3a3a3;
+    font-size: 12px;
     padding: 4 12px;
     border: 1px solid #21262d;
     border-radius: 6px;
@@ -54,6 +55,8 @@
 .title-right {
     margin-left: 14px;
     margin-right: 14px;
+    font-weight: 600;
+
 }
 
 .card {
@@ -106,6 +109,7 @@
     border: 0;
     background: transparent;
     color: #fd5732;
+    font-weight: 600;
     transition: all 0.5s ease;
     font-family: 'Roboto';
 }

@@ -51,7 +51,8 @@ public class ResultQuizServiceImpl implements ResultQuizService {
         resultQuiz.setCreatedDate(new Date());
         resultQuiz.setId(UUID.randomUUID().toString());
         resultQuiz.setQuiz(quiz);
-        resultQuiz.getFrequency().add(new BigDecimal(1));
+
+        resultQuiz.setFrequency(new BigDecimal(1));
 
         resultQuizRepository.save(resultQuiz);
         log.info("new result  of the quiz {} added successfully", resultQuiz.getQuizId());
@@ -135,6 +136,7 @@ public class ResultQuizServiceImpl implements ResultQuizService {
         );
 
         resultQuiz.setRate(newRate);
+        resultQuiz.getFrequency().add(new BigDecimal(1));
         resultQuiz.setLastUpdateDate(new Date());
 
         resultQuizRepository.save(resultQuiz);

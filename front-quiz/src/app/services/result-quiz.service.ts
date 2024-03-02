@@ -19,4 +19,16 @@ export class ResultQuizService {
     return this.httpClient.post(environment.backEndResultQuiz+'/add', result);
   }
 
+  fetchResult(id: any): Observable<any> {
+    return this.httpClient.get(environment.backEndResultQuiz+'/get/'+id);
+  }
+
+  fetchByEmailUser(emailUser: any): Observable<any> {
+    return this.httpClient.get(environment.backEndResultQuiz+'/getByEmailUser/'+emailUser);
+  } 
+
+  updateRate(rate: any): Observable<any> {
+    return this.httpClient.patch(environment.backEndResultQuiz+'/update', rate);
+  }
+
 }

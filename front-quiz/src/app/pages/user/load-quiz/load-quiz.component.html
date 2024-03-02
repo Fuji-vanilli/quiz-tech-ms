@@ -9,7 +9,8 @@
                     </div>
                   
                     <div class="col-md-6">
-                        <span action="" class="box-search">
+                        
+                        <span class="box-search">
                             <input type="text" [(ngModel)]="searchterm" (ngModelChange)="filterBySearchTerm()" placeholder="Search Quiz here ...">
                             <button><i class="bi bi-search"></i></button>
                         </span>
@@ -93,7 +94,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-md-5 d-flex justify-content-center align-items-center"> 
-                                                    <img src="../../../../assets/level.png" alt=""><span style="margin-left: 2px;">Moyen</span>
+                                                    <img src="../../../../assets/level.png" alt=""><span style="margin-left: 2px;">{{quiz.difficulty}}</span>
                                                 </div>
                                             </div>
                                             </div>

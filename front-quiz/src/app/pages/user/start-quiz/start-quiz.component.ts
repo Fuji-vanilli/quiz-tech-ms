@@ -65,6 +65,7 @@ export class StartQuizComponent {
       }
     });
   }
+
   loadQuiz() {
     this.quizService.getQuiz(this.quizId).subscribe({
       next: response=> {
@@ -79,6 +80,7 @@ export class StartQuizComponent {
       }
     })
   }
+
 
   onNextQuestion() {
     if (this.currentQuestion< this.quiz.questions?.length-1) {
@@ -140,14 +142,10 @@ export class StartQuizComponent {
   }
 
   getResult() {
-    const user: User= {
-      username: this.profile?.username,
-      email: this.profile?.email
-    }
     const result: Result= {
-      rate: (this.correctAnswer/this.quiz.questions.length)*100,
+      rate: ((this.correctAnswer/this.quiz.questions.length)*100).toFixed(2),
       quizId: this.quiz.id,
-      user: user,
+      emailUser: this.profile?.email,
     }
 
     this.resultService.addResult(result).subscribe({

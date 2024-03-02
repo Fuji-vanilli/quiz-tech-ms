@@ -35,7 +35,7 @@
                 </mat-form-field>
             </div>
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <mat-form-field class="full-width">
                         <mat-label>Duration</mat-label>
                         <mat-select formControlName="duration">
@@ -44,7 +44,17 @@
                         </mat-select>
                     </mat-form-field>
                 </div>
-                <div class="col-md-6 d-flex align-items-center">
+                <div class="col-md-4">
+                    <mat-form-field class="full-width">
+                        <mat-label>Difficulty</mat-label>
+                        <mat-select formControlName="difficulty">
+                          <mat-option value="Easy">Easy</mat-option>
+                          <mat-option value="Medium">Medium</mat-option>
+                          <mat-option value="Hard">Hard</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                </div>
+                <div class="col-md-4 d-flex align-items-center">
                     <mat-slide-toggle color="primary" class="mb-2" formControlName="active">Publish
                         status</mat-slide-toggle>
                 </div>

@@ -19,7 +19,6 @@ public class ResultQuiz {
     private Date lastUpdateDate;
     private BigDecimal frequency= new BigDecimal(1);
     private Double rate;
-    private boolean active;
     private String emailUser;
     private Quiz quiz;
 }

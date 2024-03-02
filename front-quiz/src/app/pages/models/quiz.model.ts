@@ -11,6 +11,7 @@ export interface Quiz {
     numberOfQuestions?: BigInteger, 
     active?: boolean,
     categoryId?: string, 
+    difficulty?: string,
     category?: Category, 
     duration?: number, 
     questions?: Question[]
