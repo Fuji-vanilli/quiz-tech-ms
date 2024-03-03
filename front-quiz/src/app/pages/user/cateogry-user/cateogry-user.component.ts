@@ -15,6 +15,9 @@ export class CateogryUserComponent  implements OnInit{
   quizzes: Quiz[]= [];
   totalElements: number= 0;
 
+  searchTerm: string= '';
+  filterCategoryBySearchTerm: Category[]= [];
+
   constructor(private categoryService: CategoryApiService,
               private quizService: QuizApiService) {}
   ngOnInit(): void {
@@ -28,8 +31,8 @@ export class CateogryUserComponent  implements OnInit{
       next: response=> {
         this.categories= response.data.categories;
         this.totalElements= response.data.totalElement;
-        console.log(response.data);
-        console.log('total elements: ', this.totalElements);
+        
+        this.filterCategoryBySearchTerm= this.categories;
         
       }, 
       error: err=>  {
@@ -51,4 +54,9 @@ export class CateogryUserComponent  implements OnInit{
     })
   }
 
+  filterBySearchTerm() {
+    this.filterCategoryBySearchTerm= this.categories.filter(
+      quiz=> quiz.title?.toLocaleLowerCase().includes(this.searchTerm.toLocaleLowerCase())
+    );
+  }
 }

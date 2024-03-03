@@ -14,14 +14,61 @@ h3 {
 }
 
 .title-question {
-    background: #21262d;
-    color: #c6cdd5;
+    background: transparent;
     margin-top: 14px;
     margin-bottom: 14px;
     width: 100%;
     padding: 14px 16px;
     border-radius: 8px;
 }
+
+.title-question span {
+    font-size: 16px;
+    color: #525252;
+}
+
+
+.box-search {
+    margin-top: 14px; 
+    margin-bottom: 20px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border-radius: 24px;
+    background: #fff;
+    padding: 8px 20px;
+    border: 2px solid #404040;
+}
+
+
+.box-search input {
+    background: transparent;
+    border: 0;
+    flex: 1;
+    outline: none;
+    color: #89929b;
+    font-size: 16px;
+}
+
+.box-search button {
+    border: 0;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    cursor: pointer;
+}
+
+.box-search button i {
+    color: #a3a3a3;
+    font-size: 20px;
+}
+
+.box-search:focus-within {
+    border: 2px solid #89929b;
+    transition: border-color 0.5s ease;
+}
+
 
 .card-body-cat {
     display: flex;

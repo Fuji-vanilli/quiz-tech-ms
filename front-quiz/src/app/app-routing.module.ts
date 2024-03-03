@@ -28,7 +28,7 @@ import { ContestComponent } from './pages/user/contest/contest.component';
 const routes: Routes = [
   { path: '', component: HomeLandingComponent },
   { 
-    path:'user', component: UserDashboardComponent, canActivate: [AuthGuard], data: {roles: ['USER', 'ADMIN']},
+    path:'user', component: UserDashboardComponent, canActivate: [AuthGuard], data: {roles: ['USER']},
     children: [
       { path: '', component: HomeUserComponent },
       { path: 'profile', component: ProfileUserComponent },

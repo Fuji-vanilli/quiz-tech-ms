@@ -92,7 +92,7 @@
                                 </tr>
                             </tbody>
                         </table>
-                        <div class="d-flex justify-content-center align-items-center">
+                        <div class="d-flex justify-content-center align-items-center" *ngIf="dataResult.length> 0">
                             <mat-paginator #paginator
                             class="demo-paginator"
                             (page)="handlePageEvent($event)"

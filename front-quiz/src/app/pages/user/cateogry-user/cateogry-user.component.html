@@ -1,12 +1,20 @@
 <div class="contain mt-4">
     <div class="row">
         <div class="col-md-9 mt-2" style="background: #fff;">
-            <div class="d-flex justify-content-between align-items-center ">
-                <div class="title-question">
-                    <span>Available Categories {{'('+totalElements+')'}} </span>
+            <div class="row mt-3">
+                <div class="col-md-6 ms-3">
+                    <span class="box-search">
+                        <input type="text" [(ngModel)]="searchTerm" (ngModelChange)="filterBySearchTerm()" placeholder="Search Quiz here ...">
+                        <button><i class="bi bi-search"></i></button>
+                    </span>
+                </div>
+                <div class="col-md-5">
+                    <div class="title-question">
+                        <span>Available Categories {{'('+totalElements+')'}} </span>
+                    </div>
                 </div>
             </div>
-            <mat-card class="category-card" *ngFor="let category of categories">
+            <mat-card class="category-card" *ngFor="let category of filterCategoryBySearchTerm">
                 <div class="row">
                     <div class="col-md-12">
                         <mat-card-header>
@@ -35,7 +43,7 @@
                 </mat-card-header>
                 <mat-card-content>
                     <div *ngFor="let quiz of quizzes">
-                        <button class="btn-category" routerLink="/user/quizzes">
+                        <button class="btn-category" [routerLink]="'/user/instructions/'+quiz.id">
                             <i class="bi bi-bag-check"></i> {{quiz.title}}
                         </button>
                     </div>
