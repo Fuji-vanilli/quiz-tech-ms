@@ -29,6 +29,7 @@ export class QuizzesByCategoryComponent implements OnInit{
     this.categoryId= this.routerActive.snapshot.params['categoryId'];
     this.loadCategory();
     this.loadQuizzes();
+    this.loadCategories();
   }
 
   

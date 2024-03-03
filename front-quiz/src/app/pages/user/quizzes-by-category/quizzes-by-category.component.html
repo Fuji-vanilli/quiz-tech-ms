@@ -1,10 +1,9 @@
-<div class="container mt-4">
+<div class="container mt-3">
     <div class="row">
-        <div class="col-md-9">
+        <div class="col-md-9 left-content">
             <div class="title-question">
-                <h4 class="mt-2"><span style="color: #0e223e;">Available Quizzes with the category:
-                    </span><strong>{{category.title}} {{'('+totalQuizzes+')'}}</strong>
-                </h4>
+                <span>Available Quizzes with the category:</span>
+                <strong>{{category.title}} {{'('+totalQuizzes+')'}}</strong>
             </div>
             <mat-card class="custom-card mt-3" *ngFor="let quiz of quizzes">
                 <div class="row">
@@ -73,33 +72,34 @@
                 </div>
             </mat-card>
             <div class="mt-5 d-flex justify-content-between align-items-center">
-                <span class="ms-2">copyright</span>
-                <a class="nav-link m-3" routerLink="/user/categories"><i class="bi bi-arrow-left-circle-fill"></i><strong>class="ms-2">Back to Categories List</strong></a>
+                <span class="ms-2">copyright Fuji Vanilli</span>
+                <a class="nav-link m-3" routerLink="/user/categories">
+                    <i class="bi bi-arrow-left-circle-fill"></i>
+                    <strong class="ms-2">Back to CategoriesList</strong>
+                </a>
             </div>
         </div>
 
-        <div class="col-md-3">
-            <div class="col-md-3 right-content" >
-                <mat-card class="mt-2">
-                    <mat-card-header class="text-center">
-                        <mat-card-title>Trending other Category</mat-card-title>
-                    </mat-card-header>
-                    <mat-card-content>
-                        <div *ngFor="let category of categories">
-                            <button class="btn-category" routerLink="/user/quizzes">
-                                <i [ngClass]="category.icon"></i> {{category.title}} 
-                                <span>{{category.quizsId.length}}</span>
-                            </button>
-                        </div>
-                        <div class="mt-3 all-quizzes text-center">
-                            <button class="btn-view-all" routerLink="/user/quizzes"> 
-                                <span>View all Quizzes <i class="bi bi-arrow-right ms-2"></i></span>
-                            </button>
-                        </div>
-                    </mat-card-content>
-                  </mat-card>
-                  
-            </div>
+        <div class="col-md-3 right-content">
+            <mat-card>
+                <mat-card-header class="text-center">
+                    <mat-card-title>Trending other Category</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <div *ngFor="let category of categories">
+                        <button class="btn-category" routerLink="/user/quizzes">
+                            <i [ngClass]="category.icon"></i> {{category.title}}
+                            <span>{{category.quizsId.length}}</span>
+                        </button>
+                    </div>
+                    <div class="mt-3 all-quizzes text-center">
+                        <button class="btn-view-all" routerLink="/user/quizzes">
+                            <span>View all Quizzes <i class="bi bi-arrow-right ms-2"></i></span>
+                        </button>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+
         </div>
     </div>
 </div>
