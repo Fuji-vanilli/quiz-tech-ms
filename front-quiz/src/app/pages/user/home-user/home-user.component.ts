@@ -25,8 +25,6 @@ export class HomeUserComponent implements OnInit{
 
   resultQuizzes: Result[]= [];
   resultByQuizTitle: Result[]= [];
-  resultByFrequency: Result[]= [];
-  resultByRate: Result[]= [];
   resultQuizNoDuplicate: any[]= [];
   dataResult: any[]= [];
 
@@ -124,7 +122,7 @@ export class HomeUserComponent implements OnInit{
   }
 
   loadResultQuizzes() {
-    this.resultByQuizTitle= this.resultQuizzes;
+    this.dataResult= this.resultQuizzes;
   }
 
   deleteResult(quizId: any, emailUser: any, frequency: any) {
@@ -167,7 +165,7 @@ export class HomeUserComponent implements OnInit{
   }
 
   filterByQuizTitle (quizTitle: any){
-    this.resultByQuizTitle= this.resultQuizzes.filter(
+    this.dataResult= this.resultQuizzes.filter(
       (result)=> result.quiz?.title=== quizTitle
     );
   }
@@ -178,14 +176,5 @@ export class HomeUserComponent implements OnInit{
 
   toggleSortMenu() {
     this.menuSortOpen= !this.menuSortOpen;
-  }
-
-
-  // Cette fonction sera appelée à chaque fois que vous changerez de page.
-  onPageChange(event: { pageIndex: number; pageSize: number; }) {
-      const startIndex = event.pageIndex * event.pageSize;
-      const endIndex = startIndex + event.pageSize;
-      // Mettez à jour votre liste de résultats selon les indices de début et de fin.
-      this.resultByQuizTitle = this.resultByQuizTitle.slice(startIndex, endIndex);
   }
 }

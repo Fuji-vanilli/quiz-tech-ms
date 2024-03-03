@@ -148,8 +148,13 @@
     font-size: 12px;
     padding: 4 12px;
     border: 1px solid #21262d;
-    border-radius: 6px;
+    border-radius: 4px;
     transition: all .6s ease;
+}
+
+.btn-requiz i {
+    font-size: 16px;
+    color: #9fa5d5;
 }
 
 .btn-requiz:hover  {
@@ -160,6 +165,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.table .nav-link i {
+    font-size: 16px;
+    font-weight: 600;
 }
 
 .card-left .right {

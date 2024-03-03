@@ -1,0 +1,132 @@
+.container {
+    background: #f9fafb;
+    padding-bottom: 24px;
+    padding-left: 30px;
+}
+
+h3, p{
+    font-family: 'Ubuntu';
+}
+
+h3 {
+    font-weight: 60;
+    font-size: 20px;
+}
+
+.card-body-cat {
+    display: flex;
+    align-items: center; 
+    font-family: 'Ubuntu';
+    margin-top: 40px;
+}
+.card-header {
+    color: #e11d48;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.header-category {
+    margin: 24px;
+}
+.category-details h3 {
+    font-weight: 500;
+    color: #e11d48;
+}
+.category-details h3, p{
+    font-family: 'Roboto';
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.icon-category {
+    color: #e11d48;
+    font-size: 26px;
+}
+
+.btn-add {
+    padding: 12px 20px;
+    border: 2px solid #00668c;
+    background: #fff;
+    color: #00668c;
+    font-family: 'Ubuntu';
+}
+
+.btn-add:hover {
+    background: #0e223e;
+    transition: all 0.25ms;
+    border: 2px solid #0e223e;
+    color: #fff;
+}
+
+.btn-edit {
+    background: #0e223e;
+    
+}
+
+
+.category-card {
+    padding: 16px 16px;
+    margin-bottom: 14px;
+}
+
+.image-category  {
+    background-image: url('../../../../assets/examen-en-ligne.png');
+    background-size: cover;
+}
+
+.btn-question {
+    background: #fff;
+    color: #0e223e;
+    border: 1px solid #0e223e;
+    padding: 10px 24px;
+    font-weight: 550;
+}
+
+.btn-question:hover {
+    background: #0e223e;
+    color: #fff;
+}
+
+.nav-link {
+    cursor: pointer;
+}
+
+.nav-link:hover {
+    color: #f59e0b;
+}
+
+
+.right-content mat-card {
+    background: #21262d;
+}
+
+.right-content mat-card-title {
+    color: #89929b;
+    font-size: 14px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid #525252;
+}
+
+.right-content .btn-category {
+    padding: 4px 6px 4px 8px;
+    margin-top: 16px;
+    background: #34373b;
+    border: 0;
+    border-radius: 16px;
+    color: #c6cdd5;
+}
+
+.right-content .btn-category span {
+    border-radius: 16px;
+    background: #f59e0b;
+    color: #161b22;
+    padding-left: 6px;
+    padding-right: 6px;
+    margin-left: 8px;
+}
+
+.right-content .all-quizzes .btn-view-all {
+    border: 0;
+    background: transparent;
+    color: #89929b;
+}

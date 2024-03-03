@@ -22,6 +22,7 @@ import { ProfileUserComponent } from './pages/user/profile-user/profile-user.com
 import { HomeLandingComponent } from './pages/home-landing/home-landing.component';
 import { HomeUserComponent } from './pages/user/home-user/home-user.component';
 import { HistoryComponent } from './pages/user/history/history.component';
+import { CateogryUserComponent } from './pages/user/cateogry-user/cateogry-user.component';
 
 const routes: Routes = [
   { path: '', component: HomeLandingComponent },
@@ -30,6 +31,7 @@ const routes: Routes = [
     children: [
       { path: '', component: HomeUserComponent },
       { path: 'profile', component: ProfileUserComponent },
+      { path: 'categories', component: CateogryUserComponent },
       { path: 'quizzes', component: LoadQuizComponent },
       { path: 'quizzes/:categoryId', component: LoadQuizByCategoryComponent },
       { path: 'instructions/:quizId', component: InstructionsComponent },

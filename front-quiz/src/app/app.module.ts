@@ -57,6 +57,7 @@ import { HomeLandingComponent } from './pages/home-landing/home-landing.componen
 import { HomeUserComponent } from './pages/user/home-user/home-user.component';
 import { HistoryComponent } from './pages/user/history/history.component';
 import { MatSortModule } from '@angular/material/sort';
+import { CateogryUserComponent } from './pages/user/cateogry-user/cateogry-user.component';
 
 
 export function initializeKeycloak(keycloak: KeycloakService) {
@@ -106,7 +107,8 @@ export function initializeKeycloak(keycloak: KeycloakService) {
     SearchPipePipe,
     HomeLandingComponent,
     HomeUserComponent,
-    HistoryComponent
+    HistoryComponent,
+    CateogryUserComponent
   ],
   imports: [
     BrowserModule,
