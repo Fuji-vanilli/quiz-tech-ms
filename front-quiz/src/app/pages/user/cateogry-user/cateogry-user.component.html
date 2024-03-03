@@ -1,57 +1,52 @@
-<p>cateogry-user works!</p>
-<div class="container mt-4">
-    <div class="d-flex justify-content-between align-items-center ">
-        <div class="title-question">
-            <h1 class="mt-3">All Categories {{'('+totalElements+')'}} </h1>
-        </div>
-    </div>
+<div class="contain mt-4">
     <div class="row">
-        <div class="col-md-9">
+        <div class="col-md-9 mt-2" style="background: #fff;">
+            <div class="d-flex justify-content-between align-items-center ">
+                <div class="title-question">
+                    <span>Available Categories {{'('+totalElements+')'}} </span>
+                </div>
+            </div>
             <mat-card class="category-card" *ngFor="let category of categories">
                 <div class="row">
                     <div class="col-md-12">
                         <mat-card-header>
-                                <div mat-card-avatar class="image-category"></div>
-                                <mat-card-title>{{category.title}}</mat-card-title>
-                                <mat-card-subtitle>{{category.description}}</mat-card-subtitle>
+                            <div mat-card-avatar class="image-category"></div>
+                            <mat-card-title>{{category.title}}</mat-card-title>
+                            <mat-card-subtitle>{{category.description}}</mat-card-subtitle>
                         </mat-card-header>
-                    
-                            <div class="d-flex justify-content-between align-items-center">
+
+                        <div class="d-flex justify-content-between align-items-center">
                             <mat-card-actions class="ms-2">
                                 <div>
-                                    <button class="btn-question" routerLink="/user/quizzes">VIEW QUIZZES 
+                                    <button class="btn-question" [routerLink]="'/user/quizzes/'+category.id">VIEW QUIZZES
                                         <i class="bi bi-eye-fill ms-2" style="font-size: 16px;"></i>
                                     </button>
                                 </div>
                             </mat-card-actions>
-                            </div>
                         </div>
+                    </div>
                 </div>
             </mat-card>
         </div>
-        <div class="col-md-3 right-card">
-            <strong>Popular Quizzes</strong>
-            <div class="col-md-3 right-content" >
-                <mat-card class="mt-2">
-                    <mat-card-header class="text-center">
-                        <mat-card-title>Trending other Category</mat-card-title>
-                    </mat-card-header>
-                    <mat-card-content>
-                        <div *ngFor="let category of categories">
-                            <button class="btn-category" routerLink="/user/quizzes">
-                                <i [ngClass]="category.icon"></i> {{category.title}} 
-                                <span>{{category.quizsId.length}}</span>
-                            </button>
-                        </div>
-                        <div class="mt-3 all-quizzes text-center">
-                            <button class="btn-view-all" routerLink="/user/quizzes"> 
-                                <span>View all Quizzes <i class="bi bi-arrow-right ms-2"></i></span>
-                            </button>
-                        </div>
-                    </mat-card-content>
-                  </mat-card>
-                  
-            </div>
+        <div class="col-md-3 right-content">
+            <mat-card class="mt-2">
+                <mat-card-header class="text-center">
+                    <mat-card-title>Popular Quizzes</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <div *ngFor="let quiz of quizzes">
+                        <button class="btn-category" routerLink="/user/quizzes">
+                            <i class="bi bi-bag-check"></i> {{quiz.title}}
+                        </button>
+                    </div>
+                    <div class="mt-3 all-quizzes text-center">
+                        <button class="btn-view-all" routerLink="/user/quizzes">
+                            <span>View all Quizzes <i class="bi bi-arrow-right ms-2"></i></span>
+                        </button>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+
         </div>
     </div>
 </div>

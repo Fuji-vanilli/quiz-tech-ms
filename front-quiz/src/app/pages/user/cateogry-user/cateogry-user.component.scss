@@ -1,7 +1,7 @@
-.container {
-    background: #f9fafb;
-    padding-bottom: 24px;
-    padding-left: 30px;
+.contain {
+    background: transparent;
+    padding-bottom: 14px;
+    padding-left: 15px;
 }
 
 h3, p{
@@ -11,6 +11,16 @@ h3, p{
 h3 {
     font-weight: 60;
     font-size: 20px;
+}
+
+.title-question {
+    background: #21262d;
+    color: #c6cdd5;
+    margin-top: 14px;
+    margin-bottom: 14px;
+    width: 100%;
+    padding: 14px 16px;
+    border-radius: 8px;
 }
 
 .card-body-cat {

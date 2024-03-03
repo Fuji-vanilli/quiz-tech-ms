@@ -1,0 +1,74 @@
+<div class="container mt-4">
+        <div class="title-question">
+            <h4 class="mt-2"><span style="color: #0e223e;">Available Quizzes with the category: </span><strong>{{category.title}} {{'('+totalQuizzes+')'}}</strong></h4>
+        </div>
+    <mat-card class="custom-card mt-3" *ngFor="let quiz of quizzes">
+        <div class="row">
+            <div class="col-md-8 " >
+                <mat-card-header>
+                    <div mat-card-avatar class="example-header-image"></div>
+                    <mat-card-title>
+                        <a class="nav-link" [routerLink]="'/admin/quiz/'+quiz.id">{{quiz.title}} </a>
+                    </mat-card-title>
+                    <mat-card-subtitle>{{quiz.category?.title}} </mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content>
+                    <p>{{quiz.description}} </p>
+                </mat-card-content>
+                <mat-card-actions class="ms-2">
+                    <button class="btn-question" [routerLink]="'/admin/questions/'+quiz.id+'/'+quiz.title">VIEW QUESTIONS 
+                        <i class="bi bi-eye-fill ms-2" style="font-size: 16px;"></i>
+                    </button>
+                </mat-card-actions>
+            </div>
+            <div class="col-md-4" style="background: #f9fafb;">
+                <div class="quizz-details mt-3 text-start">
+                    <div class="info-cards text-start">
+                        <div class="info-card">
+                            <div class="info-type"> 
+                                <i class="bi bi-question-lg"></i>
+                                <span>QUESTIONS</span></div>
+                            <div class="info-value">
+                                <h4>{{quiz.numberOfQuestions}}</h4>
+                            </div>
+                        </div>
+                        <div class="info-card ms-3">
+                            <div class="info-type"> 
+                                <i class="bi bi-alarm"></i>
+                                <span>MINUTES</span>
+                            </div>
+                            <div class="info-value">
+                                <h4> {{quiz.duration}}</h4>
+                            </div>
+                        </div>
+                        <div class="info-card ms-3">
+                            <div class="info-type"> 
+                                <i class="bi bi-bookmark-star"></i>
+                                <span>MARKS</span>
+                            </div>
+                            <div class="info-value">
+                                <h4>{{quiz.marks}}</h4>
+                            </div>
+                        </div>
+                    </div>
+                        <div class="quizz-ratings d-flex justify-content-center align-items-center mb-3">
+                            <div class="quizz-rating"> 
+                                <strong>Classement</strong>
+                                <div class="quizz-rating__stars star_3"> 
+                                    <i class="bi bi-star-fill" data-rating="1"></i>
+                                    <i class="bi bi-star-fill" data-rating="2"></i>
+                                    <i class="bi bi-star-fill" data-rating="3"></i>
+                                    <i class="bi bi-star" data-rating="4"></i>
+                                    <i class="bi bi-star" data-rating="5"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </mat-card>
+    <div class="mt-5 d-flex justify-content-between align-items-center">
+        <span class="ms-2">copyright</span>
+        <a class="nav-link m-3" routerLink="/user/categories"><i class="bi bi-arrow-left-circle-fill"></i><strong class="ms-2">Back to Categories List</strong></a>
+    </div>
+</div>

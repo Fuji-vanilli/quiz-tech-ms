@@ -58,6 +58,8 @@ import { HomeUserComponent } from './pages/user/home-user/home-user.component';
 import { HistoryComponent } from './pages/user/history/history.component';
 import { MatSortModule } from '@angular/material/sort';
 import { CateogryUserComponent } from './pages/user/cateogry-user/cateogry-user.component';
+import { ContestComponent } from './pages/user/contest/contest.component';
+import { QuizzesByCategoryComponent } from './pages/user/quizzes-by-category/quizzes-by-category.component';
 
 
 export function initializeKeycloak(keycloak: KeycloakService) {
@@ -108,7 +110,9 @@ export function initializeKeycloak(keycloak: KeycloakService) {
     HomeLandingComponent,
     HomeUserComponent,
     HistoryComponent,
-    CateogryUserComponent
+    CateogryUserComponent,
+    ContestComponent,
+    QuizzesByCategoryComponent
   ],
   imports: [
     BrowserModule,
