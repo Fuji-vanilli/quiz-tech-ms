@@ -16,6 +16,7 @@ export class QuizzesByCategoryComponent implements OnInit{
   categoryTitle!: string;
 
   category!: Category;
+  categories: Category[]= [];
 
   quizzes: Quiz[]= [];
   totalQuizzes: number= 0;
@@ -49,6 +50,18 @@ export class QuizzesByCategoryComponent implements OnInit{
       next: response=> {
         this.category= response.data.category;
         console.table(this.category)
+      },
+      error: err=> {
+        console.log(err);
+        
+      }
+    })
+  }
+
+  loadCategories() {
+    this.categoryService.fetchAll(0, 30).subscribe({
+      next: response=> {
+        this.categories= response.data.categories;
       },
       error: err=> {
         console.log(err);
