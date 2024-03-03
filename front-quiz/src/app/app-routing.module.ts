@@ -24,7 +24,6 @@ import { HomeUserComponent } from './pages/user/home-user/home-user.component';
 import { HistoryComponent } from './pages/user/history/history.component';
 import { CateogryUserComponent } from './pages/user/cateogry-user/cateogry-user.component';
 import { ContestComponent } from './pages/user/contest/contest.component';
-import { QuizzesByCategoryComponent } from './pages/user/quizzes-by-category/quizzes-by-category.component';
 
 const routes: Routes = [
   { path: '', component: HomeLandingComponent },
@@ -35,7 +34,6 @@ const routes: Routes = [
       { path: 'profile', component: ProfileUserComponent },
       { path: 'categories', component: CateogryUserComponent },
       { path: 'quizzes', component: LoadQuizComponent },
-      { path: 'quizzes/:categoryId', component: QuizzesByCategoryComponent },
       { path: 'quizzes/:categoryId', component: LoadQuizByCategoryComponent },
       { path: 'instructions/:quizId', component: InstructionsComponent },
       { path: 'start/:quizId', component: StartQuizComponent },

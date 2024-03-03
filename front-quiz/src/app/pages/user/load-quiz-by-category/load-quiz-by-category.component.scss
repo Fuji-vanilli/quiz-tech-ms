@@ -1,82 +1,76 @@
-.bootstrap-wrapper {
-    background: #1D1F21;
+.container {
+    padding-top: 16px;
+    margin-bottom: 12px;
+    background: transparent;
+    padding-bottom: 30px;
 }
 
-.image-quiz {
-    //background-image: url('../../../../assets/codage.png');
-    background-size: cover;
+.left-content {
+    background: #c6cdd5;
+    padding-right: 12px;
+    padding-top: 14px;
 }
 
 mat-card {
-    background: #2d2d2d;
-    transition: background 0.9s ease;
-}
-
-mat-card:hover {
-    background: #404040;
-}
-
-mat-card-title {
-    color: #fff;
-}
-
-mat-card-subtitle {
-    color: #e0e0e0;
-}
-
-mat-card-content {
-    color: #e0e0e0;
-}
-
-.card-details {
-    background: transparent;
-    transition: background 0.9s ease;
-}
-
-h4 {
-    color: #e0e0e0;
     font-family: 'Ubuntu';
 }
-.button-view {
-    padding: 10px 16px;
-    width: 6rem;
-    //border: 1px solid #f59e0b;
-    background: #1E2022;
-    color: #fff;
-    border-radius: 24px;
-    border: none;
-    transition: opacity 0.7s ease;
+
+.image-quiz {
+    background-size: cover;
 }
 
-.button-start {
-    padding: 10px 16px;
-    width: 6rem;
-   // border: 1px solid #fff;
-    border: none;
-    border-radius: 24px;
-    background: #1E2022;
-    color: #fff;
-    transition: opacity 0.7s ease;
-}
-
-.button-view:hover {
-    opacity: .8;
-}
-
-.button-start:hover {
-    opacity: .8;
-}
-
-.truncate {
-    display: block;
-    white-space: nowrap;
+.title-question {
+    background: #21262d;
+    padding: 12px 16px;
+    border-radius: 6px;
     width: 100%;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
 
-/*-----------*/
+.title-question span {
+    color: #89929b;
+    margin-right: 12px;
+    font-size: 16px;
+}
 
+.title-question strong {
+    color: #faa356;
+    font-size: 16px;
+}
+
+.btn-add-quiz {
+    padding: 12px 20px;
+    border: 2px solid #00668c;
+    background: #fff;
+    color: #00668c;
+    font-family: 'Ubuntu';
+    transition: all 0.1s ease;
+    margin-right: 16px;
+}
+
+.btn-add-quiz:hover {
+    background: #0e223e;
+    color: #fff;
+    border: 2px solid #0e223e;
+}
+
+.btn-question {
+    background: #fff;
+    color: #0e223e;
+    border: 1px solid #0e223e;
+    padding: 10px 24px;
+    font-weight: 550;
+}
+
+.btn-question:hover {
+    background: #0e223e;
+    color: #fff;
+}
+
+.attempt {
+    background: #0e223e;
+}
+
+/****/
 .article-quizz .quizz-details {
     width: 30.304%;
     flex: 0 0 auto;
@@ -120,14 +114,14 @@ h4 {
     -moz-border-radius: 5px;
     -ms-border-radius: 5px;
     border-radius: 5px;
-    background-color: #18181e;
-   // border: 2px solid #0e223e;
+    background-color: #0e223e;
+    border: 2px solid #0e223e;
     text-align: center;
 }
 
 .quizz-details .info-card .info-type {
     padding: 0.625rem;
-    color: #e0e0e0;
+    color: #fff;
 }
 .quizz-details .info-card .info-type {
     padding-bottom: 0.5rem;
@@ -145,7 +139,7 @@ h4 {
 }
 
 .quizz-details .info-card .info-value {
-    background: #22242b;
+    background: #fff;
 }
 
 .quizz-details .info-card .info-value {
@@ -156,18 +150,12 @@ h4 {
     font-size: 1.625rem;
     margin: 0;
     line-height: 2.25rem;
-    color: #fff;
+    color: #0ea5e9;
 }
 
 h4, .h4 {
     font-size: 1.5rem;
     font-weight: 500;
-}
-
-span {
-    border: none;
-    border-radius: 24px;
-    padding: 0px 18px;
 }
 
 .article-quizz .quizz-details .info-cards, .article-quizz .quizz-details .quizz-ratings {
@@ -212,4 +200,41 @@ span {
     text-rendering: auto;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+/**********/
+
+.right-content mat-card {
+    background: #21262d;
+}
+
+.right-content mat-card-title {
+    color: #89929b;
+    font-size: 14px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid #525252;
+}
+
+.right-content .btn-category {
+    padding: 4px 6px 4px 8px;
+    margin-top: 16px;
+    background: #34373b;
+    border: 0;
+    border-radius: 16px;
+    color: #c6cdd5;
+}
+
+.right-content .btn-category span {
+    border-radius: 16px;
+    background: #f59e0b;
+    color: #161b22;
+    padding-left: 6px;
+    padding-right: 6px;
+    margin-left: 8px;
+}
+
+.right-content .all-quizzes .btn-view-all {
+    border: 0;
+    background: transparent;
+    color: #89929b;
 }

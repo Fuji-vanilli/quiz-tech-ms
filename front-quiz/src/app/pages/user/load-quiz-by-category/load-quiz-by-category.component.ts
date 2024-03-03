@@ -13,39 +13,39 @@ import { Category } from '../../models/category.model';
 export class LoadQuizByCategoryComponent {
 
   categoryId!: string;
-  quizzes: Quiz[] = [];
+  categoryTitle!: string;
+
   category!: Category;
-  totalQuizzes!: number;
+  categories: Category[]= [];
 
-  constructor(private quizService: QuizApiService,
-              private activeRoute: ActivatedRoute,
-              private categoryService: CategoryApiService) { }
+  quizzes: Quiz[]= [];
+  totalQuizzes: number= 0;
 
+  constructor(private categoryService: CategoryApiService,
+              private quizService: QuizApiService,
+              private routerActive: ActivatedRoute) {}
 
   ngOnInit(): void {
-    this.categoryId = this.activeRoute.snapshot.params['categoryId'];
-    this.loadQuizByCategory();
-    
+    this.categoryId= this.routerActive.snapshot.params['categoryId'];
     this.loadCategory();
-  }
-
-  loadQuizByCategory() {
-    this.quizService.getQuizByCategory(this.categoryId).subscribe({
-      next: response => {
-        this.quizzes = response.data.quizzes
-        this.totalQuizzes = response.data.totalQuizzes
-        console.log("quiz by category: ", this.categoryId);
-        console.table(this.quizzes);
-      },
-      error: err => {
-        console.log(err);
-
-      }
-    })
-
+    this.loadQuizzes();
+    this.loadCategories();
   }
 
   
+  loadQuizzes() {
+    this.quizService.getQuizByCategory(this.categoryId).subscribe({
+      next: response => {
+        this.quizzes = response.data.quizzes;
+        this.totalQuizzes = response.data.totalQuizzes;
+
+      },
+      error: err => {
+        console.log(err);
+      }
+    });
+  }
+
   loadCategory() {
     this.categoryService.getCategory(this.categoryId).subscribe({
       next: response=> {
@@ -58,4 +58,17 @@ export class LoadQuizByCategoryComponent {
       }
     })
   }
+
+  loadCategories() {
+    this.categoryService.fetchAll(0, 30).subscribe({
+      next: response=> {
+        this.categories= response.data.categories;
+      },
+      error: err=> {
+        console.log(err);
+        
+      }
+    })
+  }
+
 }
