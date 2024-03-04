@@ -2,13 +2,13 @@
     <div class="row">
         <div class="col-md-12 mt-3">
             <div class="row">
-                <div class="col-md-9 mt-4 content">
+                <div class="col-md-9 mt-3 content">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="head-card">
                                 <div class="row" style="margin-right: 16px;">
                                     <div class="col-md-6 history">
-                                        <span class="ms-3">History<i class="bi bi-clock-history ms-2"></i></span>
+                                        <span class="ms-3"><i class="bi bi-clock-history" style="margin-right: 10px;"></i>History</span>
                                     </div>
                                     <div class="col-md-6 d-flex justify-content-center align-items-center">
                                         <span>Follow your progress Quiz Successfully</span>
@@ -40,8 +40,8 @@
                                 </div>
                                 <ul class="menu" [class.menu-open]="menuSortOpen">
                                     <li class="active"><a class="nav-link">Date</a></li>
-                                    <li><a class="nav-link">Name</a></li>
-                                    <li><a class="nav-link">Rate</a></li>
+                                    <li><a class="nav-link" routerLinkActive="active">Name</a></li>
+                                    <li><a class="nav-link" routerLinkActive="active">Rate</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -50,10 +50,10 @@
                         <strong>{{numberOfResult}}</strong><span>results of quiz that you have finished...</span>
                     </div>
                     <div class="ms-3 mt-3 content-result">
-                        <table class="table table-striped">
+                        <table class="table table-striped table-dark">
                             <thead>
                                 <tr>
-                                    <th>N°</th>
+                                    <th class="text-center">N°</th>
                                     <th class="text-center">Status</th>
                                     <th matSort>Quiz</th>
                                     <th matSort>Difficulty</th>
@@ -65,7 +65,7 @@
                             </thead>
                             <tbody>
                                 <tr *ngFor="let result of dataResult; let index= index">
-                                    <td>{{pageIndex*pageSize+index+1}}</td>
+                                    <td class="text-center">{{pageIndex*pageSize+index+1}}</td>
                                     <td class="text-center"><i class="bi bi-check2-circle"
                                             style="color: #22c55e; font-weight: 600; font-size: 18px;"></i></td>
                                     <td>{{result.quiz?.title}}</td>
@@ -73,13 +73,15 @@
                                         [ngStyle]="{'color': result.quiz?.difficulty=== 'Easy' ? '#019b98' : result.quiz?.difficulty=== 'Medium' ? '#FF6600' : '#dd0025'}">
                                         {{result.quiz?.difficulty}}
                                     </td>
-                                    <td [ngStyle]="{'color': result.rate<50 ? '#ff6366': '#22c55e'}">{{result.rate+'%'}}</td>
+                                    <td [ngStyle]="{'color': result.rate<50 ? '#ff6366': '#22c55e'}">{{result.rate+'%'}}
+                                    </td>
                                     <td>{{result.createdDate | date: 'dd-MM-yyyy HH:mm'}}</td>
                                     <td>
                                         <div class="quiz">
                                             <span>{{result.frequency}}</span>
                                             <button class="btn-requiz"
-                                                [routerLink]="'/user/instructions/'+result.quiz?.id"><i class="bi bi-arrow-clockwise"></i>
+                                                [routerLink]="'/user/instructions/'+result.quiz?.id"><i
+                                                    class="bi bi-arrow-clockwise"></i>
                                             </button>
                                         </div>
                                     </td>
@@ -93,31 +95,28 @@
                             </tbody>
                         </table>
                         <div class="d-flex justify-content-center align-items-center" *ngIf="dataResult.length> 0">
-                            <mat-paginator #paginator
-                            class="demo-paginator"
-                            (page)="handlePageEvent($event)"
-                            [length]="length"
-                            [pageSize]="pageSize"
-                            [disabled]="disabled"
-                            [showFirstLastButtons]="showFirstLastButtons"
-                            [pageSizeOptions]="showPageSizeOptions ? pageSizeOptions : []"
-                            [hidePageSize]="hidePageSize"
-                            [pageIndex]="pageIndex"
-                            aria-label="Select page">
-             </mat-paginator>
+                            <mat-paginator #paginator class="paginator" (page)="handlePageEvent($event)"
+                                [length]="length" [pageSize]="pageSize" [disabled]="disabled"
+                                [showFirstLastButtons]="showFirstLastButtons"
+                                [pageSizeOptions]="showPageSizeOptions ? pageSizeOptions : []"
+                                [hidePageSize]="hidePageSize" [pageIndex]="pageIndex" aria-label="Select page">
+                            </mat-paginator>
                         </div>
                     </div>
                 </div>
 
                 <div class="col-md-3 mt-3">
-                    <span class="title-right">Popular Quizzes</span><i class="bi bi-code-slash"></i>
-                    <div class="card" *ngFor="let quiz of homeQuizzes" [ngStyle]="{'background': quiz.color}">
-                        <span class="title">{{quiz.title}}</span>
-                        <span class="subtitle">{{quiz.description}}</span>
-                        <button routerLink="/user/quizzes">Start this Quiz</button>
+                    <div class="fixed-right">
+                        <span class="title-right">Popular Quizzes</span><i class="bi bi-code-slash"></i>
+                        <div class="card" *ngFor="let quiz of homeQuizzes" [ngStyle]="{'background': quiz.color}">
+                            <span class="title">{{quiz.title}}</span>
+                            <span class="subtitle">{{quiz.description}}</span>
+                            <button routerLink="/user/quizzes">Start this Quiz</button>
+                        </div>
+                        <button class="btn-all-quizzes" routerLink="/user/quizzes">View all Quizzes
+                            <i class="bi bi-arrow-right ms-3"></i>
+                        </button>
                     </div>
-                    <button class="btn-all-quizzes" routerLink="/user/quizzes">View all Quizzes<i
-                            class="bi bi-arrow-right ms-3"></i></button>
                 </div>
             </div>
         </div>

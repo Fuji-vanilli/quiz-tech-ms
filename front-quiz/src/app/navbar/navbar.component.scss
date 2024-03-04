@@ -19,6 +19,7 @@
 }
 .content-left a:hover{
     background: #f59e0b;
+    border-radius: 12px;
 }
 
 .content-left .nav-link {
@@ -27,6 +28,11 @@
     padding-left: 16px;
     font-family: "Ubuntu", sans-serif;
     font-size: 16px;
+}
+
+.content-left .nav-link i {
+    font-size: 18px;
+    margin-right: 10px;
 }
 
 .problems, .solutions {

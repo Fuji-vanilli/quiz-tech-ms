@@ -24,6 +24,7 @@ import { HomeUserComponent } from './pages/user/home-user/home-user.component';
 import { HistoryComponent } from './pages/user/history/history.component';
 import { CateogryUserComponent } from './pages/user/cateogry-user/cateogry-user.component';
 import { ContestComponent } from './pages/user/contest/contest.component';
+import { ChallengeComponent } from './pages/user/challenge/challenge.component';
 
 const routes: Routes = [
   { path: '', component: HomeLandingComponent },
@@ -39,7 +40,8 @@ const routes: Routes = [
       { path: 'start/:quizId', component: StartQuizComponent },
       { path: 'result/:quizId', component: ResultQuizComponent },
       { path: 'history', component: HistoryComponent },
-      { path: 'contest', component: ContestComponent }
+      { path: 'contest', component: ContestComponent },
+      { path: 'challenge', component: ChallengeComponent }
     ]},
   { 
     path:'admin', component: DashboardComponent, canActivate: [AuthGuard], data: {roles: ['ADMIN']},

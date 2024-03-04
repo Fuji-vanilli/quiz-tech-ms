@@ -59,6 +59,7 @@ import { HistoryComponent } from './pages/user/history/history.component';
 import { MatSortModule } from '@angular/material/sort';
 import { CateogryUserComponent } from './pages/user/cateogry-user/cateogry-user.component';
 import { ContestComponent } from './pages/user/contest/contest.component';
+import { ChallengeComponent } from './pages/user/challenge/challenge.component';
 
 
 export function initializeKeycloak(keycloak: KeycloakService) {
@@ -110,7 +111,8 @@ export function initializeKeycloak(keycloak: KeycloakService) {
     HomeUserComponent,
     HistoryComponent,
     CateogryUserComponent,
-    ContestComponent
+    ContestComponent,
+    ChallengeComponent
   ],
   imports: [
     BrowserModule,

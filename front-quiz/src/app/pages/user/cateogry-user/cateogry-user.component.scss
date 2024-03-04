@@ -4,6 +4,11 @@
     padding-left: 15px;
 }
 
+.content-left {
+    background: #21262d;
+    border-radius: 10px;
+}
+
 h3, p{
     font-family: 'Ubuntu';
 }
@@ -23,8 +28,10 @@ h3 {
 }
 
 .title-question span {
+    display: flex;
+    justify-content: end;
     font-size: 16px;
-    color: #525252;
+    color: #89929b;
 }
 
 
@@ -69,6 +76,17 @@ h3 {
     transition: border-color 0.5s ease;
 }
 
+mat-card {
+    background: #34373b;
+}
+
+mat-card-title {
+    color: #89929b;
+}
+
+mat-card-subtitle {
+    color: #89929b;
+}
 
 .card-body-cat {
     display: flex;
@@ -100,27 +118,6 @@ h3 {
     font-size: 26px;
 }
 
-.btn-add {
-    padding: 12px 20px;
-    border: 2px solid #00668c;
-    background: #fff;
-    color: #00668c;
-    font-family: 'Ubuntu';
-}
-
-.btn-add:hover {
-    background: #0e223e;
-    transition: all 0.25ms;
-    border: 2px solid #0e223e;
-    color: #fff;
-}
-
-.btn-edit {
-    background: #0e223e;
-    
-}
-
-
 .category-card {
     padding: 16px 16px;
     margin-bottom: 14px;
@@ -131,15 +128,16 @@ h3 {
     background-size: cover;
 }
 
-.btn-question {
-    background: #fff;
-    color: #0e223e;
-    border: 1px solid #0e223e;
+.btn-quiz {
+    background: #161b22;
+    color: #89929b;
+    border: none;
+    border-radius: 12px;
     padding: 10px 24px;
     font-weight: 550;
 }
 
-.btn-question:hover {
+.btn-quiz:hover {
     background: #0e223e;
     color: #fff;
 }
@@ -155,6 +153,7 @@ h3 {
 
 .right-content mat-card {
     background: #21262d;
+    border-radius: 10px;
 }
 
 .right-content mat-card-title {
