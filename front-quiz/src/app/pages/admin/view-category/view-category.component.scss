@@ -1,7 +1,21 @@
-.container {
-    background: #f9fafb;
+.contain {
+    background: #21262d;
     padding-bottom: 24px;
+    margin-bottom: 24px;
     padding-left: 30px;
+    border-radius: 12px;
+    width: 97%;
+}
+
+.content {
+
+    margin-right: 20px;
+    padding: 20px;
+    width: 98%;
+}
+
+.editor {
+    margin-right: 24px;
 }
 
 h3, p{
@@ -45,10 +59,13 @@ h3 {
 
 .btn-add {
     padding: 12px 20px;
-    border: 2px solid #00668c;
-    background: #fff;
-    color: #00668c;
+    margin-bottom: 16px;
+    background: #89929d;
+    border: 2px solid #89929d;
+    color: #21262d;
     font-family: 'Ubuntu';
+    border: 0;
+    border-radius: 12px;
 }
 
 .btn-add:hover {
@@ -58,15 +75,10 @@ h3 {
     color: #fff;
 }
 
-.btn-edit {
-    background: #0e223e;
-    
-}
-
-
 .category-card {
     padding: 16px 16px;
     margin-bottom: 14px;
+    background: #34373b;
 }
 
 .image-category  {
@@ -74,8 +86,17 @@ h3 {
     background-size: cover;
 }
 
+mat-card-title {
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+mat-card-subtitle {
+    color: #89929d;
+}
+
 .btn-question {
-    background: #fff;
+    background: #89929d;
     color: #0e223e;
     border: 1px solid #0e223e;
     padding: 10px 24px;
@@ -93,4 +114,12 @@ h3 {
 
 .nav-link:hover {
     color: #f59e0b;
+}
+
+.editor .nav-link .edit {
+    color: #faa356;
+}
+
+.editor .nav-link .delete {
+    color: #fa7970;
 }

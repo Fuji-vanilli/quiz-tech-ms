@@ -1,43 +1,44 @@
-<div class="container mt-4">
-    <div class="d-flex justify-content-between align-items-center ">
-        <div class="title-question">
-            <h1 class="mt-3">All Categories {{'('+totalElements+')'}} </h1>
-        </div>
-        <div>
-            <button class="btn-add" routerLink="/admin/add-category">
-                CATEGORY<i class="bi bi-plus-circle-fill" style="margin-left: 12px; font-size: 20px; font-weight: 600;"></i>
-            </button>
-        </div>
-    </div>
+<div class="contain mt-4">
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-11 content">
+            <div class="d-flex justify-content-between align-items-center ">
+                <div class="title-question">
+                    <h1 class="mt-3">All Categories {{'('+totalElements+')'}} </h1>
+                </div>
+                <div>
+                    <button class="btn-add" routerLink="/admin/add-category">
+                        CATEGORY<i class="bi bi-plus-circle-fill"
+                            style="margin-left: 12px; font-size: 20px; font-weight: 600;"></i>
+                    </button>
+                </div>
+            </div>
             <mat-card class="category-card" *ngFor="let category of categories">
-        <div class="row">
-            <div class="col-md-12">
-               <mat-card-header>
-                    <div mat-card-avatar class="image-category"></div>
-                    <mat-card-title>{{category.title}}</mat-card-title>
-                    <mat-card-subtitle>{{category.description}}</mat-card-subtitle>
-               </mat-card-header>
-         
-                <div class="d-flex justify-content-between align-items-center">
-                   <mat-card-actions class="ms-2">
-                    <div>
-                        <button class="btn-question" [routerLink]="'/admin/quizzes/'+category.id">VIEW QUIZZES 
-                            <i class="bi bi-eye-fill ms-2" style="font-size: 16px;"></i>
-                        </button>
-                    </div>
-                   </mat-card-actions>
-                    <div class="d-flex align-items-center">
-                        <a class="nav-link" (click)="openUpdate(category)" ><i class="bi bi-pen-fill"></i><strong class="ms-2">Edit</strong></a>
-                        <a class="nav-link ms-3" (click)="deleteCategory(category.id)"><i class="bi bi-trash-fill"></i><strong class="ms-2">Delete</strong></a>
+                <div class="row">
+                    <div class="col-md-12">
+                        <mat-card-header>
+                            <div mat-card-avatar class="image-category"></div>
+                            <mat-card-title>{{category.title}}</mat-card-title>
+                            <mat-card-subtitle>{{category.description}}</mat-card-subtitle>
+                        </mat-card-header>
+
+                        <div class="d-flex justify-content-between align-items-center">
+                            <mat-card-actions class="ms-2">
+                                <div>
+                                    <button class="btn-question" [routerLink]="'/admin/quizzes/'+category.id">VIEW QUIZZES
+                                        <i class="bi bi-eye-fill ms-2" style="font-size: 16px;"></i>
+                                    </button>
+                                </div>
+                            </mat-card-actions>
+                            <div class="d-flex align-items-center editor">
+                                <a class="nav-link edit" (click)="openUpdate(category)"><i class="bi bi-pen-fill"></i><strong class="ms-2">Edit</strong></a>
+                                <a class="nav-link delete ms-3" (click)="deleteCategory(category.id)"><i class="bi bi-trash-fill"></i><strong class="ms-2">Delete</strong></a>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
-      
-            </div>
-        </div>
 
-    </mat-card>
+            </mat-card>
         </div>
     </div>
 </div>

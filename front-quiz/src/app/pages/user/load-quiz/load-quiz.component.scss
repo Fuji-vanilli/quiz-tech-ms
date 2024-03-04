@@ -1,9 +1,17 @@
 .bootstrap-wrapper {
     background: #0D1117;
 }
+
 .highlight {
     color: blue;
     font-weight: bold;
+  }
+
+  .contain {
+    background: #21262D;
+    padding: 14px 14px;
+    margin-right: 14px;
+    border-radius: 10px;
   }
   
 .image-quiz {
@@ -12,9 +20,8 @@
 
 .title {
     display: flex;
-    justify-content: end;
+    justify-content: start;
     align-items: center;
-    margin: 16px;
 }
 
 .title span, i {
@@ -41,8 +48,8 @@
     width: 100%;
     display: flex;
     align-items: center;
-    border-radius: 8px;
-    background: #000;
+    border-radius: 24px;
+    background: #0D1117;
     padding: 8px 20px;
     border: 1px solid #404040;
 }
@@ -104,7 +111,7 @@
 
 .btn-scroll {
     border: 0;
-    background: #21262D;
+    background: #34373b;
     margin: 8px;
     padding: 4px;
     border-radius: 4px;
@@ -123,15 +130,16 @@
     margin-right: 16px;
     margin-bottom: 16px;
     padding: 8px 12px;
-    border: 1px solid #2d2d2d;
+    border: 1px solid transparent;
     border-radius: 24px;
-    background: #21262D;
+    background: #34373b;
     color: #a3a3a3;
     transition: all 0.6s ease;
 }
 
 .btn-category:hover {
     background-color: #21262D;
+    border: 1px solid #fff;
     color: #fff;
 }
 
@@ -142,9 +150,10 @@
 }
 
 mat-card {
-    background: #0D1117;
+    background: #34373b;
     transition: all 0.9s ease;
-    border: 1px solid #404040;
+    border: 1px solid #21262D;
+    border-radius: 10px;
 }
 
 mat-card:hover {

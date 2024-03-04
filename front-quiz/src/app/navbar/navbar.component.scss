@@ -17,12 +17,11 @@
 .content-left a {
     //transition: all 0.9s ease;
     margin-right: 10px;
-    border-bottom: 3px solid transparent;
+    border-left: 3px solid transparent;
 }
 .content-left a:hover{
     background: rgba(255, 255, 255, 0.1);
-    border-radius: 10px 10px 0 0;
-    border-bottom: 3px solid #f59e0b;
+    border-left: 3px solid #f59e0b;
 }
 
 .content-left .nav-link {
@@ -39,8 +38,7 @@
 }
 
 .nav-link.active {
-    color: #f59e0b;
-    border-bottom: 3px solid #f59e0b;
+    border-left: 3px solid #f59e0b;
 }
 
 .problems, .solutions {

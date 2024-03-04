@@ -1,58 +1,51 @@
-<mat-card class="card mt-4">
-    <h2 class="text-center mt-3 ">Add new category</h2>
-    <mat-divider></mat-divider>
-    <mat-card-content class="mt-3">
-        <div class="bootstrap-wrapper">
-            <div class="row">
-                <div class="col-md-6 offset-md-3">
-                    <form [formGroup]="formGroup" (ngSubmit)="addCategory()" class="dark-theme" >
-                        <div style="margin-bottom: 14px;">
-                            <i class="bi bi-paragraph"></i><strong class="ms-2">Enter the title of the category</strong>
-                        </div>                        
-                        <mat-form-field  class="full-width" appearance="outline">
-                            <mat-label>Title</mat-label>
-                            <input 
-                                autofocus
-                                type="text" 
-                                name="Title" 
-                                matInput 
-                                placeholder="Enter title here..."
-                                formControlName="title">
-                        </mat-form-field>
-                        <div style="margin-bottom: 14px;">
-                            <i class="bi bi-question-diamond-fill"></i><strong class="ms-2">Give the Descritpion here</strong>
-                        </div>
-                        <p>
-                            <mat-form-field appearance="outline" class="full-width">
-                                <mat-label>Description</mat-label>
-                                <textarea matInput placeholder="Enter description here..." formControlName="description" rows="5"></textarea>
-                            </mat-form-field>
-                        </p>
-                        <div style="margin-bottom: 14px;">
-                            <i class="bi bi-paragraph"></i><strong class="ms-2">Enter the icon of the category</strong>
-                        </div>   
-                        <mat-form-field  class="full-width" appearance="outline">
-                            <mat-label>Icon</mat-label>
-                            <input 
-                                autofocus
-                                type="text" 
-                                name="Icon" 
-                                matInput 
-                                placeholder="Enter title here..."
-                                formControlName="icon">
-                        </mat-form-field>
-                        
-                        <div class="d-flex justify-content-between aling-items-center">
-                            <button class="btn-save" [disabled]="formGroup.invalid">Save New Category<i class="bi bi-cloud-download-fill ms-2"></i></button>
-                            <a class="nav-link" routerLink="/admin/categories"><i class="bi bi-arrow-left-circle-fill" ></i><strong class="ms-2">Back to Category list</strong></a>
-                        </div>
-                    </form>
-                    <div class="mt-3">
-                        <i>*This field is requiered!</i>
-                    </div>
+<div class="contain mt-5">
+    <div class="row">
+        <div class="col-md-6 offset-md-3 content">
+            <form [formGroup]="formGroup" (ngSubmit)="addCategory()" class="dark-theme" >
+                <div style="margin-bottom: 14px;">
+                    <i class="bi bi-paragraph"></i><strong class="ms-2">Enter the title of the category</strong>
+                </div>                        
+                <mat-form-field  class="full-width" appearance="outline">
+                    <mat-label>Title</mat-label>
+                    <input 
+                        autofocus
+                        type="text" 
+                        name="Title" 
+                        matInput 
+                        placeholder="Enter title here..."
+                        formControlName="title">
+                </mat-form-field>
+                <div style="margin-bottom: 14px;">
+                    <i class="bi bi-question-diamond-fill"></i><strong class="ms-2">Give the Descritpion here</strong>
                 </div>
+                <p>
+                    <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>Description</mat-label>
+                        <textarea matInput placeholder="Enter description here..." formControlName="description" rows="5"></textarea>
+                    </mat-form-field>
+                </p>
+                <div style="margin-bottom: 14px;">
+                    <i class="bi bi-paragraph"></i><strong class="ms-2">Enter the icon of the category</strong>
+                </div>   
+                <mat-form-field  class="full-width" appearance="outline">
+                    <mat-label>Icon</mat-label>
+                    <input 
+                        autofocus
+                        type="text" 
+                        name="Icon" 
+                        matInput 
+                        placeholder="Enter title here..."
+                        formControlName="icon">
+                </mat-form-field>
+                
+                <div class="d-flex justify-content-between aling-items-center">
+                    <button class="btn-save" [disabled]="formGroup.invalid">Save New Category<i class="bi bi-cloud-download-fill ms-2"></i></button>
+                    <a class="nav-link" routerLink="/admin/categories"><i class="bi bi-arrow-left-circle-fill" ></i><strong class="ms-2">Back to Category list</strong></a>
+                </div>
+            </form>
+            <div class="mt-3">
+                <i>*This field is requiered!</i>
             </div>
         </div>
-    </mat-card-content>
-</mat-card>
-
+    </div>
+</div>

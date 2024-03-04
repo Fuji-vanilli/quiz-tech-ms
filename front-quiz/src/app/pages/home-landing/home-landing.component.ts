@@ -25,10 +25,10 @@ export class HomeLandingComponent implements OnInit {
         title: "You must connected!",
         text: "To start Explore, You must be identified",
         icon: "info",
-        confirmButtonColor: "#00668c",
+        confirmButtonColor: "rgba(0,0,0, 0.5)",
         confirmButtonText: "Login or Register",
-        color: '#fff',
-        background: "#1f2b3e"
+        color: '#21262d',
+        background: "rgba(255,255,255, 0.5)"
       }).then((result) => {
         if (result.isConfirmed) {
           this.login();

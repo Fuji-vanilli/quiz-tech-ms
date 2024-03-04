@@ -1,7 +1,7 @@
-<mat-card class="mt-4 mb-3">
-    <h1 class="text-center mt-3">Add new Quiz</h1>
+<div class="contain mt-5">
     <div class="row">
-        <div class="col-md-8 offset-md-2">
+        <div class="col-md-8 offset-md-2 content">
+            <h2 class="text-center">Add new Quiz</h2>
             <form [formGroup]="formGroup" (ngSubmit)="addQuiz()">
                 <div class="mb-2">
                     <i class="bi bi-paragraph"></i><strong class="ms-2">Enter the title of the Quiz</strong>
@@ -89,4 +89,4 @@
             </div>
         </div>
     </div>
-</mat-card>
+</div>

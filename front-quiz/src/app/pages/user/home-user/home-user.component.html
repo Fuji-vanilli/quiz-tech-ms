@@ -11,7 +11,7 @@
                                         <span class="ms-3"><i class="bi bi-clock-history" style="margin-right: 10px;"></i>History</span>
                                     </div>
                                     <div class="col-md-6 d-flex justify-content-center align-items-center">
-                                        <span>Follow your progress Quiz Successfully</span>
+                                        <span>Follow your progress Successfully Quiz</span>
                                     </div>
                                 </div>
                             </div>
@@ -111,7 +111,7 @@
                         <div class="card" *ngFor="let quiz of homeQuizzes" [ngStyle]="{'background': quiz.color}">
                             <span class="title">{{quiz.title}}</span>
                             <span class="subtitle">{{quiz.description}}</span>
-                            <button routerLink="/user/quizzes">Start this Quiz</button>
+                            <button routerLink="/user/quizzes">Explore</button>
                         </div>
                         <button class="btn-all-quizzes" routerLink="/user/quizzes">View all Quizzes
                             <i class="bi bi-arrow-right ms-3"></i>

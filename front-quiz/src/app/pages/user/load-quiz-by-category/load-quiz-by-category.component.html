@@ -7,7 +7,7 @@
             </div>
             <mat-card class="custom-card mt-3" *ngFor="let quiz of quizzes">
                 <div class="row">
-                    <div class="col-md-8 ">
+                    <div class="col-md-7 ">
                         <mat-card-header>
                             <div mat-card-avatar class="image-quiz" [style.backgroundImage]="'url('+quiz.imageUrl+')'"></div>
                             <mat-card-title>
@@ -24,7 +24,7 @@
                             </button>
                         </mat-card-actions>
                     </div>
-                    <div class="col-md-4" style="background: #f9fafb;">
+                    <div class="col-md-5 details">
                         <div class="quizz-details mt-3 text-start">
                             <div class="info-cards text-start">
                                 <div class="info-card">
@@ -71,11 +71,11 @@
                     </div>
                 </div>
             </mat-card>
-            <div class="mt-5 d-flex justify-content-between align-items-center">
+            <div class="mt-5 d-flex justify-content-between align-items-center back">
                 <span class="ms-2">copyright Fuji Vanilli</span>
                 <a class="nav-link m-3" routerLink="/user/categories">
                     <i class="bi bi-arrow-left-circle-fill"></i>
-                    <strong class="ms-2">Back to CategoriesList</strong>
+                    <strong class="ms-2">Back to Categories List</strong>
                 </a>
             </div>
         </div>
