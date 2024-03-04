@@ -6,22 +6,22 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent ms-auto">
       <ul class="navbar-nav content-left ms-auto">
         <li class="nav-item">
-          <a class="nav-link" routerLink="/user/quizzes"><i class="bi bi-binoculars"></i>Explore</a>
+          <a class="nav-link" routerLink="/user/quizzes" routerLinkActive="active"><i class="bi bi-binoculars"></i>Explore</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/user/challenge"><i class="bi bi-lightning-charge mr-2"></i>Challenge</a>
+          <a class="nav-link" routerLink="/user/challenge" routerLinkActive="active"><i class="bi bi-lightning-charge mr-2"></i>Challenge</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/user/contest"><i class="bi bi-trophy"></i>Contest</a>
+          <a class="nav-link" routerLink="/user/contest" routerLinkActive="active"><i class="bi bi-trophy"></i>Contest</a>
         </li>
       </ul>
       <ul class="navbar-nav mb-lg-0 ms-auto">
         <li class="nav-item" *ngIf="profile">
-          <a class="nav-link active " aria-current="page" (click)="dashboard()"><i
+          <a class="nav-link" routerLinkActive="active" aria-current="page" (click)="dashboard()"><i
               class="bi bi-gear"></i><span style="margin-left: 8px;">Settings</span></a>
         </li>
         <li class="nav-item ms-4" *ngIf="profile">
-          <a class="nav-link active " aria-current="page" routerLink="/admin/quizzes"><i
+          <a class="nav-link" routerLinkActive="active" aria-current="page" routerLink="/admin/quizzes"><i
               class="bi bi-search "></i><span style="margin-left: 8px;">Search</span></a>
         </li>
         <li class="nav-item ms-3">

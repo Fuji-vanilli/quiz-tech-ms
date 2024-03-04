@@ -27,9 +27,11 @@
 .card-left {
     margin-top: 100px;
     border-radius: 6px;
+    width: 80%;
     //background: rgba(255, 255, 255, .1);
     padding-top: 16px;
     padding-bottom: 16px;
+    margin-left: 30px;
 }
 
 .card-left h1, p {
@@ -39,7 +41,14 @@
 
 .card-left h1 {
     font-size: 42px;
-    margin-bottom: 16px;
+    margin-bottom: 24px;
+}
+
+.card-left span {
+    background: #EE1D52;
+    padding: 10px 10px;
+    border-radius: 10px;
+    font-family: 'Anta';
 }
 
 .card-left p {
@@ -51,10 +60,10 @@
     margin-top: 16px;
     border: 0;
     border-radius: 2px;
-    padding: 12px 48px;
-    background: #EE1D52;
+    padding: 16px 48px;
+    background: rgba(255, 255, 255, 0.2);
     color: #d4d4d4;
-    font-size: 16px;
+    font-size: 18px;
     transition: all .7s ease;
 }
 

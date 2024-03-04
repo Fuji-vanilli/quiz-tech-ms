@@ -23,10 +23,11 @@ export class HomeLandingComponent implements OnInit {
     } else {
       Swal.fire({
         title: "You must connected!",
-        text: "To started yo must be identified!",
+        text: "To start Explore, You must be identified",
         icon: "info",
         confirmButtonColor: "#00668c",
         confirmButtonText: "Login or Register",
+        color: '#fff',
         background: "#1f2b3e"
       }).then((result) => {
         if (result.isConfirmed) {

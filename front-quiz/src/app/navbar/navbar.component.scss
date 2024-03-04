@@ -15,11 +15,14 @@
 }
 
 .content-left a {
-    transition: all 0.9s ease;
+    //transition: all 0.9s ease;
+    margin-right: 10px;
+    border-bottom: 3px solid transparent;
 }
 .content-left a:hover{
-    background: #f59e0b;
-    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px 10px 0 0;
+    border-bottom: 3px solid #f59e0b;
 }
 
 .content-left .nav-link {
@@ -33,6 +36,11 @@
 .content-left .nav-link i {
     font-size: 18px;
     margin-right: 10px;
+}
+
+.nav-link.active {
+    color: #f59e0b;
+    border-bottom: 3px solid #f59e0b;
 }
 
 .problems, .solutions {
