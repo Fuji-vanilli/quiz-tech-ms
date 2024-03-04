@@ -32,7 +32,7 @@
                     </mat-card-header>
                     <mat-card-content>
                         <div *ngFor="let category of categories">
-                            <button class="btn-category" routerLink="/user/quizzes">
+                            <button class="btn-category" [routerLink]="'/user/quizzes/'+category.id">
                                 <i [ngClass]="category.icon"></i> {{category.title}} 
                                 <span>{{category.quizsId.length}}</span>
                             </button>
