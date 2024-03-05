@@ -48,9 +48,9 @@
                         <button *ngIf="isCurrent" class="choice mt-4" [class.active]="choiceSelected=== option" (click)="checkResponse(option)">{{option}}</button>
                     </div>
                 </div>
-            </div>
-            <div class="d-flex justify-content-center align-items-center">
-                <button class="button-submit" *ngIf="!isCurrent" (click)="getResult()">Show Result</button>
+                <div class="d-flex justify-content-center align-items-center">
+                    <button class="button-submit" *ngIf="!isCurrent" (click)="getResult()">Show Result</button>
+                </div>
             </div>
         </div>
     </div>

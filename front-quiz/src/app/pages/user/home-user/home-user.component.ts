@@ -172,33 +172,31 @@ export class HomeUserComponent implements OnInit{
 
   loadResultSummary(email: any) {
     this.resultQuiz.getResultSummary(email).subscribe({
-      next: response=> {
-        this.resultQuizSummary= response.data;
+      next: response => {
+        this.resultQuizSummary = response.data;
         console.log("result summary: ", this.resultQuizSummary);
-
-        let series: any[]= [];
-        let cateogries: any[]= [];
-
-        this.resultQuizSummary.forEach((key, value)=> {
+  
+        let series: any[] = [];
+        let categories: any[] = [];
+  
+        for (const [key, value] of Object.entries(this.resultQuizSummary)) {
           series.push({
-            name: key, 
+            name: key,
             data: value
           });
-
-          cateogries.push(value.length);
-        })
-
-        this.chartOptions.series= series;
-        if (this.chartOptions && this.chartOptions.xaxis) {
-          this.chartOptions.xaxis.categories= cateogries;
+          categories.push(key);
         }
-
+  
+        this.chartOptions.series = series;
+        if (this.chartOptions && this.chartOptions.xaxis) {
+          this.chartOptions.xaxis.categories = categories;
+        }
+  
         this.chart.updateOptions(this.chartOptions);
-        
-      }, 
-      error: err=> {
+  
+      },
+      error: err => {
         console.log(err);
-        
       }
     });
   }
