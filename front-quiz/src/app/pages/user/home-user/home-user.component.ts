@@ -201,15 +201,6 @@ export class HomeUserComponent implements OnInit{
     });
   }
 
-  changeChartType(type: string) {
-    if (this.chartOptions.chart) {
-      this.chartOptions.chart.type = type as ChartType;
-      // Mettre à jour le graphique avec les nouvelles options
-      this.chart.updateOptions(this.chartOptions);
-  }
-}
-
-
 
   loadResultQuizzes() {
     this.dataResult= this.resultQuizzes;
