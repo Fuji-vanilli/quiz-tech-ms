@@ -3,7 +3,7 @@
         <div class="col-md-10 offset-md-1 content">
             <div class="row">
                 <div class="col-md-3 content-left">
-                    <img src="../../../../assets/FUJI.png" alt="">
+                    <img src="../../../../assets/kyotaka.jpg" alt="">
                     <div class="profile mt-5">
                         <p class="username">{{profile.username?.charAt(0)?.toUpperCase()+ profile.username?.slice(1)!}}</p>
                         <p class="email">{{profile.email}}</p>
@@ -26,15 +26,27 @@
                         <a class="nav-link"><i class="bi bi-link-45deg"></i><span>qt.fuji-vanilli</span></a>
                         <a class="nav-link mt-2"><i class="bi bi-linkedin"></i><span>linkedin.com/fuji-vanilli/profile</span></a>
                     </div>
-
-                    <div class="organisation mt-3">
+                    <div class="divider mt-4"></div>
+                    <div class="organisation mt-2">
                         <h3>Organisations</h3>
                         <img src="../../../../assets/apple.png" alt="">
+                        <img src="../../../../assets/dropbox.png" alt="">
+                        <img src="../../../../assets/meta.png" alt="">
                     </div>
                     
                 </div>
                 <div class="col-md-9">
-
+                    <apx-chart
+                            [series]="chartOptions.series!"
+                            [chart]="chartOptions.chart!"
+                            [xaxis]="chartOptions.xaxis!"
+                            [stroke]="chartOptions.stroke!"
+                            [tooltip]="chartOptions.tooltip!"
+                            [dataLabels]="chartOptions.dataLabels!"
+                          ></apx-chart>
+                    <div class="card">
+                        
+                    </div>
                 </div>
             </div>
         </div>
