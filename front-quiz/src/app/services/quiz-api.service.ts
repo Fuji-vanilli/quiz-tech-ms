@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
 import { environment } from 'src/environnments/environments';
 import { Quiz } from '../pages/models/quiz.model';
-import { env } from '@ckeditor/ckeditor5-utils';
 
 @Injectable({
   providedIn: 'root'

@@ -1,4 +1,6 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { KeycloakService } from 'keycloak-angular';
+import { KeycloakProfile } from 'keycloak-js';
 
 
 @Component({
@@ -6,10 +8,23 @@ import { Component, ViewChild } from '@angular/core';
   templateUrl: './profile-user.component.html',
   styleUrls: ['./profile-user.component.scss']
 })
-export class ProfileUserComponent {
+export class ProfileUserComponent implements OnInit{
   
-  constructor() {
+  profile!: KeycloakProfile;
+
+  constructor(private keycloakService: KeycloakService) {
     
+  }
+  ngOnInit(): void {
+    this.loadProfile();
+  }
+
+  loadProfile() {
+    this.keycloakService.loadUserProfile().then(
+      profile=> {
+        this.profile= profile
+      }
+    )
   }
 
   

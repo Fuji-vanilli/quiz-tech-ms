@@ -1,0 +1,81 @@
+.content {
+    background: transparent;
+}
+
+.content-left {
+    
+}
+
+.content-left img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+
+.profile {
+    color: #fff;
+}
+
+.profile .username {
+    margin-top: 18px;
+    font-size: 24px;
+}
+
+.profile .email {
+    font-size: 14px;
+    color: #c6cdd5;
+}
+
+.competence {
+    margin-top: 16px;
+    color: #89929b;
+    font-size: 14px;
+}
+
+.edit-profile .btn-edit-profile {
+    background: #21262d;
+    color: #89929b;
+    width: 100%;
+    padding: 8px 18px;
+    font-weight: 600;
+    border: 1px solid #89929b;
+    border-radius: 8px;
+}
+
+.edit-profile .btn-edit-profile:hover {
+    opacity: .7;
+}
+
+.followers {
+    color: #89929b;
+}
+
+.followers span {
+    margin-left: 12px;
+}
+
+.followers strong {
+    color: #fff;
+    margin-right: 4px;
+}
+
+.other-link {
+    color: #89929b;
+}
+
+.other-link i {
+    font-size: 16px;
+}
+
+.other-link span {
+    margin-left: 10px;
+}
+
+.organisation h3 {
+    color: #c6cdd5;
+}
+
+.organisation img {
+    width: 24px;
+    height: 24px;
+}

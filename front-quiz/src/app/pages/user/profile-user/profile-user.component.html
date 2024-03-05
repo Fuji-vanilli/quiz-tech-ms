@@ -1,7 +1,42 @@
 <div class="container mt-5">
     <div class="row">
-        <div class="col-md-6 offset-md-3">
-            
+        <div class="col-md-10 offset-md-1 content">
+            <div class="row">
+                <div class="col-md-3 content-left">
+                    <img src="../../../../assets/FUJI.png" alt="">
+                    <div class="profile mt-5">
+                        <p class="username">{{profile.username?.charAt(0)?.toUpperCase()+ profile.username?.slice(1)!}}</p>
+                        <p class="email">{{profile.email}}</p>
+                    </div>
+
+                    <div class="competence mt-4">
+                        <h4>Developer [Java Spring - Angular] Full Stack</h4>
+                    </div>
+
+                    <div class="edit-profile">
+                        <button class="btn-edit-profile">Edit profile</button>
+                    </div>
+
+                    <div class="followers mt-4 d-flex justify-content-between">
+                        <a class="nav-link"><i class="bi bi-people"></i><span><strong>24</strong>Followers</span></a>
+                        <a class="nav-link"><i class="bi bi-person-fill-check"></i><span><strong>3</strong>Following</span></a>
+                    </div>
+
+                    <div class="other-link mt-3">
+                        <a class="nav-link"><i class="bi bi-link-45deg"></i><span>qt.fuji-vanilli</span></a>
+                        <a class="nav-link mt-2"><i class="bi bi-linkedin"></i><span>linkedin.com/fuji-vanilli/profile</span></a>
+                    </div>
+
+                    <div class="organisation mt-3">
+                        <h3>Organisations</h3>
+                        <img src="../../../../assets/apple.png" alt="">
+                    </div>
+                    
+                </div>
+                <div class="col-md-9">
+
+                </div>
+            </div>
         </div>
     </div>
 </div>
