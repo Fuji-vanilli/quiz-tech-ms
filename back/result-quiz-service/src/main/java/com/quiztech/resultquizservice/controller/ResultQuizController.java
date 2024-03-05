@@ -28,7 +28,7 @@ public interface ResultQuizController {
 
     /* traitement of result*/
 
-    @GetMapping("resultSummary/{emailUser")
+    @GetMapping("resultSummary/{emailUser}")
     ResponseEntity<Response> getResultQuizSummary(@PathVariable String emailUser);
 
 }

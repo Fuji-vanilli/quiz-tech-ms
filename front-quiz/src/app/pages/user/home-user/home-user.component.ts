@@ -81,6 +81,7 @@ export class HomeUserComponent implements OnInit{
   disabled = false;
 
   dataRate: any[]= [];
+  resultQuizSummary: any;
 
   pageEvent!: PageEvent;
 
@@ -90,29 +91,22 @@ export class HomeUserComponent implements OnInit{
   constructor(private resultQuiz: ResultQuizService,
               private keycloakService: KeycloakService,
               private route: Router) {
-
-                const categories: number[]= [];
-                let series: any;
-
-                this.resultQuizzes.forEach(
-                  result=> {
-                    categories.push(result.frequency!);
-                    series.push(
-                      {
-                        name: 'test',
-                        data: [12, 25, 85]
-                      }
-                    )
-                  }
-                )
     
+                let series: any;
+                let categories: any[]= [];
+
+                this.resultQuizSummary.forEach((key: any, value: any)=> {
+                  series.push({
+                    name: key,
+                    data: value
+                  });
+
+                  categories.push(value.length);
+                })
+
+
                 this.chartOptions = {
-                  series: [
-                    {
-                      name: 'test',
-                      data: [12, 25, 85, 28]
-                    }
-                  ],
+                  series: series,
                   chart: {
                     height: 350,
                     type: "area"
@@ -177,6 +171,8 @@ export class HomeUserComponent implements OnInit{
             this.length= this.resultQuizzes.length;
             this.dataResult= this.resultQuizzes.slice(0, this.pageSize);
 
+            this.loadResultSummary(profile.email);
+
           },
           error: err=> {
             console.log(err);
@@ -184,6 +180,20 @@ export class HomeUserComponent implements OnInit{
         })
       }
     )
+  }
+
+  loadResultSummary(email: any) {
+    this.resultQuiz.getResultSummary(email).subscribe({
+      next: response=> {
+        this.resultQuizSummary= response.data;
+        console.log("result summary: ", this.resultQuizSummary);
+        
+      }, 
+      error: err=> {
+        console.log(err);
+        
+      }
+    });
   }
 
   loadResultQuizzes() {

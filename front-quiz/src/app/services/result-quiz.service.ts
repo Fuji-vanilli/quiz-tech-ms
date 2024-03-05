@@ -35,4 +35,8 @@ export class ResultQuizService {
     return this.httpClient.delete(environment.backEndResultQuiz+'/delete/'+quizId+'/'+emailUser+'/'+frequency);
   }
 
+  getResultSummary(emailUser: any): Observable<any> {
+    return this.httpClient.get(environment.backEndResultQuiz+'/resultSummary/'+emailUser);
+  }
+
 }
