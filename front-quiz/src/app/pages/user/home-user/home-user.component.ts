@@ -12,7 +12,7 @@ import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 
-import { ApexAxisChartSeries, ApexChart, ApexDataLabels, ApexStroke, ApexTooltip, ApexXAxis, ChartComponent } from 'ng-apexcharts';
+import { ApexAxisChartSeries, ApexChart, ApexDataLabels, ApexStroke, ApexTooltip, ApexXAxis, ChartComponent, ChartType } from 'ng-apexcharts';
 
 export type ChartOptions = {
   series: ApexAxisChartSeries;
@@ -200,6 +200,16 @@ export class HomeUserComponent implements OnInit{
       }
     });
   }
+
+  changeChartType(type: string) {
+    if (this.chartOptions.chart) {
+      this.chartOptions.chart.type = type as ChartType;
+      // Mettre à jour le graphique avec les nouvelles options
+      this.chart.updateOptions(this.chartOptions);
+  }
+}
+
+
 
   loadResultQuizzes() {
     this.dataResult= this.resultQuizzes;

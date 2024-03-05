@@ -30,7 +30,18 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-6"></div>
+                        <div class="col-md-6">
+                            <div class="dropdown ms-3">
+                                <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  Type chart
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-dark">
+                                    <li><a class="dropdown-item" routerLinkActive="active" >Area</a></li>
+                                    <li><a class="dropdown-item" routerLinkActive="active" (click)="changeChartType('bar')" >Bar</a></li>
+                                    <li><a class="dropdown-item" routerLinkActive="active"  >Line</a></li>
+                                  </ul>
+                              </div>
+                        </div>
                         <div class="col-md-6 d-flex justify-content-end align-items-center">
                             <div class="dropdown" (click)="toggleTypeMenu()">
                                 <div class="select">
