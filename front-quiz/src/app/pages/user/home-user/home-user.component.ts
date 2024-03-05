@@ -81,7 +81,7 @@ export class HomeUserComponent implements OnInit{
   disabled = false;
 
   dataRate: any[]= [];
-  resultQuizSummary: any;
+  resultQuizSummary= new Map<any, any>();
 
   pageEvent!: PageEvent;
 
@@ -91,22 +91,10 @@ export class HomeUserComponent implements OnInit{
   constructor(private resultQuiz: ResultQuizService,
               private keycloakService: KeycloakService,
               private route: Router) {
-    
-                let series: any;
-                let categories: any[]= [];
-
-                this.resultQuizSummary.forEach((key: any, value: any)=> {
-                  series.push({
-                    name: key,
-                    data: value
-                  });
-
-                  categories.push(value.length);
-                })
-
-
+  
                 this.chartOptions = {
-                  series: series,
+                  series: [],
+                  
                   chart: {
                     height: 350,
                     type: "area"
@@ -118,7 +106,7 @@ export class HomeUserComponent implements OnInit{
                     curve: "smooth"
                   },
                   xaxis: {
-                    categories: categories
+                    categories: []
                   },
                   tooltip: {
                     x: {
@@ -126,7 +114,7 @@ export class HomeUserComponent implements OnInit{
                     }
                   }
                 };
-              }
+  }
 
   ngOnInit(): void {
     this.loadProfile();   
@@ -187,6 +175,25 @@ export class HomeUserComponent implements OnInit{
       next: response=> {
         this.resultQuizSummary= response.data;
         console.log("result summary: ", this.resultQuizSummary);
+
+        let series: any[]= [];
+        let cateogries: any[]= [];
+
+        this.resultQuizSummary.forEach((key, value)=> {
+          series.push({
+            name: key, 
+            data: value
+          });
+
+          cateogries.push(value.length);
+        })
+
+        this.chartOptions.series= series;
+        if (this.chartOptions && this.chartOptions.xaxis) {
+          this.chartOptions.xaxis.categories= cateogries;
+        }
+
+        this.chart.updateOptions(this.chartOptions);
         
       }, 
       error: err=> {
