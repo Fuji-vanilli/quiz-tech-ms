@@ -26,4 +26,9 @@ public interface ResultQuizController {
             @PathVariable BigDecimal frequency
     );
 
+    /* traitement of result*/
+
+    @GetMapping("resultSummary")
+    ResponseEntity<Response> getResultQuizSummary();
+
 }

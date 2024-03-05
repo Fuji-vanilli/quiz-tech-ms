@@ -202,6 +202,11 @@ public class ResultQuizServiceImpl implements ResultQuizService {
         );
     }
 
+    @Override
+    public Response getResultQuizSummary() {
+        return null;
+    }
+
     private Response generateResponse(HttpStatus status, URI location, Map<?, ?> data, String message) {
         return Response.builder()
                 .timeStamp(LocalDateTime.now())

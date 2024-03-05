@@ -49,4 +49,9 @@ public class ResultQuizApi implements ResultQuizController{
     public ResponseEntity<Response> delete(String quizId, String emailUser, BigDecimal frequency) {
         return ResponseEntity.ok(resultQuizService.delete(quizId, emailUser, frequency));
     }
+
+    @Override
+    public ResponseEntity<Response> getResultQuizSummary() {
+        return null;
+    }
 }

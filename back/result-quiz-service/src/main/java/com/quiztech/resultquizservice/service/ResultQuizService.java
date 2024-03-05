@@ -13,4 +13,8 @@ public interface ResultQuizService {
     Response getByUserEmail(String emailUser);
     Response all();
     Response delete(String quizId, String emailUser, BigDecimal frequency);
+
+    /* Other traitement for the quiz result*/
+
+    Response getResultQuizSummary();
 }
