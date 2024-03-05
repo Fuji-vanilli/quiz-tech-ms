@@ -80,6 +80,8 @@ export class HomeUserComponent implements OnInit{
   showFirstLastButtons = true;
   disabled = false;
 
+  dataRate: any[]= [];
+
   pageEvent!: PageEvent;
 
   @ViewChild("chart") chart!: ChartComponent;
@@ -88,16 +90,27 @@ export class HomeUserComponent implements OnInit{
   constructor(private resultQuiz: ResultQuizService,
               private keycloakService: KeycloakService,
               private route: Router) {
-      
+
+                const categories: number[]= [];
+                let series: any;
+
+                this.resultQuizzes.forEach(
+                  result=> {
+                    categories.push(result.frequency!);
+                    series.push(
+                      {
+                        name: 'test',
+                        data: [12, 25, 85]
+                      }
+                    )
+                  }
+                )
+    
                 this.chartOptions = {
                   series: [
                     {
-                      name: "series1",
-                      data: [31, 40, 28, 51, 42, 109, 100]
-                    },
-                    {
-                      name: "series2",
-                      data: [11, 32, 45, 32, 34, 52, 41]
+                      name: 'test',
+                      data: [12, 25, 85, 28]
                     }
                   ],
                   chart: {
@@ -111,16 +124,7 @@ export class HomeUserComponent implements OnInit{
                     curve: "smooth"
                   },
                   xaxis: {
-                    type: "datetime",
-                    categories: [
-                      "2018-09-19T00:00:00.000Z",
-                      "2018-09-19T01:30:00.000Z",
-                      "2018-09-19T02:30:00.000Z",
-                      "2018-09-19T03:30:00.000Z",
-                      "2018-09-19T04:30:00.000Z",
-                      "2018-09-19T05:30:00.000Z",
-                      "2018-09-19T06:30:00.000Z"
-                    ]
+                    categories: categories
                   },
                   tooltip: {
                     x: {
@@ -154,7 +158,12 @@ export class HomeUserComponent implements OnInit{
         this.profile= profile;
         this.resultQuiz.fetchByEmailUser(this.profile?.email).subscribe({
           next: response=> {
-            this.resultQuizzes= response.data.resultQuizzes     
+            this.resultQuizzes= response.data.resultQuizzes 
+            
+            this.resultQuizzes.forEach(
+              (result)=> this.dataRate.push(result.rate)
+            );
+
             this.resultQuizzes.sort((a, b) => {
               const dateA = new Date(a.createdDate);
               const dateB = new Date(b.createdDate);
@@ -234,19 +243,4 @@ export class HomeUserComponent implements OnInit{
     this.menuSortOpen= !this.menuSortOpen;
   }
 
-  public generateData(baseval: any, count: any, yrange: any) {
-    var i = 0;
-    var series = [];
-    while (i < count) {
-      var x = Math.floor(Math.random() * (750 - 1 + 1)) + 1;
-      var y =
-        Math.floor(Math.random() * (yrange.max - yrange.min + 1)) + yrange.min;
-      var z = Math.floor(Math.random() * (75 - 15 + 1)) + 15;
-
-      series.push([x, y, z]);
-      baseval += 86400000;
-      i++;
-    }
-    return series;
-  }
 }
