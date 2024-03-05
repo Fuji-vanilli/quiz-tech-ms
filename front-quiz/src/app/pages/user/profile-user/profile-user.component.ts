@@ -27,6 +27,8 @@ export class ProfileUserComponent implements OnInit{
 
   resultQuizSummary= new Map<any, any>();
 
+  dataResult: any[]= [];
+
   constructor(private keycloakService: KeycloakService,
               private resultQuiz: ResultQuizService) {
     this.chartOptions = {
@@ -34,7 +36,7 @@ export class ProfileUserComponent implements OnInit{
       
       chart: {
         height: 350,
-        type: "area"
+        type: "bar"
       },
       dataLabels: {
         enabled: false
@@ -61,6 +63,7 @@ export class ProfileUserComponent implements OnInit{
     this.keycloakService.loadUserProfile().then(
       profile=> {
         this.profile= profile
+        this.loadResultSummary(profile.email);
       }
     )
   }
@@ -81,6 +84,12 @@ export class ProfileUserComponent implements OnInit{
             data: value
           });
           categories.push(key);
+
+          this.dataResult.push({
+            quizTitle: key,
+            frequency: value.length,
+            maxScore: Math.max(...value)
+          })
         }
   
         this.chartOptions.series = series;
@@ -89,13 +98,15 @@ export class ProfileUserComponent implements OnInit{
         }
   
         this.chart.updateOptions(this.chartOptions);
-  
+
+        console.log("dataresult: ", this.dataResult);
+        
+
       },
       error: err => {
         console.log(err);
       }
     });
   }
-
   
 }

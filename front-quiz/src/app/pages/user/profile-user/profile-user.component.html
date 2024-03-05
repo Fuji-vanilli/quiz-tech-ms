@@ -1,6 +1,6 @@
 <div class="container mt-5">
-    <div class="row">
-        <div class="col-md-10 offset-md-1 content">
+    <div class="row ">
+        <div class="col-md-10 offset-md-1 mt-3 content">
             <div class="row">
                 <div class="col-md-3 content-left">
                     <img src="../../../../assets/kyotaka.jpg" alt="">
@@ -18,8 +18,8 @@
                     </div>
 
                     <div class="followers mt-4 d-flex justify-content-between">
-                        <a class="nav-link"><i class="bi bi-people"></i><span><strong>24</strong>Followers</span></a>
-                        <a class="nav-link"><i class="bi bi-person-fill-check"></i><span><strong>3</strong>Following</span></a>
+                        <a class="nav-link"><i class="bi bi-people"></i><span><strong>1</strong>Followers</span></a>
+                        <a class="nav-link"><i class="bi bi-person-fill-check"></i><span><strong>0</strong>Following</span></a>
                     </div>
 
                     <div class="other-link mt-3">
@@ -43,8 +43,24 @@
                             [stroke]="chartOptions.stroke!"
                             [tooltip]="chartOptions.tooltip!"
                             [dataLabels]="chartOptions.dataLabels!"
-                          ></apx-chart>
-                    <div class="card">
+                          >
+                    </apx-chart>
+                    
+                    <div class="recap ms-3">
+                        <div class="row">
+                            <div class="col-md-6" *ngFor="let result of dataResult">
+                                <div class="card-finished" >
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div><i class="bi bi-paperclip" style="font-size: 20px;"></i><span style="color: #77bdfb;">{{result.quizTitle}}</span></div>
+                                        <button class="btn btn-success" routerLink="/user/quizzes">Explore</button>
+                                    </div>
+                                    <div class="mt-2">
+                                        <i class="bi bi-star-fill" style="color: #faa356;"></i><span>{{result.frequency}}</span>
+                                         <span>max score:  <strong>{{result.maxScore+'%'}}</strong></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         
                     </div>
                 </div>
