@@ -21,6 +21,7 @@ import java.math.BigDecimal;
 import java.net.URI;
 import java.time.LocalDateTime;
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 @Transactional
@@ -203,8 +204,30 @@ public class ResultQuizServiceImpl implements ResultQuizService {
     }
 
     @Override
-    public Response getResultQuizSummary() {
-        return null;
+    public Response getResultQuizSummary(String emailUser) {
+        Map<String, List<Double>> resultSummary= new HashMap<>();
+        List<ResultQuiz> results = resultQuizRepository.findByEmailUser(emailUser);
+
+        Map<String, List<ResultQuiz>> groupingByQuizTitle = results.stream()
+                .collect(Collectors.groupingBy(result -> result.getQuiz().getTitle()));
+
+        resultSummary= groupingByQuizTitle.entrySet().stream()
+                .collect(Collectors.toMap(
+                                Map.Entry::getKey,
+                                entry -> entry.getValue().stream()
+                                        .map(ResultQuiz::getRate)
+                                        .toList()
+                        )
+
+                );
+
+        log.info("result summary getted successfully!");
+        return generateResponse(
+                HttpStatus.OK,
+                null,
+                resultSummary,
+                "result summary getted successfully!"
+        );
     }
 
     private Response generateResponse(HttpStatus status, URI location, Map<?, ?> data, String message) {

@@ -51,7 +51,7 @@ public class ResultQuizApi implements ResultQuizController{
     }
 
     @Override
-    public ResponseEntity<Response> getResultQuizSummary() {
-        return null;
+    public ResponseEntity<Response> getResultQuizSummary(String emailUser) {
+        return ResponseEntity.ok(resultQuizService.getResultQuizSummary(emailUser));
     }
 }

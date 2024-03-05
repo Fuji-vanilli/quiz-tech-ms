@@ -16,5 +16,5 @@ public interface ResultQuizService {
 
     /* Other traitement for the quiz result*/
 
-    Response getResultQuizSummary();
+    Response getResultQuizSummary(String emailUser);
 }
