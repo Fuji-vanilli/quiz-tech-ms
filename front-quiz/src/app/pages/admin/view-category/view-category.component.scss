@@ -112,14 +112,14 @@ mat-card-subtitle {
     cursor: pointer;
 }
 
-.nav-link:hover {
-    color: #f59e0b;
-}
-
-.editor .nav-link .edit {
+.editor .edit {
     color: #faa356;
 }
 
-.editor .nav-link .delete {
+.editor .delete {
     color: #fa7970;
+}
+
+.nav-link:hover {
+    opacity: .7;
 }

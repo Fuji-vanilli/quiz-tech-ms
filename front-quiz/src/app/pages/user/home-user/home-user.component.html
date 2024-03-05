@@ -19,7 +19,14 @@
                     </div>
                     <div class="row">
                         <div class="col-md-6">
-
+                            <apx-chart
+                            [series]="chartOptions.series!"
+                            [chart]="chartOptions.chart!"
+                            [xaxis]="chartOptions.xaxis!"
+                            [stroke]="chartOptions.stroke!"
+                            [tooltip]="chartOptions.tooltip!"
+                            [dataLabels]="chartOptions.dataLabels!"
+                          ></apx-chart>
                         </div>
                         <div class="col-md-6 d-flex justify-content-end align-items-center">
                             <div class="dropdown" (click)="toggleTypeMenu()">

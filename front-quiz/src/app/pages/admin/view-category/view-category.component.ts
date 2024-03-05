@@ -54,9 +54,11 @@ export class ViewCategoryComponent implements OnInit {
       icon: 'warning',
       showCancelButton: true,
       cancelButtonText: 'Cancel',
-      cancelButtonColor: '#2563eb',
+      cancelButtonColor: 'rgba(0, 0, 0, 0.3)',
       confirmButtonText: 'Yes, Delete',
-      confirmButtonColor: '#dc2626'
+      confirmButtonColor: '#bb2649',
+      background: 'rgba(255, 255, 255, 0.2)',
+      color: '#fff'
     }).then(result=> {
        if (result.isConfirmed) {
         this.categoryService.deleteCategory(id).subscribe({
@@ -77,8 +79,8 @@ export class ViewCategoryComponent implements OnInit {
 
   openUpdate(category: Category) {
     this.dialog.open(UpdateCategoryComponent, {
-      width: '40%',
-      height: '850px',
+      width: '45%',
+      height: '650px',
       enterAnimationDuration: '1000ms',
       exitAnimationDuration: '1000ms',
       data: {

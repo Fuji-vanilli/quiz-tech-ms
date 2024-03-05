@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+
 
 @Component({
   selector: 'app-profile-user',
@@ -6,10 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./profile-user.component.scss']
 })
 export class ProfileUserComponent {
-
-  searchTerm: string='test term';
-
-  onSearchChange(event: any) {
-    this.searchTerm = event.target.value;
+  
+  constructor() {
+    
   }
+
+  
 }

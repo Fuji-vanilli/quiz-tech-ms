@@ -1,6 +1,6 @@
-.bootstrap-wrapper {
-    background: #f3f4f6;
-    height: 85vh;
+
+.contain  {
+
 }
 
 .row .quiz-title-head {
@@ -56,11 +56,12 @@
     color: #f59e0b;
 }
 .button-submit {
-    background: #21262d;
-    padding: 8px 16px;
+    background: #fa7970;
+    padding: 18px 24px;
     border: none;
     border-radius: 4px;
-    color: #c6cdd5;
+    color: #161b22;
+    font-size: 16px;
 }
 
 .button-submit:hover {

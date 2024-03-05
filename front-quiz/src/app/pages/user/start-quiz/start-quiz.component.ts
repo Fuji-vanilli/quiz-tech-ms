@@ -185,7 +185,7 @@ export class StartQuizComponent {
         background: "#1f2b3e",
         backdrop: `
         rgba(0,0,123,0.4)
-          url("../../../../assets/giphy (3).gif")
+          url("../../../../assets/giphy2.gif")
         `
       }).then((result)=> {
         if (result.isConfirmed) {

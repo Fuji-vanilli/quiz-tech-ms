@@ -60,6 +60,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { CateogryUserComponent } from './pages/user/cateogry-user/cateogry-user.component';
 import { ContestComponent } from './pages/user/contest/contest.component';
 import { ChallengeComponent } from './pages/user/challenge/challenge.component';
+import { NgApexchartsModule } from "ng-apexcharts";
 
 
 export function initializeKeycloak(keycloak: KeycloakService) {
@@ -143,6 +144,7 @@ export function initializeKeycloak(keycloak: KeycloakService) {
     CanvasJSAngularChartsModule,
     NgxParticlesModule,
     NgxUiLoaderModule,
+    NgApexchartsModule,
     NgxUiLoaderHttpModule.forRoot({
       showForeground: true
     })
