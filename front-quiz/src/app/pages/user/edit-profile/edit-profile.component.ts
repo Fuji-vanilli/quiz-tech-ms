@@ -34,7 +34,7 @@ export class EditProfileComponent implements OnInit {
       }
     )
 
-    this.loadFormBuilder();
+    this.initFormGroup();
   }
 
   loadUser() {
@@ -42,7 +42,6 @@ export class EditProfileComponent implements OnInit {
       next: response=> {
         this.user= response.data.user
         console.log('user: ', this.user);
-        
       },
       error: err=> {
         console.log(err);
@@ -51,15 +50,15 @@ export class EditProfileComponent implements OnInit {
     })
   }
 
-  loadFormBuilder() {
+  initFormGroup() {
     this.formGroup= this.formBuilder.group({
-      firstname: this.formBuilder.control(this.user.firstname),
-      lastname: this.formBuilder.control(this.user.lastname),
-      username: this.formBuilder.control(this.user.username),
-      email: this.formBuilder.control(this.user.email),
-      competences: this.formBuilder.control(this.user.competences),
-      biography: this.formBuilder.control(this.user.biography),
-      description: this.formBuilder.control(this.user.description)
+      firstname: this.formBuilder.control(''),
+      lastname: this.formBuilder.control(''),
+      username: this.formBuilder.control(''),
+      email: this.formBuilder.control(''),
+      competences: this.formBuilder.control(''),
+      biography: this.formBuilder.control(''),
+      description: this.formBuilder.control('')
     })
   }
 
@@ -92,7 +91,7 @@ export class EditProfileComponent implements OnInit {
   }
 
   update() {
-    
+
   }
   
 }

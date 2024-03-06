@@ -47,8 +47,8 @@ export class ResultQuizComponent implements OnInit {
         console.log("profile: ", this.profile);
 
         const userData= {
-          username: "rabe",
-          email: "rabe@gmail.com"
+          username: profile.username,
+          email: profile.email
         }
         this.userService.addUser(userData).subscribe({
           next: response=> {
