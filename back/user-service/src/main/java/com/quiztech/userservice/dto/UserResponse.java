@@ -4,6 +4,7 @@ import lombok.*;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Getter @Setter
@@ -15,6 +16,8 @@ public class UserResponse {
     private String lastname;
     private String username;
     private String email;
+    private Date createdDate;
+    private Date lastUpdateDate;
     private String photo;
     private List<String> competences= new ArrayList<>();
     private List<String> organisations= new ArrayList<>();

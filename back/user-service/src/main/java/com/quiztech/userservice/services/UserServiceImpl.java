@@ -1,8 +1,11 @@
 package com.quiztech.userservice.services;
 
 import com.quiztech.userservice.dto.UserRequest;
+import com.quiztech.userservice.entities.User;
+import com.quiztech.userservice.mapper.UserMapper;
 import com.quiztech.userservice.repositories.UserRepository;
 import com.quiztech.userservice.utils.Response;
+import com.quiztech.userservice.validators.UserValidators;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -11,6 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.net.URI;
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Map;
 
 @Service
@@ -19,8 +23,26 @@ import java.util.Map;
 @RequiredArgsConstructor
 public class UserServiceImpl implements UserService{
     private final UserRepository userRepository;
+    private final UserMapper userMapper;
     @Override
     public Response add(UserRequest request) {
+        List<String> errors = UserValidators.isValid(request);
+
+        if (!errors.isEmpty()) {
+            log.error("some field required!");
+            return generateResponse(
+                    HttpStatus.BAD_REQUEST,
+                    null,
+                    Map.of(
+                            "errors", errors
+                    ),
+                    "some field required!!!!"
+            );
+        }
+
+        User user = userMapper.mapToUser(request);
+
+
         return null;
     }
 
