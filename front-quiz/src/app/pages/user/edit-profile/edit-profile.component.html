@@ -1,3 +1,41 @@
-<div class="contain">
-    
+<div class="contain mt-5">
+    <div class="row">
+        <div class="col-md-12">
+            <form action="">
+                <mat-form-field class="full-width" appearance="outline">
+                    <mat-label>Firstname</mat-label>
+                    <input type="text" matInput>
+                </mat-form-field>
+                <mat-form-field class="full-width" appearance="outline">
+                    <mat-label>Lastname</mat-label>
+                    <input type="text" matInput>
+                </mat-form-field>
+                <mat-form-field class="full-width" appearance="outline">
+                    <mat-label>Username</mat-label>
+                    <input type="text" matInput>
+                </mat-form-field>
+                <mat-form-field class="full-width" appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input type="email" matInput>
+                </mat-form-field>
+                <mat-form-field class="full-width" appearance="outline">
+                    <mat-label>Biography</mat-label>
+                    <input type="text" matInput>
+                </mat-form-field>
+                <mat-form-field class="full-width" appearance="outline">
+                    <mat-label>Description</mat-label>
+                    <input type="text" matInput>
+                </mat-form-field>
+                <mat-form-field class="example-form-field">
+                    <mat-label>Video keywords</mat-label>
+                    <mat-chip-grid #chipGrid aria-label="Enter keywords">
+                     
+                    </mat-chip-grid>
+                    <input placeholder="New keyword..."
+                            [matChipInputFor]="chipGrid"
+                    />
+                  </mat-form-field>
+            </form>
+        </div>
+    </div>
 </div>

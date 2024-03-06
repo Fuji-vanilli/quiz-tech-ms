@@ -62,6 +62,7 @@ import { ContestComponent } from './pages/user/contest/contest.component';
 import { ChallengeComponent } from './pages/user/challenge/challenge.component';
 import { NgApexchartsModule } from "ng-apexcharts";
 import { EditProfileComponent } from './pages/user/edit-profile/edit-profile.component';
+import { MatChipsModule } from '@angular/material/chips';
 
 
 export function initializeKeycloak(keycloak: KeycloakService) {
@@ -139,6 +140,7 @@ export function initializeKeycloak(keycloak: KeycloakService) {
     MatProgressSpinnerModule,
     MatPaginatorModule,
     MatSortModule,
+    MatChipsModule,
     MatTableModule,
     HttpClientModule,
     ReactiveFormsModule,
