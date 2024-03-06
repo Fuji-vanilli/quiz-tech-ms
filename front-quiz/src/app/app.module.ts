@@ -61,6 +61,7 @@ import { CateogryUserComponent } from './pages/user/cateogry-user/cateogry-user.
 import { ContestComponent } from './pages/user/contest/contest.component';
 import { ChallengeComponent } from './pages/user/challenge/challenge.component';
 import { NgApexchartsModule } from "ng-apexcharts";
+import { EditProfileComponent } from './pages/user/edit-profile/edit-profile.component';
 
 
 export function initializeKeycloak(keycloak: KeycloakService) {
@@ -113,7 +114,8 @@ export function initializeKeycloak(keycloak: KeycloakService) {
     HistoryComponent,
     CateogryUserComponent,
     ContestComponent,
-    ChallengeComponent
+    ChallengeComponent,
+    EditProfileComponent
   ],
   imports: [
     BrowserModule,

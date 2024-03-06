@@ -43,7 +43,7 @@ public class UserServiceImpl implements UserService{
 
         if (userRepository.existsByEmail(email)) {
             log.error("user with the email : {} already exist on database", email);
-            generateResponse(
+            return generateResponse(
                     HttpStatus.OK,
                     null,
                     null,
@@ -61,7 +61,9 @@ public class UserServiceImpl implements UserService{
                 .buildAndExpand("api/user/get/" + user.getId())
                 .toUri();
 
+        userRepository.save(user);
         log.info("user added successfully!");
+
         return generateResponse(
                 HttpStatus.OK,
                 location,
