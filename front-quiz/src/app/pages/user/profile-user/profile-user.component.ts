@@ -1,8 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { KeycloakService } from 'keycloak-angular';
 import { KeycloakProfile } from 'keycloak-js';
 import { ApexAxisChartSeries, ApexChart, ApexDataLabels, ApexStroke, ApexTooltip, ApexXAxis, ChartComponent } from 'ng-apexcharts';
 import { ResultQuizService } from 'src/app/services/result-quiz.service';
+import { EditProfileComponent } from '../edit-profile/edit-profile.component';
 
 export type ChartOptions = {
   series: ApexAxisChartSeries;
@@ -30,7 +32,8 @@ export class ProfileUserComponent implements OnInit{
   dataResult: any[]= [];
 
   constructor(private keycloakService: KeycloakService,
-              private resultQuiz: ResultQuizService) {
+              private resultQuiz: ResultQuizService,
+              private dialog: MatDialog) {
     this.chartOptions = {
       series: [],
       
@@ -107,6 +110,18 @@ export class ProfileUserComponent implements OnInit{
         console.log(err);
       }
     });
+  }
+
+  openUpdate() {
+    this.dialog.open(EditProfileComponent, {
+      width: '50%',
+      height: '650px',
+      enterAnimationDuration: '1000ms',
+      exitAnimationDuration: '1000ms',
+      data: {
+        
+      }
+    })
   }
   
 }
