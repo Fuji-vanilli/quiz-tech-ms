@@ -2,12 +2,10 @@ import { LiveAnnouncer } from '@angular/cdk/a11y';
 import { Component, OnInit, inject } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatChipInputEvent } from '@angular/material/chips';
-import { MatDialog } from '@angular/material/dialog';
 import { UserService } from 'src/app/services/user.service';
 import { User } from '../../models/user.model';
 import { KeycloakService } from 'keycloak-angular';
 import { KeycloakProfile } from 'keycloak-js';
-import Swal from 'sweetalert2';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
@@ -25,6 +23,7 @@ export class EditProfileComponent implements OnInit {
   profile!: KeycloakProfile;
 
   selectedFile!: File;
+  filename: string= '';
   
   constructor(private formBuilder: FormBuilder,
               private userService: UserService,
@@ -99,6 +98,7 @@ export class EditProfileComponent implements OnInit {
     const target= event.target as HTMLInputElement;
     if (target.files && target.files.length> 0) {
       this.selectedFile= target.files[0];
+      this.filename= this.selectedFile.name;
     }
   }
 

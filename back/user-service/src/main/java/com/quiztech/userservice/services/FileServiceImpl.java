@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Map;
@@ -35,8 +36,14 @@ public class FileServiceImpl implements FileService {
         String newFileName= "IMG_"+ UUID.randomUUID().toString()+"."+filenameExtension;
         Path pathFile= Paths.get(localDirectory, newFileName);
 
-        String pathLocation= "../../../../assets/"+newFileName;
+        String pathLocation= localDirectory+"\\"+newFileName;
         user.setPhoto(pathLocation);
+
+        try {
+            file.transferTo(pathFile.toFile());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
         userRepository.save(user);
         return Response.builder()

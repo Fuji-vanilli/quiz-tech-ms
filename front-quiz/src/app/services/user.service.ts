@@ -33,9 +33,9 @@ export class UserService {
 
   uploadProfileImage(file: File, emailUser: any): Observable<any> {
     const formData= new FormData();
-    formData.append('file', file);
+    formData.append('file', file, file.name);
     formData.append('emailUser', emailUser)
 
-    return this.httpClient.post(environment.backEndUser+'/add-image-profile', formData)
+    return this.httpClient.patch(environment.backEndUser+'/add-image-profile', formData)
   }
 }

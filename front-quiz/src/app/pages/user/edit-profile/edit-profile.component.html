@@ -26,8 +26,6 @@
                         </div>
                     </div>
                 </div>
-                
-                
 
                 <div class="input-group">
                     <button class="btn btn-success" type="button" id="button-addon1">Description</button>
@@ -39,8 +37,9 @@
                         type="file" 
                         class="form-control"
                         (change)="onFileSelected($event)">
-                    <button class="btn btn-success" type="button" id="inputGroupFileAddon04" (click)="uploadProfileImage()">Photo</button>
+                    <button class="btn btn-success" type="submit" id="inputGroupFileAddon04" (click)="uploadProfileImage()">Photo</button>
                 </div>
+                <p style="color: #fff;">{{filename}}</p>
 
                 <mat-form-field class="full-width">
                     <mat-label>Give your competences</mat-label>
