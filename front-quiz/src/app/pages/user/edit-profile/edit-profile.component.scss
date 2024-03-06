@@ -1,21 +1,34 @@
 .contain {
+    background: transparent;
     margin-bottom: 24px;
 }
 
 form {
     padding: 14px 24px;
-}
-
-.half-width {
-    width: 48%;
-    margin-right: 14px;
-}
-
-.full-width {
-    width: 98%;
-}
-
-.content {
     display: inline;
 }
 
+.full-width {
+    width: 100%;
+}
+
+.content {
+    background: #21262d;
+    border-radius: 10px;
+    display: inline;
+    margin-bottom: 24px;
+    padding: 30px;
+}
+
+.content h2 {
+    color: #89929b;
+}
+
+.input-group {
+    margin-bottom: 38px;
+}
+
+.input-group input {
+    background: transparent;
+    color: #898989;
+}

@@ -1,32 +1,43 @@
 <div class="contain mt-5">
     <div class="row">
-        <div class="col-md-12 content">
-            <h2 class="text-center">Edit Your profile</h2>
+        <div class="col-md-10 offset-md-1 content">
+            <h2 class="text-center mt-3">Edit Your profile</h2>
             <form action="">
-                <mat-form-field class="half-width" >
-                    <mat-label>Firstname</mat-label>
-                    <input type="text" matInput>
-                </mat-form-field>
-                <mat-form-field class="half-width" >
-                    <mat-label>Lastname</mat-label>
-                    <input type="text" matInput>
-                </mat-form-field>
-                <mat-form-field class="half-width" >
-                    <mat-label>Username</mat-label>
-                    <input type="text" matInput>
-                </mat-form-field>
-                <mat-form-field class="half-width" >
-                    <mat-label>Email</mat-label>
-                    <input type="email" matInput>
-                </mat-form-field>
-                <mat-form-field class="half-width" >
-                    <mat-label>Biography</mat-label>
-                    <textarea matInput></textarea>
-                </mat-form-field>
-                <mat-form-field class="half-width" >
-                    <mat-label>Description</mat-label>
-                    <textarea matInput></textarea>
-                </mat-form-field>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="input-group ">
+                            <button class="btn btn-success" type="button" id="button-addon1">Firstname</button>
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="input-group ">
+                            <button class="btn btn-success" type="button" id="button-addon1">Username</button>
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-group">
+                            <button class="btn btn-success" type="button" id="button-addon1">Lastname</button>
+                            <input type="text" class="form-control">
+                        </div>
+                        
+                        <div class="input-group">
+                            <button class="btn btn-success" type="button" id="button-addon1">Email</button>
+                            <input type="email" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                
+                
+
+                <div class="input-group">
+                    <button class="btn btn-success" type="button" id="button-addon1">Description</button>
+                    <input type="text" class="form-control">
+                </div>
+                
+                <div class="input-group">
+                    <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+                    <button class="btn btn-success" type="button" id="inputGroupFileAddon04">Photo</button>
+                </div>
 
                 <mat-form-field class="full-width">
                     <mat-label>Give your competences</mat-label>
@@ -44,21 +55,10 @@
                             [matChipInputFor]="chipGrid"
                             (matChipInputTokenEnd)="addCompetence($event)"/>
                   </mat-form-field>
-                  <mat-form-field class="full-width" >
-                    <mat-label>Organisation</mat-label>
-                    <textarea matInput></textarea>
-                </mat-form-field><mat-form-field class="half-width" >
-                    <mat-label>Social media</mat-label>
-                    <input type="text" matInput>
-                </mat-form-field>
-                <mat-form-field class="half-width">
-                    <mat-label>Telephone</mat-label>
-                    <span matTextPrefix>+261 &nbsp;</span>
-                    <input type="tel" matInput placeholder="00-00-000-00">
-                    <mat-icon matSuffix>mode_edit</mat-icon>
-                  </mat-form-field>
-
-                  <button class="btn btn-success">Update</button>
+                  
+                <div>
+                    <button class="btn btn-secondary mt-4">Update</button>
+                </div>
             </form>
         </div>
     </div>
