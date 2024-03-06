@@ -38,15 +38,6 @@
                     <input type="text" class="form-control" formControlName="biography">
                 </div>
                 
-                <div class="input-group mb-3">
-                    <input 
-                        type="file" 
-                        class="form-control"
-                        (change)="onFileSelected($event)">
-                    <button class="btn btn-success" type="submit" id="inputGroupFileAddon04" (click)="uploadProfileImage()">Photo</button>
-                </div>
-                <p class="mb-3" style="color: #89929b;">File selected: <span style="color: #fff;">{{filename}}</span></p>
-
                 <mat-form-field class="full-width">
                     <mat-label>Give your competences</mat-label>
                     <mat-chip-grid #chipGrid aria-label="Enter competence"  >

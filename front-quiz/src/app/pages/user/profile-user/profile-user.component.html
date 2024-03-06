@@ -3,7 +3,11 @@
         <div class="col-md-10 offset-md-1 mt-3 content">
             <div class="row">
                 <div class="col-md-3 content-left">
-                    <img [src]="user.photo" alt="">
+                    <div class="image-profile">
+                        <img [src]="user.photo" alt="">
+              
+                        <a class="nav-link" data-toggle="modal" data-target="#exampleModal"><i class="bi bi-camera-fill"></i></a>
+                    </div>
                     <div class="profile mt-5">
                         <p class="username">{{user.firstname?.charAt(0)?.toUpperCase()+ user.firstname?.slice(1)!+' '+user.lastname?.charAt(0)?.toUpperCase()+ user.lastname?.slice(1)}}
                         </p>
@@ -71,4 +75,26 @@
             </div>
         </div>
     </div>
+</div>
+
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel" style="color: #89929b;">Change profie Image</h5>
+      </div>
+      <div class="modal-body">
+        <div class="input-group mb-3">
+            <input 
+                type="file" 
+                class="form-control"
+                (change)="onFileSelected($event)">
+            <button class="btn btn-success" type="submit" id="inputGroupFileAddon04" (click)="uploadProfileImage()">Photo</button>
+        </div>
+        <p class="mb-3" style="color: #89929b;">File selected: <span style="color: #fff;">{{filename}}</span></p>
+      </div>
+    </div>
+  </div>
 </div>

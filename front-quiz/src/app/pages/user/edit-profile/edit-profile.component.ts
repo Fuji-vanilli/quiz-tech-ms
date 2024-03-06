@@ -17,8 +17,6 @@ import { Router } from '@angular/router';
 })
 export class EditProfileComponent implements OnInit {
 
-  horizontalPosition: MatSnackBarHorizontalPosition = 'end';
-  verticalPosition: MatSnackBarVerticalPosition = 'bottom';
 
   competences: string[]= [];
   announcer = inject(LiveAnnouncer);
@@ -28,8 +26,6 @@ export class EditProfileComponent implements OnInit {
 
   profile!: KeycloakProfile;
 
-  selectedFile!: File;
-  filename: string= '';
   
   constructor(private formBuilder: FormBuilder,
               private userService: UserService,
@@ -101,26 +97,6 @@ export class EditProfileComponent implements OnInit {
 
       this.announcer.announce(`removed ${competence}`);
     }
-  }
-
-  onFileSelected(event: Event) {
-    const target= event.target as HTMLInputElement;
-    if (target.files && target.files.length> 0) {
-      this.selectedFile= target.files[0];
-      this.filename= this.selectedFile.name;
-    }
-  }
-
-  uploadProfileImage() {
-    this.userService.uploadProfileImage(this.selectedFile, this.profile.email).subscribe({
-      next: response=> {
-        this.snackBar.open("Profile image uploaded!", "OK", {
-          horizontalPosition: this.horizontalPosition,
-          verticalPosition: this.verticalPosition,
-          duration: 5000
-        })
-      }
-    })
   }
 
   updateUser() {

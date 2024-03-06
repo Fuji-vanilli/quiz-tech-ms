@@ -16,6 +16,25 @@ a {
     border-radius: 50%;
 }
 
+.image-profile {
+    position: relative;
+}
+
+.image-profile a {
+    color: #89929b;
+    position: absolute;
+    bottom: 15px;
+    right: 100px;
+    background: #3b3c3d;
+    padding: 6px 8px;
+    border-radius: 50%;
+}
+
+.image-profile a:hover {
+    background: #cccbc8;
+}
+
+
 .profile {
     color: #fff;
 }
@@ -127,4 +146,8 @@ a {
     padding: 4px;
     font-size: 12px;
     color: #fff;
+}
+
+.modal-content {
+    background: #21262d;
 }

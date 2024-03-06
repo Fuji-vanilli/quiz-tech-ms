@@ -7,6 +7,7 @@ import { ResultQuizService } from 'src/app/services/result-quiz.service';
 import { EditProfileComponent } from '../edit-profile/edit-profile.component';
 import { User } from '../../models/user.model';
 import { UserService } from 'src/app/services/user.service';
+import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
 
 export type ChartOptions = {
   series: ApexAxisChartSeries;
@@ -35,10 +36,17 @@ export class ProfileUserComponent implements OnInit{
 
   dataResult: any[]= [];
 
+  selectedFile!: File;
+  filename: string= '';
+
+  horizontalPosition: MatSnackBarHorizontalPosition = 'end';
+  verticalPosition: MatSnackBarVerticalPosition = 'bottom';
+
   constructor(private keycloakService: KeycloakService,
               private resultQuiz: ResultQuizService,
               private userService: UserService,
-              private dialog: MatDialog) {
+              private dialog: MatDialog,
+              private snackBar: MatSnackBar) {
     this.chartOptions = {
       series: [],
       
@@ -144,5 +152,29 @@ export class ProfileUserComponent implements OnInit{
       }
     })
   }
+
+  
+  onFileSelected(event: Event) {
+    const target= event.target as HTMLInputElement;
+    if (target.files && target.files.length> 0) {
+      this.selectedFile= target.files[0];
+      this.filename= this.selectedFile.name;
+    }
+  }
+
+  uploadProfileImage() {
+    this.userService.uploadProfileImage(this.selectedFile, this.profile.email).subscribe({
+      next: response=> {
+        this.snackBar.open("Profile image uploaded!", "OK", {
+          horizontalPosition: this.horizontalPosition,
+          verticalPosition: this.verticalPosition,
+          duration: 5000
+        });
+
+        window.location.reload();
+      }
+    })
+  }
+
   
 }

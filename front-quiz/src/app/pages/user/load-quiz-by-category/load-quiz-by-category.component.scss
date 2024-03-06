@@ -231,6 +231,8 @@ h4, .h4 {
 /**********/
 
 .right-content mat-card {
+    position: sticky;
+    top: 0;
     background: #21262d;
     border-radius: 10px;
 }
