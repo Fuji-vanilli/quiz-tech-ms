@@ -6,7 +6,7 @@ import { UserService } from 'src/app/services/user.service';
 import { User } from '../../models/user.model';
 import { KeycloakService } from 'keycloak-angular';
 import { KeycloakProfile } from 'keycloak-js';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-edit-profile',
@@ -14,6 +14,10 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./edit-profile.component.scss']
 })
 export class EditProfileComponent implements OnInit {
+
+  horizontalPosition: MatSnackBarHorizontalPosition = 'end';
+  verticalPosition: MatSnackBarVerticalPosition = 'top';
+
   competences: string[]= [];
   announcer = inject(LiveAnnouncer);
 
@@ -105,7 +109,11 @@ export class EditProfileComponent implements OnInit {
   uploadProfileImage() {
     this.userService.uploadProfileImage(this.selectedFile, this.profile.email).subscribe({
       next: response=> {
-        this.snackBar.open("Profile image uploaded!", "OK")
+        this.snackBar.open("Profile image uploaded!", "OK", {
+          horizontalPosition: this.horizontalPosition,
+          verticalPosition: this.verticalPosition,
+          duration: 1500
+        })
       }
     })
   }
@@ -113,5 +121,4 @@ export class EditProfileComponent implements OnInit {
   update() {
 
   }
-  
 }

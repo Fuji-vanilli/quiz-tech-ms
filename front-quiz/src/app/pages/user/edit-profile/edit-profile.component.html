@@ -5,41 +5,41 @@
             <form [formGroup]="formGroup" (ngSubmit)="update()">
                 <div class="row">
                     <div class="col-md-6">
-                        <div class="input-group ">
+                        <div class="input-group bt">
                             <button class="btn btn-success" type="button" id="button-addon1">Firstname</button>
                             <input type="text" class="form-control" formControlName="firstname">
                         </div>
-                        <div class="input-group ">
+                        <div class="input-group bt">
                             <button class="btn btn-success" type="button" id="button-addon1">Username</button>
                             <input type="text" class="form-control" formControlName="username">
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="input-group">
+                        <div class="input-group bt">
                             <button class="btn btn-success" type="button" id="button-addon1">Lastname</button>
                             <input type="text" class="form-control" formControlName="lastname">
                         </div>
                         
-                        <div class="input-group">
+                        <div class="input-group bt">
                             <button class="btn btn-success" type="button" id="button-addon1">Email</button>
                             <input type="email" class="form-control" formControlName="email">
                         </div>
                     </div>
                 </div>
 
-                <div class="input-group">
+                <div class="input-group bt">
                     <button class="btn btn-success" type="button" id="button-addon1">Description</button>
                     <input type="text" class="form-control" formControlName="description">
                 </div>
                 
-                <div class="input-group">
+                <div class="input-group mb-3">
                     <input 
                         type="file" 
                         class="form-control"
                         (change)="onFileSelected($event)">
                     <button class="btn btn-success" type="submit" id="inputGroupFileAddon04" (click)="uploadProfileImage()">Photo</button>
                 </div>
-                <p style="color: #fff;">{{filename}}</p>
+                <p class="mb-3" style="color: #89929b;">File selected: <span style="color: #fff;">{{filename}}</span></p>
 
                 <mat-form-field class="full-width">
                     <mat-label>Give your competences</mat-label>
