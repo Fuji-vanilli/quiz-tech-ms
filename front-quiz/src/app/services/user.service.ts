@@ -30,4 +30,12 @@ export class UserService {
   deleteUser(email: any): Observable<any> {
     return this.httpClient.delete(environment.backEndUser+'/delete/'+email);
   }
+
+  uploadProfileImage(file: File, emailUser: any): Observable<any> {
+    const formData= new FormData();
+    formData.append('file', file);
+    formData.append('emailUser', emailUser)
+
+    return this.httpClient.post(environment.backEndUser+'/add-image-profile', formData)
+  }
 }

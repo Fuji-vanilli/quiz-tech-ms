@@ -1,25 +1,7 @@
-<!--div class="container mt-5 d-flex justify-content-center align-items-center">
+<div class="container mt-5 d-flex justify-content-center align-items-center">
     <div class="row" style="margin-top: 200px;">
         <div class="col-md-12">
             <h1 style="color: #fff;">No Challenge on the moment...See You later!</h1>
         </div>
     </div>
-</div-->
-
-<div class="mt-3">
-    <label>Upload Thumbnail:
-      <div class="custom-file mt-3">
-        <input type="file" class="custom-file-input" (change)="onFileSelected($event)">
-      </div>
-      <br>
-      <div *ngIf="this.fileSelected">
-        <div>
-          <p>Selected file: {{selectedFileName}} </p>
-        </div>
-        <hr>
-        <div>
-          <button type="submit" mat-raised-button color="warn" (click)="onUpload()">Upload</button>
-        </div>
-      </div>
-    </label>
-  </div>
+</div>

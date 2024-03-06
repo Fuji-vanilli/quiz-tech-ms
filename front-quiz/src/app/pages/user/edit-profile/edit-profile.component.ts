@@ -7,6 +7,8 @@ import { UserService } from 'src/app/services/user.service';
 import { User } from '../../models/user.model';
 import { KeycloakService } from 'keycloak-angular';
 import { KeycloakProfile } from 'keycloak-js';
+import Swal from 'sweetalert2';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-edit-profile',
@@ -21,10 +23,13 @@ export class EditProfileComponent implements OnInit {
   user!: User;
 
   profile!: KeycloakProfile;
+
+  selectedFile!: File;
   
   constructor(private formBuilder: FormBuilder,
               private userService: UserService,
-              private keycloakService: KeycloakService) {}
+              private keycloakService: KeycloakService,
+              private snackBar: MatSnackBar) {}
 
   ngOnInit(): void {
     this.keycloakService.loadUserProfile().then(
@@ -88,6 +93,21 @@ export class EditProfileComponent implements OnInit {
 
       this.announcer.announce(`removed ${competence}`);
     }
+  }
+
+  onFileSelected(event: Event) {
+    const target= event.target as HTMLInputElement;
+    if (target.files && target.files.length> 0) {
+      this.selectedFile= target.files[0];
+    }
+  }
+
+  uploadProfileImage() {
+    this.userService.uploadProfileImage(this.selectedFile, this.profile.email).subscribe({
+      next: response=> {
+        this.snackBar.open("Profile image uploaded!", "OK")
+      }
+    })
   }
 
   update() {

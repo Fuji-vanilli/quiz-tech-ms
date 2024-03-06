@@ -35,8 +35,11 @@
                 </div>
                 
                 <div class="input-group">
-                    <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
-                    <button class="btn btn-success" type="button" id="inputGroupFileAddon04">Photo</button>
+                    <input 
+                        type="file" 
+                        class="form-control"
+                        (change)="onFileSelected($event)">
+                    <button class="btn btn-success" type="button" id="inputGroupFileAddon04" (click)="uploadProfileImage()">Photo</button>
                 </div>
 
                 <mat-form-field class="full-width">

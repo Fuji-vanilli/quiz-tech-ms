@@ -5,5 +5,5 @@ import org.springframework.web.multipart.MultipartFile;
 
 public interface FileService {
 
-    Response uploadProfileImage(MultipartFile file);
+    Response uploadProfileImage(MultipartFile file, String emailUser);
 }

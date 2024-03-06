@@ -17,7 +17,7 @@ public class FileApi implements FileController{
 
     private final FileService fileService;
     @Override
-    public ResponseEntity<Response> uploadProfilePhoto(MultipartFile file) {
-        return ResponseEntity.ok(fileService.uploadProfileImage(file));
+    public ResponseEntity<Response> uploadProfilePhoto(MultipartFile file, String emailUser) {
+        return ResponseEntity.ok(fileService.uploadProfileImage(file, emailUser));
     }
 }

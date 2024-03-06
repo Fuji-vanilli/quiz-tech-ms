@@ -22,6 +22,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatChipsModule } from '@angular/material/chips';
 import { SidebarComponent } from './pages/sidebar/sidebar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ViewCategoryComponent } from './pages/admin/view-category/view-category.component';
@@ -62,7 +63,7 @@ import { ContestComponent } from './pages/user/contest/contest.component';
 import { ChallengeComponent } from './pages/user/challenge/challenge.component';
 import { NgApexchartsModule } from "ng-apexcharts";
 import { EditProfileComponent } from './pages/user/edit-profile/edit-profile.component';
-import { MatChipsModule } from '@angular/material/chips';
+
 
 
 export function initializeKeycloak(keycloak: KeycloakService) {
