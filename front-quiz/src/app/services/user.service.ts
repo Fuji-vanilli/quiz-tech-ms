@@ -19,7 +19,7 @@ export class UserService {
     return this.httpClient.post(environment.backEndUser+'/add', user);
   }
 
-  fetchByEmail(email: string): Observable<any> {
+  fetchByEmail(email: any): Observable<any> {
     return this.httpClient.get(environment.backEndUser+'/get/'+email);
   }
 
@@ -27,7 +27,7 @@ export class UserService {
     return this.httpClient.put(environment.backEndUser+'/update/', user);
   }
 
-  deleteUser(email: string): Observable<any> {
+  deleteUser(email: any): Observable<any> {
     return this.httpClient.delete(environment.backEndUser+'/delete/'+email);
   }
 }

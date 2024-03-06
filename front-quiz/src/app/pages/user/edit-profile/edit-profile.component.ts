@@ -90,5 +90,9 @@ export class EditProfileComponent implements OnInit {
       this.announcer.announce(`removed ${competence}`);
     }
   }
+
+  update() {
+    
+  }
   
 }

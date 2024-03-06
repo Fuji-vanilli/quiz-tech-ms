@@ -2,27 +2,27 @@
     <div class="row">
         <div class="col-md-10 offset-md-1 content">
             <h2 class="text-center mt-3">Edit Your profile</h2>
-            <form action="">
+            <form [formGroup]="formGroup" (ngSubmit)="update()">
                 <div class="row">
                     <div class="col-md-6">
                         <div class="input-group ">
                             <button class="btn btn-success" type="button" id="button-addon1">Firstname</button>
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" formControlName="firstname">
                         </div>
                         <div class="input-group ">
                             <button class="btn btn-success" type="button" id="button-addon1">Username</button>
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" formControlName="username">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="input-group">
                             <button class="btn btn-success" type="button" id="button-addon1">Lastname</button>
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" formControlName="lastname">
                         </div>
                         
                         <div class="input-group">
                             <button class="btn btn-success" type="button" id="button-addon1">Email</button>
-                            <input type="email" class="form-control">
+                            <input type="email" class="form-control" formControlName="email">
                         </div>
                     </div>
                 </div>
@@ -31,7 +31,7 @@
 
                 <div class="input-group">
                     <button class="btn btn-success" type="button" id="button-addon1">Description</button>
-                    <input type="text" class="form-control">
+                    <input type="text" class="form-control" formControlName="description">
                 </div>
                 
                 <div class="input-group">
@@ -51,7 +51,7 @@
                         </mat-chip-row>
                       
                     </mat-chip-grid>
-                    <input placeholder="Add competence..."
+                    <input placeholder="Add competence..." 
                             [matChipInputFor]="chipGrid"
                             (matChipInputTokenEnd)="addCompetence($event)"/>
                   </mat-form-field>
