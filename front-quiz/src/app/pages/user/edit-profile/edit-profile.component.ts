@@ -7,6 +7,8 @@ import { User } from '../../models/user.model';
 import { KeycloakService } from 'keycloak-angular';
 import { KeycloakProfile } from 'keycloak-js';
 import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
+import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-edit-profile',
@@ -16,7 +18,7 @@ import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition
 export class EditProfileComponent implements OnInit {
 
   horizontalPosition: MatSnackBarHorizontalPosition = 'end';
-  verticalPosition: MatSnackBarVerticalPosition = 'top';
+  verticalPosition: MatSnackBarVerticalPosition = 'bottom';
 
   competences: string[]= [];
   announcer = inject(LiveAnnouncer);
@@ -32,9 +34,11 @@ export class EditProfileComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,
               private userService: UserService,
               private keycloakService: KeycloakService,
-              private snackBar: MatSnackBar) {}
+              private snackBar: MatSnackBar,
+              private route: Router) {}
 
   ngOnInit(): void {
+    this.user= this.userService.userTemp;
     this.keycloakService.loadUserProfile().then(
       profile=> {
         this.profile= profile;
@@ -60,7 +64,7 @@ export class EditProfileComponent implements OnInit {
 
   initFormGroup() {
     this.formGroup= this.formBuilder.group({
-      firstname: this.formBuilder.control(''),
+      firstname: this.formBuilder.control(this.user.firstname),
       lastname: this.formBuilder.control(''),
       username: this.formBuilder.control(''),
       email: this.formBuilder.control(''),
@@ -112,13 +116,33 @@ export class EditProfileComponent implements OnInit {
         this.snackBar.open("Profile image uploaded!", "OK", {
           horizontalPosition: this.horizontalPosition,
           verticalPosition: this.verticalPosition,
-          duration: 1500
+          duration: 5000
         })
       }
     })
   }
 
-  update() {
+  updateUser() {
+    const userData: User= {
+      firstname: this.formGroup.value.firstname,
+      lastname: this.formGroup.value.lastname,
+      username: this.profile.username,
+      email: this.profile.email,
+      competences: this.competences,
+      description: this.formGroup.value.description,
+      biography: this.formGroup.value.biography
+    }
+
+    this.userService.updateUser(userData).subscribe({
+      next: response=> {
+        Swal.fire("Updated", "Profile updated successfully!", "success");
+        this.route.navigateByUrl('/user/profile')
+      },
+      error: err=> {
+        console.log(err);
+        
+      }
+    })
 
   }
 }

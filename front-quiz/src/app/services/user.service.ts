@@ -9,6 +9,8 @@ import { User } from '../pages/models/user.model';
 })
 export class UserService {
 
+  userTemp!: User;
+
   constructor(private httpClient: HttpClient) { }
 
   fetchAll(): Observable<any> {
@@ -24,7 +26,7 @@ export class UserService {
   }
 
   updateUser(user: User): Observable<any> {
-    return this.httpClient.put(environment.backEndUser+'/update/', user);
+    return this.httpClient.put(environment.backEndUser+'/update', user);
   }
 
   deleteUser(email: any): Observable<any> {

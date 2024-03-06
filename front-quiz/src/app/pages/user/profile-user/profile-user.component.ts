@@ -5,6 +5,8 @@ import { KeycloakProfile } from 'keycloak-js';
 import { ApexAxisChartSeries, ApexChart, ApexDataLabels, ApexStroke, ApexTooltip, ApexXAxis, ChartComponent } from 'ng-apexcharts';
 import { ResultQuizService } from 'src/app/services/result-quiz.service';
 import { EditProfileComponent } from '../edit-profile/edit-profile.component';
+import { User } from '../../models/user.model';
+import { UserService } from 'src/app/services/user.service';
 
 export type ChartOptions = {
   series: ApexAxisChartSeries;
@@ -23,16 +25,19 @@ export type ChartOptions = {
 export class ProfileUserComponent implements OnInit{
   
   profile!: KeycloakProfile;
+  user!: User;
 
   @ViewChild("chart") chart!: ChartComponent;
   public chartOptions: Partial<ChartOptions>;
 
   resultQuizSummary= new Map<any, any>();
+  colors= ['accent', 'warn', 'primary']
 
   dataResult: any[]= [];
 
   constructor(private keycloakService: KeycloakService,
               private resultQuiz: ResultQuizService,
+              private userService: UserService,
               private dialog: MatDialog) {
     this.chartOptions = {
       series: [],
@@ -67,8 +72,24 @@ export class ProfileUserComponent implements OnInit{
       profile=> {
         this.profile= profile
         this.loadResultSummary(profile.email);
+        this.loadUser(profile.email);
       }
     )
+  }
+
+  loadUser(email: any) {
+    this.userService.fetchByEmail(email).subscribe({
+      next: response=> {
+        this.user= response.data.user;
+        this.userService.userTemp= this.user;
+        console.log('user'+response.data.user);
+        
+      },
+      error: err=> {
+        console.log(err);
+        
+      }
+    })
   }
 
   

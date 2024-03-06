@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-md-10 offset-md-1 content">
             <h2 class="text-center mt-3">Edit Your profile</h2>
-            <form [formGroup]="formGroup" (ngSubmit)="update()">
+            <form [formGroup]="formGroup" (ngSubmit)="updateUser()">
                 <div class="row">
                     <div class="col-md-6">
                         <div class="input-group bt">
@@ -30,6 +30,12 @@
                 <div class="input-group bt">
                     <button class="btn btn-success" type="button" id="button-addon1">Description</button>
                     <input type="text" class="form-control" formControlName="description">
+                </div>
+
+                
+                <div class="input-group bt">
+                    <button class="btn btn-success" type="button" id="button-addon1">Biography</button>
+                    <input type="text" class="form-control" formControlName="biography">
                 </div>
                 
                 <div class="input-group mb-3">

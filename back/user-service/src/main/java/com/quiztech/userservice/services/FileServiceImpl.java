@@ -37,7 +37,7 @@ public class FileServiceImpl implements FileService {
         Path pathFile= Paths.get(localDirectory, newFileName);
 
         String pathLocation= localDirectory+"\\"+newFileName;
-        user.setPhoto(pathFile.toString());
+        user.setPhoto("../../../../assets/"+newFileName);
 
         try {
             file.transferTo(pathFile.toFile());
