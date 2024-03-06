@@ -26,6 +26,7 @@ public class UserServiceImpl implements UserService{
     private final UserMapper userMapper;
     @Override
     public Response add(UserRequest request) {
+        String email= request.getEmail();
         List<String> errors = UserValidators.isValid(request);
 
         if (!errors.isEmpty()) {
@@ -37,6 +38,16 @@ public class UserServiceImpl implements UserService{
                             "errors", errors
                     ),
                     "some field required!!!!"
+            );
+        }
+
+        if (userRepository.existsByEmail(email)) {
+            log.error("user with the email : {} already exist on database", email);
+            generateResponse(
+                    HttpStatus.OK,
+                    null,
+                    null,
+                    "user with the email: "+email+" doesn't exist on database!"
             );
         }
 
