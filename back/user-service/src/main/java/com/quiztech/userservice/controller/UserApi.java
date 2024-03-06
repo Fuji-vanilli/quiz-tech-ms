@@ -5,6 +5,7 @@ import com.quiztech.userservice.services.UserService;
 import com.quiztech.userservice.utils.Response;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -13,6 +14,7 @@ import static com.quiztech.userservice.utils.Root.APP_ROOT;
 @RestController
 @RequestMapping(APP_ROOT)
 @RequiredArgsConstructor
+@CrossOrigin("*")
 public class UserApi implements UserController {
 
     private final UserService userService;

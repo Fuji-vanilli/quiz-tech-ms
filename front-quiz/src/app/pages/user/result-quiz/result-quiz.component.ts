@@ -7,6 +7,7 @@ import { KeycloakService } from 'keycloak-angular';
 import { KeycloakProfile } from 'keycloak-js';
 import { Category } from '../../models/category.model';
 import { CategoryApiService } from 'src/app/services/category-api.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-result-quiz',
@@ -31,8 +32,8 @@ export class ResultQuizComponent implements OnInit {
               private activeRoute: ActivatedRoute,
               private quizService: QuizApiService,
               private categoryService: CategoryApiService,
-              private resultQuizService: ResultQuizService,
-              private keycloakService: KeycloakService) {}
+              private keycloakService: KeycloakService,
+              private userService: UserService) {}
 
   ngOnInit(): void {
     this.answer= this.resultService.dataResult;
@@ -44,6 +45,17 @@ export class ResultQuizComponent implements OnInit {
       profile=> {
         this.profile= profile;
         console.log("profile: ", this.profile);
+
+        const userData= {
+          username: "rabe",
+          email: "rabe@gmail.com"
+        }
+        this.userService.addUser(userData).subscribe({
+          next: response=> {
+            console.log("new user added successfully!");
+            
+          }
+        })
       }
     )
   }

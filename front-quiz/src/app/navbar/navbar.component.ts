@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { KeycloakService } from 'keycloak-angular';
 import { KeycloakProfile } from 'keycloak-js';
 import Swal from 'sweetalert2';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-navbar',
@@ -16,7 +17,8 @@ export class NavbarComponent implements OnInit {
 
   constructor(public keycloakService: KeycloakService,
               private activateRoute: ActivatedRoute,
-              private router: Router) {}
+              private router: Router,
+              private userService: UserService) {}
   ngOnInit(): void {
     if (this.keycloakService.isLoggedIn()) {
       this.keycloakService.loadUserProfile().then(
@@ -51,7 +53,22 @@ export class NavbarComponent implements OnInit {
 
   register() {
     this.keycloakService.register({
-      redirectUri: window.location.origin+'/admin/'
+      redirectUri: window.location.origin+'/user/'
+    }).then(()=> {
+      const userData= {
+        username: this.profile?.username,
+        email: this.profile?.email
+      }
+  
+      this.userService.addUser(userData).subscribe({
+        next: response=> {
+          console.log(response.user);
+        },
+        error: err=> {
+          console.log(err);
+          
+        }
+      })
     })
   }
 
