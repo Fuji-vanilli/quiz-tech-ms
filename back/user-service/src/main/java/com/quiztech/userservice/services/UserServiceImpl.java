@@ -11,11 +11,11 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
 import java.time.LocalDateTime;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Service
 @Transactional
@@ -41,29 +41,117 @@ public class UserServiceImpl implements UserService{
         }
 
         User user = userMapper.mapToUser(request);
+        user.setId(UUID.randomUUID().toString());
+        user.setCreatedDate(new Date());
+        user.setLastUpdateDate(new Date());
 
+        URI location = ServletUriComponentsBuilder.fromCurrentContextPath()
+                .path("{id}")
+                .buildAndExpand("api/user/get/" + user.getId())
+                .toUri();
 
-        return null;
+        log.info("user added successfully!");
+        return generateResponse(
+                HttpStatus.OK,
+                location,
+                Map.of(
+                        "user", userMapper.mapToUserResponse(user)
+                ),
+                "user added successfully!"
+        );
     }
 
     @Override
     public Response update(UserRequest request) {
-        return null;
+        User user = userRepository.findByEmail(request.getEmail()).orElseThrow(
+                ()-> new IllegalArgumentException("error to fetch user into the database!")
+        );
+
+        user.setBiography(request.getBiography());
+        user.setDescription(request.getDescription());
+        user.setCompetences(request.getCompetences());
+        user.setFirstname(request.getFirstname());
+        user.setLastname(request.getLastname());
+        user.setLastUpdateDate(new Date());
+
+        userRepository.save(user);
+        log.info("user with the id: {} updated successfully!", user.getId());
+
+        return generateResponse(
+                HttpStatus.OK,
+                null,
+                Map.of(
+                        "user", userMapper.mapToUserResponse(user)
+                ),
+                "user with the id: "+user.getId()+" updated successfully"
+        );
     }
 
     @Override
     public Response get(String email) {
-        return null;
+        Optional<User> userOptional = userRepository.findByEmail(email);
+
+        if (userOptional.isEmpty()) {
+            log.error("user with the email: {} doesn't exist on the database!", email);
+            return generateResponse(
+                    HttpStatus.BAD_REQUEST,
+                    null,
+                    null,
+                    "user with the email: "+email+" doesn't exist on the database"
+            );
+        }
+
+        User user= userOptional.get();
+
+        log.info("user with the email: {} getted successfully!", email);
+
+        return generateResponse(
+                HttpStatus.OK,
+                null,
+                Map.of(
+                        "user", userMapper.mapToUserResponse(user)
+                ),
+                "user with the email: "+email+" getted successfully!"
+        );
     }
 
     @Override
     public Response all() {
-        return null;
+        log.info("all user getted successfully!");
+        return generateResponse(
+                HttpStatus.OK,
+                null,
+                Map.of(
+                        "users", userRepository.findAll().stream()
+                                .map(userMapper::mapToUserResponse)
+                                .toList()
+                ),
+                "all user getted successfully"
+        );
     }
 
     @Override
     public Response delete(String email) {
-        return null;
+
+        if (!userRepository.existsByEmail(email)) {
+            log.error("user with the email: {} doesn't exist on the database!", email);
+            return generateResponse(
+                    HttpStatus.BAD_REQUEST,
+                    null,
+                    null,
+                    "user with the email: "+email+" doesn't exist on the database"
+            );
+        }
+
+        userRepository.deleteByEmail(email);
+        log.info("user with the email: {} deleted successfully", email);
+
+        return generateResponse(
+                HttpStatus.OK,
+                null,
+                null,
+                "user with the email: "+email+" deleted successfully!"
+        );
     }
 
     private Response generateResponse(HttpStatus status, URI location, Map<?, ?> data, String message) {
