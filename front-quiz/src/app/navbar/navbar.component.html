@@ -37,7 +37,7 @@
       <div class="sub-menu-wrap" id="subMenu">
         <div class="sub-menu">
           <div class="user-info">
-            <img src="../../assets/download.jpg" alt="" class="user-pic">
+            <img [src]="user.photo" alt="" class="user-pic">
             <div class="user-details">
               <h3>{{profile?.firstName+" "+profile?.lastName}}</h3>
               <h6>{{profile?.email}}</h6>

@@ -39,6 +39,7 @@ export class EditProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.user= this.userService.userTemp;
+    this.competences= this.userService.userTemp.competences!;
     this.keycloakService.loadUserProfile().then(
       profile=> {
         this.profile= profile;
@@ -65,12 +66,12 @@ export class EditProfileComponent implements OnInit {
   initFormGroup() {
     this.formGroup= this.formBuilder.group({
       firstname: this.formBuilder.control(this.user.firstname),
-      lastname: this.formBuilder.control(''),
-      username: this.formBuilder.control(''),
-      email: this.formBuilder.control(''),
-      competences: this.formBuilder.control(''),
-      biography: this.formBuilder.control(''),
-      description: this.formBuilder.control('')
+      lastname: this.formBuilder.control(this.user.lastname),
+      username: this.formBuilder.control(this.user.username),
+      email: this.formBuilder.control(this.user.email),
+      competences: this.formBuilder.control(this.user.competences),
+      biography: this.formBuilder.control(this.user.biography),
+      description: this.formBuilder.control(this.user.description)
     })
   }
 

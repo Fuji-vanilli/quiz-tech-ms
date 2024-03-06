@@ -4,6 +4,7 @@ import { KeycloakService } from 'keycloak-angular';
 import { KeycloakProfile } from 'keycloak-js';
 import Swal from 'sweetalert2';
 import { UserService } from '../services/user.service';
+import { User } from '../pages/models/user.model';
 
 @Component({
   selector: 'app-navbar',
@@ -15,6 +16,8 @@ export class NavbarComponent implements OnInit {
   profile?: KeycloakProfile | null= null;
   isAdmin: boolean= false;
 
+  user!: User
+
   constructor(public keycloakService: KeycloakService,
               private activateRoute: ActivatedRoute,
               private router: Router,
@@ -24,6 +27,15 @@ export class NavbarComponent implements OnInit {
       this.keycloakService.loadUserProfile().then(
         profile=> {
           this.profile= profile;
+          this.userService.fetchByEmail(profile.email).subscribe({
+            next: response=> {
+              this.user= response.data.user;
+            },
+            error: err=> {
+              console.log(err);
+              
+            }
+          })
           console.log(profile);
         }
       )
