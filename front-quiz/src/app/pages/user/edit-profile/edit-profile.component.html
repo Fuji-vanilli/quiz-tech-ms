@@ -1,40 +1,64 @@
 <div class="contain mt-5">
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-12 content">
+            <h2 class="text-center">Edit Your profile</h2>
             <form action="">
-                <mat-form-field class="full-width" appearance="outline">
+                <mat-form-field class="half-width" >
                     <mat-label>Firstname</mat-label>
                     <input type="text" matInput>
                 </mat-form-field>
-                <mat-form-field class="full-width" appearance="outline">
+                <mat-form-field class="half-width" >
                     <mat-label>Lastname</mat-label>
                     <input type="text" matInput>
                 </mat-form-field>
-                <mat-form-field class="full-width" appearance="outline">
+                <mat-form-field class="half-width" >
                     <mat-label>Username</mat-label>
                     <input type="text" matInput>
                 </mat-form-field>
-                <mat-form-field class="full-width" appearance="outline">
+                <mat-form-field class="half-width" >
                     <mat-label>Email</mat-label>
                     <input type="email" matInput>
                 </mat-form-field>
-                <mat-form-field class="full-width" appearance="outline">
+                <mat-form-field class="half-width" >
                     <mat-label>Biography</mat-label>
-                    <input type="text" matInput>
+                    <textarea matInput></textarea>
                 </mat-form-field>
-                <mat-form-field class="full-width" appearance="outline">
+                <mat-form-field class="half-width" >
                     <mat-label>Description</mat-label>
+                    <textarea matInput></textarea>
+                </mat-form-field>
+
+                <mat-form-field class="full-width">
+                    <mat-label>Give your competences</mat-label>
+                    <mat-chip-grid #chipGrid aria-label="Enter competence"  >
+       
+                        <mat-chip-row (removed)="removeComptence(keyword)" *ngFor="let keyword of competences">
+                          {{keyword}}
+                          <button matChipRemove aria-label="'remove ' + keyword">
+                            <mat-icon>cancel</mat-icon>
+                          </button>
+                        </mat-chip-row>
+                      
+                    </mat-chip-grid>
+                    <input placeholder="Add competence..."
+                            [matChipInputFor]="chipGrid"
+                            (matChipInputTokenEnd)="addCompetence($event)"/>
+                  </mat-form-field>
+                  <mat-form-field class="full-width" >
+                    <mat-label>Organisation</mat-label>
+                    <textarea matInput></textarea>
+                </mat-form-field><mat-form-field class="half-width" >
+                    <mat-label>Social media</mat-label>
                     <input type="text" matInput>
                 </mat-form-field>
-                <mat-form-field class="example-form-field">
-                    <mat-label>Video keywords</mat-label>
-                    <mat-chip-grid #chipGrid aria-label="Enter keywords">
-                     
-                    </mat-chip-grid>
-                    <input placeholder="New keyword..."
-                            [matChipInputFor]="chipGrid"
-                    />
+                <mat-form-field class="half-width">
+                    <mat-label>Telephone</mat-label>
+                    <span matTextPrefix>+261 &nbsp;</span>
+                    <input type="tel" matInput placeholder="00-00-000-00">
+                    <mat-icon matSuffix>mode_edit</mat-icon>
                   </mat-form-field>
+
+                  <button class="btn btn-success">Update</button>
             </form>
         </div>
     </div>

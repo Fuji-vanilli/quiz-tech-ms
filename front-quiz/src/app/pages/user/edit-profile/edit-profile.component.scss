@@ -1,11 +1,21 @@
 .contain {
-    background: transparent;
-}
-
-.full-width {
-    width: 100%;
+    margin-bottom: 24px;
 }
 
 form {
     padding: 14px 24px;
 }
+
+.half-width {
+    width: 48%;
+    margin-right: 14px;
+}
+
+.full-width {
+    width: 98%;
+}
+
+.content {
+    display: inline;
+}
+
