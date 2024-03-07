@@ -17,16 +17,18 @@ export class NavbarComponent implements OnInit {
   isAdmin: boolean= false;
 
   user!: User
+  userRoles: string[]= []; 
 
   constructor(public keycloakService: KeycloakService,
               private activateRoute: ActivatedRoute,
               private router: Router,
               private userService: UserService) {}
   ngOnInit(): void {
-    if (this.keycloakService.isLoggedIn()) {
+    if (this.keycloakService.isLoggedIn()) { 
       this.keycloakService.loadUserProfile().then(
         profile=> {
           this.profile= profile;
+          this.userRoles= this.keycloakService.getUserRoles();
           this.userService.fetchByEmail(profile.email).subscribe({
             next: response=> {
               this.user= response.data.user;

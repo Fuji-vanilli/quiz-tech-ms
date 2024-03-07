@@ -82,18 +82,27 @@
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel" style="color: #89929b;">Change profie Image</h5>
-      </div>
+        <div class="header">
+            <h4 class="modal-title" id="exampleModalLabel">Choose your profile Image</h4> 
+        </div>
       <div class="modal-body">
-        <div class="input-group mb-3">
+        <div class="mb-3">
             <input 
                 type="file" 
                 class="form-control"
-                (change)="onFileSelected($event)">
-            <button class="btn btn-success" type="submit" id="inputGroupFileAddon04" (click)="uploadProfileImage()">Upload</button>
+                (change)="handleFileInput($event)"
+                id="fileInput"
+                style="display: none;"
+            >
+            <button class="btn-upload" type="submit" id="inputGroupFileAddon04" (click)="uploadFile()"><i class="bi bi-plus-lg" style="margin-right: 18px;"></i>Import Image</button>
         </div>
-        <p class="mb-3" style="color: #89929b;">File selected: <span style="color: #fff;">{{filename}}</span></p>
+            <p class="mb-3" style="color: #89929b;">File selected: <span style="color: #fff;">{{filename}}</span></p>
+            <div class="selected-image d-flex justify-content-center align-items-center " *ngIf="selectImage">
+                <img [src]="selectImage" alt="">
+            </div>
+            <div class="mt-5">
+                <button *ngIf="filename" class="btn btn-secondary" (click)="uploadProfileImage()">Upload</button>
+            </div>
       </div>
     </div>
   </div>

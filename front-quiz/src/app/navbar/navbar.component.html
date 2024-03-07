@@ -15,6 +15,16 @@
           <a class="nav-link" routerLink="/user/contest" routerLinkActive="active"><i class="bi bi-trophy"></i>Contest</a>
         </li>
       </ul>
+
+      <ul class="navbar-nav ms-auto admin" *ngIf="userRoles.includes('ADMIN')">
+        <li class="nav-item">
+            <a class="nav-link" routerLink="/admin" style="color: #fa7970;">
+            <i class="bi bi-person-fill-gear" style="font-size: 18px;"></i>
+            <span style="font-size: 14px;">Admin</span>
+          </a>
+        </li>
+      </ul>
+
       <ul class="navbar-nav mb-lg-0 ms-auto">
         <li class="nav-item" *ngIf="profile">
           <a class="nav-link" routerLinkActive="active" aria-current="page" (click)="dashboard()"><i

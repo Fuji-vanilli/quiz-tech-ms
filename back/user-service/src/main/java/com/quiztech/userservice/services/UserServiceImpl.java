@@ -47,7 +47,7 @@ public class UserServiceImpl implements UserService{
                     HttpStatus.OK,
                     null,
                     null,
-                    "user with the email: "+email+" doesn't exist on database!"
+                    "user with the email: "+email+" already exist on database!"
             );
         }
 

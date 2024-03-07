@@ -42,6 +42,8 @@ export class ProfileUserComponent implements OnInit{
   horizontalPosition: MatSnackBarHorizontalPosition = 'end';
   verticalPosition: MatSnackBarVerticalPosition = 'bottom';
 
+  selectImage: any;
+
   constructor(private keycloakService: KeycloakService,
               private resultQuiz: ResultQuizService,
               private userService: UserService,
@@ -153,15 +155,6 @@ export class ProfileUserComponent implements OnInit{
     })
   }
 
-  
-  onFileSelected(event: Event) {
-    const target= event.target as HTMLInputElement;
-    if (target.files && target.files.length> 0) {
-      this.selectedFile= target.files[0];
-      this.filename= this.selectedFile.name;
-    }
-  }
-
   uploadProfileImage() {
     this.userService.uploadProfileImage(this.selectedFile, this.profile.email).subscribe({
       next: response=> {
@@ -173,6 +166,27 @@ export class ProfileUserComponent implements OnInit{
         });
       }
     })
+  }
+
+  uploadFile() {
+    document.getElementById('fileInput')?.click();
+  }
+
+  handleFileInput(event: any) {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (e: any) => {
+        this.selectImage = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+
+    const target= event.target as HTMLInputElement;
+    if (target.files && target.files.length> 0) {
+      this.selectedFile= target.files[0];
+      this.filename= this.selectedFile.name;
+    }
   }
 
   
