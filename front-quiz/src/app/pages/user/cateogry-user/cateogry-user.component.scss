@@ -133,7 +133,7 @@ mat-card-subtitle {
     background: #89929b;
     color: #0e223e;
     border: none;
-    border-radius: 12px;
+    border-radius: 8px;
     padding: 10px 24px;
     font-weight: 550;
 }
@@ -156,6 +156,8 @@ mat-card-subtitle {
     background: #21262d;
     border-radius: 10px;
     margin-right: 14px;
+    position: sticky;
+    top: 0;
 }
 
 .right-content mat-card-title {

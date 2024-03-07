@@ -55,6 +55,7 @@ public class UserServiceImpl implements UserService{
         user.setId(UUID.randomUUID().toString());
         user.setCreatedDate(new Date());
         user.setLastUpdateDate(new Date());
+        user.setPhoto("../../../../assets/default_user.jpg");
 
         URI location = ServletUriComponentsBuilder.fromCurrentContextPath()
                 .path("{id}")

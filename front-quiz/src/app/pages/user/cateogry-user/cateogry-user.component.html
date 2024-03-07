@@ -45,7 +45,7 @@
                     <mat-card-title>Popular Quizzes</mat-card-title>
                 </mat-card-header>
                 <mat-card-content>
-                    <div *ngFor="let quiz of quizzes">
+                    <div *ngFor="let quiz of quizzes.slice(10, 5)">
                         <button class="btn-category" [routerLink]="'/user/instructions/'+quiz.id">
                             <i class="bi bi-bag-check"></i> {{quiz.title}}
                         </button>
