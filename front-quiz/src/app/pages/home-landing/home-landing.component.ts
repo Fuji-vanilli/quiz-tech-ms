@@ -10,6 +10,8 @@ import { KeycloakService } from 'keycloak-angular';
 })
 export class HomeLandingComponent implements OnInit {
  
+  isConnected: boolean= false;
+
   constructor(private route: Router,
               private keycloakService: KeycloakService) {}
 
@@ -19,7 +21,7 @@ export class HomeLandingComponent implements OnInit {
 
   loginRequired() {
     if (this.keycloakService.isLoggedIn()) {
-      this.route.navigateByUrl('/user');
+      this.isConnected= true;
     } else {
       Swal.fire({
         title: "You must connected!",

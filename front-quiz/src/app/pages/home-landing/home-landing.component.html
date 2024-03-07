@@ -11,7 +11,8 @@
                                 Dive into our diverse collection of meticulously crafted quizzes, spanning a wide range of technological topics. 
                                 Test your knowledge, challenge yourself, and track your progress over time
                             </p>
-                            <button class="started" (click)="loginRequired()">Get Started</button>
+                            <button class="started" data-toggle="modal" data-target="#exampleModal">Get Started</button>
+                            <button class="started" routerLink="/user" *ngIf="isConnected">Get Started</button>
                         </div>
                     </div>
                 </div>
@@ -27,3 +28,20 @@
         <span>© Created by Fuji Vanilli</span>
     </div>
 </div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="exampleModalLabel">Connect or Registry</h4>
+        </div>
+        <div class="modal-body">
+            <h2 class="text-center">You need to be Indentified for Start Explore</h2>
+        </div>
+        <div class="modal-footer">
+          <button (click)="login()" class="btn btn-secondary" data-dismiss="modal">Login</button>
+          <button (click)="register()" class="btn btn-primary">Register</button>
+        </div>
+      </div>
+    </div>
+  </div>

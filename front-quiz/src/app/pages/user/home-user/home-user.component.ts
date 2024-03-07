@@ -13,6 +13,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 
 import { ApexAxisChartSeries, ApexChart, ApexDataLabels, ApexStroke, ApexTooltip, ApexXAxis, ChartComponent, ChartType } from 'ng-apexcharts';
+import { UserService } from 'src/app/services/user.service';
 
 export type ChartOptions = {
   series: ApexAxisChartSeries;
@@ -90,6 +91,7 @@ export class HomeUserComponent implements OnInit{
 
   constructor(private resultQuiz: ResultQuizService,
               private keycloakService: KeycloakService,
+              private userService: UserService,
               private route: Router) {
   
                 this.chartOptions = {
@@ -138,6 +140,20 @@ export class HomeUserComponent implements OnInit{
     this.keycloakService.loadUserProfile().then(
       profile=> {
         this.profile= profile;
+        const userData= {
+          username: profile.username,
+          email: profile.email,
+          firstnmae: profile.firstName,
+          lastname: profile.lastName
+        }
+        this.userService.addUser(userData).subscribe({
+          next: response=> {
+            console.log("new user added successfully!");
+            
+          }
+        })
+
+
         this.resultQuiz.fetchByEmailUser(this.profile?.email).subscribe({
           next: response=> {
             this.resultQuizzes= response.data.resultQuizzes 
