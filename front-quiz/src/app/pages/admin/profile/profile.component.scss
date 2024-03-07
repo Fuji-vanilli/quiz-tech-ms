@@ -1,19 +1,192 @@
-.container img{
+.content {
+    background: transparent;
+}
+
+a {
+    cursor: pointer;
+}
+
+.content-left {
+    margin-bottom: 46px;
+}
+
+.content-left img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+
+.image-profile {
+    position: relative;
+}
+
+.image-profile a {
+    color: #89929b;
+    position: absolute;
+    bottom: 15px;
+    right: 100px;
+    background: #3b3c3d;
+    padding: 6px 8px;
+    border-radius: 50%;
+}
+
+.image-profile a:hover {
+    background: #cccbc8;
+    color: #21262d;
+}
+
+
+.profile {
+    color: #fff;
+}
+
+.profile .username {
+    margin-top: 18px;
+    font-size: 24px;
+}
+
+.profile .email {
+    font-size: 14px;
+    color: #c6cdd5;
+}
+
+.competence {
+    margin-top: 16px;
+    color: #89929b;
+    font-size: 14px;
+}
+
+.edit-profile .btn-edit-profile {
+    background: #21262d;
+    color: #89929b;
+    width: 100%;
+    padding: 8px 18px;
+    font-weight: 600;
+    border: 1px solid #89929b;
+    border-radius: 8px;
+}
+
+.edit-profile .btn-edit-profile:hover {
+    opacity: .7;
+}
+
+.followers {
+    color: #89929b;
+}
+
+.followers span {
+    margin-left: 12px;
+}
+
+.followers strong {
+    color: #fff;
+    margin-right: 4px;
+}
+
+.other-link {
+    color: #89929b;
+}
+
+.other-link i {
+    font-size: 16px;
+}
+
+.other-link span {
+    margin-left: 10px;
+}
+
+.divider {
+    border-bottom: 1px solid #21262d;
+}
+
+.organisation h3 {
+    color: #c6cdd5;
+}
+
+.organisation img {
+    width: 34px;
+    height: 34px;
+    margin-right: 12px;
+}
+
+.btn-competence {
+    border: 0;
+    background: #21262d;
+    color: #89929b;
+    border-radius: 24px;
+    font-size: 13px; 
+    margin-left: 8px;
+    margin-top: 10px;
+    padding: 0 8px;
+}
+
+/***************/
+
+.recap {
+    margin-bottom: 28px;
+}
+
+.card-finished {
+    margin-bottom: 12px;
+    border: 2px solid #21262d;
+    color: #89929b;
+    border-radius: 6px;
+    padding: 12px 16px;
+}
+
+.card-finished .frequency {
+    color: #faa356;
+    font-size: 18px;
+}
+
+.card-finished span {
+    margin-left: 10px;
+}
+
+.btn-success {
+    padding: 4px;
+    font-size: 12px;
+    color: #fff;
+}
+
+.modal-content {
+    background: #21262d;
+}
+
+.btn-upload {
+    width: 100%;
+    border: 0;
+    padding: 10px;
+    background: #77bdfb;
+    border-radius: 8px;
+    transition: all 0.6 ease;
+}
+
+.btn-upload:hover {
+    opacity: .7;
+}
+
+.header {
+    padding: 16px;
+    border-bottom: 1px solid #3b3c3d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header h4 {
+    color: #fff;
+    font-family: 'Roboto';
+}
+
+.selected-image img{
     width: 100px;
     height: 100px;
-    border-radius: 50%;
-    border: solid 4px #f59e0b;
+    border-radius: 8px;
 }
 
-h1, h2, h3, h4, h5 {
-    font-family: 'Poppins';
-}
-
-table {
+.btn-secondary {
     width: 100%;
+    font-size: 14px;
 }
 
-table tr td {
-    padding: 20px 50px;
-    font-family: 'Poppins';
-}

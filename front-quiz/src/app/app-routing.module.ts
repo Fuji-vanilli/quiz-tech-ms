@@ -26,6 +26,7 @@ import { CateogryUserComponent } from './pages/user/cateogry-user/cateogry-user.
 import { ContestComponent } from './pages/user/contest/contest.component';
 import { ChallengeComponent } from './pages/user/challenge/challenge.component';
 import { EditProfileComponent } from './pages/user/edit-profile/edit-profile.component';
+import { HomeAdminComponent } from './pages/admin/home-admin/home-admin.component';
 
 const routes: Routes = [
   { path: '', component: HomeLandingComponent },
@@ -48,7 +49,7 @@ const routes: Routes = [
   { 
     path:'admin', component: DashboardComponent, canActivate: [AuthGuard], data: {roles: ['ADMIN']},
     children: [
-      { path: '', component: ViewQuizzesComponent },
+      { path: '', component: HomeAdminComponent },
       { path: 'categories', component:ViewCategoryComponent },
       { path: 'add-category', component: AddCategoryComponent },
       { path: 'quizzes', component: ViewQuizzesComponent },

@@ -1,0 +1,18 @@
+<div class="contain mt-5">
+    <div class="row">
+        <div class="col-md-9 content-left">
+            <div>
+                <h2>Total users: {{users.length}}</h2>
+            </div>
+            <div class="card-user" *ngFor="let user of users">
+                <div class="header">
+                    <img [src]="user.photo" alt="">
+                    <span>{{user.firstname}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 content-right">
+
+        </div>
+    </div>
+</div>

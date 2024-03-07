@@ -1,42 +1,109 @@
-<mat-card class="mt-4">
-    <h1 class="text-center m-3">Your profile</h1>
-    <mat-card-content>
-        <div class="bootstrap-wrapper">
-            <div class="container">
-                <div class="container text-center">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Windows_10_Default_Profile_Picture.svg/2048px-Windows_10_Default_Profile_Picture.svg.png" alt="">
-                    <h2 class="mt-3">{{profile?.firstName+' '+profile?.lastName}}</h2>
+<div class="container mt-5">
+    <div class="row ">
+        <div class="col-md-10 offset-md-1 mt-3 content">
+            <div class="row">
+                <div class="col-md-3 content-left">
+                    <div class="image-profile">
+                        <img [src]="user.photo" alt="">
+              
+                        <a class="nav-link" data-toggle="modal" data-target="#exampleModal"><i class="bi bi-camera-fill"></i></a>
+                    </div>
+                    <div class="profile mt-5">
+                        <p class="username">{{user.firstname?.charAt(0)?.toUpperCase()+ user.firstname?.slice(1)!+' '+user.lastname?.charAt(0)?.toUpperCase()+ user.lastname?.slice(1)}}
+                        </p>
+                        <p class="email">{{profile.email}}</p>
+                    </div>
+
+                    <div class="competence mt-4">
+                        <h4>{{user.description}}</h4>
+                    </div>
+
+                    <div class="edit-profile">
+                        <button class="btn-edit-profile" routerLink="/user/edit-profile">Edit profile</button>
+                    </div>
+
+                    <div class="followers mt-4 d-flex justify-content-between">
+                        <a class="nav-link"><i class="bi bi-people"></i><span><strong>1</strong>Followers</span></a>
+                        <a class="nav-link"><i
+                                class="bi bi-person-fill-check"></i><span><strong>0</strong>Following</span></a>
+                    </div>
+
+                    <div class="other-link mt-3">
+                        <a class="nav-link"><i class="bi bi-link-45deg"></i>
+                            <span>{{'qt.'+user.firstname?.charAt(0)?.toLowerCase()+user.firstname?.slice(1)+'-'+user.lastname?.charAt(0)?.toLowerCase()+user.lastname?.slice(1)}}</span></a>
+                        <a class="nav-link mt-2"><i
+                                class="bi bi-linkedin"></i><span>linkedin.com/quiz-tech/profile</span></a>
+                    </div>
+                    <div class="divider mt-4"></div>
+                    <div class="organisation mt-2">
+                        <h3>Organisations</h3>
+                        <img src="../../../../assets/apple.png" alt="">
+                        <img src="../../../../assets/dropbox.png" alt="">
+                        <img src="../../../../assets/meta.png" alt="">
+                    </div>
+                    <div class="divider mt-4"></div>
+                    <div class="mt-3">
+                        <button class="btn-competence" *ngFor="let competence of user.competences">{{competence}}</button>
+                    </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-10 offset-md-1">
-                        <table>
-                            <tr>
-                                <td>Id</td><td>{{profile?.id}}</td>
-                            </tr>
-                            <tr>
-                                <td>Firstname</td><td>{{profile?.firstName}}</td>
-                            </tr>
-                            <tr>
-                                <td>Lastname</td><td>{{profile?.lastName}}</td>
-                            </tr>
-                            <tr>
-                                <td>Email</td><td>{{profile?.email}}</td>
-                            </tr>
-                            <tr>
-                                <td>Username</td><td>{{profile?.username}}</td>
-                            </tr>
-                        </table>
+                <div class="col-md-9">
+                    <apx-chart [series]="chartOptions.series!" [chart]="chartOptions.chart!"
+                        [xaxis]="chartOptions.xaxis!" [stroke]="chartOptions.stroke!" [tooltip]="chartOptions.tooltip!"
+                        [dataLabels]="chartOptions.dataLabels!">
+                    </apx-chart>
+
+                    <div class="recap ms-3">
+                        <div class="row">
+                            <div class="col-md-6" *ngFor="let result of dataResult">
+                                <div class="card-finished">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div><i class="bi bi-paperclip" style="font-size: 20px;"></i><span
+                                                style="color: #77bdfb;">{{result.quizTitle}}</span></div>
+                                        <button class="btn btn-success" routerLink="/user/quizzes">Explore</button>
+                                    </div>
+                                    <div class="mt-2">
+                                        <i class="bi bi-star-fill"
+                                            style="color: #faa356;"></i><span>{{result.frequency}}</span>
+                                        <span>max score: <strong>{{result.maxScore+'%'}}</strong></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
         </div>
-    </mat-card-content>
-    <div class="text-center m-3">
-        <button mat-fab style="background: #0e223e;">
-            <mat-icon class="text-white">edit</mat-icon>
-        </button>
-        <button mat-fab color="warn" class="ms-5">
-            <i class="bi bi-x-lg"></i>
-        </button>  
     </div>
-</mat-card>
+</div>
+
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="header">
+            <h4 class="modal-title" id="exampleModalLabel">Choose your profile Image</h4> 
+        </div>
+      <div class="modal-body">
+        <div class="mb-3">
+            <input 
+                type="file" 
+                class="form-control"
+                (change)="handleFileInput($event)"
+                id="fileInput"
+                style="display: none;"
+            >
+            <button class="btn-upload" type="submit" id="inputGroupFileAddon04" (click)="uploadFile()"><i class="bi bi-plus-lg" style="margin-right: 18px;"></i>Import Image</button>
+        </div>
+            <p class="mb-3" style="color: #89929b;">File selected: <span style="color: #fff;">{{filename}}</span></p>
+            <div class="selected-image d-flex justify-content-center align-items-center " *ngIf="selectImage">
+                <img [src]="selectImage" alt="">
+            </div>
+            <div class="mt-5">
+                <button *ngIf="filename" class="btn btn-secondary" (click)="uploadProfileImage()">Upload</button>
+            </div>
+      </div>
+    </div>
+  </div>
+</div>
