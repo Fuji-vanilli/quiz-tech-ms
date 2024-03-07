@@ -8,11 +8,19 @@ import { KeycloakService } from 'keycloak-angular';
 })
 export class SidebarComponent implements OnInit{
 
-  constructor(public kcService: KeycloakService) {
+  username!: string;
+
+  constructor(public keycloakService: KeycloakService) {
 
   }
   ngOnInit(): void {
     this.loadSidebar();
+    this.keycloakService.loadUserProfile().then(
+      profile=> {
+        const username= profile.username;
+        this.username= username?.charAt(0).toUpperCase()+username?.slice(1)!;
+      }
+    )
   }
 
   loadSidebar() {
@@ -24,7 +32,7 @@ export class SidebarComponent implements OnInit{
   }
 
   logout() {
-    this.kcService.logout(
+    this.keycloakService.logout(
       window.location.origin
     )
   }

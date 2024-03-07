@@ -19,8 +19,8 @@
       <ul class="navbar-nav ms-auto admin" *ngIf="userRoles.includes('ADMIN')">
         <li class="nav-item">
           <select class="form-select bg-dark" (change)="navigateTo($event)" style="color: #fa7970; border: 1px solid #21262d; font-family: 'Ubuntu';">
-            <option value="admin" [selected]="routeAdmin">Admin</option>
-            <option value="user" [selected]="!routeAdmin">User</option>
+            <option value="admin" selected>Admin</option>
+            <option value="user" >User</option>
           </select>           
         </li>
       </ul>

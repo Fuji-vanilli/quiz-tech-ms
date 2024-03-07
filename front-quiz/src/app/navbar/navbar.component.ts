@@ -49,6 +49,8 @@ export class NavbarComponent implements OnInit {
     }
 
     this.routeAdmin= this.router.url.includes('admin');
+    console.log('url', this.router.url);
+    
   }
 
   dashboard() {
