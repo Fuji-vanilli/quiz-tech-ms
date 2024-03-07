@@ -14,6 +14,9 @@
                     </div>
                 </div>
             </div>
+            <div class="mt-3" *ngIf="filterCategoryBySearchTerm.length=== 0">
+                <h1 style="color: #89929b;">No Quizzes Find.....</h1>
+            </div>
             <mat-card class="category-card" *ngFor="let category of filterCategoryBySearchTerm">
                 <div class="row">
                     <div class="col-md-12">

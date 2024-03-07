@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SPINNER } from 'ngx-ui-loader';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'front-quiz';
+  spinerType= SPINNER.cubeGrid;
 }

@@ -21,7 +21,7 @@
               class="bi bi-gear"></i><span style="margin-left: 8px;">Settings</span></a>
         </li>
         <li class="nav-item ms-4" *ngIf="profile">
-          <a class="nav-link" routerLinkActive="active" aria-current="page" routerLink="/user/quizzes"><i
+          <a class="nav-link"  aria-current="page" routerLink="/user/quizzes"><i
               class="bi bi-search "></i><span style="margin-left: 8px;">Search</span></a>
         </li>
         <li class="nav-item ms-3">
@@ -31,7 +31,7 @@
           <button class="btn-register" (click)="register()" *ngIf="!profile">Sign up</button>
         </li>
         <li class="nav-item" *ngIf="profile">
-          <button class="btn btn-profile" (click)="toggleMenu()">{{profile.username?.charAt(0)}}</button>
+          <a><img class="user-pic-nav" [src]="user.photo" alt="" (click)="toggleMenu()"></a>
         </li>
       </ul>
       <div class="sub-menu-wrap" id="subMenu">

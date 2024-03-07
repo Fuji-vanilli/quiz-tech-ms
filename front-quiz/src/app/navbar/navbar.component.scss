@@ -4,6 +4,10 @@
     border-bottom: 1px solid #374151;
 }
 
+a {
+    cursor: pointer;
+}
+
 .logo {
     color: #f59e0b;
     font-size: 18px;
@@ -128,6 +132,12 @@
     border-radius: 12px;
 }
 
+.user-pic-nav {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
 
 .user-pic {
     width: 50px;

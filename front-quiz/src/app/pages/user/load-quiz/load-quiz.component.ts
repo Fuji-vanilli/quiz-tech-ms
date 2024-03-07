@@ -18,7 +18,7 @@ export class LoadQuizComponent implements OnInit {
   categoryId!: string;
   quizzes: Quiz[] = [];
   filterQuizzes: Quiz[]= [];
-  filterQuizzesBySearchTerm: Quiz[]= [];
+  filterQuizzesBySearchTerm: Quiz[]= [{}];
   categories: Category[]= [];
   totalQuizzes!: number;
 
@@ -48,7 +48,7 @@ export class LoadQuizComponent implements OnInit {
         console.log(this.quizzes);
       },
       error: err=> {
-        console.log(err);
+        console.log(err); 
       }
     })
   }
