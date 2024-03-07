@@ -134,7 +134,7 @@
                         <div class="card" *ngFor="let quiz of homeQuizzes" [ngStyle]="{'background': quiz.color}">
                             <span class="title">{{quiz.title}}</span>
                             <span class="subtitle">{{quiz.description}}</span>
-                            <button routerLink="/user/quizzes">Explore</button>
+                            <button [routerLink]="'/user/quizzes/'+quiz.categoryId">Explore</button>
                         </div>
                         <button class="btn-all-quizzes" routerLink="/user/quizzes">View all Quizzes
                             <i class="bi bi-arrow-right ms-3"></i>

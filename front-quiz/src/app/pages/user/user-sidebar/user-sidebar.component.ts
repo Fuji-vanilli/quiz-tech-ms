@@ -3,6 +3,7 @@ import { KeycloakService } from 'keycloak-angular';
 import { CategoryApiService } from 'src/app/services/category-api.service';
 import { Category } from '../../models/category.model';
 import { Router } from '@angular/router';
+import { KeycloakProfile } from 'keycloak-js';
 
 @Component({
   selector: 'app-user-sidebar',
@@ -12,6 +13,8 @@ import { Router } from '@angular/router';
 export class UserSidebarComponent implements OnInit {
 
   categories: Category[]= [];
+  profile!: KeycloakProfile;
+  username!: string;
 
   constructor(private keycloakService: KeycloakService,
               private categoryService: CategoryApiService,
@@ -19,6 +22,13 @@ export class UserSidebarComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadCategories();
+    this.keycloakService.loadUserProfile().then(
+      profile=> {
+        this.profile= profile;
+        const username= profile.username!;
+        this.username= username?.charAt(0).toUpperCase()+username.slice(1);
+      }
+    )
   }
 
   loadCategories() {

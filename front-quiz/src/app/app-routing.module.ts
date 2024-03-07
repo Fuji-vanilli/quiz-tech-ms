@@ -33,7 +33,7 @@ const routes: Routes = [
     path:'user', component: UserDashboardComponent, canActivate: [AuthGuard], data: {roles: ['USER']},
     children: [
       { path: '', component: HomeUserComponent },
-      { path: 'profile', component: ProfileUserComponent },
+      { path: 'profile/:email', component: ProfileUserComponent },
       { path: 'categories', component: CateogryUserComponent },
       { path: 'quizzes', component: LoadQuizComponent },
       { path: 'quizzes/:categoryId', component: LoadQuizByCategoryComponent },

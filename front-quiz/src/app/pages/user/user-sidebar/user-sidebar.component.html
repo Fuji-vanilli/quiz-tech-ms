@@ -1,11 +1,11 @@
 <div class="wrapper ms-0">
     <aside id="sidebar">
-        <div class="d-flex mt-4">
+        <div class="d-flex mt-4 header">
             <button id="toggle-btn">
-                <i class="bi bi-grid"></i>
+                <i class="bi bi-grid-3x3-gap-fill"></i>
             </button>
             <div class="sidebar-logo">
-                <a routerLink="/user">QuizTech - Fuji</a>
+                <a routerLink="/user">{{username}}</a>
             </div>
         </div>
         <ul class="sidebar-nav">
@@ -16,7 +16,7 @@
                 </a>
             </li>
             <li class="sidebar-item">
-                <a routerLink="/user/profile" class="sidebar-link" routerLinkActive="active" >
+                <a [routerLink]="'/user/profile/'+profile.email" class="sidebar-link" routerLinkActive="active" >
                     <i class="bi bi-person"></i>
                     <span class="ms-2">My Account</span>
                 </a>

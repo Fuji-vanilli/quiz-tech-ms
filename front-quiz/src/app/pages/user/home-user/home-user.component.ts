@@ -52,22 +52,26 @@ export class HomeUserComponent implements OnInit{
     {
       title: 'Programming',
       description: 'All about kind of Programming language',
-      color: '#6c35de'
+      color: '#6c35de',
+      categoryId: '4d89a72c-6c08-4c90-9264-925a54fb5116'
     },
     {
       title: 'Network',
       description: 'Technologie of network and his requirements',
-      color: '#2E8B57'
+      color: '#2E8B57',
+      categoryId: 'c7647ba4-193c-4a47-bc55-5289dbdd1e7a'
     },
     {
       title: 'Blockchain',
       description: 'Technologie of blockchain and crypto and minner',
-      color: '#de283b'
+      color: '#de283b',
+      categoryId: '0e7a04f0-a288-442a-bd62-8908aff6da25'
     },
     {
-      title: 'Cryptography',
-      description: 'Security bases fo cryptography and cipher',
-      color: '#FF6600'
+      title: 'Medecine',
+      description: 'Sciences of medical',
+      color: '#FF6600',
+      categoryId: 'd0c6fe15-25cf-4a85-856b-44fdbf7e8122'
     }
   ]
 
@@ -143,7 +147,7 @@ export class HomeUserComponent implements OnInit{
         const userData= {
           username: profile.username,
           email: profile.email,
-          firstnmae: profile.firstName,
+          firstname: profile.firstName,
           lastname: profile.lastName
         }
         this.userService.addUser(userData).subscribe({

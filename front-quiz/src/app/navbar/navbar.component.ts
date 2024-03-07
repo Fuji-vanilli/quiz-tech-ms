@@ -16,6 +16,8 @@ export class NavbarComponent implements OnInit {
   profile?: KeycloakProfile | null= null;
   isAdmin: boolean= false;
 
+  routeAdmin: boolean= false;
+
   user!: User
   userRoles: string[]= []; 
 
@@ -43,8 +45,10 @@ export class NavbarComponent implements OnInit {
       )
     }
     if (this.keycloakService.getUserRoles().includes('ADMIN')) {
-      this.isAdmin= true;
+      this.isAdmin= true; 
     }
+
+    this.routeAdmin= this.router.url.includes('admin');
   }
 
   dashboard() {
@@ -99,7 +103,7 @@ export class NavbarComponent implements OnInit {
     if (route=== 'admin') {
       this.router.navigateByUrl('/admin');
     } else if (route=== 'user') {
-      this.router.navigateByUrl('/admin');
+      this.router.navigateByUrl('/user');
     }
 
   }
