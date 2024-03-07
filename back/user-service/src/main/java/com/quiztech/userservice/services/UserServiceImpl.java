@@ -3,9 +3,11 @@ package com.quiztech.userservice.services;
 import com.quiztech.userservice.dto.UserRequest;
 import com.quiztech.userservice.entities.User;
 import com.quiztech.userservice.mapper.UserMapper;
+import com.quiztech.userservice.models.ResultSummary;
 import com.quiztech.userservice.repositories.UserRepository;
 import com.quiztech.userservice.utils.Response;
 import com.quiztech.userservice.validators.UserValidators;
+import com.quiztech.userservice.webClient.WebClientGetter;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -24,6 +26,8 @@ import java.util.*;
 public class UserServiceImpl implements UserService{
     private final UserRepository userRepository;
     private final UserMapper userMapper;
+    private final WebClientGetter webClient;
+
     @Override
     public Response add(UserRequest request) {
         String email= request.getEmail();
@@ -116,6 +120,9 @@ public class UserServiceImpl implements UserService{
         }
 
         User user= userOptional.get();
+        List<ResultSummary> resultSummaries = webClient.getResult(email);
+
+        user.setResultSummaries(resultSummaries);
 
         log.info("user with the email: {} getted successfully!", email);
 

@@ -1,5 +1,6 @@
 package com.quiztech.userservice.entities;
 
+import com.quiztech.userservice.models.ResultSummary;
 import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -30,4 +31,5 @@ public class User {
     private BigDecimal followers;
     private BigDecimal following;
     private List<String> linkNetwork= new ArrayList<>();
+    private List<ResultSummary> resultSummaries= new ArrayList<>();
 }
