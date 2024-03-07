@@ -165,13 +165,12 @@ export class ProfileUserComponent implements OnInit{
   uploadProfileImage() {
     this.userService.uploadProfileImage(this.selectedFile, this.profile.email).subscribe({
       next: response=> {
+        window.location.reload();
         this.snackBar.open("Profile image uploaded!", "OK", {
           horizontalPosition: this.horizontalPosition,
           verticalPosition: this.verticalPosition,
           duration: 5000
         });
-
-        window.location.reload();
       }
     })
   }
