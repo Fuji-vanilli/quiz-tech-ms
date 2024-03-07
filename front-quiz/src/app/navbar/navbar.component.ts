@@ -92,4 +92,15 @@ export class NavbarComponent implements OnInit {
       subMenu.classList.toggle("open-menu");
     }
   }
+
+  navigateTo(event: any) {
+    const route= event.target.value;
+
+    if (route=== 'admin') {
+      this.router.navigateByUrl('/admin');
+    } else if (route=== 'user') {
+      this.router.navigateByUrl('/admin');
+    }
+
+  }
 }
