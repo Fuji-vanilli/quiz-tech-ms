@@ -1,6 +1,9 @@
 <div class="contain mt-5">
     <div class="row">
         <div class="col-md-9 content-left">
+           
+        </div>
+        <div class="col-md-3 content-right">
             <div>
                 <h2>Total users: {{users.length}}</h2>
             </div>
@@ -9,10 +12,17 @@
                     <img [src]="user.photo" alt="">
                     <span>{{user.firstname}}</span>
                 </div>
+                <div class="mt-2 details">
+                    <div>
+                        <i class="bi bi-star-fill" style="color: #faa356; margin-right: 14px;"></i>
+                        <span style="margin-right: 16px;">3</span>
+                        <span>max score: <strong>15%</strong></span>
+                    </div>
+                    <div class="div">
+                        <a class="nav-link" (click)="deleteUser(user)"></a>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="col-md-3 content-right">
-
         </div>
     </div>
 </div>

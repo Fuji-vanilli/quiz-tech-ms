@@ -3,31 +3,35 @@
     margin-right: 24px;
 }
 
-.content-left {
+.content-right {
     background: transparent;
     border-radius: 10px;
 }
 
-.content-left h2 {
+.content-right h2 {
     color: #fff;
 }
 
-.content-left .card-user {
+.content-right .card-user {
     border: 1px solid #21262d;
     padding: 16px;
     margin-top: 14px;
     border-radius: 8px;
 }
 
-.content-left .card-user .header  img {
+.content-right .card-user .header  img {
     width: 50px;
     height: 50px;
     border-radius: 50%;
     margin-right: 14px;
 }
 
-.content-left .card-user span {
+.content-right .card-user .header span {
     color: #77bdfb;
+}
+
+.content-right .card-user .details span {
+    color: #89929b;
 }
 
 

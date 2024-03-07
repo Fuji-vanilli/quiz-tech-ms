@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../../models/user.model';
 import { UserService } from 'src/app/services/user.service';
+import { Result } from '../../models/result.model';
+import { ResultQuizService } from 'src/app/services/result-quiz.service';
 
 @Component({
   selector: 'app-home-admin',
@@ -10,8 +12,10 @@ import { UserService } from 'src/app/services/user.service';
 export class HomeAdminComponent implements OnInit{
 
   users: User[]= [];
+  results: Result[]= [];
 
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService,
+              private resultService: ResultQuizService) {}
 
   ngOnInit(): void {
     this.loadUser();
@@ -27,6 +31,14 @@ export class HomeAdminComponent implements OnInit{
       error: err=> {
         console.log(err);
         
+      }
+    })
+  }
+
+  loadResult() {
+    this.resultService.fetchAll().subscribe({
+      next: response=> {
+        this.results= response.data.results;
       }
     })
   }

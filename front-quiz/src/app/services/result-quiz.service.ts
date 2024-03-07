@@ -14,6 +14,10 @@ export class ResultQuizService {
   constructor(private httpClient: HttpClient) { 
     this.dataResult= [];
   }
+  
+  fetchAll(): Observable<any> {
+    return this.httpClient.get(environment.backEndResultQuiz+'/all');
+  }
 
   addResult(result: Result): Observable<any> {
     return this.httpClient.post(environment.backEndResultQuiz+'/add', result);

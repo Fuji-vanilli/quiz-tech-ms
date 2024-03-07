@@ -120,9 +120,6 @@ public class UserServiceImpl implements UserService{
         }
 
         User user= userOptional.get();
-        List<ResultSummary> resultSummaries = webClient.getResult(email);
-
-        user.setResultSummaries(resultSummaries);
 
         log.info("user with the email: {} getted successfully!", email);
 

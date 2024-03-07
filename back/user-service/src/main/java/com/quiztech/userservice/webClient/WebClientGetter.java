@@ -27,7 +27,7 @@ public class WebClientGetter {
 
     public List<ResultSummary> getResult(String email) {
         return webClient.build().get()
-                .uri(properties + "/resultSummary/" + email)
+                .uri(properties.getResultQuiz() + "/resultSummary/" + email)
                 .retrieve()
                 .bodyToMono(new ParameterizedTypeReference<List<ResultSummary>>() {
                 })
