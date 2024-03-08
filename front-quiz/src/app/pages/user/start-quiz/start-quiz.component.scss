@@ -1,10 +1,15 @@
-
 .contain  {
+    background: transparent;
+}
 
+.content {
+    padding: 20px;
+    background: transparent;
+    border-radius: 8px;
 }
 
 .row .quiz-title-head {
-    background: #21262d;
+    background: #334155;
 }
 
 .row .title-quiz {
@@ -19,7 +24,7 @@
 .row .content-quiz {
     padding: 16px 20px;
     font-family: 'Ubuntu';
-    background: #56647b; 
+    background: #21262d; 
     color: #e0e0e0; 
     height: 65vh;
 }

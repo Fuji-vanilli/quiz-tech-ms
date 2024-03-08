@@ -32,7 +32,7 @@
                                                     </div>
                                                 </mat-selection-list>
                                                 <div class="row ms-2">
-                                                    <p style="font-family: 'Ubuntu'; font-size: 14px; color: #71717a">Answer: 
+                                                    <p style="font-family: 'Ubuntu'; font-size: 14px; color: #21262d">Answer: 
                                                         <span id="questionContent" *ngIf="!isContentExpanded[i+4]">{{ question.answer | slice:0:40 }}</span>
                                                         <span id="questionContent" *ngIf="isContentExpanded[i+4]">{{ question.answer }}</span>
                                                         <a class="nav-link-answer ms-3" (click)="toggleExpand(i+4)" *ngIf="question.answer?.length> 40">
@@ -72,7 +72,7 @@
                                                     </div>
                                                 </mat-selection-list>
                                                 <div class="row ms-2 d-flex ">
-                                                    <p style="font-family: 'Ubuntu'; font-size: 14px; color: #71717a">Answer: 
+                                                    <p style="font-family: 'Ubuntu'; font-size: 14px; color: #21262d">Answer: 
                                                         <span id="questionContent" *ngIf="!isContentExpanded[i+6]">{{ questions[i+1].answer | slice:0:40 }}</span>
                                                         <span id="questionContent" *ngIf="isContentExpanded[i+6]">{{ questions[i+1].answer }}</span>
                                                         <a class="nav-link-answer ms-3" (click)="toggleExpand(i+6)" *ngIf="questions[i+1].answer?.length> 40">

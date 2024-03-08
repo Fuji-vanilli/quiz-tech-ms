@@ -6,7 +6,7 @@
 }
 
 .custom-card {
-    //background: #3D5A80;
+    background: #fff;
 }
 .mt10 {
     margin-top: 12px;
@@ -53,16 +53,16 @@ mat-card {
 }
 
 .btn-question {
-    background: #fff;
-    color: #0e223e;
-    border: 1px solid #0e223e;
+    background: #77bdfd;
+    color: #12162d;
+    border: 0;
     padding: 10px 24px;
     font-weight: 550;
+    border-radius: 8px;
 }
 
 .btn-question:hover {
-    background: #0e223e;
-    color: #fff;
+    opacity: .7;
 }
 
 .attempt {

@@ -1,31 +1,31 @@
 <div class="contain mt-5">
     <div class="row">
         <div class="col-md-8 offset-md-2 content">
-            <h2 class="text-center">Add new Quiz</h2>
+            <h2 class="text-center" style="color: #89929b;">Add new Quiz</h2>
             <form [formGroup]="formGroup" (ngSubmit)="addQuiz()">
                 <div class="mb-2">
-                    <i class="bi bi-paragraph"></i><strong class="ms-2">Enter the title of the Quiz</strong>
+                    <i class="bi bi-paragraph" style="color: #89929b;"></i><strong class="ms-2" style="color: #89929b;">Enter the title of the Quiz</strong>
                 </div>
                 <mat-form-field class="w-100" appearance="outline">
                     <mat-label>Enter the title</mat-label>
                     <input autofocus matInput placeholder="new quiz..." formControlName="title" required>
                 </mat-form-field>
                 <div class="mb-2">
-                    <i class="bi bi-question-diamond-fill"></i><strong class="ms-2">Enter the description here</strong>
+                    <i class="bi bi-question-diamond-fill" style="color: #89929b;"></i><strong class="ms-2" style="color: #89929b;">Enter the description here</strong>
                 </div>
                 <mat-form-field class="w-100" appearance="outline">
                     <mat-label>Description</mat-label>
                     <textarea matInput rows="5" formControlName="description"></textarea>
                 </mat-form-field>
                 <div class="mb-2">
-                    <i class="bi bi-question-diamond-fill"></i><strong class="ms-2">Enter the image url here</strong>
+                    <i class="bi bi-question-diamond-fill" style="color: #89929b;"></i><strong class="ms-2" style="color: #89929b;">Enter the image url here</strong>
                 </div>
                 <mat-form-field class="w-100" appearance="outline">
                     <mat-label>Enter the image url</mat-label>
                     <input autofocus matInput placeholder="image url" formControlName="imageUrl" required>
                 </mat-form-field>
                 <div class="mb-2">
-                    <i class="bi bi-bookmark-check-fill"></i><strong class="ms-2">Choose the category</strong>
+                    <i class="bi bi-bookmark-check-fill" style="color: #89929b;"></i><strong class="ms-2" style="color: #89929b;">Choose the category</strong>
                 </div>
                 <mat-form-field class="w-100 category" appearance="outline">
                     <mat-label>Category</mat-label>
@@ -38,7 +38,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="mb-2">
-                            <i class="bi bi-check-square-fill"></i><strong class="ms-2">Give the maximum marks</strong>
+                            <i class="bi bi-check-square-fill" style="color: #89929b;"></i><strong class="ms-2" style="color: #89929b;">Give the maximum marks</strong>
                         </div>
                         <mat-form-field class="w-100" appearance="outline">
                             <mat-label>Maximum marks</mat-label>
@@ -47,7 +47,7 @@
                     </div>
                     <div class="col-md-6">
                         <div class="mb-2">
-                            <i class="bi bi-question-circle-fill"></i><strong class="ms-2">Give the number of Question</strong>
+                            <i class="bi bi-question-circle-fill" style="color: #89929b;"></i><strong class="ms-2" style="color: #89929b;">Give the number of Question</strong>
                         </div>
                         <mat-form-field class="w-100" appearance="outline">
                             <mat-label>Number of questions</mat-label>
@@ -81,11 +81,11 @@
 
                 <div class="container d-flex justify-content-between align-items-center">
                     <button class=" btn-save mt-3" [disabled]="formGroup.invalid">Save new Quizz<i class="bi bi-cloud-download-fill ms-2"></i></button>
-                    <a class="nav-link" routerLink="/admin/quizzes"><i class="bi bi-arrow-left-circle-fill"></i><strong class="ms-2">Back to Quiz List</strong></a>
+                    <a class="nav-link" routerLink="/admin/quizzes"><i class="bi bi-arrow-left-circle-fill" style="color: #89929b;"></i><strong class="ms-2" style="color: #89929b;">Back to Quiz List</strong></a>
                 </div>
             </form>
             <div class="mb-3">
-                <i>* This field is requiered!</i>
+                <i style="color: #89929b;">* This field is requiered!</i>
             </div>
         </div>
     </div>
