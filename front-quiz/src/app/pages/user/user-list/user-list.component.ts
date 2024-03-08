@@ -54,7 +54,11 @@ export class UserListComponent implements OnInit{
   }
 
   unsubscribe(user: any) {
-    
+    this.userService.unsubscribe(user.email, this.profile.email).subscribe({
+      next: response=> {
+        window.location.reload();
+      }
+    })
   }
 
   filterUser() {

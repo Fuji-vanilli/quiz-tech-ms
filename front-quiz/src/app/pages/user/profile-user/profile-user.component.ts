@@ -230,7 +230,11 @@ export class ProfileUserComponent implements OnInit{
   }
 
   unsubscribe() {
-    
+    this.userService.unsubscribe(this.user.email, this.profile.email).subscribe({
+      next: response=> {
+        window.location.reload();
+      }
+    })
   }
   
 }

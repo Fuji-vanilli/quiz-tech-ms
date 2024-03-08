@@ -5,7 +5,7 @@
                 <div class="col-md-9 content">
                     <div class="row">
                         <div>
-                            <h4 class="mt-3">Your Subscribers</h4>
+                            <h4 class="mt-3" *ngIf="usersSubscriber.length> 0">Your Subscribers</h4>
                         </div>
                         <div class="col-md-3" *ngFor="let user of usersSubscriber">
                             <div class="card-user text-center">
@@ -23,7 +23,7 @@
                             </div>
                         </div>
                         <div>
-                            <h4>Suggestion to subscribe</h4>
+                            <h4 class="mt-2">Suggestion to subscribe</h4>
                         </div>
                         <div class="col-md-3" *ngFor="let user of usersNoSubscriber">
                             <div class="card-user text-center">
@@ -37,9 +37,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3 content-right">
-                    <div class="fixedd-right">
-                        Test
+                <div class="col-md-3">
+                    <div class="row">
+                        <div class="col-md-12 content-right">
+                            
+                        </div>
                     </div>
                 </div>
             </div>
