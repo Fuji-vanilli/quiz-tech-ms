@@ -10,6 +10,7 @@ import { User } from '../../models/user.model';
 export class UserListComponent implements OnInit{
 
   users: User[]= [];
+  follow: string= 'Follow';
 
   constructor(private userService: UserService ) {}
 
@@ -29,5 +30,9 @@ export class UserListComponent implements OnInit{
         
       }
     })
+  }
+
+  following() {
+    this.follow= 'Followed';
   }
 }

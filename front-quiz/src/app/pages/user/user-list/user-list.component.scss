@@ -3,6 +3,10 @@
     background: transparent;
 }
 
+a {
+    cursor: pointer;
+}
+
 .content {
     background: #21262d;
     border-radius: 8px;
@@ -24,6 +28,36 @@
 
 .content .card-user h3 {
     color: #fff;
+
+    a:hover {
+        color: #77bdfb;
+        text-decoration: underline;
+    }
+}
+
+.content .card-user span {
+    font-size: 12px;
+    color: #89929b;
+    margin-bottom: 14px;
+    height: 3rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+.btn-follow {
+    width: 100%;
+    border: 0;
+    border-radius: 8px;
+    padding: 8px 16px;
+    margin-top: 16px;
+    background: #77bdfb;
+}
+
+.btn-follow:hover {
+    opacity: .7;
 }
 
 

@@ -1,9 +1,15 @@
 <div class="contain mt-5">
     <div class="row">
-        <div class="col-md-6 content">
-            <div class="card-user" *ngFor="let user of users">
-                <img [src]="user.photo" alt="">
-                <h3 class="mt-2">{{user.firstname+' '+user.lastname}}</h3>
+        <div class="col-md-8 content">
+            <div class="row">
+                <div class="col-md-3" *ngFor="let user of users">
+                    <div class="card-user text-center">
+                        <img [src]="user.photo" alt="">
+                        <h3 class="mt-2"><a class="nav-link" [routerLink]="'/user/profile/'+user.email">{{user.firstname+' '+user.lastname}}</a></h3>
+                        <span>{{user.description}}</span>
+                        <button class="btn-follow" (click)="following()" ><i class="bi bi-patch-plus-fill" style="margin-right: 10px;"></i>{{follow}}</button>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="col-md-3 content-right">
