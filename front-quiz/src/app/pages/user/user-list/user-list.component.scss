@@ -105,6 +105,27 @@ a {
     padding: 0 16px;
 }
 
-.fixed-right {
+.card-right {
     background: #21262d;
+    border-radius: 8px;
+    padding: 16px;
+}
+
+.card-right h4 {
+    color: #fff;
+}
+
+.card-right a {
+    color: #89929b;
+    margin-bottom: 16px;
+
+    i {
+        margin-right: 12px;
+        font-size: 20px;
+    }
+}
+
+.card-right span {
+    color: #faa356;
+    font-size: 14px;
 }
