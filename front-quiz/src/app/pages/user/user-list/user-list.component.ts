@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 import { User } from '../../models/user.model';
+import { KeycloakProfile } from 'keycloak-js';
+import { KeycloakService } from 'keycloak-angular';
 
 @Component({
   selector: 'app-user-list',
@@ -12,9 +14,17 @@ export class UserListComponent implements OnInit{
   users: User[]= [];
   isFollow: boolean= false;
 
-  constructor(private userService: UserService ) {}
+  profile!: KeycloakProfile;
+
+  constructor(private userService: UserService,
+              private keycloakService: KeycloakService ) {}
 
   ngOnInit(): void {
+    this.keycloakService.loadUserProfile().then(
+      profile=> {
+        this.profile= profile;
+      }
+    )
     this.loadUser();
   }
 
@@ -30,9 +40,5 @@ export class UserListComponent implements OnInit{
         
       }
     })
-  }
-
-  following(user: any) {
-    this.isFollow= !this.isFollow;
   }
 }

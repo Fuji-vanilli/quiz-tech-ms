@@ -30,6 +30,7 @@ export class ProfileUserComponent implements OnInit{
   user!: User;
 
   isCurrentUser: boolean= false;
+  isSubscriber: boolean= false;
 
   @ViewChild("chart") chart!: ChartComponent;
   public chartOptions: Partial<ChartOptions>;
@@ -87,7 +88,11 @@ export class ProfileUserComponent implements OnInit{
           this.emailUser= email;
         }
 
-        this.loadUser();
+        this.loadUser(email);
+
+        if (this.user.subscribes?.includes(email)) {
+          this.isSubscriber= true;
+        }
       }
     )
     this.loadProfile();
@@ -100,19 +105,17 @@ export class ProfileUserComponent implements OnInit{
         if (this.emailUser=== this.profile.email) {
           this.isCurrentUser= true;
         }
-
+        
         this.loadResultSummary(profile.email);
       }
     )
   }
 
-  loadUser() {
+  loadUser(email: any) {
     this.userService.fetchByEmail(this.emailUser).subscribe({
       next: response=> {
         this.user= response.data.user;
-        this.userService.userTemp= this.user;
-
-        console.log('user'+response.data.user);
+        this.userService.userTemp= this.user;       
         
       },
       error: err=> {
@@ -209,5 +212,22 @@ export class ProfileUserComponent implements OnInit{
     }
   }
 
+  subscribe() {
+    this.userService.subscribe(this.emailUser, this.profile.email).subscribe({
+      next: response=> {
+        this.snackBar.open("Subscribed", "OK", {
+          horizontalPosition: this.horizontalPosition,
+          verticalPosition: this.verticalPosition,
+          duration: 5000
+        });
+        window.location.reload()
+        
+      },
+      error: err=> {
+        console.log(err);
+        
+      }
+    })
+  }
   
 }

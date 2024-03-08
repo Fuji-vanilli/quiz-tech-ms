@@ -7,8 +7,9 @@
                         <img [src]="user.photo" alt="">
                         <h3 class="mt-2"><a class="nav-link" [routerLink]="'/user/profile/'+user.email">{{user.firstname+' '+user.lastname}}</a></h3>
                         <span>{{user.description}}</span>
-                        <button class="btn-follow" (click)="following(user)" >
-                            <i class="bi bi-patch-plus-fill" style="margin-right: 10px;"></i>{{isFollow? 'Subscriber': 'Subscribe'}}
+                        <button class="btn-follow">
+                            <i class="bi bi-patch-plus-fill" style="margin-right: 10px;"></i>
+                            {{user.subscribes?.includes(profile.email)}}
                         </button>
                     </div>
                 </div>

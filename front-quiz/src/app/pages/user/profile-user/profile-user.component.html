@@ -3,6 +3,7 @@
         <div class="col-md-10 offset-md-1 mt-3 content">
             <div class="row">
                 <div class="col-md-3 content-left">
+                    <h4></h4>
                     <div class="image-profile">
                         <img [src]="user.photo" alt="">
                         <a class="nav-link" data-toggle="modal" data-target="#exampleModal" *ngIf="isCurrentUser"><i class="bi bi-camera-fill"></i></a>
@@ -21,7 +22,9 @@
                         <button class="btn-edit-profile" routerLink="/user/edit-profile">Edit profile</button>
                     </div>
                     <div class="edit-profile" *ngIf="!isCurrentUser">
-                        <button class="btn-edit-profile" routerLink="/user/edit-profile"><i class="bi bi-patch-plus-fill" style="margin-right: 10px;"></i>Subscribe</button>
+                        <button class="btn-subscribe" (click)="subscribe()">
+                            <i class="bi bi-patch-plus-fill" style="margin-right: 10px;"></i>{{isSubscriber? 'Subscriber': 'Subscribe'}}
+                        </button>
                     </div>
 
                     <div class="followers mt-4 d-flex justify-content-between">
