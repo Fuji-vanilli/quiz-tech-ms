@@ -3,6 +3,7 @@
         <div class="col-md-6 content">
             <div class="card-user" *ngFor="let user of users">
                 <img [src]="user.photo" alt="">
+                <h3 class="mt-2">{{user.firstname+' '+user.lastname}}</h3>
             </div>
         </div>
         <div class="col-md-3 content-right">

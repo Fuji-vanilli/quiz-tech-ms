@@ -6,8 +6,25 @@
 .content {
     background: #21262d;
     border-radius: 8px;
+    margin-right: 16px;
 }
 
+.content .card-user {
+    border: 1px solid #89929b;
+    border-radius: 8px;
+    padding: 12px;
+    margin-top: 12px;
+}
+
+.content .card-user img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.content .card-user h3 {
+    color: #fff;
+}
 
 
 
