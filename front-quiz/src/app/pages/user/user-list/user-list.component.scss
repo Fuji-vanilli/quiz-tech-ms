@@ -10,7 +10,7 @@ a {
 .content {
     background: #21262d;
     border-radius: 8px;
-    margin-right: 16px;
+
 }
 
 .content h4 {
@@ -68,7 +68,7 @@ a {
     border-radius: 8px;
     padding: 8px 16px;
     margin-top: 16px;
-    background: #77bdfb;
+    background: #faa356;
     color: #21262d;
     font-family: 'Ubuntu';
 }
@@ -83,7 +83,7 @@ a {
     border-radius: 8px;
     padding: 8px 16px;
     margin-top: 16px;
-    background: #faa356;
+    background: #77bdfb;
     color: #21262d;
     font-family: 'Ubuntu';
 }
@@ -96,6 +96,11 @@ a {
 
 
 .content-right {
-    background: #21262d;
+    background: transparent;
     border-radius: 8px;
+    padding: 0 16px;
+}
+
+.fixed-right {
+    background: #21262d;
 }

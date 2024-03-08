@@ -1,42 +1,48 @@
-<div class="contain mt-5">
+<div class="contain mt-4">
     <div class="row">
-        <div class="col-md-8 content">
+        <div class="col-md-12 mt-2">
             <div class="row">
-                <div>
-                    <h4 class="mt-3">Your Subscribers</h4>
-                </div>
-                <div class="col-md-3" *ngFor="let user of usersSubscriber">
-                    <div class="card-user text-center">
+                <div class="col-md-9 content">
+                    <div class="row">
                         <div>
-                            <img [src]="user.photo" alt="">
+                            <h4 class="mt-3">Your Subscribers</h4>
                         </div>
-                        <h3 class="mt-2"><a class="nav-link" [routerLink]="'/user/profile/'+user.email">{{user.firstname+' '+user.lastname}}</a></h3>
-                        <span>{{user.description}}</span>
-                        <button class="btn-subscriber" (click)="unsubscribe(user)">
-                            <i class="bi bi-check-circle-fill" style="margin-right: 10px; font-size: 16px;"></i>Unsubscribe
-                        </button>
-                        <div class="subscribe-check">
-                            <i class="bi bi-check-circle-fill" style="margin-right: 10px; font-size: 16px;"></i>
+                        <div class="col-md-3" *ngFor="let user of usersSubscriber">
+                            <div class="card-user text-center">
+                                <div>
+                                    <img [src]="user.photo" alt="">
+                                </div>
+                                <h3 class="mt-2"><a class="nav-link" [routerLink]="'/user/profile/'+user.email">{{user.firstname+' '+user.lastname}}</a></h3>
+                                <span>{{user.description}}</span>
+                                <button class="btn-subscriber" (click)="unsubscribe(user)">
+                                    <i class="bi bi-person-dash-fill" style="margin-right: 10px; font-size: 18px;"></i>Unsubscribe
+                                </button>
+                                <div class="subscribe-check">
+                                    <i class="bi bi-check-circle-fill" style="margin-right: 10px; font-size: 16px;"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <h4>Suggestion to subscribe</h4>
+                        </div>
+                        <div class="col-md-3" *ngFor="let user of usersNoSubscriber">
+                            <div class="card-user text-center">
+                                <img [src]="user.photo" alt="">
+                                <h3 class="mt-2"><a class="nav-link" [routerLink]="'/user/profile/'+user.email">{{user.firstname+' '+user.lastname}}</a></h3>
+                                <span>{{user.description}}</span>
+                                <button class="btn-subscribe" (click)="subscribe(user)">
+                                    <i class="bi bi-patch-plus-fill" style="margin-right: 10px; font-size: 16px;"></i>Subscribe
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div>
-                    <h4>Suggestion to subscribe</h4>
-                </div>
-                <div class="col-md-3" *ngFor="let user of usersNoSubscriber">
-                    <div class="card-user text-center">
-                        <img [src]="user.photo" alt="">
-                        <h3 class="mt-2"><a class="nav-link" [routerLink]="'/user/profile/'+user.email">{{user.firstname+' '+user.lastname}}</a></h3>
-                        <span>{{user.description}}</span>
-                        <button class="btn-subscribe" (click)="subscribe(user)">
-                            <i class="bi bi-patch-plus-fill" style="margin-right: 10px; font-size: 16px;"></i>Subscribe
-                        </button>
+                <div class="col-md-3 content-right">
+                    <div class="fixedd-right">
+                        Test
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col-md-3 content-right">
-
         </div>
     </div>
 </div>

@@ -89,10 +89,6 @@ export class ProfileUserComponent implements OnInit{
         }
 
         this.loadUser(email);
-
-        if (this.user.subscribes?.includes(email)) {
-          this.isSubscriber= true;
-        }
       }
     )
     this.loadProfile();
@@ -105,7 +101,7 @@ export class ProfileUserComponent implements OnInit{
         if (this.emailUser=== this.profile.email) {
           this.isCurrentUser= true;
         }
-        
+       
         this.loadResultSummary(profile.email);
       }
     )
@@ -117,6 +113,9 @@ export class ProfileUserComponent implements OnInit{
         this.user= response.data.user;
         this.userService.userTemp= this.user;       
         
+        if (this.user.subscribers?.includes(this.profile.email)) {
+          this.isSubscriber= true;
+        }
       },
       error: err=> {
         console.log(err);
@@ -228,6 +227,10 @@ export class ProfileUserComponent implements OnInit{
         
       }
     })
+  }
+
+  unsubscribe() {
+    
   }
   
 }

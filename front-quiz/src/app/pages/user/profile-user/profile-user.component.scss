@@ -84,6 +84,21 @@ a {
     opacity: .7;
 }
 
+.btn-unsubscribe {
+    background: #faa356;
+    color: #333;
+    width: 100%;
+    padding: 8px 18px;
+    font-weight: 600;
+    border: 0;
+    border-radius: 8px;
+}
+
+.btn-subscribe:hover {
+    opacity: .7;
+}
+
+
 .followers {
     color: #89929b;
 }

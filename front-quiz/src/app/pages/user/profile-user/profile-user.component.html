@@ -22,8 +22,11 @@
                         <button class="btn-edit-profile" routerLink="/user/edit-profile">Edit profile</button>
                     </div>
                     <div class="edit-profile" *ngIf="!isCurrentUser">
-                        <button class="btn-subscribe" (click)="subscribe()">
-                            <i class="bi bi-patch-plus-fill" style="margin-right: 10px;"></i>{{isSubscriber? 'Subscriber': 'Subscribe'}}
+                        <button class="btn-subscribe" (click)="subscribe()" *ngIf="!isSubscriber">
+                            <i class="bi bi-patch-plus-fill" style="margin-right: 10px; font-size: 18px;"></i>Subscribe
+                        </button>
+                        <button class="btn-unsubscribe" (click)="unsubscribe()" *ngIf="isSubscriber">
+                            <i class="bi bi-person-dash-fill " style="margin-right: 10px; font-size: 18px;"></i>Unsubscribe
                         </button>
                     </div>
 
