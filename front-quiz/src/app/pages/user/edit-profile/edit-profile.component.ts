@@ -26,7 +26,6 @@ export class EditProfileComponent implements OnInit {
 
   profile!: KeycloakProfile;
 
-  
   constructor(private formBuilder: FormBuilder,
               private userService: UserService,
               private keycloakService: KeycloakService,

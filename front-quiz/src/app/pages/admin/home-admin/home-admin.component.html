@@ -8,18 +8,26 @@
                 <h2>Total users: {{users.length}}</h2>
             </div>
             <div class="card-user" *ngFor="let user of users">
-                <div class="header">
+                <div class="header d-flex justify-content-between align-items-center">
+                   <div>
                     <img [src]="user.photo" alt="">
-                    <span>{{user.firstname}}</span>
+                    <a [routerLink]="'/user/profile/'+user.email"><span>{{user.firstname}}</span></a>
+                    <button class="btn-type-connection">admin</button>
+                   </div>
+                   <div>
+                    <i class="bi bi-person-fill-gear" style="color: #89929b; font-size: 16px;"></i>
+                   </div>
                 </div>
-                <div class="mt-2 details">
+                <div class="mt-2 details d-flex justify-content-between align-items-center">
                     <div>
                         <i class="bi bi-star-fill" style="color: #faa356; margin-right: 14px;"></i>
                         <span style="margin-right: 16px;">3</span>
                         <span>max score: <strong>15%</strong></span>
                     </div>
                     <div class="div">
-                        <a class="nav-link" (click)="deleteUser(user)"></a>
+                        <a class="nav-link" (click)="deleteUser(user)">
+                            <i class="bi bi-trash3" style="color: #fa7970;"></i>
+                        </a>
                     </div>
                 </div>
             </div>

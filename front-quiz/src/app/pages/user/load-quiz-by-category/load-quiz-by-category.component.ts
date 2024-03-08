@@ -26,8 +26,16 @@ export class LoadQuizByCategoryComponent {
               private routerActive: ActivatedRoute) {}
 
   ngOnInit(): void {
-    this.categoryId= this.routerActive.snapshot.params['categoryId'];
-    this.loadCategory();
+    this.routerActive.paramMap.subscribe(
+      params=> {
+        const categoryId= params.get('categoryId');
+        if (categoryId) {
+          this.categoryId= categoryId;
+        }
+
+        this.loadCategory();
+      }
+    )
     this.loadQuizzes();
     this.loadCategories();
   }

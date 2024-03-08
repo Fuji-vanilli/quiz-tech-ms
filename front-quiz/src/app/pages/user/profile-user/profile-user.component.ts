@@ -8,6 +8,7 @@ import { EditProfileComponent } from '../edit-profile/edit-profile.component';
 import { User } from '../../models/user.model';
 import { UserService } from 'src/app/services/user.service';
 import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
+import { ActivatedRoute } from '@angular/router';
 
 export type ChartOptions = {
   series: ApexAxisChartSeries;
@@ -28,6 +29,8 @@ export class ProfileUserComponent implements OnInit{
   profile!: KeycloakProfile;
   user!: User;
 
+  isCurrentUser: boolean= false;
+
   @ViewChild("chart") chart!: ChartComponent;
   public chartOptions: Partial<ChartOptions>;
 
@@ -44,9 +47,12 @@ export class ProfileUserComponent implements OnInit{
 
   selectImage: any;
 
+  emailUser!: string;
+
   constructor(private keycloakService: KeycloakService,
               private resultQuiz: ResultQuizService,
               private userService: UserService,
+              private activateRoute: ActivatedRoute,
               private dialog: MatDialog,
               private snackBar: MatSnackBar) {
     this.chartOptions = {
@@ -74,24 +80,40 @@ export class ProfileUserComponent implements OnInit{
 }  
   
   ngOnInit(): void {
+    //this.emailUser= this.activateRoute.snapshot.params['email'];
+    this.activateRoute.paramMap.subscribe(
+      params=> {
+        const email= params.get('email');
+        if (email) {
+          this.emailUser= email;
+        }
+
+        this.loadUser();
+      }
+    )
     this.loadProfile();
+    //this.loadUser();
   }
 
   loadProfile() {
     this.keycloakService.loadUserProfile().then(
       profile=> {
         this.profile= profile
+        if (this.emailUser=== this.profile.email) {
+          this.isCurrentUser= true;
+        }
+
         this.loadResultSummary(profile.email);
-        this.loadUser(profile.email);
       }
     )
   }
 
-  loadUser(email: any) {
-    this.userService.fetchByEmail(email).subscribe({
+  loadUser() {
+    this.userService.fetchByEmail(this.emailUser).subscribe({
       next: response=> {
         this.user= response.data.user;
         this.userService.userTemp= this.user;
+
         console.log('user'+response.data.user);
         
       },

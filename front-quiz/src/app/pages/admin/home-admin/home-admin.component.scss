@@ -3,9 +3,23 @@
     margin-right: 24px;
 }
 
+a {
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.content-left {
+    margin-bottom: 24px;
+    background: transparent;
+}
+
+
+/**/
+
 .content-right {
     background: transparent;
     border-radius: 10px;
+    margin-bottom: 24px;
 }
 
 .content-right h2 {
@@ -17,6 +31,15 @@
     padding: 16px;
     margin-top: 14px;
     border-radius: 8px;
+}
+
+.btn-type-connection {
+    border: 1px solid #21262d;
+    background: transparent;
+    color: #89929b;
+    border-radius: 20px;
+    margin-left: 16px;
+    padding: 0 8px;
 }
 
 .content-right .card-user .header  img {
@@ -34,10 +57,7 @@
     color: #89929b;
 }
 
-
-
-
-.content-right {
-    background: transparent;
-    border-radius: 10px;
+.content-right .card-user a:hover {
+    text-decoration: underline;
+    color: #77bdfb;
 }

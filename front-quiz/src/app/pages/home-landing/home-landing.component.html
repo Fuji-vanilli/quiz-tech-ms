@@ -32,16 +32,19 @@
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
-        <div class="modal-header">
-          <h4 class="modal-title" id="exampleModalLabel">Connect or Registry</h4>
-        </div>
         <div class="modal-body">
-            <h2 class="text-center">You need to be Indentified for Start Explore</h2>
+            <h3 class="text-center">You need to be Indentified to Start Explore</h3>
         </div>
-        <div class="modal-footer">
-          <button (click)="login()" class="btn btn-secondary" data-dismiss="modal">Login</button>
-          <button (click)="register()" class="btn btn-primary">Register</button>
+
+        <div class="d-flex justify-content-between align-items-center footer-btn">
+            <button (click)="login()" class="btn-login" data-dismiss="modal">
+                <i class="bi bi-box-arrow-in-right" style="margin-right: 10px; font-size: 18px;"></i>Login
+            </button>
+            <button (click)="register()" class="btn-register">
+                <i class="bi bi-pencil-square" style="margin-right: 10px; font-size: 18px;"></i>Register
+            </button>
         </div>
+
       </div>
     </div>
   </div>
