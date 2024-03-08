@@ -13,12 +13,26 @@ a {
     margin-right: 16px;
 }
 
+.content h4 {
+    color: #fff;
+}
+
 .content .card-user {
+    position: relative;
     border: 1px solid #414654;
     border-radius: 8px;
     padding: 12px;
     margin-top: 12px;
     margin-bottom: 16px;
+}
+
+.content .card-user .subscribe-check {
+    position: absolute;
+    top: 10px;
+    right: 6px;
+    i {
+        color: #77bdfb;
+    }
 }
 
 .content .card-user img {
@@ -48,7 +62,7 @@ a {
     -webkit-line-clamp: 2;
 }
 
-.btn-follow {
+.btn-subscriber {
     width: 100%;
     border: 0;
     border-radius: 8px;
@@ -59,9 +73,25 @@ a {
     font-family: 'Ubuntu';
 }
 
-.btn-follow:hover {
+.btn-subscriber:hover {
     opacity: .7;
 }
+
+.btn-subscribe {
+    width: 100%;
+    border: 0;
+    border-radius: 8px;
+    padding: 8px 16px;
+    margin-top: 16px;
+    background: #faa356;
+    color: #21262d;
+    font-family: 'Ubuntu';
+}
+
+.btn-subscribe:hover {
+    opacity: .7;
+}
+
 
 
 

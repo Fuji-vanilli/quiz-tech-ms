@@ -35,7 +35,7 @@ export class UserListComponent implements OnInit{
     this.userService.fetchAll().subscribe({
       next: response=> {
         this.users= response.data.users
-        console.log('users: ', this.users);
+        this.filterUser();
         
       },
       error: err=> {
@@ -51,6 +51,10 @@ export class UserListComponent implements OnInit{
         window.location.reload();
       }
     })
+  }
+
+  unsubscribe(user: any) {
+    
   }
 
   filterUser() {
