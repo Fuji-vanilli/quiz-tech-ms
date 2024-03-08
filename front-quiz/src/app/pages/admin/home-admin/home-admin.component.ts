@@ -1,9 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { User } from '../../models/user.model';
 import { UserService } from 'src/app/services/user.service';
 import { Result } from '../../models/result.model';
 import { ResultQuizService } from 'src/app/services/result-quiz.service';
 import Swal from 'sweetalert2';
+import { Category } from '../../models/category.model';
+import { Quiz } from '../../models/quiz.model';
+import { CategoryApiService } from 'src/app/services/category-api.service';
+import { QuizApiService } from 'src/app/services/quiz-api.service';
+import { ApexAxisChartSeries, ApexChart, ApexDataLabels, ApexFill, ApexLegend, ApexPlotOptions, ApexResponsive, ApexXAxis, ChartComponent } from 'ng-apexcharts';
+
+export type ChartOptions = {
+  series: ApexAxisChartSeries;
+  chart: ApexChart;
+  dataLabels: ApexDataLabels;
+  plotOptions: ApexPlotOptions;
+  responsive: ApexResponsive[];
+  xaxis: ApexXAxis;
+  legend: ApexLegend;
+  fill: ApexFill;
+};
 
 @Component({
   selector: 'app-home-admin',
@@ -11,15 +27,94 @@ import Swal from 'sweetalert2';
   styleUrls: ['./home-admin.component.scss']
 })
 export class HomeAdminComponent implements OnInit{
+  @ViewChild("chart") chart!: ChartComponent;
+  public chartOptions: Partial<ChartOptions>;
+
 
   users: User[]= [];
+  categories: Category[]= [];
+  quizzes: Quiz[]= [];
+
   results: Result[]= [];
 
   constructor(private userService: UserService,
-              private resultService: ResultQuizService) {}
+              private categoryService: CategoryApiService,
+              private quizService: QuizApiService,
+              private resultService: ResultQuizService) {
+
+
+                this.chartOptions = {
+                  series: [
+                    {
+                      name: "PRODUCT A",
+                      data: [44, 55, 41, 67, 22, 43]
+                    },
+                    {
+                      name: "PRODUCT B",
+                      data: [13, 23, 20, 8, 13, 27]
+                    },
+                    {
+                      name: "PRODUCT C",
+                      data: [11, 17, 15, 15, 21, 14]
+                    },
+                    {
+                      name: "PRODUCT D",
+                      data: [21, 7, 25, 13, 22, 8]
+                    }
+                  ],
+                  chart: {
+                    type: "bar",
+                    height: 350,
+                    stacked: true,
+                    toolbar: {
+                      show: true
+                    },
+                    zoom: {
+                      enabled: true
+                    }
+                  },
+                  responsive: [
+                    {
+                      breakpoint: 480,
+                      options: {
+                        legend: {
+                          position: "bottom",
+                          offsetX: -10,
+                          offsetY: 0
+                        }
+                      }
+                    }
+                  ],
+                  plotOptions: {
+                    bar: {
+                      horizontal: false
+                    }
+                  },
+                  xaxis: {
+                    type: "category",
+                    categories: [
+                      "01/2011",
+                      "02/2011",
+                      "03/2011",
+                      "04/2011",
+                      "05/2011",
+                      "06/2011"
+                    ]
+                  },
+                  legend: {
+                    position: "right",
+                    offsetY: 40
+                  },
+                  fill: {
+                    opacity: 1
+                  }
+                };
+              }
 
   ngOnInit(): void {
     this.loadUser();
+    this.loadCategory();
+    this.loadQuizzes();
   }
 
   loadUser() {
@@ -35,6 +130,31 @@ export class HomeAdminComponent implements OnInit{
       }
     })
   }
+
+  loadCategory() {
+    this.categoryService.fetchAll(0, 30).subscribe({
+      next: response=> {
+        this.categories= response.data.categories;
+      },
+      error: err=> {
+        console.log(err);
+        
+      }
+    })
+  }
+
+  loadQuizzes() {
+    this.quizService.fetchAll(0, 30).subscribe({
+      next: response=> {
+        this.quizzes= response.data.quizzes;
+      },
+      error: err=> {
+        console.log(err);
+        
+      }
+    })
+  }
+
 
   loadResult() {
     this.resultService.fetchAll().subscribe({

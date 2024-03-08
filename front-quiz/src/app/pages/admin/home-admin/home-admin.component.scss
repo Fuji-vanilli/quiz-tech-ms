@@ -13,8 +13,105 @@ a {
     background: transparent;
 }
 
-.card-user i {
+.card-users {
+    padding-top: 16PX;
+    border-radius: 12px;
+    background: #fff;
+}
+
+.card-users i {
     font-size: 56px;
+    color: #77bdfb;
+}
+
+.card-users .user-details-2 {
+    background: #77bdfb;
+    font-weight: 600;
+    color: #fff;
+    padding: 18px;
+}
+
+.card-users .user-details span {
+    font-size: 28px;
+    color: #77bdfb;
+}
+/**/
+.card-categories {
+    padding-top: 16PX;
+    border-radius: 12px;
+    background: #fff;
+}
+
+.card-categories i {
+    font-size: 56px;
+    color: #fa7970;
+}
+
+.card-categories .category-details-2 {
+    background: #fa7970;
+    font-weight: 600;
+    color: #fff;
+    padding: 18px;
+}
+
+.card-categories .category-details span {
+    font-size: 28px;
+    color: #fa7970;
+}
+
+/**/
+.card-quizzes {
+    padding-top: 16PX;
+    border-radius: 12px;
+    background: #fff;
+}
+
+.card-quizzes i {
+    font-size: 56px;
+    color: #7ce38b;
+}
+
+.card-quizzes .quiz-details-2 {
+    background: #7ce38b;
+    font-weight: 600;
+    color: #fff;
+    padding: 18px;
+}
+
+.card-quizzes .quiz-details span {
+    font-size: 28px;
+    color: #7ce38b;
+}
+
+/**/
+.card-contest {
+    padding-top: 16PX;
+    border-radius: 12px;
+    background: #fff;
+}
+
+.card-contest i {
+    font-size: 56px;
+    color: #cea5fb;
+}
+
+.card-contest .contest-details-2 {
+    background: #cea5fb;
+    font-weight: 600;
+    color: #fff;
+    padding: 18px;
+}
+
+.card-contest .contest-details span {
+    font-size: 28px;
+    color: #cea5fb;
+}
+
+.content-chart {
+    background: transparent;
+    border-radius: 10px;
+    margin: 16px 2px;
+    padding: 16px;
 }
 
 /**/

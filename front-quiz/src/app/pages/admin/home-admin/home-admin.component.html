@@ -1,12 +1,70 @@
 <div class="contain mt-5">
     <div class="row">
         <div class="col-md-9 content-left">
-            <div class="row">
-                <div class="col-md">
-                    <div class="card-user">
+            <div class="row card-important">
+                <div class="col-md-3">
+                    <div class="card-users text-center">
                         <i class="bi bi-person-fill-check"></i>
+                        <div class="user-details mt-5">
+                            <span>{{users.length}}</span>
+                        </div>
+                        <div class="user-details-2 mt-2">
+                            <span>USERS</span>
+                        </div>
                     </div>
-                </div>-3
+                </div>
+                <div class="col-md-3 ">
+                    <div class="card-categories text-center">
+                        <i class="bi bi-bag-check-fill"></i>
+                        <div class="category-details mt-5">
+                            <span>{{categories.length}}</span>
+                        </div>
+                        <div class="category-details-2 mt-2">
+                            <span>CATEGORIES</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card-quizzes text-center">
+                        <i class="bi bi-chat-left-dots-fill"></i>
+                        <div class="quiz-details mt-5">
+                            <span>{{quizzes.length}}</span>
+                        </div>
+                        <div class="quiz-details-2 mt-2">
+                            <span>QUIZZES</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card-contest text-center">
+                        <i class="bi bi-trophy-fill"></i>
+                        <div class="contest-details mt-5">
+                            <span>1200</span>
+                        </div>
+                        <div class="contest-details-2 mt-2">
+                            <span>CONTEST</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="content-chart">
+                        <div id="chart" style="background: #21262d;">
+                            <apx-chart
+                              [series]="chartOptions.series!"
+                              [chart]="chartOptions.chart!"
+                              [dataLabels]="chartOptions.dataLabels!"
+                              [plotOptions]="chartOptions.plotOptions!"
+                              [responsive]="chartOptions.responsive!"
+                              [xaxis]="chartOptions.xaxis!"
+                              [legend]="chartOptions.legend!"
+                              [fill]="chartOptions.fill!"
+                            ></apx-chart>
+                          </div>
+                    </div>
+                </div>
             </div>
            
         </div>
