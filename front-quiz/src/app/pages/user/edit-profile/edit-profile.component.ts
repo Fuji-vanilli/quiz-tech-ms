@@ -112,7 +112,7 @@ export class EditProfileComponent implements OnInit {
     this.userService.updateUser(userData).subscribe({
       next: response=> {
         Swal.fire("Updated", "Profile updated successfully!", "success");
-        this.route.navigateByUrl('/user/profile')
+        this.route.navigateByUrl('/user/profile/'+this.user.email);
       },
       error: err=> {
         console.log(err);
