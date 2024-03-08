@@ -1,1 +1,12 @@
-<p>user-list works!</p>
+<div class="contain mt-5">
+    <div class="row">
+        <div class="col-md-6 content">
+            <div class="card-user" *ngFor="let user of users">
+                <img [src]="user.photo" alt="">
+            </div>
+        </div>
+        <div class="col-md-3 content-right">
+
+        </div>
+    </div>
+</div>
