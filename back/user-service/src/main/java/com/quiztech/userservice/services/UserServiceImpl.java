@@ -174,7 +174,10 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public Response toSubscribe(String emailSubscriber, String emailToSubscribe) {
+    public Response toSubscribe(Map<String, String> email) {
+        String emailToSubscribe= email.get("emailToSubscribe");
+        String emailSubscriber= email.get("emailSubscriber");
+
         Optional<User> userOptional1= userRepository.findByEmail(emailToSubscribe);
         Optional<User> userOptional2 = userRepository.findByEmail(emailSubscriber);
         if (userOptional1.isEmpty() || userOptional2.isEmpty()) {
@@ -188,12 +191,26 @@ public class UserServiceImpl implements UserService{
         }
 
         User userToSubscribe= userOptional1.get();
-        User userSubscriber= userOptional1.get();
+        User userSubscriber= userOptional2.get();
+
+        if (userToSubscribe.getSubscribers().contains(emailSubscriber)) {
+            log.error("Sorry! the user is already subscribe on this account");
+            return generateResponse(
+                    HttpStatus.BAD_REQUEST,
+                    null,
+                    null,
+                    "Sorry! the user is already subscribe on this account"
+            );
+        }
 
         userToSubscribe.getSubscribers().add(emailSubscriber);
-        userToSubscribe.getNumberOfSubscribers().add(new BigDecimal(1));
+        userSubscriber.getSubscribes().add(emailToSubscribe);
 
-        userSubscriber.getNumberOfSubscribes().add(new BigDecimal(1));
+        BigDecimal addToSubscribers = userToSubscribe.getNumberOfSubscribers().add(new BigDecimal(1));
+        BigDecimal addToSubscribes = userSubscriber.getNumberOfSubscribes().add(new BigDecimal(1));
+
+        userToSubscribe.setNumberOfSubscribers(addToSubscribers);
+        userSubscriber.setNumberOfSubscribes(addToSubscribes);
 
         userRepository.save(userSubscriber);
         userRepository.save(userToSubscribe);

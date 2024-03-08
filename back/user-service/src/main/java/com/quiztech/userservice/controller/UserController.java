@@ -5,6 +5,8 @@ import com.quiztech.userservice.utils.Response;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Map;
+
 public interface UserController {
     @PostMapping("add")
     ResponseEntity<Response> add(@RequestBody UserRequest request);
@@ -16,4 +18,7 @@ public interface UserController {
     ResponseEntity<Response> all();
     @DeleteMapping("delete/{id}")
     ResponseEntity<Response> delete(@PathVariable String id);
+
+    @PatchMapping("subscribe")
+    ResponseEntity<Response> toSubscribe(@RequestBody Map<String, String> email);
 }

@@ -38,6 +38,7 @@ public class UserMapperImpl implements  UserMapper{
                 .description(user.getDescription())
                 .organisations(user.getOrganisations())
                 .subscribers(user.getSubscribers())
+                .subscribes(user.getSubscribes())
                 .numberOfSubscribers(user.getNumberOfSubscribers())
                 .numberOfSubscribes(user.getNumberOfSubscribes())
                 .linkNetwork(user.getLinkNetwork())

@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Map;
+
 import static com.quiztech.userservice.utils.Root.APP_ROOT;
 
 @RestController
@@ -42,5 +44,10 @@ public class UserApi implements UserController {
     @Override
     public ResponseEntity<Response> delete(String id) {
         return ResponseEntity.ok(userService.delete(id));
+    }
+
+    @Override
+    public ResponseEntity<Response> toSubscribe(Map<String, String> email) {
+        return ResponseEntity.ok(userService.toSubscribe(email));
     }
 }

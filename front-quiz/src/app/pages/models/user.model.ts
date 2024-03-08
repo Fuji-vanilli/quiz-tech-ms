@@ -14,4 +14,8 @@ export interface User {
     followers?: number,
     following?: number,
     linkNetwork?: any[];
+    subscribers?: any[];
+    subscribes?: any[];
+    numberOfSubscribes?: number,
+    numberOfSubscribers?: number
 }

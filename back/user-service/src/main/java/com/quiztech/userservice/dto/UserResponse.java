@@ -27,4 +27,5 @@ public class UserResponse {
     private BigDecimal numberOfSubscribes= new BigDecimal(0);
     private List<String> linkNetwork= new ArrayList<>();
     private List<String> subscribers= new ArrayList<>();
+    private List<String> subscribes= new ArrayList<>();
 }
