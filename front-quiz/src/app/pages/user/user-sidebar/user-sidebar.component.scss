@@ -99,6 +99,14 @@ a.sidebar-link:hover {
     color: #f59e0b;
 }
 
+.divider {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    width: 50px;
+    border-bottom: 1px solid #89929b;
+}
+
 .sidebar-footer {
     margin-bottom: 10px;
 }

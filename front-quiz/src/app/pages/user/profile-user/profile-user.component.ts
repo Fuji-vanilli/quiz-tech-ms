@@ -80,7 +80,6 @@ export class ProfileUserComponent implements OnInit{
 }  
   
   ngOnInit(): void {
-    //this.emailUser= this.activateRoute.snapshot.params['email'];
     this.activateRoute.paramMap.subscribe(
       params=> {
         const email= params.get('email');
@@ -92,7 +91,6 @@ export class ProfileUserComponent implements OnInit{
       }
     )
     this.loadProfile();
-    //this.loadUser();
   }
 
   loadProfile() {

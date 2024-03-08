@@ -34,9 +34,9 @@ export class LoadQuizByCategoryComponent {
         }
 
         this.loadCategory();
+        this.loadQuizzes();
       }
     )
-    this.loadQuizzes();
     this.loadCategories();
   }
 

@@ -64,6 +64,7 @@ import { ChallengeComponent } from './pages/user/challenge/challenge.component';
 import { NgApexchartsModule } from "ng-apexcharts";
 import { EditProfileComponent } from './pages/user/edit-profile/edit-profile.component';
 import { HomeAdminComponent } from './pages/admin/home-admin/home-admin.component';
+import { UserListComponent } from './pages/user/user-list/user-list.component';
 
 
 
@@ -119,7 +120,8 @@ export function initializeKeycloak(keycloak: KeycloakService) {
     ContestComponent,
     ChallengeComponent,
     EditProfileComponent,
-    HomeAdminComponent
+    HomeAdminComponent,
+    UserListComponent
   ],
   imports: [
     BrowserModule,
