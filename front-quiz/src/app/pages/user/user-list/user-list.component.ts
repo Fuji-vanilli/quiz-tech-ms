@@ -12,6 +12,9 @@ import { KeycloakService } from 'keycloak-angular';
 export class UserListComponent implements OnInit{
 
   users: User[]= [];
+  usersSubscriber: User[]= [];
+  usersNoSubscriber: User[]= [];
+
   isFollow: boolean= false;
 
   profile!: KeycloakProfile;
@@ -40,5 +43,25 @@ export class UserListComponent implements OnInit{
         
       }
     })
+  }
+
+  subscribe(user: any) {
+    this.userService.subscribe(user.email, this.profile.email).subscribe({
+      next: response=> {
+        window.location.reload();
+      }
+    })
+  }
+
+  filterUser() {
+    this.users.filter(
+      user=> {
+        if (user.subscribers?.includes(this.profile.email)) {
+          this.usersSubscriber.push(user)
+        } else {
+          this.usersNoSubscriber.push(user)
+        }
+      }
+    )
   }
 }

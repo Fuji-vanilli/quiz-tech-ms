@@ -2,14 +2,15 @@
     <div class="row">
         <div class="col-md-8 content">
             <div class="row">
-                <div class="col-md-3" *ngFor="let user of users">
+                <div class="col-md-3" *ngFor="let user of usersNoSubscriber">
                     <div class="card-user text-center">
                         <img [src]="user.photo" alt="">
                         <h3 class="mt-2"><a class="nav-link" [routerLink]="'/user/profile/'+user.email">{{user.firstname+' '+user.lastname}}</a></h3>
                         <span>{{user.description}}</span>
-                        <button class="btn-follow">
-                            <i class="bi bi-patch-plus-fill" style="margin-right: 10px;"></i>
-                            {{user.subscribes?.includes(profile.email)}}
+                        <button class="btn-follow" (click)="subscribe(user)">
+                            <i class="bi bi-patch-plus-fill" style="margin-right: 10px; font-size: 16px;" *ngIf="!user.subscribers?.includes(profile.email)"></i>
+                            <i class="bi bi-check-circle-fill" style="margin-right: 10px; font-size: 16px;" *ngIf="user.subscribers?.includes(profile.email)"></i>
+                            {{user.subscribers?.includes(profile.email)? 'Subscriber': 'Subscribe'}}
                         </button>
                     </div>
                 </div>
