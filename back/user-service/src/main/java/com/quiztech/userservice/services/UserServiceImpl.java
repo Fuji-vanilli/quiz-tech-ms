@@ -229,6 +229,61 @@ public class UserServiceImpl implements UserService{
 
     }
 
+    @Override
+    public Response unsubscribe(Map<String, String> email) {
+        String emailToSubscribe= email.get("emailToSubscribe");
+        String emailSubscriber= email.get("emailSubscriber");
+
+        Optional<User> userOptional1= userRepository.findByEmail(emailToSubscribe);
+        Optional<User> userOptional2 = userRepository.findByEmail(emailSubscriber);
+        if (userOptional1.isEmpty() || userOptional2.isEmpty()) {
+            log.error("user with the email: {} doesn't exist!", emailToSubscribe);
+            return generateResponse(
+                    HttpStatus.BAD_REQUEST,
+                    null,
+                    null,
+                    "user with the email: " + emailToSubscribe + " doesn't exist!"
+            );
+        }
+
+        User userToSubscribe= userOptional1.get();
+        User userSubscriber= userOptional2.get();
+
+        if (!userToSubscribe.getSubscribers().contains(emailSubscriber)) {
+            log.error("Sorry! the user doesn't subscribe on this account");
+            return generateResponse(
+                    HttpStatus.BAD_REQUEST,
+                    null,
+                    null,
+                    "Sorry! the user doesn't subscribe on this account"
+            );
+        }
+
+        userToSubscribe.getSubscribers().remove(emailSubscriber);
+        userSubscriber.getSubscribes().remove(emailToSubscribe);
+
+        BigDecimal addToSubscribers = userToSubscribe.getNumberOfSubscribers().subtract(new BigDecimal(1));
+        BigDecimal addToSubscribes = userSubscriber.getNumberOfSubscribes().subtract(new BigDecimal(1));
+
+        userToSubscribe.setNumberOfSubscribers(addToSubscribers);
+        userSubscriber.setNumberOfSubscribes(addToSubscribes);
+
+        userRepository.save(userSubscriber);
+        userRepository.save(userToSubscribe);
+
+        log.info("user: {} unsubscribe to : {}", userSubscriber.getEmail(), userToSubscribe.getEmail());
+
+        return generateResponse(
+                HttpStatus.OK,
+                null,
+                Map.of(
+                        "userSubscriber", userMapper.mapToUserResponse(userSubscriber),
+                        "userToSubscribe", userMapper.mapToUserResponse(userToSubscribe)
+                ),
+                "User: "+userSubscriber.getEmail()+" unsubscribe to: "+userToSubscribe
+        );
+    }
+
 
     private Response generateResponse(HttpStatus status, URI location, Map<?, ?> data, String message) {
         return Response.builder()

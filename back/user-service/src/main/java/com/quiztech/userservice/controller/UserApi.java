@@ -50,4 +50,9 @@ public class UserApi implements UserController {
     public ResponseEntity<Response> toSubscribe(Map<String, String> email) {
         return ResponseEntity.ok(userService.toSubscribe(email));
     }
+
+    @Override
+    public ResponseEntity<Response> unsubscribe(Map<String, String> email) {
+        return ResponseEntity.ok(userService.unsubscribe(email));
+    }
 }

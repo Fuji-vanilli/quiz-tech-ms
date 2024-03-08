@@ -12,4 +12,5 @@ public interface UserService {
     Response all();
     Response delete(String email);
     Response toSubscribe(Map<String, String> email);
+    Response unsubscribe(Map<String, String> email);
 }

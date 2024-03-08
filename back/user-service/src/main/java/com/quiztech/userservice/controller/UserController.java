@@ -21,4 +21,6 @@ public interface UserController {
 
     @PatchMapping("subscribe")
     ResponseEntity<Response> toSubscribe(@RequestBody Map<String, String> email);
+    @PatchMapping("unsubscribe")
+    ResponseEntity<Response> unsubscribe(@RequestBody Map<String, String> email);
 }

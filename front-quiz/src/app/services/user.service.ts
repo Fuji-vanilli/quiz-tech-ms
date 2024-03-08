@@ -48,4 +48,12 @@ export class UserService {
     }
     return this.httpClient.patch(environment.backEndUser+'/subscribe', body)
   }
+
+  unsubscribe(emailToSubscribe: any, emailSubscriber: any): Observable<any> {
+    const body= {
+      emailSubscriber: emailSubscriber,
+      emailToSubscribe: emailToSubscribe
+    }
+    return this.httpClient.patch(environment.backEndUser+'/unsubscribe', body)
+  }
 }
