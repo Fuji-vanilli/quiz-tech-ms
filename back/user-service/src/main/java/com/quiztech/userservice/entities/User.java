@@ -28,8 +28,9 @@ public class User {
     private List<String> organisations= new ArrayList<>();
     private String biography;
     private String description;
-    private BigDecimal followers;
-    private BigDecimal following;
+    private BigDecimal numberOfSubscribers= new BigDecimal(0);
+    private BigDecimal numberOfSubscribes= new BigDecimal(0);
     private List<String> linkNetwork= new ArrayList<>();
+    private List<String> subscribers= new ArrayList<>();
     private List<ResultSummary> resultSummaries= new ArrayList<>();
 }

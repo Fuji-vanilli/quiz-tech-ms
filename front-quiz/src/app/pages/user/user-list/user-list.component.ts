@@ -10,7 +10,7 @@ import { User } from '../../models/user.model';
 export class UserListComponent implements OnInit{
 
   users: User[]= [];
-  follow: string= 'Follow';
+  isFollow: boolean= false;
 
   constructor(private userService: UserService ) {}
 
@@ -32,7 +32,7 @@ export class UserListComponent implements OnInit{
     })
   }
 
-  following() {
-    this.follow= 'Followed';
+  following(user: any) {
+    this.isFollow= !this.isFollow;
   }
 }

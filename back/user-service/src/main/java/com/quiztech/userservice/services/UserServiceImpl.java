@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.math.BigDecimal;
 import java.net.URI;
 import java.time.LocalDateTime;
 import java.util.*;
@@ -171,6 +172,46 @@ public class UserServiceImpl implements UserService{
                 "user with the email: "+email+" deleted successfully!"
         );
     }
+
+    @Override
+    public Response toSubscribe(String emailSubscriber, String emailToSubscribe) {
+        Optional<User> userOptional1= userRepository.findByEmail(emailToSubscribe);
+        Optional<User> userOptional2 = userRepository.findByEmail(emailSubscriber);
+        if (userOptional1.isEmpty() || userOptional2.isEmpty()) {
+            log.error("user with the email: {} doesn't exist!", emailToSubscribe);
+            return generateResponse(
+                    HttpStatus.BAD_REQUEST,
+                    null,
+                    null,
+                    "user with the email: " + emailToSubscribe + " doesn't exist!"
+            );
+        }
+
+        User userToSubscribe= userOptional1.get();
+        User userSubscriber= userOptional1.get();
+
+        userToSubscribe.getSubscribers().add(emailSubscriber);
+        userToSubscribe.getNumberOfSubscribers().add(new BigDecimal(1));
+
+        userSubscriber.getNumberOfSubscribes().add(new BigDecimal(1));
+
+        userRepository.save(userSubscriber);
+        userRepository.save(userToSubscribe);
+
+        log.info("user: {} subscribe to : {}", userSubscriber.getEmail(), userToSubscribe.getEmail());
+
+        return generateResponse(
+                HttpStatus.OK,
+                null,
+                Map.of(
+                        "userSubscriber", userMapper.mapToUserResponse(userSubscriber),
+                        "userToSubscribe", userMapper.mapToUserResponse(userToSubscribe)
+                ),
+                "User: "+userSubscriber.getEmail()+" subscribe to: "+userToSubscribe
+        );
+
+    }
+
 
     private Response generateResponse(HttpStatus status, URI location, Map<?, ?> data, String message) {
         return Response.builder()

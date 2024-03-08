@@ -37,8 +37,9 @@ public class UserMapperImpl implements  UserMapper{
                 .competences(user.getCompetences())
                 .description(user.getDescription())
                 .organisations(user.getOrganisations())
-                .followers(user.getFollowers())
-                .following(user.getFollowing())
+                .subscribers(user.getSubscribers())
+                .numberOfSubscribers(user.getNumberOfSubscribers())
+                .numberOfSubscribes(user.getNumberOfSubscribes())
                 .linkNetwork(user.getLinkNetwork())
                 .build();
     }

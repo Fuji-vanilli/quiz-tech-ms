@@ -9,4 +9,5 @@ public interface UserService {
     Response get(String email);
     Response all();
     Response delete(String email);
+    Response toSubscribe(String emailSubscriber, String emailToSubscribe);
 }
