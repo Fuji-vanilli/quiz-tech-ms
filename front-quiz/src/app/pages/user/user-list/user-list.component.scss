@@ -109,23 +109,35 @@ a {
     background: #21262d;
     border-radius: 8px;
     padding: 16px;
+
 }
 
 .card-right h4 {
     color: #fff;
+    margin-left: 32px;
+    margin-top: 22px;
 }
 
 .card-right a {
-    color: #89929b;
-    margin-bottom: 16px;
+    color: #fff;
+    font-size: 14px;
+    margin-bottom: 24px;
 
     i {
-        margin-right: 12px;
+        margin-right: 12px; 
         font-size: 20px;
+        color: #00E5FF; 
     }
 }
 
+.card-right a:hover {
+    opacity: .7;
+}
+
 .card-right span {
+    background: #414654;
+    padding: 2px 6px;
+    border-radius: 6px;
     color: #faa356;
     font-size: 14px;
 }

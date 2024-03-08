@@ -20,9 +20,12 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatChipsModule } from '@angular/material/chips';
+import { MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
+import { MatNativeDateModule, MatDateFormats } from '@angular/material/core';
 import { SidebarComponent } from './pages/sidebar/sidebar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ViewCategoryComponent } from './pages/admin/view-category/view-category.component';
@@ -145,8 +148,10 @@ export function initializeKeycloak(keycloak: KeycloakService) {
     MatProgressSpinnerModule,
     MatPaginatorModule,
     MatSortModule,
+    MatDatepickerModule,
     MatChipsModule,
     MatTableModule,
+    MatNativeDateModule,
     HttpClientModule,
     ReactiveFormsModule,
     CKEditorModule,

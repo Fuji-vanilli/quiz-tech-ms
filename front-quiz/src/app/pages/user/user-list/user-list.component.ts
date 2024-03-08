@@ -11,6 +11,8 @@ import { KeycloakService } from 'keycloak-angular';
 })
 export class UserListComponent implements OnInit{
 
+  selected!: Date;
+
   users: User[]= [];
   usersSubscriber: User[]= [];
   usersNoSubscriber: User[]= [];
