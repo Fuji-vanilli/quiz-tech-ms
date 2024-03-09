@@ -102,7 +102,7 @@ export class EditProfileComponent implements OnInit {
     const userData: User= {
       firstname: this.formGroup.value.firstname,
       lastname: this.formGroup.value.lastname,
-      username: this.profile.username,
+      username: this.formGroup.value.username,
       email: this.profile.email,
       competences: this.competences,
       description: this.formGroup.value.description,

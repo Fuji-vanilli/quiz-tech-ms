@@ -77,10 +77,10 @@
                    <div>
                     <img [src]="user.photo" alt="">
                     <a [routerLink]="'/user/profile/'+user.email"><span>{{user.firstname}}</span></a>
-                    <button class="btn-type-connection">admin</button>
+                   
                    </div>
                    <div>
-                    <i class="bi bi-person-fill-gear" style="color: #89929b; font-size: 16px;"></i>
+                    <button class="btn btn-success">{{user.roles?.includes('ADMIN')? 'admin': 'user'}}</button>
                    </div>
                 </div>
                 <div class="mt-2 details d-flex justify-content-between align-items-center">

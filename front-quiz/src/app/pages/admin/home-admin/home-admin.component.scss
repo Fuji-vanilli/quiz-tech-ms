@@ -128,6 +128,7 @@ a {
 
 .content-right h2 {
     color: #fff;
+    padding-bottom: 16px;
 }
 
 .content-right .card-user {
@@ -137,12 +138,8 @@ a {
     border-radius: 8px;
 }
 
-.btn-type-connection {
-    border: 1px solid #21262d;
-    background: transparent;
-    color: #89929b;
-    border-radius: 20px;
-    margin-left: 16px;
+.btn-success{
+    font-size: 12px;
     padding: 0 8px;
 }
 

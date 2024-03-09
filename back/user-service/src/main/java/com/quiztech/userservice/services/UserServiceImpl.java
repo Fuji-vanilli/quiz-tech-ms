@@ -13,7 +13,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationToken;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -23,6 +25,7 @@ import java.math.BigDecimal;
 import java.net.URI;
 import java.time.LocalDateTime;
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 @Transactional
@@ -73,7 +76,7 @@ public class UserServiceImpl implements UserService{
                 .toUri();
 
         userRepository.save(user);
-        log.info("user added successfully!");
+        log.info("user added successfully! - roles: {}", extractRoles());
 
         return generateResponse(
                 HttpStatus.OK,
@@ -289,6 +292,11 @@ public class UserServiceImpl implements UserService{
         );
     }
 
+    @Override
+    public Response addRole(String email) {
+        return null;
+    }
+
 
     private Response generateResponse(HttpStatus status, URI location, Map<?, ?> data, String message) {
         return Response.builder()
@@ -305,12 +313,28 @@ public class UserServiceImpl implements UserService{
         Set<String> roles= new HashSet<>();
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
-        if (authentication instanceof JwtAuthenticationToken jwtAuthenticationToken) {
-            Collection<GrantedAuthority> authorities = jwtAuthenticationToken.getAuthorities();
+        if (authentication instanceof Jwt jwt) {
 
-            authorities.forEach(role-> roles.add(role.toString()));
+            extractRoles(jwt).forEach(token-> roles.add(token.getAuthority()));
         }
 
         return roles;
+    }
+
+    private Collection<? extends GrantedAuthority> extractRoles(Jwt jwt) {
+        Map<String, Object> resourceId= jwt.getClaim("resource_id");
+        Map<String, Object> resource;
+        Collection<String> resourceRoles;
+
+        if (Objects.isNull(resourceId)
+                || Objects.isNull(resource= (Map<String, Object>) resourceId.get("front-quiz"))
+                || Objects.isNull(resourceRoles= (Collection<String>) resource.get("roles"))) {
+
+            return Set.of();
+        }
+
+        return resourceRoles.stream()
+                .map(SimpleGrantedAuthority::new)
+                .collect(Collectors.toSet());
     }
 }

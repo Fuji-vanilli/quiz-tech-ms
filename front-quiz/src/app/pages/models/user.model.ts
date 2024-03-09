@@ -7,6 +7,7 @@ export interface User {
     createdDate?: any,
     lastUpdateDate?: any,
     photo?: string,
+    roles?: any[],
     competences?: string[],
     organisations?: any[],
     biography?: string,
