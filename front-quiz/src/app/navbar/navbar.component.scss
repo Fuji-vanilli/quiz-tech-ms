@@ -121,8 +121,28 @@ a {
     color: #fff;
 }
 
+.notification {
+    position: relative;
+    padding-right: 14px;
+
+}
+
 .notification i {
-    font-size: 24px;
+    font-size: 20px;
+    color: #fff;
+}
+
+.notification span {
+    border: 3px solid #161b22;
+    width: 28px;
+    position: absolute;
+    background: #EE1D52;
+    border-radius: 14px;
+    font-size: 11px;
+    padding: 0 4px;
+    top: 0px;
+    right: 0px;
+    color: #fff;
 }
 
 /****/
