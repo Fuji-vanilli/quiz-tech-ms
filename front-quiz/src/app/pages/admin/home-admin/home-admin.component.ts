@@ -28,6 +28,8 @@ export type ChartOptions = {
   styleUrls: ['./home-admin.component.scss']
 })
 export class HomeAdminComponent implements OnInit{
+  checked= false;
+
   @ViewChild("chart") chart!: ChartComponent;
   public chartOptions: Partial<ChartOptions>;
 
@@ -48,20 +50,20 @@ export class HomeAdminComponent implements OnInit{
                 this.chartOptions = {
                   series: [
                     {
-                      name: "PRODUCT A",
-                      data: [44, 55, 41, 67, 22, 43]
+                      name: "USERS",
+                      data: [44, 55, 41, 67, 22, 13]
                     },
                     {
-                      name: "PRODUCT B",
-                      data: [13, 23, 20, 8, 13, 27]
+                      name: "CATEGORIES",
+                      data: [13, 23, 20, 8, 13, 11]
                     },
                     {
-                      name: "PRODUCT C",
-                      data: [11, 17, 15, 15, 21, 14]
+                      name: "QUIZZES",
+                      data: [11, 17, 15, 15, 21, 26]
                     },
                     {
-                      name: "PRODUCT D",
-                      data: [21, 7, 25, 13, 22, 8]
+                      name: "CONTEST",
+                      data: [0]
                     }
                   ],
                   chart: {
@@ -95,12 +97,12 @@ export class HomeAdminComponent implements OnInit{
                   xaxis: {
                     type: "category",
                     categories: [
-                      "01/2011",
-                      "02/2011",
-                      "03/2011",
-                      "04/2011",
-                      "05/2011",
-                      "06/2011"
+                      "01/2024",
+                      "02/2024",
+                      "03/2024",
+                      "04/2024",
+                      "05/2024",
+                      "06/2024"
                     ]
                   },
                   legend: {
@@ -123,7 +125,8 @@ export class HomeAdminComponent implements OnInit{
     this.userService.fetchAll().subscribe({
       next: response=> {
         this.users= response.data.users;
-        console.log('users: ',this.users);
+        
+        this.sortedByRole();
         
       },
       error: err=> {
@@ -131,6 +134,13 @@ export class HomeAdminComponent implements OnInit{
         
       }
     })
+  }
+
+  sortedByRole() {
+    const admins = this.users.filter(user => user.roles?.includes('ADMIN'));
+    const nonAdmins = this.users.filter(user => !user.roles?.includes('ADMIN'));
+
+    this.users= [...admins.sort((a, b)=> a.username!.localeCompare(b.username!)), ...nonAdmins.sort((a, b) => a.username!.localeCompare(b.username!))];
   }
 
   loadCategory() {
@@ -199,6 +209,7 @@ export class HomeAdminComponent implements OnInit{
     this.userService.addRole(user.email, 'ADMIN').subscribe({
       next: response=> {
         this.snackbar.open("User change to Admin", "OK");
+        window.location.reload();
       },
       error: err=> {
         console.log(err);
