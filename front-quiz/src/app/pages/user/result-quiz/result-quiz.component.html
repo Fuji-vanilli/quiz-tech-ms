@@ -37,11 +37,15 @@
                                 <span>{{category.quizsId.length}}</span>
                             </button>
                         </div>
-                        <div class="mt-3 all-quizzes text-center">
+                        <div class="mt-3 all-quizzes">
                             <button class="btn-view-all" routerLink="/user/quizzes"> 
                                 <span>View all Quizzes <i class="bi bi-arrow-right ms-2"></i></span>
                             </button>
                         </div>
+                        <mat-card class="calendar-card">
+                            <mat-calendar [(selected)]="selected"></mat-calendar>
+                        </mat-card>
+                        <p style="color: #fff; background: transparent; font-size: 11px;" class="mt-3">{{selected}}</p>
                     </mat-card-content>
                   </mat-card>
                   

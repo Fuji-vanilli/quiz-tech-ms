@@ -16,6 +16,8 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class ResultQuizComponent implements OnInit {
 
+  selected!: Date;
+
   quizId!: string;
   quiz!: any;
   answer: string[]= [];

@@ -134,15 +134,21 @@ a {
 
 .notification span {
     border: 3px solid #161b22;
-    width: 28px;
+    width: 26px;
+    height: 24px;
     position: absolute;
     background: #EE1D52;
-    border-radius: 14px;
+    border-radius: 12px;
     font-size: 11px;
-    padding: 0 4px;
+    padding: 0 2px;
     top: 0px;
-    right: 0px;
+    right: 4px;
     color: #fff;
+}
+
+.btn-secondary {
+    background: #21262d;
+    color: #faa356;
 }
 
 /****/

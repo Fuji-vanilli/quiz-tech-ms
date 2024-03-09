@@ -6,9 +6,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 @Getter @Setter
 @AllArgsConstructor @NoArgsConstructor
@@ -21,6 +19,7 @@ public class User {
     private String lastname;
     private String username;
     private String email;
+    private Set<String> roles= new HashSet<>();
     private Date createdDate;
     private Date lastUpdateDate;
     private String photo;

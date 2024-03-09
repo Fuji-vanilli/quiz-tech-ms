@@ -10,6 +10,7 @@ import { KeycloakService } from 'keycloak-angular';
   styleUrls: ['./user-list.component.scss']
 })
 export class UserListComponent implements OnInit{
+[x: string]: any;
 
   selected!: Date;
 
@@ -68,7 +69,7 @@ export class UserListComponent implements OnInit{
       user=> {
         if (user.subscribers?.includes(this.profile.email)) {
           this.usersSubscriber.push(user)
-        } else {
+        } else if (!user.subscribers?.includes(this.profile.email)&& user.email!== this.profile.email) {
           this.usersNoSubscriber.push(user)
         }
       }

@@ -3,9 +3,7 @@ package com.quiztech.userservice.dto;
 import lombok.*;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 @Getter @Setter
 @AllArgsConstructor @NoArgsConstructor
@@ -16,6 +14,7 @@ public class UserResponse {
     private String lastname;
     private String username;
     private String email;
+    private Set<String> roles= new HashSet<>();
     private Date createdDate;
     private Date lastUpdateDate;
     private String photo;

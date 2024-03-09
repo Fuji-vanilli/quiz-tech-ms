@@ -5,7 +5,7 @@
                 <div class="col-md-3">
                     <div class="card-users text-center">
                         <i class="bi bi-person-fill-check"></i>
-                        <div class="user-details mt-5">
+                        <div class="user-details mt-3">
                             <span>{{users.length}}</span>
                         </div>
                         <div class="user-details-2 mt-2">
@@ -16,7 +16,7 @@
                 <div class="col-md-3 ">
                     <div class="card-categories text-center">
                         <i class="bi bi-bag-check-fill"></i>
-                        <div class="category-details mt-5">
+                        <div class="category-details mt-3">
                             <span>{{categories.length}}</span>
                         </div>
                         <div class="category-details-2 mt-2">
@@ -27,7 +27,7 @@
                 <div class="col-md-3">
                     <div class="card-quizzes text-center">
                         <i class="bi bi-chat-left-dots-fill"></i>
-                        <div class="quiz-details mt-5">
+                        <div class="quiz-details mt-3">
                             <span>{{quizzes.length}}</span>
                         </div>
                         <div class="quiz-details-2 mt-2">
@@ -38,8 +38,8 @@
                 <div class="col-md-3">
                     <div class="card-contest text-center">
                         <i class="bi bi-trophy-fill"></i>
-                        <div class="contest-details mt-5">
-                            <span>1200</span>
+                        <div class="contest-details mt-3">
+                            <span>0</span>
                         </div>
                         <div class="contest-details-2 mt-2">
                             <span>CONTEST</span>
@@ -69,7 +69,7 @@
            
         </div>
         <div class="col-md-3 content-right">
-            <div>
+            <div class="mt-4">
                 <h2>Total users: {{users.length}}</h2>
             </div>
             <div class="card-user" *ngFor="let user of users">

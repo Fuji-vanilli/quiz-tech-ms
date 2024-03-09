@@ -16,7 +16,7 @@ a {
 .card-users {
     padding-top: 16PX;
     border-radius: 12px;
-    background: #fff;
+    background: #21262d;
 }
 
 .card-users i {
@@ -39,7 +39,7 @@ a {
 .card-categories {
     padding-top: 16PX;
     border-radius: 12px;
-    background: #fff;
+    background: #21262d;
 }
 
 .card-categories i {
@@ -63,7 +63,7 @@ a {
 .card-quizzes {
     padding-top: 16PX;
     border-radius: 12px;
-    background: #fff;
+    background: #21262d;
 }
 
 .card-quizzes i {
@@ -87,7 +87,7 @@ a {
 .card-contest {
     padding-top: 16PX;
     border-radius: 12px;
-    background: #fff;
+    background: #21262d;
 }
 
 .card-contest i {
@@ -114,10 +114,14 @@ a {
     padding: 16px;
 }
 
+.col-md-3 {
+    padding: 0 30px;
+}
+
 /**/
 
 .content-right {
-    background: transparent;
+    background: #21262d;
     border-radius: 10px;
     margin-bottom: 24px;
 }
@@ -127,7 +131,7 @@ a {
 }
 
 .content-right .card-user {
-    border: 1px solid #21262d;
+    border: 1px solid #3b3c3d;
     padding: 16px;
     margin-top: 14px;
     border-radius: 8px;

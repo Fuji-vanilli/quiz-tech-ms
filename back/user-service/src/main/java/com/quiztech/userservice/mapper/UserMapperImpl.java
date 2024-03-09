@@ -33,6 +33,7 @@ public class UserMapperImpl implements  UserMapper{
                 .lastUpdateDate(user.getLastUpdateDate())
                 .username(user.getUsername())
                 .photo(user.getPhoto())
+                .roles(user.getRoles())
                 .biography(user.getBiography())
                 .competences(user.getCompetences())
                 .description(user.getDescription())

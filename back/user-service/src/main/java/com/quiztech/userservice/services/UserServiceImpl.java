@@ -11,6 +11,10 @@ import com.quiztech.userservice.webClient.WebClientGetter;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationToken;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -60,6 +64,7 @@ public class UserServiceImpl implements UserService{
         user.setId(UUID.randomUUID().toString());
         user.setCreatedDate(new Date());
         user.setLastUpdateDate(new Date());
+        user.setRoles(extractRoles());
         user.setPhoto("../../../../assets/default_user.jpg");
 
         URI location = ServletUriComponentsBuilder.fromCurrentContextPath()
@@ -294,5 +299,18 @@ public class UserServiceImpl implements UserService{
                 .data(data)
                 .message(message)
                 .build();
+    }
+
+    private Set<String> extractRoles() {
+        Set<String> roles= new HashSet<>();
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+        if (authentication instanceof JwtAuthenticationToken jwtAuthenticationToken) {
+            Collection<GrantedAuthority> authorities = jwtAuthenticationToken.getAuthorities();
+
+            authorities.forEach(role-> roles.add(role.toString()));
+        }
+
+        return roles;
     }
 }
