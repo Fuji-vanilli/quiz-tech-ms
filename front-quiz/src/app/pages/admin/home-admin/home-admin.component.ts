@@ -123,6 +123,7 @@ export class HomeAdminComponent implements OnInit{
     this.loadUser();
     this.loadCategory();
     this.loadQuizzes();
+    this.loadProfile();
 
   }
 
@@ -163,10 +164,11 @@ export class HomeAdminComponent implements OnInit{
   }
 
   sortedByRole() {
+    const superAdmin= this.users.filter(user=>  user.roles?.includes('SUPER-ADMIN'));
     const admins = this.users.filter(user => user.roles?.includes('ADMIN'));
     const nonAdmins = this.users.filter(user => !user.roles?.includes('ADMIN'));
 
-    this.users= [...admins.sort((a, b)=> a.username!.localeCompare(b.username!)), ...nonAdmins.sort((a, b) => a.username!.localeCompare(b.username!))];
+    this.users= [... superAdmin.sort((a, b)=>  a.username!.localeCompare(b.username!)), ...admins.sort((a, b)=> a.username!.localeCompare(b.username!)), ...nonAdmins.sort((a, b) => a.username!.localeCompare(b.username!))];
   }
 
   loadCategory() {
@@ -243,4 +245,13 @@ export class HomeAdminComponent implements OnInit{
       }
     })
   }
+
+  isSuperAdmin(user: any) {
+    return user.roles.includes('SUPER-ADMIN');
+  }
+
+  isAdmin(user: any) {
+    return user.roles.includes('ADMIN');
+  }
+  
 }
