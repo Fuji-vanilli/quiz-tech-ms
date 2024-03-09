@@ -6,33 +6,50 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent ms-auto">
       <ul class="navbar-nav content-left ms-auto">
         <li class="nav-item">
-          <a class="nav-link" routerLink="/user/quizzes" routerLinkActive="active"><i class="bi bi-binoculars"></i>Explore</a>
+          <a class="nav-link" routerLink="/user/quizzes" routerLinkActive="active">
+            <i class="bi bi-binoculars"></i>Explore
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/user/challenge" routerLinkActive="active"><i class="bi bi-lightning-charge mr-2"></i>Challenge</a>
+          <a class="nav-link" routerLink="/user/challenge" routerLinkActive="active">
+            <i class="bi bi-lightning-charge mr-2"></i>Challenge
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/user/contest" routerLinkActive="active"><i class="bi bi-trophy"></i>Contest</a>
+          <a class="nav-link" routerLink="/user/contest" routerLinkActive="active">
+            <i class="bi bi-trophy"></i>Contest
+          </a>
         </li>
       </ul>
-     
+
       <ul class="navbar-nav ms-auto admin" *ngIf="userRoles.includes('ADMIN')">
         <li class="nav-item">
-          <select class="form-select bg-dark" (change)="navigateTo($event)" style="color: #fa7970; border: 1px solid #21262d; font-family: 'Ubuntu';">
+          <select class="form-select bg-dark" (change)="navigateTo($event)"
+            style="color: #fa7970; border: 1px solid #21262d; font-family: 'Ubuntu';">
             <option value="admin">Admin</option>
             <option value="user">User</option>
-          </select>           
+          </select>
         </li>
       </ul>
 
       <ul class="navbar-nav mb-lg-0 ms-auto">
         <li class="nav-item" *ngIf="profile">
-          <a class="nav-link" routerLinkActive="active" aria-current="page" (click)="dashboard()"><i
-              class="bi bi-gear"></i><span style="margin-left: 8px;">Settings</span></a>
+          <a class="nav-link" routerLinkActive="active" aria-current="page" (click)="dashboard()">
+            <i class="bi bi-gear"></i>
+            <span style="margin-left: 8px;">Settings</span>
+          </a>
         </li>
         <li class="nav-item ms-4" *ngIf="profile">
-          <a class="nav-link" aria-current="page" routerLink="/user/quizzes"><i
-              class="bi bi-search "></i><span style="margin-left: 8px;">Search</span></a>
+          <a class="nav-link" aria-current="page" routerLink="/user/quizzes">
+            <i class="bi bi-search "></i>
+            <span  style="margin-left: 8px;">Search</span>
+          </a>
+        </li>
+        <li class="nav-item ms-4 notification" *ngIf="profile">
+          <a class="nav-link" aria-current="page" routerLink="/user/quizzes">
+            <i class="bi bi-bell-fill"></i>
+            <span style="margin-left: 8px;">9</span>
+          </a>
         </li>
         <li class="nav-item ms-3">
           <button class="btn-login" (click)="login()" *ngIf="!profile">Sign in</button>
@@ -42,9 +59,11 @@
         </li>
         <li class="nav-item" *ngIf="profile">
           <a *ngIf="user.photo"><img class="user-pic-nav" [src]="user.photo" alt="" (click)="toggleMenu()"></a>
-          <button *ngIf="!user.photo" class="btn btn-profile" (click)="toggleMenu()">{{profile.username?.charAt(0)}}</button>
+          <button *ngIf="!user.photo" class="btn btn-profile"
+            (click)="toggleMenu()">{{profile.username?.charAt(0)}}</button>
         </li>
       </ul>
+
       <div class="sub-menu-wrap" id="subMenu">
         <div class="sub-menu">
           <div class="user-info">
