@@ -113,6 +113,7 @@ public class QuestionServiceImpl implements QuestionService{
 
         question.setContent(request.getContent());
         question.setAnswer(request.getAnswer());
+        question.setOptions(request.getOptions());
         question.setLastUpdateDate(new Date());
 
         questionRepository.save(question);

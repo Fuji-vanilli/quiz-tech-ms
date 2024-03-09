@@ -354,7 +354,7 @@ public class UserServiceImpl implements UserService{
         Collection<String> resourceRoles;
 
         if (Objects.isNull(resourceId)
-                || Objects.isNull(resource= (Map<String, Object>) resourceId.get("front-quiz"))
+                || Objects.isNull(resource= (Map<String, Object>) resourceId.get("quiz-font"))
                 || Objects.isNull(resourceRoles= (Collection<String>) resource.get("roles"))) {
 
             return Set.of();

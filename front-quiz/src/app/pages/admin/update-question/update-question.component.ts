@@ -83,7 +83,7 @@ export class UpdateQuestionComponent implements OnInit{
         console.log("question updated");
         console.table(response.data.question);
         Swal.fire('Updated', 'Question updated successfully!', 'success');
-        //window.location.reload();
+        window.location.reload();
         this.route.navigateByUrl('admin/questions/'+question.id+'/'+this.quiz.title);
       }
     })

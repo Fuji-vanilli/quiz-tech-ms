@@ -63,8 +63,7 @@ const routes: Routes = [
       { path: 'add-question/:id', component: AddQuestionComponent },
       { path: 'profile', component: ProfileComponent }
     ]
-  },
-  { path:'user/profile', component: ProfileComponent, canActivate: [AuthGuard], data: {role: ['USER', 'ADMIN']}}
+  }
 ];
 
 @NgModule({

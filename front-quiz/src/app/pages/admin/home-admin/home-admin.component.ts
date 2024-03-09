@@ -10,6 +10,8 @@ import { CategoryApiService } from 'src/app/services/category-api.service';
 import { QuizApiService } from 'src/app/services/quiz-api.service';
 import { ApexAxisChartSeries, ApexChart, ApexDataLabels, ApexFill, ApexLegend, ApexPlotOptions, ApexResponsive, ApexXAxis, ChartComponent } from 'ng-apexcharts';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { KeycloakProfile } from 'keycloak-js';
+import { KeycloakService } from 'keycloak-angular';
 
 export type ChartOptions = {
   series: ApexAxisChartSeries;
@@ -33,18 +35,20 @@ export class HomeAdminComponent implements OnInit{
   @ViewChild("chart") chart!: ChartComponent;
   public chartOptions: Partial<ChartOptions>;
 
-
+  currentUser!: User;
   users: User[]= [];
   categories: Category[]= [];
   quizzes: Quiz[]= [];
 
   results: Result[]= [];
+  profile!: KeycloakProfile;
 
   constructor(private userService: UserService,
               private categoryService: CategoryApiService,
               private quizService: QuizApiService,
               private resultService: ResultQuizService,
-              private snackbar: MatSnackBar) {
+              private snackbar: MatSnackBar,
+              private keycloakService: KeycloakService) {
 
 
                 this.chartOptions = {
@@ -119,6 +123,28 @@ export class HomeAdminComponent implements OnInit{
     this.loadUser();
     this.loadCategory();
     this.loadQuizzes();
+
+  }
+
+  loadProfile() {
+    this.keycloakService.loadUserProfile().then(
+      profile=> {
+        this.profile= profile;
+        this.loadCurrentUser(profile.email);
+      }
+    )
+  }
+
+  loadCurrentUser(email: any) {
+    this.userService.fetchByEmail(email).subscribe({
+      next: response=> {
+        this.currentUser= response.data.user;
+      },
+      error: err=> {
+        console.log(err);
+        
+      }
+    })
   }
 
   loadUser() {

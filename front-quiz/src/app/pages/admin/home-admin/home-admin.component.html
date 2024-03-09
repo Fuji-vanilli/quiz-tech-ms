@@ -82,7 +82,7 @@
                    
                    </div>
                    <div>
-                    <button class="btn btn-success">{{user.roles?.includes('ADMIN')? 'admin': 'user'}}</button>
+                    <button class="btn btn-success">{{user.roles?.includes('SUPER-ADMIN')? 'super': user.roles?.includes('ADMIN')? 'admin': 'user'}}</button>
                    </div>
                 </div>
                 <div class="mt-2 details d-flex justify-content-between align-items-center">
@@ -100,7 +100,7 @@
                             id="flexSwitchCheckChecked" 
                             (change)="addToAdmin(user)" 
                             [checked]="user.roles?.includes('ADMIN')" 
-                            [disabled]="user.roles?.includes('ADMIN')"
+                            [disabled]="user.roles?.includes('ADMIN') && currentUser.roles?.includes('SUPER-ADMIN')"
                         >
                         <label class="form-check-label" for="flexSwitchCheckChecked" style="color: #89929b;">Made admin</label>
                     </div>

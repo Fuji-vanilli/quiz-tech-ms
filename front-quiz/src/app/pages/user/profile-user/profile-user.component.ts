@@ -102,7 +102,6 @@ export class ProfileUserComponent implements OnInit{
           this.isCurrentUser= true;
         }
        
-        this.loadResultSummary(profile.email);
       }
     )
   }
@@ -112,7 +111,7 @@ export class ProfileUserComponent implements OnInit{
       next: response=> {
         this.user= response.data.user;
         this.userService.userTemp= this.user;       
-        
+        this.loadResultSummary(email);
         if (this.user.subscribers?.includes(this.profile.email)) {
           this.isSubscriber= true;
         }

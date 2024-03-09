@@ -7,4 +7,5 @@ import { Component } from '@angular/core';
 })
 export class ContestComponent {
 
+  pdfSrc= '../../../../assets/Data_Structures_and_Algorithms_in_Java.pdf'
 }
