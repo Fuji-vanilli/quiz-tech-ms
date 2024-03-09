@@ -56,4 +56,13 @@ export class UserService {
     }
     return this.httpClient.patch(environment.backEndUser+'/unsubscribe', body)
   }
+
+  addRole(email: any, role: any): Observable<any> {
+    const body= {
+      email: email,
+      role: role
+    };
+
+    return this.httpClient.patch(environment.backEndUser+'/add-role', body);
+  }
 }

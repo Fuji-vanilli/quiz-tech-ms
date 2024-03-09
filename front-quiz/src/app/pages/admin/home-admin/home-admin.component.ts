@@ -9,6 +9,7 @@ import { Quiz } from '../../models/quiz.model';
 import { CategoryApiService } from 'src/app/services/category-api.service';
 import { QuizApiService } from 'src/app/services/quiz-api.service';
 import { ApexAxisChartSeries, ApexChart, ApexDataLabels, ApexFill, ApexLegend, ApexPlotOptions, ApexResponsive, ApexXAxis, ChartComponent } from 'ng-apexcharts';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 export type ChartOptions = {
   series: ApexAxisChartSeries;
@@ -40,7 +41,8 @@ export class HomeAdminComponent implements OnInit{
   constructor(private userService: UserService,
               private categoryService: CategoryApiService,
               private quizService: QuizApiService,
-              private resultService: ResultQuizService) {
+              private resultService: ResultQuizService,
+              private snackbar: MatSnackBar) {
 
 
                 this.chartOptions = {
@@ -193,4 +195,15 @@ export class HomeAdminComponent implements OnInit{
     })
   }
 
+  addToAdmin(user: User) {
+    this.userService.addRole(user.email, 'ADMIN').subscribe({
+      next: response=> {
+        this.snackbar.open("User change to Admin", "OK");
+      },
+      error: err=> {
+        console.log(err);
+        
+      }
+    })
+  }
 }

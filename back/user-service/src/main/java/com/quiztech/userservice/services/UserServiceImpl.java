@@ -293,8 +293,35 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public Response addRole(String email) {
-        return null;
+    public Response addRoles(Map<String, String> roles) {
+        String emailUser= roles.get("email");
+        String role= roles.get("role");
+
+        Optional<User> userOptional = userRepository.findByEmail(emailUser);
+        if (userOptional.isEmpty()) {
+            log.error("user with the email: {} doesn't exist!", emailUser);
+            return generateResponse(
+                    HttpStatus.BAD_REQUEST,
+                    null,
+                    null,
+                    "user with the email: " + emailUser + " doesn't exist!"
+            );
+        }
+
+        User user= userOptional.get();
+        user.getRoles().add(role);
+
+        userRepository.save(user);
+        log.info("role added successfully to : {}", emailUser);
+
+        return generateResponse(
+                HttpStatus.OK,
+                null,
+                Map.of(
+                        "user", userMapper.mapToUserResponse(user)
+                ),
+                "role added successfully to: "+emailUser
+        );
     }
 
 

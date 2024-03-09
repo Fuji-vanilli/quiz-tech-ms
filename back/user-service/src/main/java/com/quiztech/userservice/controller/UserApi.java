@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Map;
+import java.util.Set;
 
 import static com.quiztech.userservice.utils.Root.APP_ROOT;
 
@@ -54,5 +55,10 @@ public class UserApi implements UserController {
     @Override
     public ResponseEntity<Response> unsubscribe(Map<String, String> email) {
         return ResponseEntity.ok(userService.unsubscribe(email));
+    }
+
+    @Override
+    public ResponseEntity<Response> addRole(Map<String, String> roles) {
+        return ResponseEntity.ok(userService.addRoles(roles));
     }
 }

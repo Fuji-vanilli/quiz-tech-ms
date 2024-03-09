@@ -2,10 +2,12 @@ package com.quiztech.userservice.controller;
 
 import com.quiztech.userservice.dto.UserRequest;
 import com.quiztech.userservice.utils.Response;
+import org.apache.http.protocol.ResponseServer;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
+import java.util.Set;
 
 public interface UserController {
     @PostMapping("add")
@@ -23,4 +25,6 @@ public interface UserController {
     ResponseEntity<Response> toSubscribe(@RequestBody Map<String, String> email);
     @PatchMapping("unsubscribe")
     ResponseEntity<Response> unsubscribe(@RequestBody Map<String, String> email);
+    @PatchMapping("add-role")
+    ResponseEntity<Response> addRole(@RequestBody Map<String, String> roles);
 }
