@@ -61,4 +61,9 @@ public class UserApi implements UserController {
     public ResponseEntity<Response> addRole(Map<String, String> roles) {
         return ResponseEntity.ok(userService.addRoles(roles));
     }
+
+    @Override
+    public ResponseEntity<Response> removeRole(Map<String, String> roles) {
+        return ResponseEntity.ok(userService.removeRole(roles));
+    }
 }

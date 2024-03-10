@@ -151,9 +151,9 @@ export class HomeAdminComponent implements OnInit{
   loadUser() {
     this.userService.fetchAll().subscribe({
       next: response=> {
-        this.users= response.data.users;
+        const users= response.data.users;
+        this.sortedByRole(users);
         
-        this.sortedByRole();
         
       },
       error: err=> {
@@ -163,12 +163,23 @@ export class HomeAdminComponent implements OnInit{
     })
   }
 
-  sortedByRole() {
-    const superAdmin= this.users.filter(user=>  user.roles?.includes('SUPER-ADMIN'));
-    const admins = this.users.filter(user => user.roles?.includes('ADMIN'));
-    const nonAdmins = this.users.filter(user => !user.roles?.includes('ADMIN'));
+  filterWithoutSuperAdmin(users: User[]) {
+    users.filter(
+      user=> {
+        if (!user.roles?.includes('SUPER-ADMIN')) {
+          this.users.push(user);
+        }
+      }
+    )
+  }
 
-    this.users= [... superAdmin.sort((a, b)=>  a.username!.localeCompare(b.username!)), ...admins.sort((a, b)=> a.username!.localeCompare(b.username!)), ...nonAdmins.sort((a, b) => a.username!.localeCompare(b.username!))];
+  sortedByRole(users: User[]) {
+    const superAdmin= users.filter(user=>  user.roles?.includes('SUPER-ADMIN'));
+    const admins = users.filter(user => user.roles?.includes('ADMIN'));
+    const nonAdmins = users.filter(user => !user.roles?.includes('ADMIN'));
+
+    const usersResult= [... superAdmin.sort((a, b)=>  a.username!.localeCompare(b.username!)), ...admins.sort((a, b)=> a.username!.localeCompare(b.username!)), ...nonAdmins.sort((a, b) => a.username!.localeCompare(b.username!))];
+    this.filterWithoutSuperAdmin(usersResult);
   }
 
   loadCategory() {
@@ -243,7 +254,20 @@ export class HomeAdminComponent implements OnInit{
         console.log(err);
         
       }
-    })
+    });
+  }
+
+  removeToAdmin(user: User) {
+    this.userService.removeRole(user.email, 'ADMIN').subscribe({
+      next: response=> {
+        this.snackbar.open("User dismiss to sample User", "OK");
+        window.location.reload();
+      },
+      error: err=> {
+        console.log(err);
+        
+      }
+    });
   }
 
   isSuperAdmin(user: any) {

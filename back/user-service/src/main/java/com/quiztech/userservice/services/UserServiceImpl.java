@@ -3,7 +3,6 @@ package com.quiztech.userservice.services;
 import com.quiztech.userservice.dto.UserRequest;
 import com.quiztech.userservice.entities.User;
 import com.quiztech.userservice.mapper.UserMapper;
-import com.quiztech.userservice.models.ResultSummary;
 import com.quiztech.userservice.repositories.UserRepository;
 import com.quiztech.userservice.utils.Response;
 import com.quiztech.userservice.validators.UserValidators;
@@ -321,6 +320,38 @@ public class UserServiceImpl implements UserService{
                         "user", userMapper.mapToUserResponse(user)
                 ),
                 "role added successfully to: "+emailUser
+        );
+    }
+
+    @Override
+    public Response removeRole(Map<String, String> roles) {
+        String emailUser= roles.get("email");
+        String role= roles.get("role");
+
+        Optional<User> userOptional = userRepository.findByEmail(emailUser);
+        if (userOptional.isEmpty()) {
+            log.error("user with the email: {} doesn't exist!", emailUser);
+            return generateResponse(
+                    HttpStatus.BAD_REQUEST,
+                    null,
+                    null,
+                    "user with the email: " + emailUser + " doesn't exist!"
+            );
+        }
+
+        User user= userOptional.get();
+        user.getRoles().remove(role);
+
+        userRepository.save(user);
+        log.info("role removed successfully to : {}", emailUser);
+
+        return generateResponse(
+                HttpStatus.OK,
+                null,
+                Map.of(
+                        "user", userMapper.mapToUserResponse(user)
+                ),
+                "role removed successfully to: "+emailUser
         );
     }
 

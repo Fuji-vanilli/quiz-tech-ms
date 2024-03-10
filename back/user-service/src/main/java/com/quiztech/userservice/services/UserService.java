@@ -15,4 +15,5 @@ public interface UserService {
     Response toSubscribe(Map<String, String> email);
     Response unsubscribe(Map<String, String> email);
     Response addRoles(Map<String, String> roles);
+    Response removeRole(Map<String, String> roles);
 }

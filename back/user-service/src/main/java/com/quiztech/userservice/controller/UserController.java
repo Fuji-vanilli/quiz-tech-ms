@@ -27,4 +27,6 @@ public interface UserController {
     ResponseEntity<Response> unsubscribe(@RequestBody Map<String, String> email);
     @PatchMapping("add-role")
     ResponseEntity<Response> addRole(@RequestBody Map<String, String> roles);
+    @PatchMapping("remove-role")
+    ResponseEntity<Response> removeRole(@RequestBody Map<String, String> roles);
 }
