@@ -5,6 +5,7 @@ import { Category } from '../../models/category.model';
 import { Router } from '@angular/router';
 import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 import Swal from 'sweetalert2';
+import { KeycloakService } from 'keycloak-angular';
 
 
 @Component({
@@ -15,13 +16,20 @@ import Swal from 'sweetalert2';
 export class AddCategoryComponent implements OnInit{
 
   formGroup!: FormGroup;
+  emailUser!: string;
 
   constructor(private formBuilder: FormBuilder,
               private categoryService: CategoryApiService,
               private route: Router,
-              private snackBar: MatSnackBar) {}
+              private snackBar: MatSnackBar,
+              private keycloakService: KeycloakService) {}
 
   ngOnInit(): void {
+    this.keycloakService.loadUserProfile().then(
+      profile=> {
+        this.emailUser= profile.email!;
+      }
+    )
     this.formGroup= this.formBuilder.group({
       title: this.formBuilder.control('', Validators.required),
       description: this.formBuilder.control('', Validators.required),
@@ -35,7 +43,8 @@ export class AddCategoryComponent implements OnInit{
     const category: Category= {
       title: this.formGroup.value.title,
       description: this.formGroup.value.description,
-      icon: this.formGroup.value.icon
+      icon: this.formGroup.value.icon,
+      createdBy: this.emailUser
     }
     
     this.categoryService.addCategory(category).subscribe({

@@ -6,6 +6,7 @@ import { ActivatedRoute } from '@angular/router';
 import { KeycloakService } from 'keycloak-angular';
 import { MatDialog } from '@angular/material/dialog';
 import { UpdateCategoryComponent } from '../update-category/update-category.component';
+import { UserService } from 'src/app/services/user.service';
 
 declare var window: any;
 
@@ -21,6 +22,7 @@ export class ViewCategoryComponent implements OnInit {
   totalElements!: number
 
   constructor(private categoryService: CategoryApiService, 
+              private userService: UserService,
               private routeActive: ActivatedRoute,
               private dialog: MatDialog,
               public keycloakService: KeycloakService) {}
@@ -90,5 +92,21 @@ export class ViewCategoryComponent implements OnInit {
         icon: category.icon
       }
     })
+  } 
+
+  userByEmail(email: any) {
+    let user;
+
+    this.userService.fetchByEmail(email).subscribe({
+      next: response=> {
+        user= response.data.user;
+      },
+      error: err=> {
+        console.log(err);
+        
+      }
+    })
+
+    return user;
   } 
 }

@@ -3,5 +3,6 @@ export interface Category {
     title: string,
     description: string,
     icon: any,
-    quizsId?: any
+    quizsId?: any,
+    createdBy?: any
 }

@@ -21,6 +21,7 @@ public class Category {
     private String icon;
     private Date createdDate;
     private Date lastUpdateDate;
+    private String createdBy;
     private List<String> quizsId= new ArrayList<>();
     private List<Quiz> quizzes= new ArrayList<>();
 

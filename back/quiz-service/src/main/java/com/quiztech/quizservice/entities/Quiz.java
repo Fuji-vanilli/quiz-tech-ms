@@ -29,6 +29,7 @@ public class Quiz {
     private BigDecimal marks;
     private BigDecimal numberOfQuestions;
     private BigDecimal duration;
+    private String createdBy;
     private List<String> questionsId= new ArrayList<>();
     private List<Question> questions= new ArrayList<>();
     private boolean active;

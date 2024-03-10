@@ -33,6 +33,11 @@ h3 {
     font-family: 'Ubuntu';
     margin-top: 40px;
 }
+
+.created a:hover {
+    color: #77bdfb;
+    text-decoration: underline;
+}
 .card-header {
     color: #e11d48;
     font-weight: 500;

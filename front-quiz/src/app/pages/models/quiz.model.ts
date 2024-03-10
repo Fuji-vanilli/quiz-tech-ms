@@ -14,5 +14,6 @@ export interface Quiz {
     difficulty?: string,
     category?: Category, 
     duration?: number, 
+    createdBy?: any,
     questions?: Question[]
 }

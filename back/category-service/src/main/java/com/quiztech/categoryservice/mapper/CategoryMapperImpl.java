@@ -14,6 +14,7 @@ public class CategoryMapperImpl implements CategoryMapper{
                 .title(request.getTitle())
                 .description(request.getDescription())
                 .icon(request.getIcon())
+                .createdBy(request.getCreatedBy())
                 .quizsId(request.getQuizsId())
                 .build();
     }
@@ -25,6 +26,7 @@ public class CategoryMapperImpl implements CategoryMapper{
                 .title(category.getTitle())
                 .description(category.getDescription())
                 .icon(category.getIcon())
+                .createdBy(category.getCreatedBy())
                 .createdDate(category.getCreatedDate())
                 .lastUpdateDate(category.getLastUpdateDate())
                 .quizsId(category.getQuizsId())

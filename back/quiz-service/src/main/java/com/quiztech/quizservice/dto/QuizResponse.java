@@ -18,6 +18,7 @@ public class QuizResponse {
     private String description;
     private String difficulty;
     private Date createdDate;
+    private String createdBy;
     private Date lastUpdateDate;
     private BigDecimal marks;
     private String imageUrl;
