@@ -69,6 +69,7 @@ import { EditProfileComponent } from './pages/user/edit-profile/edit-profile.com
 import { HomeAdminComponent } from './pages/admin/home-admin/home-admin.component';
 import { UserListComponent } from './pages/user/user-list/user-list.component';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
+import { LoginComponent } from './pages/login/login.component';
 
 
 
@@ -125,7 +126,8 @@ export function initializeKeycloak(keycloak: KeycloakService) {
     ChallengeComponent,
     EditProfileComponent,
     HomeAdminComponent,
-    UserListComponent
+    UserListComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

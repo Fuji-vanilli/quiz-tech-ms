@@ -270,6 +270,14 @@ export class HomeAdminComponent implements OnInit{
     });
   }
 
+  toggleAdminStatus(user: any) {
+    if (this.isAdmin(user)) {
+      this.removeToAdmin(user);
+    } else {
+      this.addToAdmin(user);
+    }
+  }
+
   isSuperAdmin(user: any) {
     return user.roles.includes('SUPER-ADMIN');
   }

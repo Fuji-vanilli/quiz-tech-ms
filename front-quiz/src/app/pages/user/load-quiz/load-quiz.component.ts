@@ -12,6 +12,8 @@ import { CategoryApiService } from 'src/app/services/category-api.service';
 })
 export class LoadQuizComponent implements OnInit {
 
+  @ViewChild('scrollContainer') scrollContainer!: ElementRef;
+
   colors: string[]= ['#00FFFF', '#F18F01', '#2E8B57', '#FF6347', '#6c35de'];
   selectedCategory!: string;
 
@@ -83,13 +85,19 @@ export class LoadQuizComponent implements OnInit {
     );
   }
 
-  @ViewChild('scrollContainer') scrollContainer!: ElementRef;
-
   scrollLeft(): void {
     this.scrollContainer.nativeElement.scrollLeft -= 150;
   }
 
   scrollRight(): void {
     this.scrollContainer.nativeElement.scrollLeft += 150;
+  }
+
+  sortedByName() {
+    this.filterQuizzes.sort((a, b)=> a.title!.localeCompare(b.title!));
+  }
+
+  sortedByLevel() {
+    this.filterQuizzes.sort((a, b)=> a.difficulty!.localeCompare(b.difficulty!));
   }
 }

@@ -28,9 +28,11 @@ import { ChallengeComponent } from './pages/user/challenge/challenge.component';
 import { EditProfileComponent } from './pages/user/edit-profile/edit-profile.component';
 import { HomeAdminComponent } from './pages/admin/home-admin/home-admin.component';
 import { UserListComponent } from './pages/user/user-list/user-list.component';
+import { LoginComponent } from './pages/login/login.component';
 
 const routes: Routes = [
   { path: '', component: HomeLandingComponent },
+  { path: 'login', component: LoginComponent },
   { 
     path:'user', component: UserDashboardComponent, canActivate: [AuthGuard], data: {roles: ['USER']},
     children: [

@@ -34,6 +34,19 @@
                 </button>
             </div>
             <div class="row">
+                <div class="col-md-12">
+                    <div class="dropdown">
+                        <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Sorted by
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" routerLinkActive="active" (click)="sortedByName()">Name</a></li>
+                            <li><a class="dropdown-item" routerLinkActive="active" (click)="sortedByLevel()" >Level</a></li>
+                          </ul>
+                      </div>
+                </div>
+            </div>
+            <div class="row">
                 <div class="mt-3 d-flex justify-content-center align-items-center" *ngIf="filterQuizzesBySearchTerm.length=== 0">
                     <h1 style="color: #89929b;">No Quizzes Find.....</h1>
                 </div>
