@@ -39,7 +39,7 @@ public class JwtAuthConverter implements Converter<Jwt, AbstractAuthenticationTo
         if (!Objects.isNull(properties.getPrincipalAttribute()))
             claimName= properties.getPrincipalAttribute();
 
-        return claimName;
+        return jwt.getClaim(claimName);
     }
 
     public Collection<? extends GrantedAuthority> extractRoles(Jwt jwt) {

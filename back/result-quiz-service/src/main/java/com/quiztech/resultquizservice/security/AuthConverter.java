@@ -42,7 +42,7 @@ public class AuthConverter implements Converter<Jwt, AbstractAuthenticationToken
             claimName= properties.getPrincipalAttribute();
         }
 
-        return claimName;
+        return jwt.getClaim(claimName);
     }
     public Collection<? extends GrantedAuthority> extractRoles(Jwt jwt) {
         Map<String, Object> resourcesAccess=  jwt.getClaim("resource_access");
