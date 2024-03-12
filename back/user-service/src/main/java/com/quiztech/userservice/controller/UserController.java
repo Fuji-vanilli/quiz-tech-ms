@@ -4,6 +4,7 @@ import com.quiztech.userservice.dto.UserRequest;
 import com.quiztech.userservice.utils.Response;
 import org.apache.http.protocol.ResponseServer;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
@@ -19,6 +20,7 @@ public interface UserController {
     @GetMapping("all")
     ResponseEntity<Response> all();
     @DeleteMapping("delete/{id}")
+    @PreAuthorize("hasRole('ROLE_app_admin')")
     ResponseEntity<Response> delete(@PathVariable String id);
 
     @PatchMapping("subscribe")
@@ -26,7 +28,9 @@ public interface UserController {
     @PatchMapping("unsubscribe")
     ResponseEntity<Response> unsubscribe(@RequestBody Map<String, String> email);
     @PatchMapping("add-role")
+    @PreAuthorize("hasRole('ROLE_app_admin')")
     ResponseEntity<Response> addRole(@RequestBody Map<String, String> roles);
     @PatchMapping("remove-role")
+    @PreAuthorize("hasRole('ROLE_app_admin')")
     ResponseEntity<Response> removeRole(@RequestBody Map<String, String> roles);
 }

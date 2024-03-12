@@ -5,6 +5,7 @@ import com.quiztech.quizservice.dto.QuizResponse;
 import com.quiztech.quizservice.entities.Quiz;
 import com.quiztech.quizservice.utils.Response;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
@@ -13,10 +14,13 @@ import java.util.Map;
 
 public interface QuizController {
     @PostMapping("add")
+    @PreAuthorize("hasRole('ROLE_app_admin')")
     ResponseEntity<Response> add(@RequestBody QuizRequest request);
     @PatchMapping("addQuestion")
+    @PreAuthorize("hasRole('ROLE_app_admin')")
     ResponseEntity<Response> addQuestion(@RequestBody Map<String, String> questionRequest);
     @PutMapping("update")
+    @PreAuthorize("hasRole('ROLE_app_admin')")
     ResponseEntity<Response> update(@RequestBody QuizRequest request);
     @PatchMapping("play/{id}")
     ResponseEntity<Response> playQuiz(@PathVariable String id);
@@ -32,6 +36,7 @@ public interface QuizController {
     @GetMapping("byTitleKeyword/{keyword}")
     ResponseEntity<Response> getByKeywordTitle(@PathVariable String keyword);
     @DeleteMapping("delete/{id}")
+    @PreAuthorize("hasRole('ROLE_app_admin')")
     ResponseEntity<Response> delete(@PathVariable String id);
     @PatchMapping("evaluate")
     ResponseEntity<Response> evaluateQuiz(@RequestBody Map<String, Map<String, Boolean>> evaluateQuiz);

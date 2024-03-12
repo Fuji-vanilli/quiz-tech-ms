@@ -8,10 +8,14 @@ import com.quiztech.categoryservice.utils.Response;
 import com.quiztech.categoryservice.webClient.WebClientGetter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
@@ -53,6 +57,14 @@ public class CategoryApi implements CategoryController{
     @Override
     public ResponseEntity<Response> delete(String id) {
         return ResponseEntity.ok(categoryService.delete(id));
+    }
+
+    @Override
+    public ResponseEntity<String> roles() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+        Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
+        return ResponseEntity.ok(authorities.toString());
     }
 
 }
