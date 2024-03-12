@@ -29,8 +29,8 @@
               <i class="bi bi-person-check-fill" style="margin-right: 12px;"></i><span style="color: #662d91;">Connect as</span>
             </a>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-              <a class="dropdown-item" routerLink="/admin" style="color: #662d91;">Admin</a>
-              <a class="dropdown-item" routerLink="/user"  style="color: #662d91;">User</a>
+              <a class="dropdown-item" (click)="toAdmin()" style="color: #662d91;">Admin</a>
+              <a class="dropdown-item" (click)="toUser()"  style="color: #662d91;">User</a>
             </div>
           </div>
         </li>

@@ -109,4 +109,14 @@ export class NavbarComponent implements OnInit {
     }
 
   }
+
+  toAdmin() {
+    this.router.navigateByUrl('/admin');
+    window.location.reload();
+  }
+
+  toUser() {
+    this.router.navigateByUrl('/user');
+    window.location.reload()
+  }
 }
