@@ -29,12 +29,13 @@ import { EditProfileComponent } from './pages/user/edit-profile/edit-profile.com
 import { HomeAdminComponent } from './pages/admin/home-admin/home-admin.component';
 import { UserListComponent } from './pages/user/user-list/user-list.component';
 import { LoginComponent } from './pages/login/login.component';
+import { SidebarUserComponent } from './pages/user/sidebar-user/sidebar-user.component';
 
 const routes: Routes = [
   { path: '', component: HomeLandingComponent },
   { path: 'login', component: LoginComponent },
   { 
-    path:'user', component: UserDashboardComponent, canActivate: [AuthGuard], data: {roles: ['USER']},
+    path:'user', component: SidebarUserComponent, canActivate: [AuthGuard], data: {roles: ['USER']},
     children: [
       { path: '', component: HomeUserComponent },
       { path: 'profile/:email', component: ProfileUserComponent },

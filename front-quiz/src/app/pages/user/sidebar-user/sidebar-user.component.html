@@ -1,0 +1,91 @@
+<div class="contain">
+    <div id="sidebar">
+        <button class="btn menu-btn" id="toggle-btn">
+            <i class="bi bi-chevron-right"></i>
+        </button>
+        <div class="head">
+            <div class="user-img">
+                <img [src]="user.photo">
+            </div>
+            <div class="user-details">
+                <p class="title">Web Developer</p> 
+                <p class="name">{{user.username?.charAt(0)?.toUpperCase()+user.username?.slice(1)!}}</p>
+            </div>
+        </div>
+        <div class="nav">
+            <div class="menu">
+                <p class="title">Main</p>
+                <ul>
+                    <li class="">
+                        <a routerLinkActive="active" routerLink="/user">
+                            <i class="bi bi-speedometer2"></i>
+                            <span class="text">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a routerLinkActive="active" routerLink="/user/profile">
+                            <i class="bi bi-person"></i>
+                            <span class="text">My Account</span>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a routerLinkActive="active" routerLink="/user/categories">
+                            <i class="bi bi-bag-check"></i>
+                            <span class="text">Category</span>
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="" routerLink="/user/quizzes">
+                            <i class="bi bi-chat-dots"></i>
+                            <span class="text">Quiz</span>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="" routerLink="/user/history">
+                            <i class="bi bi-clock"></i>
+                            <span class="text">History</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="menu">
+                <p class="title">contest</p>
+                <ul>
+                    <li class="">
+                        <a href="" routerLink="/user/contest">
+                            <i class="bi bi-lightning-charge"></i>
+                            <span class="text">Challenge</span>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="">
+                            <i class="bi bi-trophy" routerLink="/user/contest"></i>
+                            <span class="text">Contest</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="menu">
+                <p class="title">Other</p>
+                <ul>
+                    <li class="">
+                        <a href="" routerLink="/user/help">
+                            <i class="bi bi-info-circle"></i>
+                            <span class="text">Help</span>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="" (click)="logout()">
+                            <i class="bi bi-box-arrow-in-right"></i>
+                            <span class="text">Logout</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <section class="home">
+        <router-outlet></router-outlet>
+    </section>
+</div>
