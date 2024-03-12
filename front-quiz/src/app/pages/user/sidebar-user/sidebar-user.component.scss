@@ -84,7 +84,7 @@
 }
 
 .menu ul li a:hover,
-.menu ul li.active a {
+.menu ul li a.active {
     color: #ffff;
     background-color: #720e9e;
 }
@@ -201,7 +201,7 @@
 
 .home {
     position: relative;
-    left: 260px;
+    left: 264px;
     width: calc(100% - 260px);
     transition: all .5s ease;
 }

@@ -23,7 +23,7 @@
                         </a>
                     </li>
                     <li class="">
-                        <a routerLinkActive="active" routerLink="/user/profile">
+                        <a routerLinkActive="active" [routerLink]="'/user/profile/'+user.email">
                             <i class="bi bi-person"></i>
                             <span class="text">My Account</span>
                         </a>
