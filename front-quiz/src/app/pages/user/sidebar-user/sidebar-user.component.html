@@ -9,7 +9,7 @@
             </div>
             <div class="user-details">
                 <p class="title">Web Developer</p> 
-                <p class="name">{{user.username?.charAt(0)?.toUpperCase()+user.username?.slice(1)!}}</p>
+                <p class="name">{{username}}</p>
             </div>
         </div>
         <div class="nav">
@@ -17,31 +17,31 @@
                 <p class="title">Main</p>
                 <ul>
                     <li class="">
-                        <a routerLinkActive="active" routerLink="/user">
+                        <a routerLinkActive="active" routerLink="/user" [routerLinkActiveOptions]="{exact: true}">
                             <i class="bi bi-speedometer2"></i>
                             <span class="text">Dashboard</span>
                         </a>
                     </li>
                     <li class="">
-                        <a routerLinkActive="active" [routerLink]="'/user/profile/'+user.email">
+                        <a routerLinkActive="active" [routerLink]="'/user/profile/'+user.email" [routerLinkActiveOptions]="{exact: true}">
                             <i class="bi bi-person"></i>
                             <span class="text">My Account</span>
                         </a>
                     </li>
                     <li class="">
-                        <a routerLinkActive="active" routerLink="/user/categories">
+                        <a routerLinkActive="active" routerLink="/user/categories" [routerLinkActiveOptions]="{exact: true}">
                             <i class="bi bi-bag-check"></i>
                             <span class="text">Category</span>
                         </a>
                     </li>
-                    <li class="active">
-                        <a routerLink="/user/quizzes">
+                    <li class="">
+                        <a routerLinkActive="active" routerLink="/user/quizzes" [routerLinkActiveOptions]="{exact: true}">
                             <i class="bi bi-chat-dots"></i>
                             <span class="text">Quiz</span>
                         </a>
                     </li>
                     <li class="">
-                        <a routerLink="/user/history">
+                        <a routerLink="/user/history" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
                             <i class="bi bi-clock"></i>
                             <span class="text">History</span>
                         </a>
@@ -52,13 +52,13 @@
                 <p class="title">contest</p>
                 <ul>
                     <li class="">
-                        <a  routerLink="/user/Challenge">
+                        <a  routerLink="/user/Challenge" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
                             <i class="bi bi-lightning-charge"></i>
                             <span class="text">Challenge</span>
                         </a>
                     </li>
                     <li class="">
-                        <a routerLink="/user/contest">
+                        <a routerLink="/user/contest" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
                             <i class="bi bi-trophy" ></i>
                             <span class="text">Contest</span>
                         </a>
@@ -70,7 +70,7 @@
                 <p class="title">Other</p>
                 <ul>
                     <li class="">
-                        <a href="" routerLink="/user/help">
+                        <a href="" routerLink="/user/help" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
                             <i class="bi bi-info-circle"></i>
                             <span class="text">Help</span>
                         </a>

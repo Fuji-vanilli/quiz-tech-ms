@@ -1,6 +1,6 @@
 
   .contain {
-    background: #21262D;
+    background: #fff;
     padding: 14px 14px;
     margin-right: 14px;
     margin-bottom: 16px;
@@ -22,7 +22,7 @@
 }
 
 .title span, i {
-    color: #FFF;
+    color: #720e9e;
     font-size: 22px;
     font-family: 'Roboto';
 }
@@ -34,8 +34,8 @@
 .title button {
     border: 0;;
     border-radius: 24px;
-    background: rgba(255, 255, 255, 0.2);
-    color: #a3a3a3;
+    background: rgba(#720e9e, 0.7);
+    color: #fff;
     padding: 6px 14px;
 }
 
@@ -46,9 +46,9 @@
     display: flex;
     align-items: center;
     border-radius: 24px;
-    background: #0D1117;
+    background: #fff;
     padding: 8px 20px;
-    border: 1px solid #404040;
+    border: 1px solid #720e9e;
 }
 
 
@@ -57,7 +57,7 @@
     border: 0;
     flex: 1;
     outline: none;
-    color: #e0e0e0;
+    color: #720e9e;
     font-size: 16px;
 }
 
@@ -71,12 +71,12 @@
 }
 
 .box-search button i {
-    color: #a3a3a3;
+    color: #720e9e;
     font-size: 20px;
 }
 
 .box-search:focus-within {
-    border: 1px solid #89929b;
+    border: 1px solid #720e9e;
     transition: border-color 0.5s ease;
 }
 
@@ -108,14 +108,14 @@
 
 .btn-scroll {
     border: 0;
-    background: #34373b;
+    background: #720e9e;
     margin: 8px;
     padding: 4px;
     border-radius: 4px;
 }
 
 .btn-scroll i {
-    color: #89929b;
+    color: #fff;
     height: 14px;
 }
 
@@ -128,9 +128,9 @@
     margin-bottom: 16px;
     padding: 8px 12px;
     border: 1px solid transparent;
-    border-radius: 24px;
-    background: #34373b;
-    color: #a3a3a3;
+    border-radius: 8px;
+    background: #1d1160;
+    color: #fff;
     transition: all 0.6s ease;
 }
 
@@ -147,14 +147,14 @@
 }
 
 mat-card {
-    background: #34373b;
+    background: #21262d;
     transition: all 0.9s ease;
-    border: 1px solid #21262D;
+    //border: 1px solid #21262D;
     border-radius: 10px;
 }
 
 mat-card:hover {
-    opacity: .9;
+    opacity: 1;
 }
 
 mat-card-title {
@@ -183,18 +183,20 @@ h4 {
     font-family: 'Ubuntu';
 }
 
-.button-start {
-    padding: 4px 16px;
-    font-family: 'Roboto';
+.btn-start {
+    padding: 12px 16px;
+    font-family: 'Inter';
     border: none;
     border-radius: 4px;
-    background: #21262d;
+    background: #3457D5;
     color: #C9C9C9;
-    border: 1px solid #404040;
+    border: 0;
+    margin-bottom: 16px;
+    margin-left: 28px;
     transition: all 0.5s ease;
 }
 
-.button-start:hover {
+.btn-start:hover {
     opacity: .8;
     box-shadow: 0 0 0 1px #737373,
     0 0 10px rgba(255, 255, 255, 0.5);
@@ -244,17 +246,11 @@ h4 {
 }
 
 .quizz-details .info-card {
-    //margin-right: 0.4rem;
     width: auto;
     min-width: 90px;
     display: inline-block;
-    -webkit-border-radius: 5px;
-    -khtml-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -ms-border-radius: 5px;
     border-radius: 5px;
-    background-color: #89929b;
-   // border: 2px solid #0e223e;
+    background-color: #fff;
     text-align: center;
 }
 
@@ -278,7 +274,7 @@ h4 {
 }
 
 .quizz-details .info-card .info-value {
-    background: #21262D;
+    background: #3457D5;
     font-family: 'Poppins';
     font-size: 14px;
 }
@@ -352,14 +348,14 @@ span {
 
 .rowposter::-webkit-scrollbar {
     display: none;
-    background: #27272a;
+    background: #fff;
     border-radius: 12px;
     margin-bottom: 12px;
 }
 
 .rowposter::-webkit-scrollbar-thumb {
-    //display: none;
-    background: #737373;
+    display: none;
+    background: #fff;
     border-radius: 20px;
     border: 6px solid #27272a;
     

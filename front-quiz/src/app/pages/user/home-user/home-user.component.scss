@@ -8,7 +8,7 @@
 .content {
     padding-top: 16px;
     padding-right: 26px;
-    background: #21262d;
+    background: #fff;
     border-radius: 10px;
 }
 
@@ -18,7 +18,7 @@
     font-size: 12px;
 }
 .head-card {
-    background: #0d1117;
+    background: #DDA0DD;
     padding: 0px 12px;
     margin-left: 16px;
     margin-bottom: 14px;
@@ -26,11 +26,11 @@
 }
 
 .head-card  span, strong {
-    color: #faa356;
+    color: #fff;
 }
 
 .head-card .history {
-    border-right: 5px solid  #21262d;
+    border-right: 5px solid  #DDA0DD;
     display: flex;
     align-items: center;
     padding: 12px 16px;
@@ -204,7 +204,7 @@ table {
 }
 
 .fixed-right {
-    background: #21262d;
+    background: #fff;
     padding-top: 20px;
     margin-right: 14px;
     border-radius: 10px;

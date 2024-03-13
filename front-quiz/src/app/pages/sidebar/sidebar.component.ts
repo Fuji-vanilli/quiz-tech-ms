@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { KeycloakService } from 'keycloak-angular';
 
 @Component({
@@ -6,15 +6,18 @@ import { KeycloakService } from 'keycloak-angular';
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.scss']
 })
-export class SidebarComponent implements OnInit{
+export class SidebarComponent implements OnInit, AfterViewInit{
 
   username!: string;
 
   constructor(public keycloakService: KeycloakService) {
 
   }
-  ngOnInit(): void {
+  ngAfterViewInit(): void {
     this.loadSidebar();
+  }
+  ngOnInit(): void {
+
     this.keycloakService.loadUserProfile().then(
       profile=> {
         const username= profile.username;
