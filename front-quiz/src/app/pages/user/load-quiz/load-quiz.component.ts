@@ -14,7 +14,7 @@ export class LoadQuizComponent implements OnInit {
 
   @ViewChild('scrollContainer') scrollContainer!: ElementRef;
 
-  colors: string[]= ['#00FFFF', '#F18F01', '#2E8B57', '#FF6347', '#6c35de'];
+  colors: string[]= ['#de283b', '#F18F01', '#2E8B57', '#FF6347', '#6c35de'];
   selectedCategory!: string;
 
   categoryId!: string;
@@ -86,11 +86,17 @@ export class LoadQuizComponent implements OnInit {
   }
 
   scrollLeft(): void {
-    this.scrollContainer.nativeElement.scrollLeft -= 150;
+    this.scrollContainer.nativeElement.scrollTo({
+      left: this.scrollContainer.nativeElement.scrollLeft - 100,
+      behavior: 'smooth'
+    });
   }
 
   scrollRight(): void {
-    this.scrollContainer.nativeElement.scrollLeft += 150;
+    this.scrollContainer.nativeElement.scrollTo({
+      left: this.scrollContainer.nativeElement.scrollLeft + 100,
+      behavior: 'smooth'
+    });
   }
 
   sortedByName() {

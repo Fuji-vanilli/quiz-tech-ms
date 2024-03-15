@@ -8,5 +8,5 @@ import { SPINNER } from 'ngx-ui-loader';
 })
 export class AppComponent {
   title = 'front-quiz';
-  spinerType= SPINNER.threeStrings;
+  spinerType= SPINNER.foldingCube;
 }

@@ -59,7 +59,7 @@ a {
 }
 .btn-login {
     border-radius: 5px;
-    border: 1px solid #292929;
+    border: 0;
     padding: 6px 14px ; 
     background: #EE1D52;
     color: #fff;
@@ -71,13 +71,13 @@ a {
 .btn-login:hover {
     background: #292929;
     color: #EE1D52;
-    border: 1px solid #EE1D52;
+    //border: 1px solid #EE1D52;
 }
 
 .btn-register {
     margin-left: 12px;
     border-radius: 5px;
-    border: 1px solid #EE1D52;
+    border: 0;
     padding: 6px 14px ; 
     background: #292929;
     color: #EE1D52;
@@ -88,7 +88,7 @@ a {
 .btn-register:hover {
     background: #EE1D52;
     color: #fff;
-    border: 1px solid #292929;
+    //border: 1px solid #292929;
 }
 
 .navbar-nav a, i {
