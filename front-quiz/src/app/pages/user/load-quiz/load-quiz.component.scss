@@ -107,9 +107,10 @@ box-search:focus-within {
     align-items: center;
     padding: 20px;
     position: relative;
-    background: #21262d;
+    background: rgba(#21262d, 0.9);
     margin-right: 18px;
     border-radius: 8px; 
+    transition: all 0.4s ease;
 }
 
 .category-content:hover,
@@ -161,7 +162,7 @@ mat-card {
     background: #fff;
     //background-image: url('../../../../assets/back2.jpg');
     transition: all 0.9s ease;
-    border: 1px solid #3457D5;
+    border: 1px solid #757575;
     border-radius: 10px;
     margin-bottom: 16px;
 }
