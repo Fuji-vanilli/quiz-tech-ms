@@ -22,18 +22,20 @@
     display: flex;
     align-items: center;
     border-radius: 30px;
-    background: #342a45;
+    background: #e0e0e0;
     padding: 8px 20px;
-    //border: 1px solid #720e9e;
 }
 
+.box-search:hover {
+    background: #ccccc0;
+}
 
 .box-search input {
     background: transparent;
     border: 0;
     flex: 1;
     outline: none;
-    color: #fff;
+    color: #21262d;
     font-size: 16px;
 }
 
@@ -47,7 +49,7 @@
 }
 
 .box-search button i {
-    color: #fff;
+    color: #757575;
     font-size: 20px;
 }
 
