@@ -21,7 +21,7 @@
                                         <i [ngClass]="category.icon" ></i>
                                     </div>
                                     <div>
-                                        <span class="title-category" [ngStyle]="{'color': colors[i%colors.length]}">{{category.title+' ('+category.quizsId.length+')'}}</span>
+                                        <span class="title-category">{{category.title+' ('+category.quizsId.length+')'}}</span>
                                     </div>
                                 </div>  
                             </div>
@@ -33,7 +33,7 @@
                 <div class="col-md-6 mt-2">
                     <div class="dropdown">
                         <button class="btn-category" [ngClass]="{'active': selectedCategory==='all'}" (click)="filterQuizByCategory('all')"><span>All Quizzes ({{quizzes.length}})</span></button>
-                        <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <button class="btn btn-sorted dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                           Sorted by
                         </button>
                         <ul class="dropdown-menu dropdown-menu-dark">
@@ -111,16 +111,12 @@
                                                 <img src="../../../../assets/level.png" alt=""><span style="margin-left: 2px;">{{quiz.difficulty}}</span>
                                             </div>
                                         </div>
-                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </mat-card-content>
-    
                         <mat-card-actions>
-                            <div class="mb-2 ms-4">
-                                <!--button class="button-view">View <i class="bi bi-eye-fill ms-2" style="color: #f59e0b;"></i></button-->
-                                <button class="btn-start " [routerLink]="'/user/instructions/'+quiz.id">Start this Quiz<i class="bi bi-play-circle ms-2" style="color: #fff;"></i></button>
-                            </div>
+                            <button class="btn-start " [routerLink]="'/user/instructions/'+quiz.id">Start this Quiz<i class="bi bi-play-circle ms-2" style="color: #fff;"></i></button>
                         </mat-card-actions>
                     </mat-card>
                 </div>

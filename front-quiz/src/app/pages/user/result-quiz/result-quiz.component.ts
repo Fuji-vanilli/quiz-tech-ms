@@ -71,10 +71,10 @@ export class ResultQuizComponent implements OnInit {
 		  text: "Result of Your Quiz"
 	  },
 	  subtitles: [{
-		  text: "Correct answser / wrong answer : QUIZ TECH"
+		  text: "QUIZ TECH: Correct answser / wrong answer"
 	  }],
 	  data: [{
-		  type: "pie", //change type to column, line, area, doughnut, etc
+		  type: "pie", //change type to column, line, area, doughnut, pie, etc
 		  indexLabel: "{name}: {y}%",
 		  dataPoints: [
 		  	{ name: "Correct answer", y: 0},

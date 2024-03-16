@@ -156,22 +156,30 @@ box-search:focus-within {
 .btn-category {
     margin-right: 16px;
     margin-bottom: 16px;
+    font-size: 12px;
     padding: 8px;
     border: 1px solid transparent;
     border-radius: 8px;
-    background: #241b35;
+    background: #21262d;
     color: #fff;
     transition: all 0.6s ease;
+}
+
+.btn-sorted {
+    background: #656565;
+    color: #ffffff;
+    font-size: 12px;
+    padding: 8px;
 }
 
 /***/
 
 
 mat-card {
-    background: #fff;
+    background-color: rgb(203 213 225);
     //background-image: url('../../../../assets/back2.jpg');
     transition: all 0.9s ease;
-    border: 1px solid #757575;
+    //border: 1px solid #89929b;
     border-radius: 10px;
     margin-bottom: 16px;
 }
@@ -212,18 +220,16 @@ h4 {
     font-family: 'Inter';
     border: none;
     border-radius: 4px;
-    background: #3457D5;
+    background: #21262d;
     color: #fff;
     border: 0;
-    margin-bottom: 16px;
-    margin-left: 18px;
+    margin: 16px;
+    width: 100%;
     transition: all 0.5s ease;
 }
 
 .btn-start:hover {
-    opacity: .8;
-    box-shadow: 0 0 0 1px #737373,
-    0 0 10px rgba(255, 255, 255, 0.5);
+    background: #720e9e;
 }
 
 .truncate {

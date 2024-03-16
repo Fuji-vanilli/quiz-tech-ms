@@ -15,7 +15,7 @@
 }
 
 .right-content mat-card-title {
-    color: #89929b;
+    color: #21262d;
     font-size: 14px;
     margin-bottom: 12px;
     border-bottom: 1px solid #525252;
@@ -24,10 +24,10 @@
 .right-content .btn-category {
     padding: 4px 6px 4px 8px;
     margin-top: 16px;
-    background: #fff;
+    background: #ffffff;
     border: 0;
     border-radius: 16px;
-    color: #757575;
+    color: #21262d;
 }
 
 .right-content .btn-category span {
@@ -50,6 +50,10 @@
     border-radius: 10px 10px 0 0;
 }
 
+.list-options li {
+    margin-top: 14px;
+}
+
 .correct-answer {
     background: #fff;
     color: #2a9235;
@@ -67,8 +71,8 @@
 
 .question-number {
     padding: 10px 12px;
-    background: #21262d;
+    background: #720e9e;
     color: #fff;
     border: none;
-    border-bottom: 1px solid #525252;
+    border-radius: 8px;
 }
