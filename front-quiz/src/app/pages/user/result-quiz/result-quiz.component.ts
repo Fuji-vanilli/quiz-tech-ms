@@ -15,6 +15,7 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./result-quiz.component.scss']
 })
 export class ResultQuizComponent implements OnInit {
+  colors: string[]= ['#FF4D4D', '#F18F01', '#2E8B57', '#FF6347', '#71c4ef'];
 
   selected!: Date;
 
@@ -64,7 +65,7 @@ export class ResultQuizComponent implements OnInit {
 
   chartOptions = {
 	  animationEnabled: true,
-	  theme: "dark2",
+	  theme: "light",
 	  exportEnabled: true,
 	  title: {
 		  text: "Result of Your Quiz"
