@@ -17,12 +17,13 @@ mat-card {
     color: #fff;
     font-family: 'Poppins';
     margin-bottom: 32px;
-    border: 1px solid #0e223e;
+    border: 0;
     cursor: pointer;
+    border-radius: 8px;
 }
 
 .btn-save:hover {
-    background: #0e223e;
+    background: #dc2626;
     transition: all 0.25ms;
 }
 

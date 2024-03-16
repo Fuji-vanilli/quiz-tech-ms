@@ -30,6 +30,7 @@ import { HomeAdminComponent } from './pages/admin/home-admin/home-admin.componen
 import { UserListComponent } from './pages/user/user-list/user-list.component';
 import { LoginComponent } from './pages/login/login.component';
 import { SidebarUserComponent } from './pages/user/sidebar-user/sidebar-user.component';
+import { SidebarComponent } from './pages/sidebar/sidebar.component';
 
 const routes: Routes = [
   { path: '', component: HomeLandingComponent },
@@ -52,7 +53,7 @@ const routes: Routes = [
       { path: 'user-list', component: UserListComponent }
     ]},
   { 
-    path:'admin', component: DashboardComponent, canActivate: [AuthGuard], data: {roles: ['ADMIN']},
+    path:'admin', component: SidebarComponent, canActivate: [AuthGuard], data: {roles: ['ADMIN']},
     children: [
       { path: '', component: HomeAdminComponent },
       { path: 'categories', component:ViewCategoryComponent },

@@ -66,6 +66,11 @@ li {
    display: none;
 }
 
+#sidebar:not(.expand) ~ .home {
+    left: 70px;
+    width: calc(100% - 70px);
+}
+
 .sidebar-nav {
     padding: 3rem 0;
     flex: 1 1 auto;
@@ -103,4 +108,12 @@ a.sidebar-link:hover {
 .copyright {
     margin-left: 12px;
     margin-bottom: 30px;
+}
+
+.home {
+    position: relative;
+    background-color: #0d1117;
+    left: 250px;
+    width: calc(100% - 250px);
+    transition: all .5s ease;
 }

@@ -12,11 +12,11 @@
                     </button>
                 </div>
             </div>
-            <mat-card class="category-card" *ngFor="let category of categories">
+            <mat-card class="category-card" *ngFor="let category of categories; let index= index">
                 <div class="row">
                     <div class="col-md-12">
                         <mat-card-header>
-                            <div mat-card-avatar class="image-category"></div>
+                            <div mat-card-avatar class="icon-category" [ngStyle]="{'background': colors[index%5]}"><i [ngClass]="category.icon"></i></div>
                             <mat-card-title>{{category.title}}</mat-card-title>
                             <mat-card-subtitle>{{category.description}}</mat-card-subtitle>
                         </mat-card-header>
@@ -33,14 +33,12 @@
                                 </div>
                             </mat-card-actions>
                             <div class="d-flex align-items-center editor">
-                                <a class="nav-link edit" (click)="openUpdate(category)"><i class="bi bi-pen-fill" style="margin-right: 10px;"></i>Edit</a>
-                                <a class="nav-link delete ms-3" (click)="deleteCategory(category.id)"><i class="bi bi-trash-fill" style="margin-right: 10px;"></i>Delete</a>
+                                <a class="nav-link edit" (click)="openUpdate(category)"><i class="bi bi-pen-fill" style="margin-right: 10px;"></i></a>
+                                <a class="nav-link delete ms-3" (click)="deleteCategory(category.id)"><i class="bi bi-trash-fill" style="margin-right: 10px;"></i></a>
                             </div>
                         </div>
-
                     </div>
                 </div>
-
             </mat-card>
         </div>
     </div>

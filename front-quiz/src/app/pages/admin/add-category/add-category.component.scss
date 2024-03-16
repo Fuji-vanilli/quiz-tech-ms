@@ -1,7 +1,12 @@
+.contain {
+    background: #0d1117;
+    height: 100vh;
+}
 .content {
     background: #21262d;
     border-radius: 12px;
     padding: 20px;
+    margin-bottom: 50px;
 }
 
 .full-width {
@@ -31,11 +36,12 @@ h2 {
 }
 .btn-save {
     background: #ea580c;
-    border: 1px solid #0e223e;
+    border: 0;
     padding: 8px 24px;
     color: #fff;
     font-family: 'Poppins';
     cursor: pointer;
+    border-radius: 8px;
 }
 
 .btn-save:hover {

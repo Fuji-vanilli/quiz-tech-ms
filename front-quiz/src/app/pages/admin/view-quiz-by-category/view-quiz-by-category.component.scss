@@ -1,27 +1,45 @@
-.container {
+.contain {
     padding-top: 16px;
     margin-bottom: 12px;
-    background: #e5e7eb;
+    margin-left: 18px;
+    background: transparent;
     padding-bottom: 30px;
+}
+
+.title-question h1 {
+    color: #f6f6f6;
+    font-family: 'Anta';
+}
+
+.custom-card {
+    background: #21262d;
 }
 .mt10 {
     margin-top: 12px;
     padding-bottom: 6px;
 }
 
-.example-header-image {
-    background-image: url('../../../../assets/trophee.png');
-    background-size: cover;
-  }
+.quiz-content {
+    margin-right: 22px;
+}
 
 mat-card {
     font-family: 'Ubuntu';
+
 }
 
 .title-question {
     font-family: 'Ubuntu';
-    color: #f59e0b;
+    color: #3b3c3d;
     margin-left: 16px;
+}
+
+.custom-card a {
+    color: #f6f6f6;
+}
+
+.custom-card:hover a {
+    opacity: .7;
 }
 
 .nav-link {
@@ -34,31 +52,31 @@ mat-card {
 
 .btn-add-quiz {
     padding: 12px 20px;
-    border: 2px solid #00668c;
+    border: 0;
     background: #fff;
     color: #00668c;
     font-family: 'Ubuntu';
     transition: all 0.1s ease;
-    margin-right: 16px;
+    border-radius: 8px;
 }
 
 .btn-add-quiz:hover {
-    background: #0e223e;
+    background: #e11d48;
     color: #fff;
-    border: 2px solid #0e223e;
+    border: none;
 }
 
 .btn-question {
-    background: #fff;
-    color: #0e223e;
-    border: 1px solid #0e223e;
+    background: #77bdfd;
+    color: #12162d;
+    border: 0;
     padding: 10px 24px;
     font-weight: 550;
+    border-radius: 8px;
 }
 
 .btn-question:hover {
-    background: #0e223e;
-    color: #fff;
+    opacity: .7;
 }
 
 .attempt {
@@ -195,4 +213,54 @@ h4, .h4 {
     text-rendering: auto;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+
+/*****/
+
+.box-search {
+    margin-top: 14px; 
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 700px;
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    background: #a3a3a3;
+    padding: 8px 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+
+.box-search input {
+    background: transparent;
+    border: 0;
+    flex: 1;
+    outline: none;
+    color: #e0e0e0;
+    font-size: 16px;
+}
+
+.box-search button {
+    border: 0;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    cursor: pointer;
+}
+
+.box-search button i {
+    color: #3b3c3d;
+    font-size: 20px;
+}
+
+.box-search:focus-within {
+    border: 1px solid #fff;
+    transition: border-color 0.5s ease;
+}
+
+  
+.image-quiz {
+    background-size: cover;
 }

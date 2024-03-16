@@ -16,6 +16,7 @@ declare var window: any;
   styleUrls: ['./view-category.component.scss']
 })
 export class ViewCategoryComponent implements OnInit {
+  colors: string[]= ['#FF4D4D', '#F18F01', '#2E8B57', '#FF6347', '#71c4ef'];
 
   categories: Category[]= [];
   categoryId!: string;
