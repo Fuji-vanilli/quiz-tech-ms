@@ -86,7 +86,7 @@ box-search:focus-within {
 
 .btn-scroll {
     border: 0;
-    background: #21262d;
+    background: #ccccc0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -109,7 +109,7 @@ box-search:focus-within {
     align-items: center;
     padding: 20px;
     position: relative;
-    background: rgba(#21262d, 0.9);
+    background: #fff;
     margin-right: 18px;
     border-radius: 8px; 
     transition: all 0.4s ease;
@@ -122,34 +122,40 @@ box-search:focus-within {
         background-color: transparent;
         border: 1px solid transparent;
     }
+
+    .title-category {
+        color: #fff;
+    }
 }
 
 .category-content .title-category {
-    color: #f6f6f6;
+    font-family: 'Inter';
+    margin-left: 14px;
 }
 
 .category {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 14px;
+    padding: 16px;
     background: transparent;
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    border: 1px solid #fff;
+    border: 2px solid #ebebeb;
     transition: all 0.3s ease-in-out;
 }
 
 .category i {
-    font-size: 24px;
+    font-size: 28px;
     font-weight: 500;
+    color: #fff;
 }
 
 .btn-category {
     margin-right: 16px;
     margin-bottom: 16px;
-    padding: 8px 12px;
+    padding: 8px;
     border: 1px solid transparent;
     border-radius: 8px;
     background: #241b35;
@@ -319,7 +325,6 @@ h4, .h4 {
 span {
     border: none;
     border-radius: 24px;
-    padding: 0px 14px;
     
 }
 

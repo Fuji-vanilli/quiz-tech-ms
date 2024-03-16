@@ -36,11 +36,11 @@
         </li>
       </ul>
 
-      <ul class="navbar-nav mb-lg-0 ms-auto">
+      <ul class="navbar-nav mb-lg-0 ms-auto right-nav">
         <li class="nav-item" *ngIf="profile">
-          <a class="nav-link" routerLinkActive="active" aria-current="page" (click)="dashboard()">
-            <i class="bi bi-gear"></i>
-            <span style="margin-left: 8px;">Settings</span>
+          <a class="nav-link" routerLinkActive="active" aria-current="page" routerLink="/user/user-list">
+            <i class="bi bi-person-plus"></i>
+            <span style="margin-left: 8px;">Quizzers</span>
           </a>
         </li>
         <li class="nav-item ms-4" *ngIf="profile">

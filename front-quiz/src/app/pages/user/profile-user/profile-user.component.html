@@ -15,7 +15,7 @@
                     </div>
 
                     <div class="competence mt-4">
-                        <h4>{{user.description}}</h4>
+                        <h5>{{user.description}}</h5>
                     </div>
 
                     <div class="edit-profile" *ngIf="isCurrentUser">
@@ -51,7 +51,7 @@
                     </div>
                     <div class="divider mt-4"></div>
                     <div class="mt-3">
-                        <h3 style="color: #89929b;">Competences</h3>
+                        <h3 style="color: #757575;">Competences</h3>
                         <button class="btn-competence" *ngFor="let competence of user.competences">{{competence}}</button>
                     </div>
                 </div>
@@ -67,12 +67,12 @@
                                 <div class="card-finished">
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div><i class="bi bi-paperclip" style="font-size: 20px;"></i><span
-                                                style="color: #77bdfb;">{{result.quizTitle}}</span></div>
+                                                style="color: #0E3386;">{{result.quizTitle}}</span></div>
                                         <button class="btn btn-success" routerLink="/user/quizzes">Explore</button>
                                     </div>
                                     <div class="mt-2">
-                                        <i class="bi bi-arrow-up-right"
-                                            style="color: #faa356;"></i><span>{{result.frequency}}</span>
+                                        <i class="bi bi-star-fill"
+                                            style="color: #dd6236;"></i><span>{{result.frequency}}</span>
                                         <span>max score: <strong>{{result.maxScore+'%'}}</strong></span>
                                     </div>
                                 </div>

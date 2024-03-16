@@ -11,17 +11,17 @@
 
             </div>
             
-            <div class="row" style="background: #e0e0e0; margin-bottom: 18px;">
+            <div class="row" style="background: #e0e0e0; margin-bottom: 18px;"> 
                 <div class="col-md-12">
                     <div class="container-category">
                         <div class="mt-2 rowposter" style="overflow-x: auto; white-space: nowrap;" #scrollContainer> 
                             <div class="d-flex justify-content-start lign-items-center">
                                 <div class="category-content" *ngFor="let category of categories; let i= index" (click)="filterQuizByCategory(category.id)" [ngClass]="{'active': category.id=== selectedCategory}">
-                                    <div class="category" >
-                                        <i [ngClass]="category.icon" [ngStyle]="{'color': colors[i%colors.length]}"></i>
+                                    <div class="category" [ngStyle]="{'background': colors[i%colors.length]}">
+                                        <i [ngClass]="category.icon" ></i>
                                     </div>
                                     <div>
-                                        <span class="title-category">{{category.title+' ('+category.quizsId.length+')'}}</span>
+                                        <span class="title-category" [ngStyle]="{'color': colors[i%colors.length]}">{{category.title+' ('+category.quizsId.length+')'}}</span>
                                     </div>
                                 </div>  
                             </div>
