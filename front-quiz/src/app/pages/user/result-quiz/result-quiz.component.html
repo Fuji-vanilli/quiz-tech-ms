@@ -8,26 +8,25 @@
                 <button class="question-number">{{(i+1)+' - '+question.content}}</button>
                 <mat-card-content class="mt-2">
                     <ul class="list-group">
-                        <li class="list-group-item" style="background: #21262d; border: red;"
+                        <li class="list-group-item" style="background: #fff;"
                             *ngFor="let option of question.options"
                             [ngClass]="question.answer === option ? 'correct-answer' : (answer[i]=== option)&& (answer[i]!== question.answer) ? 'wrong-answer' : 'normal'">
-                            <span class="ms-3" *ngIf="question.answer=== option"><img
-                                    src="../../../../assets/correct.png" alt="" style="margin-right: 16px;">{{ option
-                                }}</span>
-                            <span class="ms-3" *ngIf="(option=== answer[i]) && (question.answer!== option)"><img
-                                    src="../../../../assets/wrong.png" alt="" style="margin-right: 16px;">{{ option
-                                }}</span>
-                            <span class="ms-3"
-                                *ngIf="!(question.answer === option || (option === answer[i] && question.answer !== option))"><img
-                                    src="../../../../assets/normal.png" alt="" style="margin-right: 16px;">{{ option
-                                }}</span>
+                            <span class="ms-3" *ngIf="question.answer=== option">
+                                <img src="../../../../assets/correct.png" alt="" style="margin-right: 16px;">{{ option }}
+                            </span>
+                            <span class="ms-3" *ngIf="(option=== answer[i]) && (question.answer!== option)">
+                                <img src="../../../../assets/wrong.png" alt="" style="margin-right: 16px;">{{ option }}
+                            </span>
+                            <span class="ms-3" *ngIf="!(question.answer === option || (option === answer[i] && question.answer !== option))">
+                                <img src="../../../../assets/normal.png" alt="" style="margin-right: 16px;">{{ option }}
+                            </span>
                         </li>
                     </ul>
                 </mat-card-content>
                 <mat-card-actions>
                     <div class="ms-3">
-                        <span style="color: #fff;">Correct Answer: </span><span
-                            style="color: #c6ffe6;">{{question.answer}}</span>
+                        <span style="color: #21262d;">Correct Answer: </span><span
+                            style="color: #11975d;">{{question.answer}}</span>
                     </div>
                 </mat-card-actions>
             </mat-card>
@@ -50,12 +49,12 @@
                                 <span>View all Quizzes <i class="bi bi-arrow-right ms-2"></i></span>
                             </button>
                         </div>
-                        <mat-card class="calendar-card">
-                            <mat-calendar [(selected)]="selected"></mat-calendar>
-                        </mat-card>
-                        <p style="color: #fff; background: transparent; font-size: 11px;" class="mt-3">{{selected}}</p>
                     </mat-card-content>
                 </mat-card>
+                <div class="calendar" style="background-color: #21262d;">
+                    <mat-calendar [(selected)]="selected"></mat-calendar>
+                    <p style="color: #fff; background: transparent; font-size: 11px; margin: 14px;" class="mt-3">{{selected}}</p>
+                </div>
             </div>
 
         </div>

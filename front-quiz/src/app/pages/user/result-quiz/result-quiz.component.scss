@@ -1,9 +1,3 @@
-
-.correct-answer {
-    background: #fff;
-    color: #61bc84;
-}
-
 .chart-result {
     margin-right: 1px;
 }
@@ -16,7 +10,7 @@
 
 .right-content mat-card {
     background: #dddddd;
-    border-radius: 10px;
+    border-radius: 10px 10px 0 0;
     position: sticky;
 }
 
@@ -33,13 +27,13 @@
     background: #fff;
     border: 0;
     border-radius: 16px;
-    color: #c6cdd5;
+    color: #757575;
 }
 
 .right-content .btn-category span {
     border-radius: 16px;
     background: #f59e0b;
-    color: #161b22;
+    color: #fff;
     padding-left: 6px;
     padding-right: 6px;
     margin-left: 8px;
@@ -52,24 +46,29 @@
 }
 
 .content mat-card {
-    background: #21262d;
+    background: #fff;
     border-radius: 10px 10px 0 0;
 }
+
+.correct-answer {
+    background: #fff;
+    color: #2a9235;
+}
+
 .wrong-answer {
     background: #fff;
-    color: #ff6366;
+    color: #D90429;
 }
 
 .normal {
     background: #fff;
-    color: #a3a3a3;
+    color: #333333;
 }
 
 .question-number {
     padding: 10px 12px;
-    background: #161b22;
+    background: #21262d;
     color: #fff;
     border: none;
-    border-radius: 10px 10px 0 0 ;
     border-bottom: 1px solid #525252;
 }
