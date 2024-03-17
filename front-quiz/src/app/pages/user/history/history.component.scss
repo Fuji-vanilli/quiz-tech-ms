@@ -1,5 +1,5 @@
 .content {
-    background: #21262d;
+    background: #fff;
     border-radius: 10px;
 }
 
@@ -8,7 +8,7 @@
 }
 
 .head-card {
-    background: #0d1117;
+    background: #89929b;
     width: 100%;
     padding: 0px 12px;
     margin-left: 16px;
@@ -21,7 +21,7 @@
 }
 
 .head-card .history {
-    border-right: 3px solid  #21262d;
+    border-right: 3px solid  #fff;
     display: flex;
     align-items: center;
     padding: 12px 16px;
@@ -154,9 +154,10 @@
 
 .btn-requiz {
     background: #89929b;
+    color: #fff;
     font-size: 12px;
     padding: 4 12px;
-    border: 1px solid #21262d;
+    border: 0;
     border-radius: 6px;
     transition: all .6s ease;
 }
