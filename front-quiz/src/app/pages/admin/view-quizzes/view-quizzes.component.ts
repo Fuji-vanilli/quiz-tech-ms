@@ -136,9 +136,16 @@ export class ViewQuizzesComponent implements OnInit{
   uploadProfileImage(quizId: string) {
     this.quizService.updatePhotoQuiz(this.selectedFile, quizId).subscribe({
       next: response=> {
-        window.location.reload();
+        console.log('updated');
+        
+      },
+      error: err=> {
+        console.log(err);
+        
       }
     })
+
+    //window.location.reload();
   }
 
   uploadFile() {

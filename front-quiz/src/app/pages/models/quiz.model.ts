@@ -15,5 +15,6 @@ export interface Quiz {
     category?: Category, 
     duration?: number, 
     createdBy?: any,
+    photo?: any,
     questions?: Question[]
 }

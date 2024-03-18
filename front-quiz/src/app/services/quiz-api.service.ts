@@ -51,7 +51,7 @@ export class QuizApiService {
 
   updatePhotoQuiz(file: File, quizId: string): Observable<any> {
     const formData= new FormData();
-    formData.append('file', file);
+    formData.append('file', file, file.name);
     formData.append('quizId', quizId);
 
     return this.httpClient.patch(environment.backEndQuiz+'/update-image', formData)

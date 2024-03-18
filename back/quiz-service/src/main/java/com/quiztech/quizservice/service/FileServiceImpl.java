@@ -49,6 +49,7 @@ public class FileServiceImpl implements FileService{
 
         quizRepository.save(quiz);
 
+        log.info("image updated successfully!");
         return Response.builder()
                 .status(HttpStatus.OK)
                 .data(Map.of(

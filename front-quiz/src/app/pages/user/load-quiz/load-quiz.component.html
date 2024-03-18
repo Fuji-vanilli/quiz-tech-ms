@@ -56,7 +56,7 @@
 
                 <div class="col-md-3 content-quiz" *ngFor="let quiz of filterQuizzes | searchPipe: searchterm">
                     <div class="card" [routerLink]="'/user/instructions/'+quiz.id">
-                        <img src="../../../../assets/spring-boot.png" alt="">
+                        <img [src]="quiz.photo" alt="">
                         <div class="card-quiz">
                            <img [src]="quiz.imageUrl" alt="">
                            <span class="title">{{quiz.title}}</span>
