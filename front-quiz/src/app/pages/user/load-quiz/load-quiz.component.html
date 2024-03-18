@@ -56,110 +56,26 @@
 
                 <div class="col-md-3 content-quiz" *ngFor="let quiz of filterQuizzes | searchPipe: searchterm">
                     <div class="card" [routerLink]="'/user/instructions/'+quiz.id">
-                        <img [src]="quiz.photo" alt="">
+                        <div class="card-image">
+                            <img [src]="quiz.photo" alt="">
+                        </div>
                         <div class="card-quiz">
                            <img [src]="quiz.imageUrl" alt="">
                            <span class="title">{{quiz.title}}</span>
                            <span class="description truncate">{{quiz.description}}</span>
-                           <div class="row mt-2">
-                                <div class="col-md-4">
-                                    <div class="question text-center">
-                                        <div class="icon">
-                                            <i class="bi bi-question-lg"></i>
-                                        </div>
-                                        <div class="designation">
-                                            <span>{{quiz.numberOfQuestions}}</span> 
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="question text-center">
-                                        <div class="icon">
-                                            <i class="bi bi-alarm"></i>
-                                        </div>
-                                        <div class="designation">
-                                            <span>{{quiz.duration}}</span> 
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="question text-center">
-                                        <div class="icon">
-                                            <i class="bi bi-bookmark-star"></i>
-                                        </div>
-                                        <div class="designation">
-                                            <span>{{quiz.marks}}</span> 
-                                        </div>
-                                    </div>
-                                </div>
+                           <div class="question">
+                                <i class="bi bi-question-lg"></i>
+                                <span>{{quiz.numberOfQuestions}}</span> 
                            </div>
-                        </div>
-                    </div>
-                    <!--mat-card class="mt-2">
-                        <mat-card-header>
-                            <div mat-card-avatar class="image-quiz" [style.backgroundImage]="'url('+quiz.imageUrl+')'"></div>
-                            <mat-card-title>{{quiz.title}}</mat-card-title>
-                            <mat-card-subtitle>{{quiz.category?.title}}</mat-card-subtitle>
-                        </mat-card-header>
-                        <mat-card-content>
-                            <span class="truncate">{{quiz.description}}</span>
-                        </mat-card-content>
-                        <mat-card-content class="main">
-                            <div class="row">
-                                <div class="col-md-12 card-details">
-                                    <div class="quizz-details mt-3 text-start">
-                                        <div class="info-cards text-start">
-                                            <div class="info-card">
-                                                <div class="info-type"> 
-                                                    <i class="bi bi-question-lg"></i>
-                                                    <span>QUESTIONS</span></div>
-                                                <div class="info-value">
-                                                    <span>{{quiz.numberOfQuestions}}</span>
-                                                </div>
-                                            </div>
-                                            <div class="info-card ms-4">
-                                                <div class="info-type"> 
-                                                    <i class="bi bi-alarm"></i>
-                                                    <span>MINUTES</span>
-                                                </div>
-                                                <div class="info-value">
-                                                    <span> {{quiz.duration}}</span>
-                                                </div>
-                                            </div>
-                                            <div class="info-card ms-4">
-                                                <div class="info-type"> 
-                                                    <i class="bi bi-bookmark-star"></i>
-                                                    <span>MARKS</span>
-                                                </div>
-                                                <div class="info-value">
-                                                    <span>{{quiz.marks}}</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-5 quizz-ratings mb-3">
-                                                <div class="quizz-ratingy"> 
-                                                    <div class="quizz-rating__stars star_3"> 
-                                                        <i class="bi bi-star-fill" data-rating="1"></i>
-                                                        <i class="bi bi-star-fill ms-1" data-rating="2"></i>
-                                                        <i class="bi bi-star-fill ms-1" data-rating="3"></i>
-                                                        <i class="bi bi-star ms-1" data-rating="4"></i>
-                                                        <i class="bi bi-star ms-1" data-rating="5"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-5 d-flex justify-content-center align-items-center"> 
-                                                <img src="../../../../assets/level.png" alt=""><span style="margin-left: 2px;">{{quiz.difficulty}}</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                           <div class="duration">
+                                <i class="bi bi-alarm"></i>
+                                <span>{{quiz.duration}}</span>
                             </div>
-                        </mat-card-content>
-                        <mat-card-actions>
-                            <button class="btn-start " [routerLink]="'/user/instructions/'+quiz.id">Start this Quiz<i class="bi bi-play-circle ms-2" style="color: #fff;"></i></button>
-                        </mat-card-actions>
-                    </mat-card-->
+                            <div class="marks">
+                                <i class="bi bi-bookmark-star"></i>
+                                <span>{{quiz.marks}}</span> 
+                            </div>
+                    </div>
                 </div>
             </div>
         </div>

@@ -137,7 +137,7 @@ export class ViewQuizzesComponent implements OnInit{
     this.quizService.updatePhotoQuiz(this.selectedFile, quizId).subscribe({
       next: response=> {
         console.log('updated');
-        
+        window.location.reload();
       },
       error: err=> {
         console.log(err);
