@@ -40,4 +40,6 @@ public interface QuizController {
     ResponseEntity<Response> delete(@PathVariable String id);
     @PatchMapping("evaluate")
     ResponseEntity<Response> evaluateQuiz(@RequestBody Map<String, Map<String, Boolean>> evaluateQuiz);
+
+
 }

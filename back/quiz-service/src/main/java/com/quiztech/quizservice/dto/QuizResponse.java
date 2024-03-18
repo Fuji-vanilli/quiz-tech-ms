@@ -20,6 +20,7 @@ public class QuizResponse {
     private Date createdDate;
     private String createdBy;
     private Date lastUpdateDate;
+    private String photo;
     private BigDecimal marks;
     private String imageUrl;
     private BigDecimal numberOfQuestions;

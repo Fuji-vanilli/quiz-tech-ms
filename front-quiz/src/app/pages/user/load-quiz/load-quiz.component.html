@@ -53,8 +53,49 @@
                 <div class="mt-3 d-flex justify-content-center align-items-center" *ngIf="filterQuizzesBySearchTerm.length=== 0">
                     <h1 style="color: #89929b;">No Quizzes Find.....</h1>
                 </div>
-                <div class="col-md-4 content-quiz" *ngFor="let quiz of filterQuizzes | searchPipe: searchterm">
-                    <mat-card class="mt-2">
+
+                <div class="col-md-3 content-quiz" *ngFor="let quiz of filterQuizzes | searchPipe: searchterm">
+                    <div class="card" [routerLink]="'/user/instructions/'+quiz.id">
+                        <img src="../../../../assets/spring-boot.png" alt="">
+                        <div class="card-quiz">
+                           <img [src]="quiz.imageUrl" alt="">
+                           <span class="title">{{quiz.title}}</span>
+                           <span class="description truncate">{{quiz.description}}</span>
+                           <div class="row mt-2">
+                                <div class="col-md-4">
+                                    <div class="question text-center">
+                                        <div class="icon">
+                                            <i class="bi bi-question-lg"></i>
+                                        </div>
+                                        <div class="designation">
+                                            <span>{{quiz.numberOfQuestions}}</span> 
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="question text-center">
+                                        <div class="icon">
+                                            <i class="bi bi-alarm"></i>
+                                        </div>
+                                        <div class="designation">
+                                            <span>{{quiz.duration}}</span> 
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="question text-center">
+                                        <div class="icon">
+                                            <i class="bi bi-bookmark-star"></i>
+                                        </div>
+                                        <div class="designation">
+                                            <span>{{quiz.marks}}</span> 
+                                        </div>
+                                    </div>
+                                </div>
+                           </div>
+                        </div>
+                    </div>
+                    <!--mat-card class="mt-2">
                         <mat-card-header>
                             <div mat-card-avatar class="image-quiz" [style.backgroundImage]="'url('+quiz.imageUrl+')'"></div>
                             <mat-card-title>{{quiz.title}}</mat-card-title>
@@ -118,7 +159,7 @@
                         <mat-card-actions>
                             <button class="btn-start " [routerLink]="'/user/instructions/'+quiz.id">Start this Quiz<i class="bi bi-play-circle ms-2" style="color: #fff;"></i></button>
                         </mat-card-actions>
-                    </mat-card>
+                    </mat-card-->
                 </div>
             </div>
         </div>

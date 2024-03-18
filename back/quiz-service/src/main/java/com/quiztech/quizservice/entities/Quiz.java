@@ -25,6 +25,7 @@ public class Quiz {
     private boolean status;
     private Date createdDate;
     private Date lastUpdateDate;
+    private String photo;
     private String imageUrl;
     private BigDecimal marks;
     private BigDecimal numberOfQuestions;

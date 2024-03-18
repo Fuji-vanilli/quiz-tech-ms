@@ -176,8 +176,9 @@ box-search:focus-within {
 
 
 mat-card {
-    background-color: rgb(203 213 225);
-    //background-image: url('../../../../assets/back2.jpg');
+    background-color: #014040;
+    //background-image: url('../../../../assets/spring-boot.png');
+    background-size: cover;
     transition: all 0.9s ease;
     //border: 1px solid #89929b;
     border-radius: 10px;
@@ -223,7 +224,7 @@ h4 {
     background: #21262d;
     color: #fff;
     border: 0;
-    margin: 16px;
+   // margin: 16px;
     width: 100%;
     transition: all 0.5s ease;
 }
@@ -397,4 +398,64 @@ span {
 .rowposter {
     margin-bottom: 16px;
     
+}
+
+.card {
+    margin-bottom: 14px;
+    cursor: pointer;
+}
+
+
+.card-quiz {
+    position: relative;
+    padding: 14px;
+}
+
+.card-quiz img {
+    width: 32px;
+    height: 32px;
+    margin-right: 14px;
+}
+
+.card-quiz .title {
+    color: #21262d;
+    font-family: 'Ubuntu';
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.card-quiz .description {
+    font-size: 14px;
+    font-family: 'Ubuntu';
+    color: #89929b;
+}
+
+.question {
+    border: 1px solid #00668c;
+    border-radius: 4px;
+}
+
+.question .icon {
+    background: #00668c;
+    padding: 14px;
+    .bi {
+        color: #fff;
+        font-size: 20px;
+    }
+}
+
+.question .designation {
+    border: 1px solid #00668c;
+    font-size: 18px;
+    font-weight: 600;
+    font-family: 'Ubuntu';
+    color: #00668c;
+    padding: 8px;
+}
+
+.question .value {
+    background: #00668c;
+    span {
+        color: #fff;
+    }
 }
