@@ -49,4 +49,12 @@ export class QuizApiService {
     return this.httpClient.delete(environment.backEndQuiz+'/delete/'+id);
   }
 
+  updatePhotoQuiz(file: File, quizId: string): Observable<any> {
+    const formData= new FormData();
+    formData.append('file', file);
+    formData.append('quizId', quizId);
+
+    return this.httpClient.patch(environment.backEndQuiz+'/update-image', formData)
+  }
+
 }

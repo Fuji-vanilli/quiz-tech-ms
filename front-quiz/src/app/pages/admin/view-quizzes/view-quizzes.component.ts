@@ -18,6 +18,10 @@ import { KeycloakService } from 'keycloak-angular';
 })
 export class ViewQuizzesComponent implements OnInit{
 
+  selectImage: any;
+  selectedFile!: File;
+  filename: string= '';
+
   quizzes: Quiz[]= [];
   quizzesByTitleKeyword: Quiz[]= [];
   totalQuizzes!: number;
@@ -110,5 +114,36 @@ export class ViewQuizzesComponent implements OnInit{
       quiz=> quiz.title?.toLowerCase().includes(this.searchTerm.toLowerCase())
     )
   }
+
+  
+  handleFileInput(event: any) {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (e: any) => {
+        this.selectImage = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+
+    const target= event.target as HTMLInputElement;
+    if (target.files && target.files.length> 0) {
+      this.selectedFile= target.files[0];
+      this.filename= this.selectedFile.name;
+    }
+  }
+
+  uploadProfileImage(quizId: string) {
+    this.quizService.updatePhotoQuiz(this.selectedFile, quizId).subscribe({
+      next: response=> {
+        window.location.reload();
+      }
+    })
+  }
+
+  uploadFile() {
+    document.getElementById('fileInput')?.click();
+  }
+
 
 }

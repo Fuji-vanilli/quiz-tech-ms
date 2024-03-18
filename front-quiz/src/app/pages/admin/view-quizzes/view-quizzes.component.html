@@ -36,6 +36,7 @@
                     <div class="m-3 d-flex align-items-center">
                         <a class="nav-link" (click)="openUpdate(quiz)"><i class="bi bi-pen-fill"></i><span class="ms-2">Edit</span></a>
                         <a class="nav-link ms-3" (click)="deleteQuiz(quiz.id)"><i class="bi bi-trash-fill"></i><span class="ms-2">Delete</span></a>
+                        <a class="nav-link ms-3" data-toggle="modal" data-target="#exampleModal" ><i class="bi bi-camera-fill" style="margin-right: 8px;"></i>Upload Image</a>
                     </div>
                 </div>
                 <div class="col-md-4" style="background: #89929b;">
@@ -83,6 +84,35 @@
                         </div>
                 </div>
             </div>
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                      <div class="header">
+                          <h4 class="modal-title" id="exampleModalLabel">Choose your profile Image</h4> 
+                      </div>
+                    <div class="modal-body">
+                      <div class="mb-3">
+                          <input 
+                              type="file" 
+                              class="form-control"
+                              (change)="handleFileInput($event)"
+                              id="fileInput"
+                              style="display: none;"
+                          >
+                          <button class="btn-upload" type="submit" id="inputGroupFileAddon04" (click)="uploadFile()"><i class="bi bi-plus-lg" style="margin-right: 18px;"></i>Import Image</button>
+                      </div>
+                          <p class="mb-3" style="color: #89929b;">File selected: <span style="color: #fff;">{{filename}}</span></p>
+                          <div class="selected-image d-flex justify-content-center align-items-center " *ngIf="selectImage">
+                              <img [src]="selectImage" alt="">
+                          </div>
+                          <div class="mt-5">
+                              <button *ngIf="filename" class="btn btn-secondary" (click)="uploadProfileImage(quiz.id)">Upload</button>
+                          </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
         </mat-card>
     </div>
 </div>
+
