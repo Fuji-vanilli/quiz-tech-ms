@@ -24,6 +24,7 @@
     border-radius: 30px;
     background: #e0e0e0;
     padding: 8px 20px;
+    border: 2px solid #e0e0e0;
 }
 
 .box-search:hover {
@@ -53,9 +54,14 @@
     font-size: 20px;
 }
 
-box-search:focus-within {
-    border: 1px solid #720e9e;
+.box-search:focus-within {
+    border: 2px solid #89929b;
     transition: border-color 0.5s ease;
+}
+
+.carousel-item img {
+    width: 100px;
+    height: 250px;
 }
 
 .result-container {
@@ -160,7 +166,7 @@ box-search:focus-within {
     font-size: 14px;
     padding: 8px;
     border: 1px solid transparent;
-    border-radius: 8px;
+    border-radius: 5px;
     background: #21262d;
     color: #fff;
     transition: all 0.6s ease;
@@ -217,7 +223,12 @@ box-search:focus-within {
 
 .card:hover {
     transform: scale(110%);
-    z-index: 9999;
+    z-index: 1;
+
+    .start {
+        transform: translate(-50%, -50%);
+        opacity: 1;
+    }
 }
 
 .card::before {
@@ -292,3 +303,24 @@ box-search:focus-within {
     }
 }
 
+.start {
+    position: absolute;
+    top: 20%;
+    left: 25%;
+    opacity: 0;
+    transform: translate(-50%, 100%);
+    transition: opacity 0.5s, transform 0.5s;
+}
+
+.btn-start {
+    padding: 10px 16px;
+    border: 0;
+    background-color: #4062bb;
+    background-image: linear-gradient(316deg, #4062bb 0%, #5200ae 74%);
+    color: #fff;
+    font-weight: 600; 
+
+    i {
+        font-size: 18px;
+    }
+}
