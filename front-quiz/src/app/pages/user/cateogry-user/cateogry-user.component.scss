@@ -89,6 +89,17 @@ mat-card-subtitle {
     margin-top: 10px;
 }
 
+.image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image i {
+    font-size: 20px;
+    color: #fff;
+}
+
 .card-body-cat {
     display: flex;
     align-items: center; 
@@ -130,8 +141,9 @@ mat-card-subtitle {
 }
 
 .btn-quiz {
-    background: #89929b;
-    color: #0e223e;
+    background-color: #4062bb;
+    background-image: linear-gradient(316deg, #4062bb 0%, #5200ae 74%);
+    color: #fff;
     border: none;
     border-radius: 8px;
     padding: 10px 24px;

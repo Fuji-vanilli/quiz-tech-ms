@@ -10,6 +10,7 @@ import { QuizApiService } from 'src/app/services/quiz-api.service';
   styleUrls: ['./cateogry-user.component.scss']
 })
 export class CateogryUserComponent  implements OnInit{
+  colors: string[]= ['#FF4D4D', '#F18F01', '#2E8B57', '#FF6347', '#71c4ef'];
 
   categories: Category[]= [];
   quizzes: Quiz[]= [];
