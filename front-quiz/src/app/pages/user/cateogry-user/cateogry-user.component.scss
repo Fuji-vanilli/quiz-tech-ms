@@ -5,7 +5,7 @@
 }
 
 .content-left {
-    background: #21262d;
+    background: transparent;
     border-radius: 10px;
 }
 
@@ -76,11 +76,12 @@ h3 {
 }
 
 mat-card {
-    background: #34373b;
+    background: transparent;
+    box-shadow: 0 0 10px #21262d;
 }
 
 mat-card-title {
-    color: #fff;
+    color: #21262d;
 }
 
 mat-card-subtitle {

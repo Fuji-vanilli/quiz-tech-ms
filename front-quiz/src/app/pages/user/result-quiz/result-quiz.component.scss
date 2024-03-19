@@ -48,6 +48,8 @@
 .content mat-card {
     background: #fff;
     border-radius: 10px 10px 0 0;
+    box-shadow: 0 0 10px #21262d;
+    margin-bottom: 14px;
 }
 
 .list-options li {
@@ -75,5 +77,5 @@
     background-image: linear-gradient(316deg, #4062bb 0%, #5200ae 74%);
     color: #fff;
     border: none;
-    border-radius: 8px; 
+    //border-radius: 8px; 
 }
