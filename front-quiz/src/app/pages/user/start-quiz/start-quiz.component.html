@@ -35,7 +35,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-8" style="background: #e0e0e0;">
+                <div class="col-md-8 content-right">
                     <div class="mt-5 m-5">
                         <div class="row ms-1" *ngIf="isCurrent">
                             <div class="col-md-2">
@@ -49,11 +49,11 @@
                         </div>
                         <div class="mt-4">
                             <div class="" *ngFor="let option of quiz.questions[currentQuestion].options" > 
-                                <button *ngIf="isCurrent" class="choice mt-4" (click)="checkResponse(option)">{{option}}</button>
+                                <div *ngIf="isCurrent" class="choice mt-4" (click)="checkResponse(option)">{{option}}</div>
                             </div>
                         </div>
                         <div class="d-flex justify-content-center align-items-center">
-                            <button class="button-submit" *ngIf="!isCurrent" (click)="getResult()">Show Result</button>
+                            <button class="button-submit" *ngIf="!isCurrent" (click)="getResult()">SHOW RESULT<i class="bi bi-eye ms-2"></i></button>
                         </div>
                     </div>
                 </div>
