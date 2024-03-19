@@ -68,7 +68,7 @@
     padding: 18px 24px;
     border: none;
     border-radius: 4px;
-    color: #161b22;
+    color: #fff;
     font-size: 16px;
 }
 
@@ -77,9 +77,11 @@
 }
 .choice {
     width: 100%;
+    height: 80px;
     padding: 16px;
     border-radius: 6px;
-    background: #0e223e;
+    background-color: #4062bb;
+    background-image: linear-gradient(316deg, #4062bb 0%, #5200ae 74%);
     color: #fff;
     font-family: 'Ubuntu';
     font-size: 14px;
@@ -101,10 +103,20 @@
 }
 
 .current-question {
-    border: none;
-    background: #00668c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #4062bb;
+    background-image: linear-gradient(316deg, #4062bb 0%, #5200ae 74%);
     color: #fff;
-    padding: 10px 12px;
+    
+    span {
+        font-size: 18px;
+        font-weight: 600;
+    }
 }
 
 .time {

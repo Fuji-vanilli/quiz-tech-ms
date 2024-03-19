@@ -44,8 +44,8 @@
                 </div>
                 <div class="col-md-6">
                     <div class="d-flex justify-content-start align-items-center">
-                        <button class="btn-scroll" (click)="scrollLeft()" ><i class="bi bi-caret-left-fill"></i></button>
-                        <button class="btn-scroll" (click)="scrollRight()"><i class="bi bi-caret-right-fill"></i></button>
+                        <button class="btn-scroll" (click)="scrollLeft()" ><i class="bi bi-chevron-double-left"></i></button>
+                        <button class="btn-scroll" (click)="scrollRight()"><i class="bi bi-chevron-double-right"></i></button>
                     </div>
                 </div>
             </div>
@@ -60,21 +60,20 @@
                             <img [src]="quiz.photo" alt="">
                         </div>
                         <div class="card-quiz">
-                           <img [src]="quiz.imageUrl" alt="">
-                           <span class="title">{{quiz.title}}</span>
-                           <span class="description truncate">{{quiz.description}}</span>
-                           <div class="question">
-                                <i class="bi bi-question-lg"></i>
-                                <span>{{quiz.numberOfQuestions}}</span> 
-                           </div>
-                           <div class="duration">
-                                <i class="bi bi-alarm"></i>
-                                <span>{{quiz.duration}}</span>
+                            <img [src]="quiz.imageUrl" alt="">
+                            <span class="title">{{quiz.title}}</span>
+                            <span class="description truncate">{{quiz.description}}</span>
+                            <div class="info">
+                                <div class="question">
+                                    <i class="bi bi-question-circle-fill"></i>
+                                    <span>{{'QUESTIONS: '+quiz.numberOfQuestions}}</span> 
+                               </div>
+                               <div class="duration">
+                                    <i class="bi bi-alarm"></i>
+                                    <span>{{'MINUTES: '+quiz.duration}}</span>
+                                </div>
                             </div>
-                            <div class="marks">
-                                <i class="bi bi-bookmark-star"></i>
-                                <span>{{quiz.marks}}</span> 
-                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

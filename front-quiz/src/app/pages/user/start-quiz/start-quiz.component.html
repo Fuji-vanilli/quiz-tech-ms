@@ -39,7 +39,9 @@
                     <div class="mt-5 m-5">
                         <div class="row ms-1" *ngIf="isCurrent">
                             <div class="col-md-2">
-                                <button class="current-question m-3 d-inline-block">{{currentQuestion+1}}</button>
+                                <div class="current-question">
+                                    <span>{{currentQuestion+1}}</span>
+                                </div>
                             </div>
                             <div class="col-md-10 d-flex align-items-center">
                                 <h2 class="d-inline-block">{{quiz.questions[currentQuestion].content}}</h2>
