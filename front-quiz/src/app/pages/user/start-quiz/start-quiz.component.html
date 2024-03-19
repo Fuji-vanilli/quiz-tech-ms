@@ -49,7 +49,7 @@
                         </div>
                         <div class="mt-4">
                             <div class="" *ngFor="let option of quiz.questions[currentQuestion].options" > 
-                                <button *ngIf="isCurrent" class="choice mt-4" [class.active]="choiceSelected=== option" (click)="checkResponse(option)">{{option}}</button>
+                                <button *ngIf="isCurrent" class="choice mt-4" (click)="checkResponse(option)">{{option}}</button>
                             </div>
                         </div>
                         <div class="d-flex justify-content-center align-items-center">
