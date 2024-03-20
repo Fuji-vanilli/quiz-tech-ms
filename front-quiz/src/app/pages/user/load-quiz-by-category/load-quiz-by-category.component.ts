@@ -12,6 +12,8 @@ import { Category } from '../../models/category.model';
 })
 export class LoadQuizByCategoryComponent {
 
+  isOpen= false;
+
   categoryId!: string;
   categoryTitle!: string;
 
@@ -79,4 +81,7 @@ export class LoadQuizByCategoryComponent {
     })
   }
 
+  toggleList() {
+    this.isOpen= !this.isOpen;
+  }
 }

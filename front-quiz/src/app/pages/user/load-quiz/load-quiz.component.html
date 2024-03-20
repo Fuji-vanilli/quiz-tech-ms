@@ -1,15 +1,35 @@
-<div class="contain mt-4">
+<div class="contain">
     <div class="row">
         <div class="col-md-12">
             <div class="row mt-3 mb-3">
-                <div class="col-md-8 offset-md-2">
-                    <span class="box-search">
+                <div class="col-md-8">
+                    <div class="dropdown">
+                        <button class="btn-category" [ngClass]="{'active': selectedCategory==='all'}" (click)="filterQuizByCategory('all')"><span>All Quizzes ({{quizzes.length}})</span></button>
+                        <button class="btn btn-sorted dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Sorted by
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" routerLinkActive="active" (click)="sortedByName()">Name</a></li>
+                            <li><a class="dropdown-item" routerLinkActive="active" (click)="sortedByLevel()">Level</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-4 d-flex justify-content-end" >
+                    <div class="box-search">
+                        <div id="select" (click)="toggleList()">
+                            <p>All categories</p>
+                            <i class="bi bi-caret-down"></i>
+                            <ul [class.open]="isOpen" id="list">
+                                <li>All categories</li>
+                                <li *ngFor="let category of categories">{{category.title}}</li>
+                            </ul>
+                        </div>
                         <input type="text" [(ngModel)]="searchterm" (ngModelChange)="filterBySearchTerm()" placeholder="Search Quiz here ...">
                         <button><i class="bi bi-search"></i></button>
-                    </span>
+                    </div>
                 </div>
             </div>
-            <div class="row" style="background: #e0e0e0; margin-bottom: 18px;"> 
+            <!--div class="row" style="background: #e0e0e0; margin-bottom: 18px;"> 
                 <div class="col-md-12">
                     <div class="container-category">
                         <div class="mt-2 rowposter" style="overflow-x: auto; white-space: nowrap;" #scrollContainer> 
@@ -26,26 +46,17 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div-->
             <div class="row">
-                <div class="col-md-6 mt-2">
-                    <div class="dropdown">
-                        <button class="btn-category" [ngClass]="{'active': selectedCategory==='all'}" (click)="filterQuizByCategory('all')"><span>All Quizzes ({{quizzes.length}})</span></button>
-                        <button class="btn btn-sorted dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Sorted by
-                        </button>
-                        <ul class="dropdown-menu dropdown-menu-dark">
-                            <li><a class="dropdown-item" routerLinkActive="active" (click)="sortedByName()">Name</a></li>
-                            <li><a class="dropdown-item" routerLinkActive="active" (click)="sortedByLevel()">Level</a></li>
-                        </ul>
-                    </div>
+                <div class="col-md-12 d-flex justify-content-end mt-2">
+                    
                 </div>
-                <div class="col-md-6">
+                <!--div class="col-md-6">
                     <div class="d-flex justify-content-start align-items-center">
                         <button class="btn-scroll" (click)="scrollLeft()" ><i class="bi bi-chevron-double-left"></i></button>
                         <button class="btn-scroll" (click)="scrollRight()"><i class="bi bi-chevron-double-right"></i></button>
                     </div>
-                </div>
+                </div-->
             </div>
             <div class="row">
                 <div class="mt-3 d-flex justify-content-center align-items-center" *ngIf="filterQuizzesBySearchTerm.length=== 0">

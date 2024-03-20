@@ -14,6 +14,8 @@ export class LoadQuizComponent implements OnInit {
 
   @ViewChild('scrollContainer') scrollContainer!: ElementRef;
 
+  isOpen= false;
+
   colors: string[]= ['#FF4D4D', '#F18F01', '#2E8B57', '#FF6347', '#71c4ef'];
   selectedCategory!: string;
 
@@ -105,5 +107,9 @@ export class LoadQuizComponent implements OnInit {
 
   sortedByLevel() {
     this.filterQuizzes.sort((a, b)=> a.difficulty!.localeCompare(b.difficulty!));
+  }
+
+  toggleList() {
+    this.isOpen= !this.isOpen;
   }
 }

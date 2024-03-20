@@ -1,4 +1,4 @@
-import { Component, EventEmitter, HostListener, OnInit, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, HostListener, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { KeycloakService } from 'keycloak-angular';
 import { KeycloakProfile } from 'keycloak-js';
@@ -18,14 +18,15 @@ export class NavbarComponent implements OnInit {
 
   routeAdmin: boolean= false;
   navBg: any;
-  
+
   user!: User
   userRoles: string[]= []; 
 
   constructor(public keycloakService: KeycloakService,
               private activateRoute: ActivatedRoute,
               private router: Router,
-              private userService: UserService) {}
+              private userService: UserService,
+              private elementRef: ElementRef) {}
   ngOnInit(): void {
     if (this.keycloakService.isLoggedIn()) { 
       this.keycloakService.loadUserProfile().then(
@@ -119,6 +120,17 @@ export class NavbarComponent implements OnInit {
     this.router.navigateByUrl('/user');
   }
 
+  @HostListener('document:scroll', [])
+  scrollover() {
+    const nav = this.elementRef.nativeElement.querySelector('nav');
+    if (document.body.scrollTop> 0 || document.documentElement.scrollTop> 0) {
+      nav.classList.add('sticky');
+    } else {
+      nav.classList.remove('sticky');
+    }
+  }
+
+/*
   @HostListener('document:scroll') scrollover() {
     console.log(document.body.scrollTop, 'scrolltop#');
     if (document.body.scrollTop> 0 || document.documentElement.scrollTop> 0) {
@@ -130,5 +142,5 @@ export class NavbarComponent implements OnInit {
         'background-color': '#000000'
       }
     }
-  } 
+  } */
 }
