@@ -1,6 +1,11 @@
 .navbar {
-    background: #662d91;
-    height: 4rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-image: linear-gradient(to right, #b70f93, #ab07a7, #9515bd, #7227d4, #1238eb);
+    height: 5rem;
+    z-index: 9999999;
 }
 
 a {

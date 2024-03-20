@@ -17,7 +17,8 @@ export class NavbarComponent implements OnInit {
   isAdmin: boolean= false;
 
   routeAdmin: boolean= false;
-
+  navBg: any;
+  
   user!: User
   userRoles: string[]= []; 
 
@@ -117,4 +118,17 @@ export class NavbarComponent implements OnInit {
   toUser() {
     this.router.navigateByUrl('/user');
   }
+
+  @HostListener('document:scroll') scrollover() {
+    console.log(document.body.scrollTop, 'scrolltop#');
+    if (document.body.scrollTop> 0 || document.documentElement.scrollTop> 0) {
+      this.navBg= {
+        'background-image': 'linear-gradient(to bottom, #140537, #13063b, #11083e, #0f0942, #0c0a46)'
+      }
+    } else {
+      this.navBg= {
+        'background-color': '#000000'
+      }
+    }
+  } 
 }
