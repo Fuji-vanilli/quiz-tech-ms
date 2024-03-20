@@ -52,8 +52,8 @@
                                 <div *ngIf="isCurrent" class="choice mt-4" (click)="checkResponse(option)">{{option}}</div>
                             </div>
                         </div>
-                        <div class="d-flex justify-content-center align-items-center">
-                            <button class="button-submit" [ngClass]="{'active': isCurrent}" (click)="getResult()">SHOW RESULT<i class="bi bi-eye ms-2"></i></button>
+                        <div class="d-flex justify-content-center align-items-center view-result">
+                            <button class="button-submit" [ngClass]="{'active': !isCurrent}" (click)="getResult()">SHOW RESULT<i class="bi bi-eye ms-2"></i></button>
                         </div>
                     </div>
                 </div>
