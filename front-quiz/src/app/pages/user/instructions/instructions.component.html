@@ -1,48 +1,50 @@
-<div class="bootstrap-wrapper">
-    <div class="container-fluid pb-3">
-        <div class="row">
-            <div class="col-md-4 quiz-title-head">
-                <div class="row">
-                    <div class="title-quiz col-md-12 ms-3">
-                        <img src="{{quiz.imageUrl}}" alt="">
-                        <div class="mt-3 ms-4">
-                            <h2>{{quiz.title}}</h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="content-quiz col-md-12" >
-                        <div class="ms-3">
-                            <h1><strong>Quiz</strong></h1>
-                            <span>{{quiz.description}}</span>
-                    
-                           <div class="mt-5" style="color: #e0e0e0;">
-                                <p>Time</p>
-                                <h2><i class="bi bi-alarm" style="font-size: 28px;"></i><strong class="ms-3">{{quiz.duration}} Minutes</strong></h2>
-                           </div>
-                           <div class="mt-2" style="color: #e0e0e0;">
-                                <p>Questions</p>
-                                <h2><i class="bi bi-question-circle" style="font-size: 28px;"></i><strong class="ms-3">{{quiz.numberOfQuestions}} Questions</strong></h2>
-                           </div>
-                        </div>
+<div class="contain">
+    <div class="row">
+        <div class="col-md-4 quiz-title-head">
+            <div class="row">
+                <div class="title-quiz col-md-12 ms-3">
+                    <img src="{{quiz.imageUrl}}" alt="">
+                    <div class="mt-3 ms-4">
+                        <h2>{{quiz.title}}</h2>
                     </div>
                 </div>
             </div>
-            <div class="col-md-8" style="background: #e0e0e0;">
-                <div class="mt-5 m-5" >
-                    <p style="line-height: 2; font-size: 18px; margin: 50px 50px;">Before we begin, let's set the stage for what lies ahead. 
-                        This quiz aims to <strong>{{quiz.description}}</strong>, test your knowledge on <strong>{{quiz.title}}</strong>, 
-                        assess your understanding of [subject], challenge your skills in <strong>{{quiz.numberOfQuestions}}</strong>, 
-                        questions in <strong>{{quiz.duration}}</strong> Minutes. 
-                    </p>
-                    <ul class="mt-5" style="font-size: 16px;">
-                        <li class="nav-item mt-2" style="line-height: 2;">1- Standard Mode: Dive straight into the quiz with a balanced mix of questions across various difficulty levels. Perfect for those seeking a well-rounded challenge.</li>
-                        <li class="nav-item mt-2" style="line-height: 2;">Custom Mode: Tailor the quiz to your liking by selecting specific categories or topics you want to focus on. Personalize your quiz experience and make it uniquely yours!</li>
-                        <li class="nav-item mt-2" style="line-height: 2;">Random Mode: Feeling adventurous? Let fate decide your quiz journey by opting for a random selection of questions from our vast database. Embrace the element of surprise and see where it takes you!</li>
-                    </ul>
+            <div class="row">
+                <div class="content-quiz col-md-12" >
+                    <div class="ms-3">
+                        <h1><strong>Quiz</strong></h1>
+                        <span>{{quiz.description}}</span>
+                
+                       <div class="mt-5" style="color: #e0e0e0;">
+                            <p>Time</p>
+                            <h2><i class="bi bi-alarm" style="font-size: 28px;"></i><strong class="ms-3">{{quiz.duration}} Minutes</strong></h2>
+                       </div>
+                       <div class="mt-2" style="color: #e0e0e0;">
+                            <p>Questions</p>
+                            <h2><i class="bi bi-question-circle" style="font-size: 28px;"></i><strong class="ms-3">{{quiz.numberOfQuestions}} Questions</strong></h2>
+                       </div>
+                    </div>
                 </div>
+            </div>
+        </div>
+        <div class="col-md-8" style="background: #e0e0e0;">
+            <div class="mt-5 m-5" >
+                <p style="line-height: 2; font-size: 18px; margin: 50px 50px;">Before we begin, let's set the stage for what lies ahead. 
+                    This quiz aims to <strong>{{quiz.description}}</strong>, test your knowledge on <strong>{{quiz.title}}</strong>, 
+                    assess your understanding of [subject], challenge your skills in <strong>{{quiz.numberOfQuestions}}</strong>, 
+                    questions in <strong>{{quiz.duration}}</strong> Minutes. 
+                </p>
+                <ul class="mt-5" style="font-size: 16px;">
+                    <li class="nav-item mt-2" style="line-height: 2;">1- Standard Mode: Dive straight into the quiz with a balanced mix of questions across various difficulty levels. Perfect for those seeking a well-rounded challenge.</li>
+                    <li class="nav-item mt-2" style="line-height: 2;">Custom Mode: Tailor the quiz to your liking by selecting specific categories or topics you want to focus on. Personalize your quiz experience and make it uniquely yours!</li>
+                    <li class="nav-item mt-2" style="line-height: 2;">Random Mode: Feeling adventurous? Let fate decide your quiz journey by opting for a random selection of questions from our vast database. Embrace the element of surprise and see where it takes you!</li>
+                </ul>
+            </div>
 
-                <button class="button-start" [routerLink]="'/user/start/'+quiz.id">START<i class="bi bi-skip-start-circle-fill ms-3"></i></button>
+            <div class="row">
+                <div class="col-md-12 d-flex justify-content-end align-items-center">
+                    <button class="button-start" [routerLink]="'/user/start/'+quiz.id">START<i class="bi bi-skip-start-circle-fill ms-3"></i></button>
+                </div>
             </div>
         </div>
     </div>

@@ -1,11 +1,10 @@
-.bootstrap-wrapper {
-    background: #f3f4f6;
-    height: 85vh;
-    overflow-y: hidden;
+.contain {
+    width: 95%;
+    margin: 16px;
 }
-
 .row .quiz-title-head {
     background: #21262d;
+    height: 20vh;
 }
 
 .row .title-quiz {
@@ -21,19 +20,22 @@
     padding: 16px 20px;
     font-family: 'Ubuntu';
     background: #56647b; 
-    color: #fff; 
-    height: 65vh;
+    color: #fff;  
+    height: 50vh;
+}
+
+.content-right {
+    background: #89929b;
+    height: 70vh;
 }
 
 .button-start {
     background: #21262d;
     padding: 8px 16px;
+    margin-right: 24px;
     border: 1px solid #21262d;
     border-radius: 6px;
     color: #f3f4f6;
-    position: absolute;
-    bottom: 70px;
-    right: 40px;
     transition: all .6s ease;
 }
 
