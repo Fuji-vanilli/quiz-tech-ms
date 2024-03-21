@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="row mt-3 mb-3">
-                <div class="col-md-8">
+                <div class="col-md-6">
                     <div class="dropdown">
                         <button class="btn-category" [ngClass]="{'active': selectedCategory==='all'}" (click)="filterQuizByCategory('all')"><span>All Quizzes ({{quizzes.length}})</span></button>
                         <button class="btn btn-sorted dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -14,14 +14,21 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-md-4 d-flex justify-content-end" >
+                <div class="col-md-6 d-flex justify-content-end" >
                     <div class="box-search">
                         <div id="select" (click)="toggleList()">
-                            <p>All categories</p>
+                            <p>{{selectedText}}</p>
                             <i class="bi bi-caret-down"></i>
                             <ul [class.open]="isOpen" id="list">
-                                <li>All categories</li>
-                                <li *ngFor="let category of categories">{{category.title}}</li>
+                                <li (click)="filterQuizByCategory('all')"><span>All categories</span></li>
+                                <li *ngFor="let category of categories; let i= index" (click)="filterQuizByCategory(category.id)">
+                                    <div class="cat">
+                                            <div class="category d-flex justify-content-center align-items-center" [ngStyle]="{'background': colors[i%5]}" >
+                                                <i [ngClass]="category.icon" ></i>
+                                            </div>
+                                            <span class="title-category">{{category.title+' ('+category.quizsId.length+')'}}</span>
+                                    </div>
+                                </li>
                             </ul>
                         </div>
                         <input type="text" [(ngModel)]="searchterm" (ngModelChange)="filterBySearchTerm()" placeholder="Search Quiz here ...">

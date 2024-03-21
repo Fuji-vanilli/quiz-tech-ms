@@ -13,6 +13,7 @@ import { CategoryApiService } from 'src/app/services/category-api.service';
 export class LoadQuizComponent implements OnInit {
 
   @ViewChild('scrollContainer') scrollContainer!: ElementRef;
+  selectedText= 'All categories';
 
   isOpen= false;
 
@@ -111,5 +112,15 @@ export class LoadQuizComponent implements OnInit {
 
   toggleList() {
     this.isOpen= !this.isOpen;
+  }
+
+  selected(option: any) {
+    this.selectedText= option;
+  }
+  @HostListener('document:click', ['$event'])
+  clickout(event: any) {
+    if (!event.target.closest('#select')) {
+      this.isOpen= false;
+    }
   }
 }
