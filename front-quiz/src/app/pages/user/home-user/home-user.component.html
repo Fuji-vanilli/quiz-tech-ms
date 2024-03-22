@@ -110,8 +110,12 @@
                             </mat-paginator>
                         </div> 
                     </div>
+                    <div class="row">
+                        <div class="col-md-3" *ngFor="let quiz of quizzes">
+                            <span>{{quiz.title}}</span>
+                        </div>
+                    </div>
                 </div>
-
                 <div class="col-md-3 mt-1">
                     <div class="fixed-right">
                         <div class="d-flex justify-content-between align-items-center" style="margin-right: 16px;">

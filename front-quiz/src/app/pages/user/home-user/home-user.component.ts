@@ -40,6 +40,7 @@ export class HomeUserComponent implements OnInit{
   resultByQuizTitle: Result[]= [];
   resultQuizNoDuplicate: any[]= [];
   dataResult: any[]= [];
+  quizzes: Quiz[]= [];
 
   numberOfResult: number= 0;
 
@@ -96,6 +97,7 @@ export class HomeUserComponent implements OnInit{
   constructor(private resultQuiz: ResultQuizService,
               private keycloakService: KeycloakService,
               private userService: UserService,
+              private quizService: QuizApiService,
               private route: Router) {
   
                 this.chartOptions = {
@@ -124,6 +126,7 @@ export class HomeUserComponent implements OnInit{
 
   ngOnInit(): void {
     this.loadProfile();   
+    this.loadQuiz();
     this.removeDuplicateResult();
   }
 
@@ -188,6 +191,18 @@ export class HomeUserComponent implements OnInit{
         })
       }
     )
+  }
+
+  loadQuiz() {
+    this.quizService.fetchAll(0, 20).subscribe({
+      next: response=> {
+        this.quizzes= response.data.quizzes;
+      },
+      error: err=> {
+        console.log(err);
+        
+      }
+    })
   }
 
   loadResultSummary(email: any) {

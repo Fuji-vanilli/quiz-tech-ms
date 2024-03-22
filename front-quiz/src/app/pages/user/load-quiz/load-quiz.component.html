@@ -19,7 +19,7 @@
                         <div id="select" (click)="toggleList()">
                             <p>{{selectedText}}</p>
                             <i class="bi bi-caret-down"></i>
-                            <ul [class.open]="isOpen" id="list">
+                            <ul [class.open]="isOpen" id="list" class="rowposter">
                                 <li (click)="filterQuizByCategory('all')"><span>All categories</span></li>
                                 <li *ngFor="let category of categories; let i= index" (click)="filterQuizByCategory(category.id)">
                                     <div class="cat">
