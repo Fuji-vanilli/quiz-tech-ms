@@ -7,13 +7,16 @@
 
 .content {
     padding-top: 16px;
-    padding-right: 26px;
+    padding-right: 10px;
     background: transparent;
     border-radius: 10px;
 }
 
 .content-top {
+    padding: 14px;
     background: #fff;
+    margin-bottom: 16px;
+    border-radius: 12px;
 }
 
 .btn-success {
@@ -221,6 +224,8 @@ table {
     font-size: 16px;
 }
 
+/**/
+
 .content-quiz {
     margin-bottom: 16px;
 }
@@ -232,10 +237,19 @@ table {
     padding: 16px;
 }
 
-.card-quiz .image img {
-    height: 32px;
+.card-quiz .image {
+    position: relative;
+    img {
+        height: 32px;
     width: 32px;
     margin-right: 14px;
+    }
+}
+
+.card-quiz .image .question {
+    position: absolute;
+    top: 10%;
+    left: 12px;
 }
 
 .card-quiz .header {
