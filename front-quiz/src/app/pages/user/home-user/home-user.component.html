@@ -111,8 +111,18 @@
                         </div> 
                     </div>
                     <div class="row">
-                        <div class="col-md-3" *ngFor="let quiz of quizzes">
-                            <span>{{quiz.title}}</span>
+                        <div class="col-md-4" *ngFor="let quiz of quizzes">
+                            <div class="card">
+                                <div class="header d-flex justify-content-start align-items-center">
+                                    <div class="image">
+                                        <img [src]="quiz.imageUrl" alt="">
+                                    </div>
+                                    <div class="details">
+                                        <span class="title">{{quiz.title}}</span>
+                                        <span class="subtitle">{{quiz.category?.title}}</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -218,6 +218,21 @@ table {
     font-size: 16px;
 }
 
+.card .header {
+    margin: 12px;
+}
+
+.card .details .title {
+    color: #21262d;
+    font-size: 12px ;
+}
+
+.card .details .subtitle {
+    color: #89929b;
+    font-size: 12px;
+}
+
+/**/
 .card {
     height: 140px;
     margin: 14px 12px;
@@ -260,6 +275,11 @@ table {
     margin-bottom: 2px;
     color:#fff;
     font-size: 12px;
+}
+
+.card .image img {
+    height: 32px;
+    width: 32px;
 }
 
 .btn-all-quizzes {
