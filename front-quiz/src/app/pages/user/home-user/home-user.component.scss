@@ -48,14 +48,13 @@
 }
 
 .dropdown .select {
-    background: #21262d;
+    background: #fd5732;
     width: 100px;
-    color: #c6cdd5;
+    color: #fff;
     display: flex;
     font-family: 'Roboto';
     justify-content: space-between;
     align-items: center;
-    border: 2px solid #363a43;
     padding: 0.3em 0.7em;
     margin-top: 14px;
     margin-left: 12px;
@@ -157,18 +156,18 @@
 }
 
 .btn-requiz {
-    background: #21262d;
-    color: #a3a3a3;
+    background: #fd5732;
+    border: 0;
+    color: #fff;
     font-size: 12px;
     padding: 4 12px;
-    border: 1px solid #21262d;
     border-radius: 4px;
     transition: all .6s ease;
 }
 
 .btn-requiz i {
     font-size: 16px;
-    color: #9fa5d5;
+    color: #fff;
 }
 
 .btn-requiz:hover  {
@@ -222,6 +221,11 @@ table {
 .fixed-right i {
     color: #9fa5d5;
     font-size: 16px;
+}
+
+
+mat-paginator {
+    background: #fff;
 }
 
 /**/
@@ -286,7 +290,7 @@ table {
     top: 20%;
     left: 20px;
     padding: 10px 14px;
-    background: rgba(#fd5732, 0.4);
+    background: rgba(#fd5732, 0.6);
     border-radius: 8px;
     color: #fff;
 

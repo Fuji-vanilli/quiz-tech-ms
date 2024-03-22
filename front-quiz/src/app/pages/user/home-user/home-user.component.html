@@ -22,7 +22,7 @@
                             </div>
                             <div class="col-md-6 d-flex justify-content-end align-items-center">
                                 <div class="dropdown" (click)="toggleTypeMenu()">
-                                    <div class="select">
+                                    <div class="select" id="select">
                                         <span>Type</span>
                                         <div class="caret" [class.caret-rotate]="menuTypeOpen"></div>
                                     </div>
@@ -33,7 +33,7 @@
                                     </ul>
                                 </div>
                                 <div class="dropdown" (click)="toggleSortMenu()">
-                                    <div class="select">
+                                    <div class="select" id="select">
                                         <span>Sort</span>
                                         <div class="caret" [class.caret-rotate]="menuSortOpen"></div>
                                     </div>
@@ -139,7 +139,7 @@
                             <span class="subtitle">{{quiz.description}}</span>
                             <button [routerLink]="'/user/quizzes/'+quiz.categoryId">Explore</button>
                         </div>
-                        <button class="btn-all-quizzes" routerLink="/user/categories">>View all Categories
+                        <button class="btn-all-quizzes" routerLink="/user/categories">View all Categories
                             <i class="bi bi-arrow-right ms-3"></i>
                         </button>
                     </div>

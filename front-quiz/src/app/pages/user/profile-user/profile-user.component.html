@@ -1,6 +1,6 @@
-<div class="container">
+<div class="contain">
     <div class="row ">
-        <div class="col-md-10 offset-md-1 content">
+        <div class="col-md-12 content">
             <div class="row">
                 <div class="col-md-3 content-left">
                     <h4></h4>
@@ -56,7 +56,8 @@
                     </div>
                 </div>
                 <div class="col-md-9">
-                    <apx-chart [series]="chartOptions.series!" [chart]="chartOptions.chart!"
+                    <div class="content-right">
+                        <apx-chart [series]="chartOptions.series!" [chart]="chartOptions.chart!"
                         [xaxis]="chartOptions.xaxis!" [stroke]="chartOptions.stroke!" [tooltip]="chartOptions.tooltip!"
                         [dataLabels]="chartOptions.dataLabels!">
                     </apx-chart>
@@ -79,6 +80,7 @@
                             </div>
                         </div>
 
+                    </div>
                     </div>
                 </div>
             </div>

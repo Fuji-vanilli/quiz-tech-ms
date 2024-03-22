@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, HostListener, OnInit, ViewChild } from '@angular/core';
 import { HomeQuiz } from '../../models/homeQuiz.model';
 import { Quiz } from '../../models/quiz.model';
 import { QuizApiService } from 'src/app/services/quiz-api.service';
@@ -292,6 +292,13 @@ export class HomeUserComponent implements OnInit{
 
   toggleSortMenu() {
     this.menuSortOpen= !this.menuSortOpen;
+  }
+
+  @HostListener('document:click', ['$event'])
+  clickout(event: any) {
+    if (!event.target.closest('#select')) {
+      this.menuTypeOpen= false;
+    }
   }
 
 }
