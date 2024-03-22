@@ -8,10 +8,13 @@
 .content {
     padding-top: 16px;
     padding-right: 26px;
-    background: #fff;
+    background: transparent;
     border-radius: 10px;
 }
 
+.content-top {
+    background: #fff;
+}
 
 .btn-success {
     padding: 4px;
@@ -130,11 +133,11 @@
     margin-top: 12px;
     padding: 16px;
     font-family: 'Roboto';
-    color: #9fa5d5;
+    color: #89929b;
 }
 
 .text-result strong {
-    color: #9fa5d5;
+    color: #89929b;
     margin-right: 10px;
     font-size: 14px;
 }
@@ -218,18 +221,48 @@ table {
     font-size: 16px;
 }
 
-.card .header {
+.content-quiz {
+    margin-bottom: 16px;
+}
+
+.card-quiz{
+    position: relative;
+    background: #fff;
+    border-radius: 8px;
+    padding: 16px;
+}
+
+.card-quiz .image img {
+    height: 32px;
+    width: 32px;
+    margin-right: 14px;
+}
+
+.card-quiz .header {
     margin: 12px;
 }
 
-.card .details .title {
+.card-quiz .details .title {
     color: #21262d;
-    font-size: 12px ;
+    font-size: 14px ;
+    margin-bottom: 5px;
 }
 
-.card .details .subtitle {
+.card-quiz .details .subtitle {
     color: #89929b;
-    font-size: 12px;
+    font-size: 14px;
+}
+
+.card-quiz .image-quiz {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+        width: 300px;
+        height: 150px;
+        border-radius: 8px;
+    }
 }
 
 /**/
@@ -275,11 +308,6 @@ table {
     margin-bottom: 2px;
     color:#fff;
     font-size: 12px;
-}
-
-.card .image img {
-    height: 32px;
-    width: 32px;
 }
 
 .btn-all-quizzes {

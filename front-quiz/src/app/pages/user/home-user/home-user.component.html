@@ -3,124 +3,120 @@
         <div class="col-md-12">
             <div class="row">
                 <div class="col-md-9 mt-1 content">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <apx-chart
-                            [series]="chartOptions.series!"
-                            [chart]="chartOptions.chart!"
-                            [xaxis]="chartOptions.xaxis!"
-                            [stroke]="chartOptions.stroke!"
-                            [tooltip]="chartOptions.tooltip!"
-                            [dataLabels]="chartOptions.dataLabels!"
-                          ></apx-chart>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="dropdown ms-3">
-                                <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                  Type chart
-                                </button>
-                                <ul class="dropdown-menu dropdown-menu-dark">
-                                    <li><a class="dropdown-item" routerLinkActive="active" >Area</a></li>
-                                    <li><a class="dropdown-item" routerLinkActive="active" >Bar</a></li>
-                                    <li><a class="dropdown-item" routerLinkActive="active" >Line</a></li>
-                                  </ul>
-                              </div>
-                        </div>
-                        <div class="col-md-6 d-flex justify-content-end align-items-center">
-                            <div class="dropdown" (click)="toggleTypeMenu()">
-                                <div class="select">
-                                    <span>Type</span>
-                                    <div class="caret" [class.caret-rotate]="menuTypeOpen"></div>
-                                </div>
-                                <ul class="menu" [class.menu-open]="menuTypeOpen">
-                                    <li><a class="nav-link" (click)="loadResultQuizzes()">All</a></li>
-                                    <li *ngFor="let quizTitle of resultQuizNoDuplicate"><a class="nav-link"
-                                            (click)="filterByQuizTitle(quizTitle)">{{quizTitle}}</a></li>
-                                </ul>
-                            </div>
-                            <div class="dropdown" (click)="toggleSortMenu()">
-                                <div class="select">
-                                    <span>Sort</span>
-                                    <div class="caret" [class.caret-rotate]="menuSortOpen"></div>
-                                </div>
-                                <ul class="menu" [class.menu-open]="menuSortOpen">
-                                    <li class="active"><a class="nav-link">Date</a></li>
-                                    <li><a class="nav-link" routerLinkActive="active">Name</a></li>
-                                    <li><a class="nav-link" routerLinkActive="active">Rate</a></li>
-                                </ul>
+                    <div class="content-top">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <apx-chart
+                                [series]="chartOptions.series!"
+                                [chart]="chartOptions.chart!"
+                                [xaxis]="chartOptions.xaxis!"
+                                [stroke]="chartOptions.stroke!"
+                                [tooltip]="chartOptions.tooltip!"
+                                [dataLabels]="chartOptions.dataLabels!"
+                              ></apx-chart>
                             </div>
                         </div>
-                    </div>
-                    <div class="text-result">
-                        <strong>{{numberOfResult}}</strong><span>results of quiz that you have finished...</span>
-                    </div>
-                    <div class="ms-3 mt-3 content-result">
-                        <table class="table table-striped">
-                            <thead>
-                                <tr>
-                                    <th class="text-center">N°</th>
-                                    <th class="text-center">Status</th>
-                                    <th matSort>Quiz</th>
-                                    <th matSort>Difficulty</th>
-                                    <th matSort>Rate</th>
-                                    <th matSort>Date</th>
-                                    <th matSort>Frequency</th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr *ngFor="let result of dataResult; let index= index">
-                                    <td class="text-center">{{pageIndex*pageSize+index+1}}</td>
-                                    <td class="text-center"><i class="bi bi-check2-circle"
-                                            style="color: #22c55e; font-weight: 600; font-size: 18px;"></i></td>
-                                    <td>{{result.quiz?.title}}</td>
-                                    <td
-                                        [ngStyle]="{'color': result.quiz?.difficulty=== 'Easy' ? '#019b98' : result.quiz?.difficulty=== 'Medium' ? '#FF6600' : '#dd0025'}">
-                                        {{result.quiz?.difficulty}}
-                                    </td>
-                                    <td [ngStyle]="{'color': result.rate<50 ? '#ff6366': '#22c55e'}">{{result.rate+'%'}}
-                                    </td>
-                                    <td>{{result.createdDate | date: 'dd-MM-yyyy HH:mm'}}</td>
-                                    <td>
-                                        <div class="quiz">
-                                            <span>{{result.frequency}}</span>
-                                            <button class="btn-requiz"
-                                                [routerLink]="'/user/instructions/'+result.quiz?.id"><i
-                                                    class="bi bi-arrow-clockwise"></i>
-                                            </button>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <a class="nav-link d-flex justify-content-center align-items-center "
-                                            (click)="deleteResult(result.quiz?.id, result.emailUser, result.frequency)">
-                                            <i class="bi bi-trash3-fill"></i>
-                                        </a>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <div class="d-flex justify-content-center align-items-center" *ngIf="dataResult.length> 0">
-                            <mat-paginator #paginator class="paginator" (page)="handlePageEvent($event)"
-                                [length]="length" [pageSize]="pageSize" [disabled]="disabled"
-                                [showFirstLastButtons]="showFirstLastButtons"
-                                [pageSizeOptions]="showPageSizeOptions ? pageSizeOptions : []"
-                                [hidePageSize]="hidePageSize" [pageIndex]="pageIndex" aria-label="Select page">
-                            </mat-paginator>
-                        </div> 
+                        <div class="row">
+                            <div class="col-md-6">
+                                
+                            </div>
+                            <div class="col-md-6 d-flex justify-content-end align-items-center">
+                                <div class="dropdown" (click)="toggleTypeMenu()">
+                                    <div class="select">
+                                        <span>Type</span>
+                                        <div class="caret" [class.caret-rotate]="menuTypeOpen"></div>
+                                    </div>
+                                    <ul class="menu" [class.menu-open]="menuTypeOpen">
+                                        <li><a class="nav-link" (click)="loadResultQuizzes()">All</a></li>
+                                        <li *ngFor="let quizTitle of resultQuizNoDuplicate"><a class="nav-link"
+                                                (click)="filterByQuizTitle(quizTitle)">{{quizTitle}}</a></li>
+                                    </ul>
+                                </div>
+                                <div class="dropdown" (click)="toggleSortMenu()">
+                                    <div class="select">
+                                        <span>Sort</span>
+                                        <div class="caret" [class.caret-rotate]="menuSortOpen"></div>
+                                    </div>
+                                    <ul class="menu" [class.menu-open]="menuSortOpen">
+                                        <li class="active"><a class="nav-link">Date</a></li>
+                                        <li><a class="nav-link" routerLinkActive="active">Name</a></li>
+                                        <li><a class="nav-link" routerLinkActive="active">Rate</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-result">
+                            <strong>{{numberOfResult}}</strong><span>results of quiz that you have finished...</span>
+                        </div>
+                        <div class="ms-3 mt-3 content-result">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center">N°</th>
+                                        <th class="text-center">Status</th>
+                                        <th matSort>Quiz</th>
+                                        <th matSort>Difficulty</th>
+                                        <th matSort>Rate</th>
+                                        <th matSort>Date</th>
+                                        <th matSort>Frequency</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let result of dataResult; let index= index">
+                                        <td class="text-center">{{pageIndex*pageSize+index+1}}</td>
+                                        <td class="text-center"><i class="bi bi-check2-circle"
+                                                style="color: #22c55e; font-weight: 600; font-size: 18px;"></i></td>
+                                        <td>{{result.quiz?.title}}</td>
+                                        <td
+                                            [ngStyle]="{'color': result.quiz?.difficulty=== 'Easy' ? '#019b98' : result.quiz?.difficulty=== 'Medium' ? '#FF6600' : '#dd0025'}">
+                                            {{result.quiz?.difficulty}}
+                                        </td>
+                                        <td [ngStyle]="{'color': result.rate<50 ? '#ff6366': '#22c55e'}">{{result.rate+'%'}}
+                                        </td>
+                                        <td>{{result.createdDate | date: 'dd-MM-yyyy HH:mm'}}</td>
+                                        <td>
+                                            <div class="quiz">
+                                                <span>{{result.frequency}}</span>
+                                                <button class="btn-requiz"
+                                                    [routerLink]="'/user/instructions/'+result.quiz?.id"><i
+                                                        class="bi bi-arrow-clockwise"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <a class="nav-link d-flex justify-content-center align-items-center "
+                                                (click)="deleteResult(result.quiz?.id, result.emailUser, result.frequency)">
+                                                <i class="bi bi-trash3-fill"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="d-flex justify-content-center align-items-center" *ngIf="dataResult.length> 0">
+                                <mat-paginator #paginator class="paginator" (page)="handlePageEvent($event)"
+                                    [length]="length" [pageSize]="pageSize" [disabled]="disabled"
+                                    [showFirstLastButtons]="showFirstLastButtons"
+                                    [pageSizeOptions]="showPageSizeOptions ? pageSizeOptions : []"
+                                    [hidePageSize]="hidePageSize" [pageIndex]="pageIndex" aria-label="Select page">
+                                </mat-paginator>
+                            </div> 
+                        </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-4" *ngFor="let quiz of quizzes">
-                            <div class="card">
+                        <div class="col-md-4 content-quiz" *ngFor="let quiz of quizzes.slice(0, 12)">
+                            <div class="card-quiz">
                                 <div class="header d-flex justify-content-start align-items-center">
                                     <div class="image">
-                                        <img [src]="quiz.imageUrl" alt="">
+                                        <img [src]="quiz.imageUrl" alt=""> 
                                     </div>
                                     <div class="details">
-                                        <span class="title">{{quiz.title}}</span>
-                                        <span class="subtitle">{{quiz.category?.title}}</span>
+                                        <div><span class="title">{{quiz.title}}</span></div>
+                                        <div><span class="subtitle">{{quiz.category?.title}}</span></div> 
                                     </div>
+                                </div>
+                                <div class="image-quiz">
+                                    <img [src]="quiz.photo" alt="">
                                 </div>
                             </div>
                         </div>
