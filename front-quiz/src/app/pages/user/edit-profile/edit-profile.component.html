@@ -1,67 +1,33 @@
 <div class="contain mt-5">
     <div class="row">
-        <div class="col-md-8 offset-md-2 content">
-            <h2 class="text-center mt-3">Edit Your profile</h2>
+        <div class="col-md-6 offset-md-3 content">
+            <h2 class="text-center">Edit Your profile</h2>
             <form [formGroup]="formGroup" (ngSubmit)="updateUser()">
                 <div class="input-box">
-                    <div class="input-field">
+                    <div class="input-field text-center">
                         <i class="bi bi-person-fill"></i>
-                        <input type="text" placeholder="firstname" formControlName="firstname">
+                        <input type="text" placeholder="Firstname" formControlName="firstname">
                     </div>
                     <div class="input-field">
                         <i class="bi bi-person-fill"></i>
-                        <input type="text" placeholder="lastname" formControlName="lastname">
+                        <input type="text" placeholder="Lastname" formControlName="lastname">
                     </div>
                     <div class="input-field">
                         <i class="bi bi-envelope-at-fill"></i>
-                        <input type="email" placeholder="email" formControlName="email">
+                        <input type="email" placeholder="Email" formControlName="email">
                     </div>
                     <div class="input-field">
                         <i class="bi bi-person-fill"></i>
-                        <input type="text" placeholder="username" formControlName="username">
+                        <input type="text" placeholder="Username" formControlName="username">
                     </div>
                     <div class="input-field">
-                        <i class="bi bi-paragraph"></i>
-                        <input type="text" placeholder="description" formControlName="description">
+                        <i class="bi bi-pencil-square"></i>
+                        <input type="text" placeholder="Description" formControlName="description">
                     </div>
                     <div class="input-field">
-                        <i class="bi bi-card-checklist"></i>
-                        <input type="text" placeholder="biography" formControlName="biography">
+                        <i class="bi bi-person-circle"></i>
+                        <input type="text" placeholder="Biography" formControlName="biography">
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="input-group bt">
-                            <button class="btn btn-success" type="button" id="button-addon1">Firstname</button>
-                            <input type="text" class="form-control" formControlName="firstname">
-                        </div>
-                        <div class="input-group bt">
-                            <button class="btn btn-success" type="button" id="button-addon1">Username</button>
-                            <input type="text" class="form-control" formControlName="username">
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="input-group bt">
-                            <button class="btn btn-success" type="button" id="button-addon1">Lastname</button>
-                            <input type="text" class="form-control" formControlName="lastname">
-                        </div>
-                        
-                        <div class="input-group bt">
-                            <button class="btn btn-success" type="button" id="button-addon1">Email</button>
-                            <input type="email" class="form-control" formControlName="email" readonly>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="input-group bt">
-                    <button class="btn btn-success" type="button" id="button-addon1">Description</button>
-                    <input type="text" class="form-control" formControlName="description">
-                </div>
-
-                
-                <div class="input-group bt">
-                    <button class="btn btn-success" type="button" id="button-addon1">Biography</button>
-                    <input type="text" class="form-control" formControlName="biography">
                 </div>
                 
                 <mat-form-field class="full-width">
@@ -81,8 +47,8 @@
                             (matChipInputTokenEnd)="addCompetence($event)"/>
                   </mat-form-field>
                   
-                <div>
-                    <button type="submit" class="btn btn-danger mt-4">Update</button>
+                <div class="update">
+                    <button type="submit" class="btn-update mt-4">Update</button>
                 </div>
             </form>
         </div>
