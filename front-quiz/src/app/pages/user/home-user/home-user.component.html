@@ -103,13 +103,15 @@
                             </div> 
                         </div>
                     </div>
+                    <div class="divider">
+                        <span>Popular Quizzes</span>
+                    </div>
                     <div class="row">
                         <div class="col-md-4 content-quiz" *ngFor="let quiz of quizzes.slice(0, 12)">
                             <div class="card-quiz">
                                 <div class="header d-flex justify-content-start align-items-center">
                                     <div class="image">
                                         <img [src]="quiz.imageUrl" alt=""> 
-                                        <span class="question">{{quiz.numberOfQuestions+' Questions'}}</span>
                                     </div>
                                     <div class="details">
                                         <div><span class="title">{{quiz.title}}</span></div>
@@ -118,6 +120,10 @@
                                 </div>
                                 <div class="image-quiz">
                                     <img [src]="quiz.photo" alt="">
+                                    <span class="question">{{quiz.numberOfQuestions+' Questions'}}</span>
+                                </div>
+                                <div class="d-flex justify-content-center align-items-center mt-3">
+                                    <button class="btn-start-quiz" [routerLink]="'/user/start/'+quiz.id">Start this Quiz</button>
                                 </div>
                             </div>
                         </div>
@@ -133,7 +139,7 @@
                             <span class="subtitle">{{quiz.description}}</span>
                             <button [routerLink]="'/user/quizzes/'+quiz.categoryId">Explore</button>
                         </div>
-                        <button class="btn-all-quizzes" routerLink="/user/quizzes">View all Quizzes
+                        <button class="btn-all-quizzes" routerLink="/user/categories">>View all Categories
                             <i class="bi bi-arrow-right ms-3"></i>
                         </button>
                     </div>

@@ -226,30 +226,31 @@ table {
 
 /**/
 
+.divider {
+    margin-bottom: 16px;
+    padding-bottom: 14px;
+    padding-left: 10px;
+    color: #89929b;
+    border-bottom: 1px solid #ffffff;
+}
+
 .content-quiz {
     margin-bottom: 16px;
 }
 
 .card-quiz{
-    position: relative;
+    //position: relative;
     background: #fff;
     border-radius: 8px;
     padding: 16px;
 }
 
 .card-quiz .image {
-    position: relative;
     img {
         height: 32px;
     width: 32px;
     margin-right: 14px;
     }
-}
-
-.card-quiz .image .question {
-    position: absolute;
-    top: 10%;
-    left: 12px;
 }
 
 .card-quiz .header {
@@ -268,6 +269,7 @@ table {
 }
 
 .card-quiz .image-quiz {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -277,6 +279,31 @@ table {
         height: 150px;
         border-radius: 8px;
     }
+}
+
+.card-quiz .image-quiz .question {
+    position: absolute;
+    top: 20%;
+    left: 20px;
+    padding: 10px 14px;
+    background: rgba(#fd5732, 0.4);
+    border-radius: 8px;
+    color: #fff;
+
+}
+
+.card-quiz .btn-start-quiz {
+    width: 300px;
+    background: #fd5732;
+    border: none;
+    border-radius: 5px;
+    padding: 12px 14px;
+    color: #ffffff;
+    transition: opacity 0.5s ease;
+}
+
+.card-quiz .btn-start-quiz:hover {
+    opacity: .7;
 }
 
 /**/
