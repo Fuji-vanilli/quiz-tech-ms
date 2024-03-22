@@ -14,7 +14,7 @@ form {
 }
 
 .content {
-    background: #21262d;
+    background: #fff;
     border-radius: 10px;
     display: inline;
     margin-bottom: 24px;
@@ -34,4 +34,26 @@ form {
     color: #898989;
     border: 1px solid #3b3c3d;
     padding: 6px 8px;
+}
+
+.input-box {
+    width: 100%;
+    margin: 16px;
+    padding: 14px;
+}
+
+.input-box .input-field {
+    width: 100%;
+    border: 1px solid #89929b;
+    margin-bottom: 16px;
+    padding: 12px;
+    border-radius: 5px;
+
+    input {
+        width: 95%;
+        border: 0;
+        padding-left: 16px;
+        background: transparent;
+        outline: none;
+    }
 }

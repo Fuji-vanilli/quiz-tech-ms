@@ -1,5 +1,7 @@
 .content {
     background: transparent;
+    margin-left: 18px;
+    margin-right: 18px;
 }
 
 a {
@@ -13,21 +15,28 @@ a {
     padding: 16px;
 }
 
-.content-left img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-}
-
 .image-profile {
     position: relative;
+
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    //overflow: hidden;
+
+    img {
+        border: 3px solid #faa356;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        object-fit: cover;
+    }
 }
 
 .image-profile a {
     color: #89929b;
     position: absolute;
-    bottom: 15px;
-    right: 95px;
+    bottom: 17%;
+    right: 0;
     background: #3b3c3d;
     padding: 6px 8px;
     border-radius: 50%;
@@ -158,9 +167,10 @@ a {
 
 .content-right {
     background: #fff;
-    margin-left: 14px;
+    margin-left: 4px;
     border-radius: 10px;
     padding: 16px;
+    width: 96%;
 }
 
 .recap {

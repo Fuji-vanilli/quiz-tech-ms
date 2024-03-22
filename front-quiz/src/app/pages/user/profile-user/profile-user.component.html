@@ -2,7 +2,7 @@
     <div class="row ">
         <div class="col-md-12 content">
             <div class="row">
-                <div class="col-md-3 content-left">
+                <div class="col-md-2 content-left">
                     <h4></h4>
                     <div class="image-profile">
                         <img [src]="user.photo" alt="">
@@ -55,16 +55,16 @@
                         <button class="btn-competence" *ngFor="let competence of user.competences">{{competence}}</button>
                     </div>
                 </div>
-                <div class="col-md-9">
+                <div class="col-md-10">
                     <div class="content-right">
                         <apx-chart [series]="chartOptions.series!" [chart]="chartOptions.chart!"
-                        [xaxis]="chartOptions.xaxis!" [stroke]="chartOptions.stroke!" [tooltip]="chartOptions.tooltip!"
-                        [dataLabels]="chartOptions.dataLabels!">
-                    </apx-chart>
+                            [xaxis]="chartOptions.xaxis!" [stroke]="chartOptions.stroke!" [tooltip]="chartOptions.tooltip!"
+                            [dataLabels]="chartOptions.dataLabels!">
+                        </apx-chart>
 
-                    <div class="recap ms-3">
+                        <div class="recap ms-3">
                         <div class="row">
-                            <div class="col-md-6" *ngFor="let result of dataResult">
+                            <div class="col-md-4" *ngFor="let result of dataResult">
                                 <div class="card-finished">
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div><i class="bi bi-paperclip" style="font-size: 20px;"></i><span
@@ -79,7 +79,6 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
                     </div>
                 </div>

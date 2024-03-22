@@ -113,7 +113,6 @@ a {
 .btn-login:hover {
     background: #292929;
     color: #EE1D52;
-    //border: 1px solid #EE1D52;
 }
 
 .btn-register {
@@ -163,10 +162,9 @@ a {
     color: #fff;
 }
 
-.notification {
-    position: relative;
-    padding-right: 14px;
-
+.notification { 
+    position: relative; 
+    padding-right: 14px; 
 }
 
 .notification i {
@@ -189,8 +187,7 @@ a {
 }
 
 .btn-secondary {
-    background: #fff;
-    //color: #662d91;
+    background: #fff; 
 }
 
 /****/
@@ -202,7 +199,7 @@ a {
     width: 320px;
     max-height: 0px;
     overflow: hidden;
-    transition: max-height 0.5s;
+    transition: max-height 0.3s ease;
 }
 
 .sub-menu-wrap.open-menu {
@@ -210,7 +207,7 @@ a {
 }
 
 .sub-menu {
-    background: #21262d;
+    background: #21262d; 
     padding: 20px;
     margin: 10px;
     border-radius: 12px;

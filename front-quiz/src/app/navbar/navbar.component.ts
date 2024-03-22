@@ -15,6 +15,7 @@ export class NavbarComponent implements OnInit {
 
   profile?: KeycloakProfile | null= null;
   isAdmin: boolean= false;
+  openSubMenu= false;
 
   routeAdmin: boolean= false;
   navBg: any;
@@ -100,6 +101,18 @@ export class NavbarComponent implements OnInit {
       subMenu.classList.toggle("open-menu");
     }
   }
+
+  toggleSubMenu() {
+    this.openSubMenu= !this.openSubMenu;
+  }
+
+  @HostListener('document:click', ['$event'])
+  clickout(event: any) {
+    if (!event.target.closest('#subMenu')) {
+      this.openSubMenu= false;
+    }
+  }
+
 
   navigateTo(event: any) {
     const route= event.target.value;

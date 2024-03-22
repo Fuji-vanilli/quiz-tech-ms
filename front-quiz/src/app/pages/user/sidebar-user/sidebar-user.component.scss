@@ -35,9 +35,8 @@
 .user-img {
     width: 44px;
     height: 44px;
-    border-radius: 50%;
+    border-radius: 50%; 
     overflow: hidden;
-
 }
 
 .user-img img {
@@ -200,7 +199,7 @@
 
 .home {
     position: relative;
-    margin-top: 110px;
+    margin-top: 90px;
     left: 270px;
     width: calc(100% - 260px);
     transition: all .5s ease;

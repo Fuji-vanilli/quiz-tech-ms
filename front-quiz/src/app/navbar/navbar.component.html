@@ -60,17 +60,17 @@
         <li class="nav-item">
           <button class="btn-register" (click)="register()" *ngIf="!profile">Sign up</button>
         </li>
-        <li class="nav-item" *ngIf="profile">
-          <a *ngIf="user.photo"><img class="user-pic-nav" [src]="user.photo" alt="" (click)="toggleMenu()"></a>
+        <li class="nav-item" *ngIf="profile" id="subMenu">
+          <a *ngIf="user.photo"><img class="user-pic-nav" [src]="user.photo" alt="" (click)="toggleSubMenu()"></a>
           <button *ngIf="!user.photo" class="btn btn-profile"
-            (click)="toggleMenu()">{{profile.username?.charAt(0)}}</button>
+            (click)="toggleSubMenu()">{{profile.username?.charAt(0)}}</button>
         </li>
       </ul>
 
-      <div class="sub-menu-wrap" id="subMenu">
+      <div class="sub-menu-wrap" [class.open-menu]="openSubMenu">
         <div class="sub-menu">
           <div class="user-info">
-            <img [src]="user.photo" alt="" class="user-pic">
+            <img [src]="user.photo" alt="" class="user-pic"> 
             <div class="user-details">
               <h3>{{profile?.firstName+" "+profile?.lastName}}</h3>
               <h6>{{profile?.email}}</h6>

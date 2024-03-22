@@ -31,7 +31,7 @@ $my-theme-dark: mat.define-dark-theme((
   )
 ));
 
-@include mat.all-component-colors($my-theme-dark);
+//@include mat.all-component-colors($my-theme-dark);
 
 html, body { height: 100%; }
 

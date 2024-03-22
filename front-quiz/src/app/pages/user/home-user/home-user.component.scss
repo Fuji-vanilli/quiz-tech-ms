@@ -193,7 +193,6 @@ table {
     margin-top: 16px;
     margin-bottom: 24px;
     border-radius: 8px;
-    background: #21262d;
 }
 
 .card-left .right {
@@ -263,7 +262,8 @@ mat-paginator {
 
 .card-quiz .details .title {
     color: #21262d;
-    font-size: 14px ;
+    font-size: 16px ;
+    font-weight: 600;
     margin-bottom: 5px;
 }
 
@@ -287,11 +287,11 @@ mat-paginator {
 
 .card-quiz .image-quiz .question {
     position: absolute;
-    top: 20%;
+    top: 10%;
     left: 20px;
     padding: 10px 14px;
     background: rgba(#fd5732, 0.6);
-    border-radius: 8px;
+    border-radius: 5px;
     color: #fff;
 
 }
