@@ -35,7 +35,6 @@
           </div>
         </li>
       </ul>
-
       <ul class="navbar-nav mb-lg-0 ms-auto right-nav">
         <li class="nav-item" *ngIf="profile">
           <a class="nav-link" routerLinkActive="active" aria-current="page" routerLink="/user/user-list">
@@ -66,7 +65,6 @@
             (click)="toggleSubMenu()">{{profile.username?.charAt(0)}}</button>
         </li>
       </ul>
-
       <div class="sub-menu-wrap" [class.open-menu]="openSubMenu">
         <div class="sub-menu">
           <div class="user-info">

@@ -6,6 +6,7 @@
 .row .quiz-title-head {
     background: #21262d;
     height: 20vh;
+    border-radius: 10px 0 0 0;
 }
 
 .row .title-quiz {
@@ -15,19 +16,35 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 10px;
+
 }
 
-.row .content-quiz {
+.content-quiz {
     padding: 16px 20px;
     font-family: 'Ubuntu';
     background: #56647b; 
     color: #fff;  
     height: 55vh;
+    border-radius: 0 0 0 10px;
+}
+
+.content-quiz .details {
+    margin-bottom: 26px;
+
+    i {
+        font-size: 18px;
+        color: #ffb787;
+    }
+
+    span {
+        font-size: 18px;
+        color: #ffb787;
+    }
 }
 
 .content-right {
     background: #fff;
+    border-radius: 0 10px 10px 0;
     height: 75vh;
 }
 

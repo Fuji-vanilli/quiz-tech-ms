@@ -15,13 +15,17 @@
                         <h1><strong>Quiz</strong></h1>
                         <span>{{quiz.description}}</span>
                 
-                       <div class="mt-5" style="color: #e0e0e0;">
+                       <div class="mt-5 details">
                             <p>Time</p>
-                            <h2><i class="bi bi-alarm" style="font-size: 28px;"></i><strong class="ms-3">{{quiz.duration}} Minutes</strong></h2>
+                            <i class="bi bi-alarm"></i><span class="ms-2">{{quiz.duration}} Minutes</span>
                        </div>
-                       <div class="mt-2" style="color: #e0e0e0;">
+                       <div class="mt-2 details">
                             <p>Questions</p>
-                            <h2><i class="bi bi-question-circle" style="font-size: 28px;"></i><strong class="ms-3">{{quiz.numberOfQuestions}} Questions</strong></h2>
+                            <i class="bi bi-question-circle"></i><span class="ms-2">{{quiz.numberOfQuestions}} Questions</span>
+                       </div>
+                       <div class="mt-2 details">
+                            <p>Level</p>
+                            <i class="bi bi-bar-chart"></i><span class="ms-2">{{quiz.difficulty}}</span>
                        </div>
                     </div>
                 </div>
