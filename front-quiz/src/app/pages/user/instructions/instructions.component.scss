@@ -15,6 +15,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 10px;
 }
 
 .row .content-quiz {
@@ -22,12 +23,12 @@
     font-family: 'Ubuntu';
     background: #56647b; 
     color: #fff;  
-    height: 50vh;
+    height: 55vh;
 }
 
 .content-right {
-    background: #e0e0e0;
-    height: 70vh;
+    background: #fff;
+    height: 75vh;
 }
 
 .button-start {

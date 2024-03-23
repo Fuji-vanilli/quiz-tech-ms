@@ -17,7 +17,7 @@
     .nav-link {
         color: #fff;
         i {
-            color: #fff;
+            color: #fff; 
         }
     }
 }
@@ -49,7 +49,7 @@ a {
 }
 
 .content-left .nav-link {
-    color: #f59e0b;
+    color: #faa356;
     padding-right: 16px;
     padding-left: 16px;
     font-family: "Ubuntu", sans-serif;
@@ -58,7 +58,7 @@ a {
 }
 
 .content-left .nav-link i {
-    color: #f59e0b;
+    color: #faa356;
     font-size: 18px;
     margin-right: 10px;
 }
@@ -155,11 +155,11 @@ a {
     border-radius: 25px; 
     font-size: 18px; 
     text-align: center; 
-    margin-left: 30px;
-    cursor: pointer;
-    position: relative;
-    background: #f59e0b;
-    color: #fff;
+    margin-left: 30px; 
+    cursor: pointer; 
+    position: relative; 
+    background: #f59e0b; 
+    color: #fff; 
 }
 
 .notification { 
