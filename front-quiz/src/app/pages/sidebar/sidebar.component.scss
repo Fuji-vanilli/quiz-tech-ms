@@ -193,15 +193,18 @@
 }
 
 #sidebar:not(.expand) ~ .home {
-   left: 106px;
-   width: calc(100% - 98px);
+   left: 92px;
+   width: calc(100% - 92px);
 }
 
 .home {
     position: relative;
-    margin-top: 90px;
-    left: 270px;
-    width: calc(100% - 260px);
+    padding: 24px;
+
+    margin: 90px 0 0 0;
+    background: #0d1117;
+    left: 256px;
+    width: calc(100% - 256px);
     transition: all .5s ease;
 }
 

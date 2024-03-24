@@ -46,13 +46,13 @@
                 <p class="title">Add</p>
                 <ul>
                     <li>
-                        <a routerLinkActive="active" routerLink="/admin/quizzes" [routerLinkActiveOptions]="{exact: true}">
+                        <a routerLinkActive="active" routerLink="/admin/add-category" [routerLinkActiveOptions]="{exact: true}">
                             <i class="bi bi-bag-plus"></i>
                             <span class="text">Add Category</span>
                         </a>
                     </li>
                     <li>
-                        <a routerLinkActive="active" routerLink="/admin/quizzes" [routerLinkActiveOptions]="{exact: true}">
+                        <a routerLinkActive="active" routerLink="/admin/add-quiz" [routerLinkActiveOptions]="{exact: true}">
                             <i class="bi bi-file-earmark-plus"></i>
                             <span class="text">Add Quiz</span>
                         </a>
@@ -63,18 +63,21 @@
                 <p class="title">Other</p>
                 <ul>
                     <li>
-                        <a routerLinkActive="active" routerLink="/admin/quizzes" [routerLinkActiveOptions]="{exact: true}">
-                            <i class="bi bi-bag-plus"></i>
+                        <a routerLinkActive="active" routerLink="" [routerLinkActiveOptions]="{exact: true}">
+                            <i class="bi bi-info-circle"></i>
                             <span class="text">Help</span>
                         </a>
                     </li>
                     <li>
-                        <a routerLinkActive="active" routerLink="/admin/quizzes" [routerLinkActiveOptions]="{exact: true}">
-                            <i class="bi bi-info-circle"></i>
+                        <a (click)="logout()">
+                            <i class="bi bi-box-arrow-in-right"></i>
                             <span class="text">Logout</span>
                         </a>
                     </li>
                 </ul>
+                <div class="copyright">
+                    <span style="color: #cccbc8; font-size: 10px; margin-left: 20px;">© Created by Fuji Vanilli</span>
+                </div>
             </div>
         </div>
     </div>

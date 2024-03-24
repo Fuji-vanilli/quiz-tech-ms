@@ -16,6 +16,7 @@ export class NavbarComponent implements OnInit {
   profile?: KeycloakProfile | null= null;
   isAdmin: boolean= false;
   openSubMenu= false;
+  navigateByAdmin: boolean= false;
 
   routeAdmin: boolean= false;
   navBg: any;
@@ -35,6 +36,12 @@ export class NavbarComponent implements OnInit {
           this.showNavbar= false
         } else {
           this.showNavbar= true;
+        }
+
+        if (this.router.url.startsWith('/admin')) {
+          this.navigateByAdmin= true;
+        } else {
+          this.navigateByAdmin= false;
         }
       }
     })
