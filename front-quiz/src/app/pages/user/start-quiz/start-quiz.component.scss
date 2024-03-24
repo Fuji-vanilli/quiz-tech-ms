@@ -85,18 +85,20 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 6px;
-    background: #21262d;
-    color: #fff;
+    border-radius: 8px;
+    background: #e0e0e0;
+    color: #21262d;
     font-family: 'Inter';
     cursor: pointer;
     font-size: 14px;
     transition: all .6s ease;
+    box-shadow: 0 0 10px #5200ae;
 }
 
 .choice:hover {
     transform: scale(110%);
-    background: #00668c;
+    background-color: #4062bb;
+    background-image: linear-gradient(316deg, #4062bb 0%, #5200ae 74%);
     color: #fff;
     border: none;
 }

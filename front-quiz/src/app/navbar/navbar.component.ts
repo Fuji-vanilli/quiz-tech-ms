@@ -2,7 +2,6 @@ import { Component, ElementRef, EventEmitter, HostListener, OnInit, Output } fro
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { KeycloakService } from 'keycloak-angular';
 import { KeycloakProfile } from 'keycloak-js';
-import Swal from 'sweetalert2';
 import { UserService } from '../services/user.service';
 import { User } from '../pages/models/user.model';
 
@@ -12,7 +11,7 @@ import { User } from '../pages/models/user.model';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-  showNavbar= false;
+  showNavbar= true;
 
   profile?: KeycloakProfile | null= null;
   isAdmin: boolean= false;
@@ -34,6 +33,8 @@ export class NavbarComponent implements OnInit {
       if (event instanceof NavigationEnd) {
         if (this.router.url.startsWith('/user/start')) {
           this.showNavbar= false
+        } else {
+          this.showNavbar= true;
         }
       }
     })
