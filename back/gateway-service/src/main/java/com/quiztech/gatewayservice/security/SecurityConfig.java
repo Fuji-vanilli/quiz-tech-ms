@@ -8,13 +8,10 @@ import org.springframework.security.config.annotation.web.reactive.EnableWebFlux
 import org.springframework.security.config.web.server.ServerHttpSecurity;
 import org.springframework.security.web.server.SecurityWebFilterChain;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.cors.CorsConfiguration;
-import org.springframework.web.cors.reactive.CorsWebFilter;
-import org.springframework.web.cors.reactive.UrlBasedCorsConfigurationSource;
-import org.springframework.web.util.pattern.PathPatternParser;
 
 @Configuration
 @EnableWebFluxSecurity
+@CrossOrigin("*")
 public class SecurityConfig {
     public SecurityWebFilterChain filterChain(ServerHttpSecurity httpSecurity) {
         httpSecurity

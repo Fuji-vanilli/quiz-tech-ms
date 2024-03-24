@@ -1,4 +1,4 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
 import { environment } from 'src/environnments/environments';
@@ -16,7 +16,12 @@ export class QuizApiService {
     params.set('page', page);
     params.set('size', size);
 
-    return this.httpClient.get(environment.backEndQuiz+'/all', {params});
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': 'http://your-angular-app-domain.com'
+  });
+
+    return this.httpClient.get(environment.backEndQuiz+'/all',{ headers: headers });
   }
 
   addQuiz(quiz: Quiz): Observable<any> {

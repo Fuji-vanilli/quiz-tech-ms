@@ -79,14 +79,34 @@
                             <img [src]="quiz.imageUrl" alt="">
                             <span class="title">{{quiz.title}}</span>
                             <span class="description truncate">{{quiz.description}}</span>
-                            <div class="info">
-                                <div class="question">
-                                    <i class="bi bi-question-circle-fill"></i>
-                                    <span>{{'QUESTIONS: '+quiz.numberOfQuestions}}</span> 
-                               </div>
-                               <div class="duration">
-                                    <i class="bi bi-alarm"></i>
-                                    <span>{{'MINUTES: '+quiz.duration}}</span>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="info">
+                                        <div class="question">
+                                            <i class="bi bi-question-square-fill"></i>
+                                            <span>{{quiz.numberOfQuestions+' Questions'}}</span> 
+                                       </div>
+                                       <div class="score">
+                                        <i class="bi bi-star-fill checked"></i>
+                                        <i class="bi bi-star-fill checked"></i>
+                                        <i class="bi bi-star-fill checked"></i>
+                                        <i class="bi bi-star-fill checked"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        </div>
+                                       
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="info">
+                                        <div class="duration">
+                                            <i class="bi bi-stopwatch-fill"></i>
+                                            <span>{{quiz.duration+' Minutes'}}</span>
+                                        </div>
+                                       <div class="level">
+                                            <i class="bi bi-bar-chart-fill"></i>
+                                            <span>{{quiz.difficulty}}</span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

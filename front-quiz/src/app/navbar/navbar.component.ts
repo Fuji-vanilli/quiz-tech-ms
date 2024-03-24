@@ -12,6 +12,7 @@ import { User } from '../pages/models/user.model';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
+  showNavbar= false;
 
   profile?: KeycloakProfile | null= null;
   isAdmin: boolean= false;
