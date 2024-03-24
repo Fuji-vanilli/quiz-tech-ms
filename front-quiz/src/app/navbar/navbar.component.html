@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg" [ngStyle]="navBg" [ngClass]="{'no-window': true}">
+<nav class="navbar navbar-expand-lg" [ngStyle]="navBg" *ngIf="showNavbar">
   <div class="container-fluid">
     <a class="navbar-brand" routerLink="">
       <span class="logo">Q-LEARNING</span>

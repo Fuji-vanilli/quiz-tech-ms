@@ -1,5 +1,5 @@
 import { Component, ElementRef, EventEmitter, HostListener, OnInit, Output } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { KeycloakService } from 'keycloak-angular';
 import { KeycloakProfile } from 'keycloak-js';
 import Swal from 'sweetalert2';
@@ -30,6 +30,13 @@ export class NavbarComponent implements OnInit {
               private userService: UserService,
               private elementRef: ElementRef) {}
   ngOnInit(): void {
+    this.router.events.subscribe(event=> {
+      if (event instanceof NavigationEnd) {
+        if (this.router.url.startsWith('/user/start')) {
+          this.showNavbar= false
+        }
+      }
+    })
     if (this.keycloakService.isLoggedIn()) { 
       this.keycloakService.loadUserProfile().then(
         profile=> {
