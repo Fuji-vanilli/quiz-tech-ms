@@ -32,17 +32,7 @@
                                                 (click)="filterByQuizTitle(quizTitle)">{{quizTitle}}</a></li>
                                     </ul>
                                 </div>
-                                <div class="dropdown" (click)="toggleSortMenu()">
-                                    <div class="select" id="select">
-                                        <span>Sort</span>
-                                        <div class="caret" [class.caret-rotate]="menuSortOpen"></div>
-                                    </div>
-                                    <ul class="menu" [class.menu-open]="menuSortOpen">
-                                        <li class="active"><a class="nav-link">Date</a></li>
-                                        <li><a class="nav-link" routerLinkActive="active">Name</a></li>
-                                        <li><a class="nav-link" routerLinkActive="active">Rate</a></li>
-                                    </ul>
-                                </div>
+                                
                             </div>
                         </div>
                         <div class="text-result">

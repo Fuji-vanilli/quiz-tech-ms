@@ -55,9 +55,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="quizz-ratings d-flex justify-content-center align-items-center mb-3">
+                            <div class="quizz-ratings d-flex justify-content-between">
                                 <div class="quizz-rating">
-                                    <strong>Classement</strong>
                                     <div class="quizz-rating__stars star_3">
                                         <i class="bi bi-star-fill" data-rating="1"></i>
                                         <i class="bi bi-star-fill" data-rating="2"></i>
@@ -65,6 +64,10 @@
                                         <i class="bi bi-star" data-rating="4"></i>
                                         <i class="bi bi-star" data-rating="5"></i>
                                     </div>
+                                </div>
+                                <div class="level">
+                                    <i class="bi bi-bar-chart-fill"></i>
+                                    <span>{{quiz.difficulty}}</span>
                                 </div>
                             </div>
                         </div>
@@ -86,9 +89,9 @@
                     <mat-card-title>Trending other Category</mat-card-title>
                 </mat-card-header>
                 <mat-card-content>
-                    <div *ngFor="let category of categories">
+                    <div *ngFor="let category of categories; let i= index">
                         <button class="btn-category" [routerLink]="'/user/quizzes/'+category.id">
-                            <i [ngClass]="category.icon"></i> {{category.title}}
+                            <i [ngClass]="category.icon" [ngStyle]="{'color': colors[i%5]}"></i> {{category.title}}
                             <span>{{category.quizsId.length}}</span>
                         </button>
                     </div>

@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-md-9 content">
             <div class="chart-result">
-                <canvasjs-chart [options]="chartOptions" ></canvasjs-chart>
+                <canvasjs-chart [options]="chartOptions"></canvasjs-chart>
             </div>
             <mat-card class="mt-2" *ngFor="let question of quiz.questions; let i= index">
                 <div class="question-number"><span>{{(i+1)+' - '+question.content}}</span></div>
@@ -33,7 +33,7 @@
         </div>
         <div class="col-md-3">
             <div class="right-content">
-                <mat-card class="mt-2">
+                <mat-card>
                     <mat-card-header class="text-center">
                         <mat-card-title>Trending other Category</mat-card-title>
                     </mat-card-header>

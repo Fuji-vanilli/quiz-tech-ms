@@ -12,6 +12,7 @@ import { Category } from '../../models/category.model';
 })
 export class LoadQuizByCategoryComponent {
 
+  colors: string[]= ['#FF4D4D', '#F18F01', '#2E8B57', '#FF6347', '#71c4ef'];
   isOpen= false;
 
   categoryId!: string;

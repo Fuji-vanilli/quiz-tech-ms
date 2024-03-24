@@ -2,6 +2,7 @@
     background: #fff;
     padding: 10px;
     border-radius: 10px;
+    overflow: hidden;
 }
 
 .right-content {
@@ -11,7 +12,7 @@
 }
 
 .right-content mat-card {
-    background: #dddddd;
+    background: #fff;
     border-radius: 10px 10px 0 0;
     position: sticky;
 }
@@ -26,7 +27,7 @@
 .right-content .btn-category {
     padding: 4px 6px 4px 8px;
     margin-top: 16px;
-    background: #ffffff;
+    background: #f2f2f2;
     border: 0;
     border-radius: 16px;
     color: #21262d;
@@ -49,7 +50,7 @@
 
 .content mat-card {
     background: #fff;
-    border-radius: 10px 10px 0 0;
+    border-radius: 10px 10px 10px 10px;
     box-shadow: 0 0 10px #21262d;
     margin-bottom: 14px;
 }
@@ -78,5 +79,5 @@
     background: #21262d;
     color: #fff;
     border: none;
-    //border-radius: 8px; 
+    border-radius: 10px 10px 0 0; 
 }
