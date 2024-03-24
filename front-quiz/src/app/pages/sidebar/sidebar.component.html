@@ -1,4 +1,93 @@
-<div class="wrapper">
+<div class="contain">
+    <div id="sidebar">
+        <button class="btn menu-btn" id="toggle-btn">
+            <i class="bi bi-chevron-right"></i>
+        </button>
+        <div class="head">
+            <div class="user-img">
+                <img [src]="admin.photo" alt="">
+            </div>
+            <div class="user-details">
+                <p class="name">{{admin.username}}</p>
+                <p class="title">{{admin.email}}</p>
+            </div>
+        </div>
+        <div class="nav">
+            <div class="menu">
+                <p class="title">Main</p>
+                <ul>
+                    <li>
+                        <a routerLinkActive="active" routerLink="/admin" [routerLinkActiveOptions]="{exact: true}">
+                            <i class="bi bi-speedometer2"></i>
+                            <span class="text">Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a routerLinkActive="active" routerLink="/admin/profile" [routerLinkActiveOptions]="{exact: true}">
+                            <i class="bi bi-person"></i>
+                            <span class="text">Account</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a routerLinkActive="active" routerLink="/admin/categories" [routerLinkActiveOptions]="{exact: true}">
+                            <i class="bi bi-bag-check"></i>
+                            <span class="text">Categories</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a routerLinkActive="active" routerLink="/admin/quizzes" [routerLinkActiveOptions]="{exact: true}">
+                            <i class="bi bi-chat-dots"></i>
+                            <span class="text">Quizzes</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="menu">
+                <p class="title">Add</p>
+                <ul>
+                    <li>
+                        <a routerLinkActive="active" routerLink="/admin/quizzes" [routerLinkActiveOptions]="{exact: true}">
+                            <i class="bi bi-bag-plus"></i>
+                            <span class="text">Add Category</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a routerLinkActive="active" routerLink="/admin/quizzes" [routerLinkActiveOptions]="{exact: true}">
+                            <i class="bi bi-file-earmark-plus"></i>
+                            <span class="text">Add Quiz</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="menu">
+                <p class="title">Other</p>
+                <ul>
+                    <li>
+                        <a routerLinkActive="active" routerLink="/admin/quizzes" [routerLinkActiveOptions]="{exact: true}">
+                            <i class="bi bi-bag-plus"></i>
+                            <span class="text">Help</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a routerLinkActive="active" routerLink="/admin/quizzes" [routerLinkActiveOptions]="{exact: true}">
+                            <i class="bi bi-info-circle"></i>
+                            <span class="text">Logout</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <section class="home">
+        <router-outlet></router-outlet>
+    </section>
+</div>
+
+        
+        
+
+<!--div class="contain">
     <aside id="sidebar" class="mt-5">
         <div class="d-flex mt-4">
             <button id="toggle-btn">
@@ -62,9 +151,7 @@
             <span style="color: #cccbc8; font-size: 10px; margin-left: 20px;">© Created by Fuji Vanilli</span>
         </div>
     </aside>
-    <section class="home mt-5">
-        <div class="content-section">
-            <router-outlet></router-outlet>
-        </div>
+    <section class="home">
+        <router-outlet></router-outlet>
     </section>
-</div>
+</div-->
