@@ -63,6 +63,7 @@ const routes: Routes = [
       { path: 'add-quiz', component: AddQuizzesComponent },
       { path: 'category/:id', component: UpdateCategoryComponent},
       { path: 'quiz/:id', component: QuizDetailsComponent },
+      { path: 'edit-profile', component: EditProfileComponent },
       { path: 'questions/:id/:title', component: ViewQuestionsComponent },
       { path: 'add-question/:id', component: AddQuestionComponent },
       { path: 'profile', component: ProfileComponent }
