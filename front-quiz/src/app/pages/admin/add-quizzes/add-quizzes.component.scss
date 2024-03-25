@@ -1,5 +1,3 @@
-
-
 .content {
     background: #21262d;
     padding: 24px;
@@ -12,6 +10,10 @@ mat-card {
 }
 
 mat-label {
+    color: #fff;
+}
+
+mat-form-field input {
     color: #fff;
 }
 

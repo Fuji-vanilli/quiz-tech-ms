@@ -8,28 +8,28 @@
                 </div>
                 <mat-form-field class="w-100" appearance="outline">
                     <mat-label>Enter the title</mat-label>
-                    <input autofocus matInput placeholder="new quiz..." formControlName="title" required>
+                    <input autofocus matInput placeholder="new quiz..." formControlName="title" required style="color: aliceblue;">
                 </mat-form-field>
                 <div class="mb-2">
                     <i class="bi bi-question-diamond-fill" style="color: #89929b;"></i><strong class="ms-2" style="color: #89929b;">Enter the description here</strong>
                 </div>
                 <mat-form-field class="w-100" appearance="outline">
                     <mat-label>Description</mat-label>
-                    <textarea matInput rows="5" formControlName="description"></textarea>
+                    <textarea matInput rows="5" formControlName="description" style="color: aliceblue;"></textarea>
                 </mat-form-field>
                 <div class="mb-2">
                     <i class="bi bi-question-diamond-fill" style="color: #89929b;"></i><strong class="ms-2" style="color: #89929b;">Enter the image url here</strong>
                 </div>
                 <mat-form-field class="w-100" appearance="outline">
                     <mat-label>Enter the image url</mat-label>
-                    <input autofocus matInput placeholder="image url" formControlName="imageUrl" required>
+                    <input autofocus matInput placeholder="image url" formControlName="imageUrl" required style="color: aliceblue;">
                 </mat-form-field>
                 <div class="mb-2">
                     <i class="bi bi-bookmark-check-fill" style="color: #89929b;"></i><strong class="ms-2" style="color: #89929b;">Choose the category</strong>
                 </div>
                 <mat-form-field class="w-100 category" appearance="outline">
                     <mat-label>Category</mat-label>
-                    <mat-select formControlName="categoryId">
+                    <mat-select formControlName="categoryId" style="background: #21262d; color: aliceblue;">
                         <mat-option *ngFor="let category of categories" [value]="category.id">{{category.title}}</mat-option>
                     </mat-select>
                 </mat-form-field>
