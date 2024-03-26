@@ -5,26 +5,31 @@
                 <div class="col-md-9 content">
                     <div class="row">
                         <div>
-                            <h4 class="mt-3" *ngIf="usersSubscriber.length> 0">Your Subscribers ({{usersSubscriber.length}})</h4>
+                            <h4 class="mt-3" *ngIf="usersSubscriber.length> 0">Your Subscribers
+                                ({{usersSubscriber.length}})</h4>
                         </div>
-                        <div class="subscribers">
+                        <div class="subscribers" *ngIf="usersNoSubscriber.length> 0">
                             <div class="col-md-3" *ngFor="let user of usersSubscriber">
-                            <div class="card">
-                                <div class="card-user text-center">
-                                    <div class="image tex-center">
-                                        <img [src]="user.photo" alt="">
-                                    </div>
-                                    <h3 class="mt-3"><a class="nav-link" [routerLink]="'/user/profile/'+user.email">{{user.firstname+' '+user.lastname}}</a></h3>
-                                    <span style="color: #656565;">{{user.description}}</span>
-                                    <button class="btn-subscriber" (click)="unsubscribe(user)">
-                                        <i class="bi bi-person-dash-fill" style="margin-right: 10px; font-size: 18px;"></i>Unsubscribe
-                                    </button>
-                                    <div class="subscribe-check">
-                                        <i class="bi bi-check-circle-fill" style="margin-right: 10px; font-size: 16px;"></i>
+                                <div class="card">
+                                    <div class="card-user text-center">
+                                        <div class="image tex-center">
+                                            <img [src]="user.photo" alt="">
+                                        </div>
+                                        <h3 class="mt-3"><a class="nav-link"
+                                                [routerLink]="'/user/profile/'+user.email">{{user.firstname+'
+                                                '+user.lastname}}</a></h3>
+                                        <span style="color: #656565;">{{user.description}}</span>
+                                        <button class="btn-subscriber" (click)="unsubscribe(user)">
+                                            <i class="bi bi-person-dash-fill"
+                                                style="margin-right: 10px; font-size: 18px;"></i>Unsubscribe
+                                        </button>
+                                        <div class="subscribe-check">
+                                            <i class="bi bi-check-circle-fill"
+                                                style="margin-right: 10px; font-size: 16px;"></i>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
                         </div>
                         <div>
                             <h4 class="mt-2">Suggestion to subscribe</h4>
@@ -35,10 +40,13 @@
                                     <div class="image">
                                         <img [src]="user.photo" alt="">
                                     </div>
-                                    <h3 class="mt-2"><a class="nav-link" [routerLink]="'/user/profile/'+user.email">{{user.firstname+' '+user.lastname}}</a></h3>
+                                    <h3 class="mt-2"><a class="nav-link"
+                                            [routerLink]="'/user/profile/'+user.email">{{user.firstname+'
+                                            '+user.lastname}}</a></h3>
                                     <span style="color: #656565;">{{user.description}}</span>
                                     <button class="btn-subscribe" (click)="subscribe(user)">
-                                        <i class="bi bi-patch-plus-fill" style="margin-right: 10px; font-size: 16px;"></i>Subscribe
+                                        <i class="bi bi-patch-plus-fill"
+                                            style="margin-right: 10px; font-size: 16px;"></i>Subscribe
                                     </button>
                                 </div>
                             </div>
@@ -67,11 +75,12 @@
                                         <i class="bi bi-file-earmark-pdf-fill"></i>Files
                                     </a>
                                 </div>
-                               
+
                                 <mat-card class="calendar-card">
                                     <mat-calendar [(selected)]="selected"></mat-calendar>
                                 </mat-card>
-                                <p style="color: #89929b; background: transparent; font-size: 11px;" class="mt-3">{{selected}}</p>
+                                <p style="color: #89929b; background: transparent; font-size: 11px;" class="mt-3">
+                                    {{selected}}</p>
                             </div>
                         </div>
                     </div>
