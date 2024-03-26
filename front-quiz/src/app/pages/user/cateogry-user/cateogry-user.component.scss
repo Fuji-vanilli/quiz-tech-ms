@@ -18,20 +18,16 @@ h3 {
     font-size: 20px;
 }
 
-.title-question {
-    margin-top: 14px;
-    margin-bottom: 14px;
-    width: 100%;
-    padding: 14px 16px;
-    border-radius: 8px;
+.all-category{
+
+    span {
+        display: flex;
+        justify-content: end;
+        font-size: 16px;
+        color: var(--primary-300);
+    }
 }
 
-.title-question span {
-    display: flex;
-    justify-content: end;
-    font-size: 16px;
-    color: #89929b;
-}
 
 .box-search {
     margin-top: 14px; 
@@ -40,9 +36,9 @@ h3 {
     display: flex;
     align-items: center; 
     border-radius: 24px;
-    background: #fff; 
+    background: var(--primary-200); 
     padding: 8px 20px;
-    border: 2px solid #e0e0e0;
+    border: 2px solid var(--accent-200);
     transition: all 0.5s ease;
 }
 
