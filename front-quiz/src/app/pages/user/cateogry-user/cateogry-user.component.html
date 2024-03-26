@@ -1,7 +1,7 @@
-<div class="contain mt-4">
+<div class="contain">
     <div class="row">
-        <div class="col-md-9 mt-2 content-left">
-            <div class="row mt-3 d-flex justify-content-between align-items-center">
+        <div class="col-md-9 content-left">
+            <div class="row head mt-3 d-flex justify-content-between align-items-center">
                 <div class="col-md-6 ms-3 search">
                     <span class="box-search">
                         <input type="text" [(ngModel)]="searchTerm" (ngModelChange)="filterBySearchTerm()" placeholder="Search Category here ...">
@@ -39,17 +39,19 @@
                 </div>
             </mat-card>
         </div>
-        <div class="col-md-3 right-content">
+        <div class="col-md-3 mt-3 right-content">
             <main class="row">
                 <div class="container-1">
-                    <section class="col" *ngFor="let category of categories">
+                    <section class="col" *ngFor="let category of categories.slice(0, 5)">
                         <header class="title">
                             <h4>{{category.title}}</h4>
                         </header>
         
                         <div class="contents">
-                            <div class="box" *ngFor="let quizByCategory of quizByCategory(category.id)">
-                                <i [ngClass]="category.icon"></i>
+                            <div class="box" *ngFor="let quizByCategory of quizByCategory(category.id)" [routerLink]="'/user/instructions/'+quizByCategory.id">
+                                <div class="icon-category">
+                                    <i [ngClass]="category.icon"></i>
+                                </div>
                                 <span>{{quizByCategory.title}}</span>
                             </div>
                         </div>
