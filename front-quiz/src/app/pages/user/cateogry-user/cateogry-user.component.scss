@@ -210,7 +210,7 @@ main.row {
 
 .container-1 {
     background-color: var(--bg-300);
-    padding: 35px 10%;
+    padding: 35px 16px 35px 35px ;
 }
 
 .col {
@@ -223,7 +223,7 @@ main.row {
 
     .contents {
         padding: 0 30px;
-        border-left: 2px solid var(--text-100);
+        border-left: 2px solid var(--text-200);
 
         .box {
             position: relative;

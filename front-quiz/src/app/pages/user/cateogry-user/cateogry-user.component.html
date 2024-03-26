@@ -47,8 +47,9 @@
                             <h4>{{quiz.category?.title}}</h4>
                         </header>
         
-                        <div class="contents" *ngFor="let quizByCategory of quizByCategory(quiz.categoryId)">
-                            <div class="box">
+                        <div class="contents">
+                            <div class="box" *ngFor="let quizByCategory of quizByCategory(quiz.categoryId)">
+                                <i [ngClass]="quizByCategory.category?.icon"></i>
                                 <span>{{quizByCategory.title}}</span>
                             </div>
                         </div>

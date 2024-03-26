@@ -68,6 +68,7 @@ public class WebClientGetter {
             category= Category.builder()
                     .title(data.getString("title"))
                     .description(data.getString("description"))
+                    .icon(data.getString("icon"))
                     .build();
 
         } catch (JSONException e) {

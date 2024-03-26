@@ -8,4 +8,5 @@ import lombok.*;
 public class Category {
     private String title;
     private String description;
+    private String icon;
 }
