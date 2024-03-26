@@ -233,6 +233,11 @@ main.row {
             cursor: pointer;
             transition: all 0.4s ease;
 
+            i {
+                color: var(--primary-100);
+                margin-right: 10px;
+            }
+
             span {
                 color: var(--text-100);
             }

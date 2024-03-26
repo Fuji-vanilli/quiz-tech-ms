@@ -42,14 +42,14 @@
         <div class="col-md-3 right-content">
             <main class="row">
                 <div class="container-1">
-                    <section class="col" *ngFor="let quiz of quizzes">
+                    <section class="col" *ngFor="let category of categories">
                         <header class="title">
-                            <h4>{{quiz.category?.title}}</h4>
+                            <h4>{{category.title}}</h4>
                         </header>
         
                         <div class="contents">
-                            <div class="box" *ngFor="let quizByCategory of quizByCategory(quiz.categoryId)">
-                                <i [ngClass]="quizByCategory.category?.icon"></i>
+                            <div class="box" *ngFor="let quizByCategory of quizByCategory(category.id)">
+                                <i [ngClass]="category.icon"></i>
                                 <span>{{quizByCategory.title}}</span>
                             </div>
                         </div>
