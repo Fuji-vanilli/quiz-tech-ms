@@ -38,7 +38,7 @@ h3 {
     border-radius: 24px;
     background: var(--primary-200); 
     padding: 8px 20px;
-    border: 2px solid var(--accent-200);
+    //border: 2px solid var(--accent-200);
     transition: all 0.5s ease;
 }
 
@@ -48,8 +48,12 @@ h3 {
     border: 0;
     flex: 1;
     outline: none;
-    color: #89929b;
+    color: var(--primary-100);
     font-size: 16px;
+}
+
+::placeholder {
+    color: var(--text-100);
 }
 
 .box-search button {
@@ -62,32 +66,45 @@ h3 {
 }
 
 .box-search button i {
-    color: #a3a3a3;
+    color: var(--text-100);
     font-size: 20px;
 }
 
 .box-search:hover {
-    background: #eee;
+    background: var(--primary-300);
+    ::placeholder {
+        color: var(--bg-300);
+    }
+    button i {
+        color: var(--primary-100);
+    }
 }
 
 .box-search:focus-within {
-    border: 2px solid #89929b;
+    background: var(--primary-300);
+    button i {
+        color: var(--primary-100);
+    }
+    ::placeholder {
+        color: var(--bg-300);
+    }
     transition: border-color 0.5s ease;
 }
 
 .content-left mat-card {
-    background: #fff;
-    //box-shadow: 0 0 8px #21262d;
+    background: var(--bg-200);
     border: 0;
     border-radius: 10px;
 }
 
 mat-card-title {
-    color: #21262d;
+    color: var(--text-100);
+    font-family: 'Poppins';
 }
 
 mat-card-subtitle {
-    color: #89929b;
+    color: var(--primary-300);
+    font-family: 'Poppins';
     margin-top: 10px;
 }
 
@@ -99,7 +116,7 @@ mat-card-subtitle {
 
 .image i {
     font-size: 20px;
-    color: #fff;
+    color: var(--text-100);
 }
 
 .card-body-cat {
@@ -108,63 +125,30 @@ mat-card-subtitle {
     font-family: 'Ubuntu';
     margin-top: 40px;
 }
-.card-header {
-    color: #e11d48;
-    font-weight: 500;
-    font-size: 18px;
-}
-
-.header-category {
-    margin: 24px;
-}
-.category-details h3 {
-    font-weight: 500;
-    color: #e11d48;
-}
-.category-details h3, p{
-    font-family: 'Roboto';
-    margin-top: 0px;
-    margin-bottom: 0px;
-}
-
-.icon-category {
-    color: #e11d48;
-    font-size: 26px;
-}
 
 .category-card {
     padding: 16px 16px;
     margin-bottom: 14px;
 }
 
-.image-category  {
-    background-image: url('../../../../assets/examen-en-ligne.png');
-    background-size: cover;
-}
-
 .btn-quiz {
-    background-color: #4062bb;
-    background-image: linear-gradient(316deg, #4062bb 0%, #5200ae 74%);
-    color: #fff;
+    background: var(--primary-100);
+    color: var(--text-100);
     border: none; 
+    margin-top: 18px;
     border-radius: 5px; 
     padding: 10px 24px;
     font-weight: 550;
 }
 
 .btn-quiz:hover {
-    background: #0e223e;
-    color: #fff;
-}
+    background: var(--bg-100);
+    color: var(--text-100);
 
-.nav-link {
-    cursor: pointer;
+    i {
+        color: var(--primary-100);
+    }
 }
-
-.nav-link:hover {
-    color: #f59e0b;
-}
-
 
 .right-content mat-card {
     background: #fff;
