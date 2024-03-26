@@ -55,6 +55,10 @@ export class CateogryUserComponent  implements OnInit{
     })
   }
 
+  quizByCategory(categoryId: any): Quiz[] {
+    return this.quizzes.filter(quiz=>  quiz.categoryId== categoryId);
+  }
+
   filterBySearchTerm() {
     this.filterCategoryBySearchTerm= this.categories.filter(
       quiz=> quiz.title?.toLocaleLowerCase().includes(this.searchTerm.toLocaleLowerCase())

@@ -40,20 +40,21 @@
             </mat-card>
         </div>
         <div class="col-md-3 right-content">
-            <section class="col">
-                <header class="title">
-                    <h4>Programming</h4>
-                </header>
-
-                <div class="contents">
-                    <div class="box">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, reprehenderit quod eos assumenda, laboriosam, voluptatem voluptates nesciunt sunt odit modi maxime excepturi repellendus quo nisi. Aspernatur iure natus earum id!</p>
-                    </div>
-                    <div class="box">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, reprehenderit quod eos assumenda, laboriosam, voluptatem voluptates nesciunt sunt odit modi maxime excepturi repellendus quo nisi. Aspernatur iure natus earum id!</p>
-                    </div>
+            <main class="row">
+                <div class="container-1">
+                    <section class="col" *ngFor="let quiz of quizzes">
+                        <header class="title">
+                            <h4>{{quiz.category?.title}}</h4>
+                        </header>
+        
+                        <div class="contents" *ngFor="let quizByCategory of quizByCategory(quiz.categoryId)">
+                            <div class="box">
+                                <span>{{quizByCategory.title}}</span>
+                            </div>
+                        </div>
+                    </section>
                 </div>
-            </section>
+            </main>
             <!--mat-card class="mt-2">
                 <mat-card-header class="text-center">
                     <mat-card-title>Popular Quizzes</mat-card-title>
