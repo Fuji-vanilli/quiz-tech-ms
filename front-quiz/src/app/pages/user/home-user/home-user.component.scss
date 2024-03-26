@@ -14,7 +14,7 @@
 
 .content-top {
     padding: 14px;
-    background: #fff;
+    background: var(--bg-200);
     margin-bottom: 16px;
     border-radius: 12px;
 }
@@ -23,34 +23,14 @@
     padding: 4px;
     font-size: 12px;
 }
-.head-card {
-    background: #DDA0DD;
-    padding: 0px 12px;
-    margin-left: 16px;
-    margin-bottom: 14px;
-    border-radius: 6px;
-}
-
-.head-card  span, strong {
-    color: #fff;
-}
-
-.head-card .history {
-    border-right: 5px solid  #DDA0DD;
-    display: flex;
-    align-items: center;
-    padding: 12px 16px;
-    font-size: 14px;
-}
-
 .dropdown * {
     box-sizing: border-box;
 }
 
 .dropdown .select {
-    background: #fd5732;
+    background: var(--primary-100);
     width: 100px;
-    color: #fff;
+    color: var(--text-100);
     display: flex;
     font-family: 'Roboto';
     justify-content: space-between;
@@ -61,11 +41,6 @@
     border-radius: 0.4rem;
     transition: all 0.5s ease;
     cursor: pointer;
-}
-
-.select-clicked {
-    border: 2px solid #2a2f3b;
-    box-shadow: 0 0 0.8em #26489a;
 }
 
 .select:hover {
@@ -89,11 +64,9 @@
     list-style: none;
     margin-top: 0.3em;
     padding: 0.2em 0.5em;
-    background: #323741;
-    border: 1px solid #363a43;
-    box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.2);
+    background: var(--bg-100);
     border-radius: 0.5em;
-    color: #9fa5d5;
+    color: var(--primary-300);
     position: absolute;
     width: 200px;
     opacity: 0;
@@ -195,10 +168,6 @@ table {
     border-radius: 8px;
 }
 
-.card-left .right {
-    border-left: 1px solid #d4d4d4;
-}
-
 .title-right {
     margin-left: 14px;
     margin-right: 14px;
@@ -208,7 +177,7 @@ table {
 }
 
 .fixed-right {
-    background: #fff;
+    background: var(--bg-300);
     padding-top: 20px;
     margin-right: 14px;
     border-radius: 10px;
@@ -233,8 +202,8 @@ mat-paginator {
     margin-bottom: 16px;
     padding-bottom: 14px;
     padding-left: 10px;
-    color: #89929b;
-    border-bottom: 1px solid #ffffff;
+    color: var(--primary-300);
+    border-bottom: 1px solid var(--bg-300);
 }
 
 .content-quiz {
@@ -242,8 +211,7 @@ mat-paginator {
 }
 
 .card-quiz{
-    //position: relative;
-    background: #fff;
+    background: var(--bg-200);
     border-radius: 8px;
     padding: 16px;
 }
@@ -261,14 +229,14 @@ mat-paginator {
 }
 
 .card-quiz .details .title {
-    color: #21262d;
+    color: var(--text-100);
     font-size: 16px ;
     font-weight: 600;
     margin-bottom: 5px;
 }
 
 .card-quiz .details .subtitle {
-    color: #89929b;
+    color: var(--text-200);
     font-size: 14px;
 }
 
@@ -290,19 +258,19 @@ mat-paginator {
     top: 10%;
     left: 20px;
     padding: 10px 14px;
-    background: rgba(#fd5732, 0.6);
+    background: rgba(var(--primary-100), 0.6);
     border-radius: 5px;
-    color: #fff;
+    color: var(--text-100);
 
 }
 
 .card-quiz .btn-start-quiz {
     width: 300px;
-    background: #fd5732;
+    background: var(--primary-100);
     border: none;
     border-radius: 5px;
     padding: 12px 14px;
-    color: #ffffff;
+    color: var(--text-100);
     transition: opacity 0.5s ease;
 }
 
@@ -323,8 +291,9 @@ mat-paginator {
 
 .card button {
     border: 0;
-    background: #fff;
-    padding: 6px ;
+    background: var(--bg-100);
+    color: var(--text-100);
+    padding: 6px;
     border-radius: 8px;
     margin-left: 12px;
     margin-top: 14px;
@@ -334,7 +303,6 @@ mat-paginator {
 }
 
 .card button:hover {
-    background: #d4d4d4;
     opacity: .7s;
 }
 
@@ -342,7 +310,7 @@ mat-paginator {
     margin-top: 10px;
     margin-left: 14px;
     margin-bottom: 10px;
-    color:#fff;
+    color:var(--text-100);
     font-size: 16px;
     font-weight: 500;
     font-family: 'Poppins';
@@ -351,7 +319,7 @@ mat-paginator {
 .card .subtitle {
     margin-left: 12px;
     margin-bottom: 2px;
-    color:#fff;
+    color: var(--text-200);
     font-size: 12px;
 }
 
@@ -360,8 +328,8 @@ mat-paginator {
     padding: 14px;
     border: 0;
     background: transparent;
-    color: #fd5732;
-    font-weight: 600;
+    color: var(--primary-300);
+    font-weight: 500;
     transition: all 0.5s ease;
     font-family: 'Roboto';
 }

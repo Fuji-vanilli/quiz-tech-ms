@@ -4,7 +4,6 @@
     left: 0;
     width: 100%;
     background: transparent;
-    //background-image: linear-gradient(to right, #b70f93, #ab07a7, #9515bd, #7227d4, #1238eb);
     padding: 15px 10px 20px 100px;
     z-index: 2;
     transition: 0.6s;
@@ -12,12 +11,12 @@
 
 .navbar.sticky {
     padding: 5px 20px 5px 100px;
-    background: #21262d;
+    background: var(--bg-100);
 
     .nav-link {
-        color: #fff;
+        color: var(--primary-300);
         i {
-            color: #fff; 
+            color: var(--primary-300); 
         }
     }
 }
@@ -40,24 +39,21 @@ a {
     font-weight: 600;
     font-family: 'Anta';
 }
-.content-left {
-    color: #a3a3a3;
-}
 
 .content-left a {
     margin-right: 10px;
     border-left: 3px solid transparent;
 }
 .content-left .nav-link:hover {
-    background: #662d91;
+    background: var(--bg-300);
     border-radius: 5px;
     i {
-        color: #fff;
+        color: var(--primary-300);
     }
 }
 
 .content-left .nav-link {
-    color: #a364ff;
+    color: var(--primary-300);
     padding-right: 16px;
     padding-left: 16px;
     font-family: "Ubuntu", sans-serif;
@@ -66,13 +62,13 @@ a {
 }
 
 .content-left .nav-link i {
-    color: #a364ff;
+    color: var(--primary-300);
     font-size: 18px;
     margin-right: 10px;
 }
 
 .right-nav .nav-link {
-    color: #a364ff;
+    color: var(--primary-200);
     padding-right: 16px;
     padding-left: 16px;
     border-radius: 5px;
@@ -81,19 +77,18 @@ a {
 }
 
 .right-nav i { 
-    color: #a364ff;
+    color:var(--primary-200);
     font-size: 18px;
     margin-right: 10px;
 }
 
 .right-nav .nav-link:hover {
-    background: #662d91;
+    background: var(--bg-300);
     border-radius: 5px;
     i {
-        color: #fff;
+        color: var(--primary-300);
     }
 }
-
 
 .problems, .solutions {
     border-right: 2px solid #525252;
@@ -110,17 +105,16 @@ a {
 .btn-login {
     border-radius: 5px;
     border: 0;
-    padding: 6px 14px ; 
-    background: #EE1D52;
-    color: #fff;
+    padding: 6px 16px ; 
+    background: var(--primary-200);
+    color: var(--text-100);
     font-family: 'Ubuntu';
     margin-right: 14px;
     transition: all 0.6s ease;
 }
 
 .btn-login:hover {
-    background: #292929;
-    color: #EE1D52;
+    opacity: .7;
 }
 
 .btn-register {
@@ -128,16 +122,14 @@ a {
     border-radius: 5px;
     border: 0;
     padding: 6px 14px ; 
-    background: #292929;
-    color: #fff;
+    background: var(--bg-100);
+    color: var(--text-100);
     font-family: 'Ubuntu';
     transition: all 0.6s ease;
 }
 
 .btn-register:hover {
-    background: #EE1D52;
-    color: #fff;
-    //border: 1px solid #292929;
+    opacity: .7;
 }
 
 .navbar-nav a, i {
