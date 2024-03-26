@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { Result } from '../../models/result.model';
 import { KeycloakProfile } from 'keycloak-js';
 import { ResultQuizService } from 'src/app/services/result-quiz.service';
@@ -29,7 +29,6 @@ export class HistoryComponent {
   profile!: KeycloakProfile | null;
 
   menuTypeOpen: boolean= false;
-  menuSortOpen: boolean= false;
 
   constructor(private resultQuiz: ResultQuizService,
               private keycloakService: KeycloakService,
@@ -120,7 +119,10 @@ export class HistoryComponent {
     this.menuTypeOpen= !this.menuTypeOpen;
   }
 
-  toggleSortMenu() {
-    this.menuSortOpen= !this.menuSortOpen;
+  @HostListener('document:click',['$event']) 
+  clickOut(event: any) {
+    if (!event.target.closest('#select')) {
+      this.menuTypeOpen= false;
+    }
   }
 }

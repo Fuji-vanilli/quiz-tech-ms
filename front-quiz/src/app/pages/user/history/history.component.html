@@ -20,27 +20,16 @@
 
                 </div>
                 <div class="col-md-6 d-flex justify-content-end align-items-center">
-                        <div class="dropdown" (click)="toggleTypeMenu()">
-                            <div class="select">
-                                <span>Type</span>
-                                <div class="caret" [class.caret-rotate]="menuTypeOpen"></div>
-                            </div>
-                            <ul class="menu" [class.menu-open]="menuTypeOpen">
-                                <li><a class="nav-link" (click)="loadResultQuizzes()">All</a></li>
-                                <li *ngFor="let quizTitle of resultQuizNoDuplicate"><a class="nav-link" (click)="filterByQuizTitle(quizTitle)" >{{quizTitle}}</a></li> 
-                            </ul> 
+                    <div class="dropdown" (click)="toggleTypeMenu()">
+                        <div class="select" id="select">
+                            <span>Type</span>
+                            <div class="caret" [class.caret-rotate]="menuTypeOpen"></div>
                         </div>
-                        <div class="dropdown" (click)="toggleSortMenu()">
-                            <div class="select">
-                                <span>Sort</span>
-                                <div class="caret" [class.caret-rotate]="menuSortOpen"></div>
-                            </div>
-                            <ul class="menu" [class.menu-open]="menuSortOpen">
-                                <li class="active"><a class="nav-link">Date</a></li> 
-                                <li><a class="nav-link">Name</a></li> 
-                                <li><a class="nav-link">Rate</a></li> 
-                            </ul> 
-                        </div>
+                        <ul class="menu" [class.menu-open]="menuTypeOpen">
+                            <li><a class="nav-link" (click)="loadResultQuizzes()">All</a></li>
+                            <li *ngFor="let quizTitle of resultQuizNoDuplicate"><a class="nav-link" (click)="filterByQuizTitle(quizTitle)" >{{quizTitle}}</a></li> 
+                        </ul> 
+                    </div>
                 </div>
             </div>
             <div class="text-result">

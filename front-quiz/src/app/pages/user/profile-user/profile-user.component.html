@@ -57,11 +57,13 @@
                 </div>
                 <div class="col-md-9">
                     <div class="content-right">
-                        <apx-chart [series]="chartOptions.series!" [chart]="chartOptions.chart!"
+                        <div class="chart">
+                            <apx-chart [series]="chartOptions.series!" [chart]="chartOptions.chart!"
                             [xaxis]="chartOptions.xaxis!" [stroke]="chartOptions.stroke!" [tooltip]="chartOptions.tooltip!"
                             [dataLabels]="chartOptions.dataLabels!">
                         </apx-chart>
 
+                        </div>
                         <div class="recap ms-3">
                         <div class="row">
                             <div class="col-md-4" *ngFor="let result of dataResult">

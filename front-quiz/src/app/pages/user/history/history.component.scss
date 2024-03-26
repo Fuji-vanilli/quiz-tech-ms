@@ -32,25 +32,29 @@
     margin-right: 10px;
 }
 
-.dropdown * {
+.dropdown {
     box-sizing: border-box;
 }
 
 .dropdown .select {
-    background: #21262d;
+    background:#dd6236;;
     width: 100px;
-    color: #c6cdd5;
+    color: #fff;
     display: flex;
     font-family: 'Roboto';
     justify-content: space-between;
     align-items: center;
-    border: 2px solid #2a2f3b;
-    padding: 0.3em 0.7em;
+    border: 0;
+    padding: 0.5em 0.7em;
     margin-right: 6px;
     margin-top: 14px;
     border-radius: 0.4rem;
     transition: all 0.5s ease;
     cursor: pointer;
+
+    span {
+        color: #fff;
+    }
 }
 
 .select-clicked {
