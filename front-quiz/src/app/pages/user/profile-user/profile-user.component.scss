@@ -80,8 +80,8 @@ a {
 }
 
 .btn-subscribe {
-    background: #77bdfb;
-    color: #333;
+    background: var(--primary-200);
+    color: var(--text-100);
     width: 100%;
     padding: 8px 18px;
     font-weight: 600;
@@ -94,8 +94,8 @@ a {
 }
 
 .btn-unsubscribe {
-    background: #faa356;
-    color: #333;
+    background: var(--primary-300);
+    color: var(--accent-200);
     width: 100%;
     padding: 8px 18px;
     font-weight: 600;
@@ -109,20 +109,22 @@ a {
 
 
 .followers {
-    color: #21262d;
-}
+    color: var(--text-100);
 
-.followers span {
-    margin-left: 12px;
-}
-
-.followers strong {
-    color: #000;
-    margin-right: 4px;
+    i {
+        color: var(--primary-100);
+    }
+    span {
+        margin-left: 12px;
+    }
+    strong {
+        color: var(--text-200);
+        margin-right: 4px;
+    }
 }
 
 .other-link {
-    color: #21262d;
+    color: var(--text-200);
 }
 
 .other-link i {
@@ -134,11 +136,11 @@ a {
 }
 
 .divider {
-    border-bottom: 1px solid #21262d;
+    border-bottom: 1px solid var(--bg-300);
 }
 
-.organisation h3 {
-    color: #757575;
+.organisation, .competence h3 {
+    color: var(--text-200);
 }
 
 .organisation img {
@@ -149,8 +151,8 @@ a {
 
 .btn-competence {
     border: 0;
-    background: #898989;
-    color: #fff;
+    background: var(--bg-300);
+    color: var(--text-100);
     border-radius: 24px;
     font-size: 13px; 
     margin-left: 8px;
@@ -161,7 +163,7 @@ a {
 /***************/
 
 .content-right {
-    background: #fff;
+    background: var(--bg-100);
     margin-left: 4px;
     border-radius: 10px;
     padding: 16px;
@@ -178,10 +180,15 @@ a {
 
 .card-finished {
     margin-bottom: 12px;
-    border: 1px solid #757575;
-    color: #89929b;
+    border: 1px solid var(--bg-300);
     border-radius: 6px;
     padding: 12px 16px;
+
+    span {
+        margin-left: 10px;
+        color: var(--text-200);
+    }
+
 }
 
 .card-finished .frequency {
@@ -189,8 +196,21 @@ a {
     font-size: 18px;
 }
 
-.card-finished span {
-    margin-left: 10px;
+.result-details {
+    display: flex;
+    justify-content: space-between;
+    i {
+        color: #faa356;
+    }
+}
+
+.title-quiz {
+    i {
+        color: var(--special-100);
+    }
+    span {
+        color: var(--special-100);
+    }
 }
 
 .btn-success {

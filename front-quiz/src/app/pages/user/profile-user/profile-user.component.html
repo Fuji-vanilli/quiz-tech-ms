@@ -2,7 +2,7 @@
     <div class="row ">
         <div class="col-md-12 content">
             <div class="row">
-                <div class="col-md-3 content-left">
+                <div class="col-md-2 content-left">
                     <h4></h4>
                     <div class="image-profile">
                         <img [src]="user.photo" alt="">
@@ -50,12 +50,12 @@
                         <img src="../../../../assets/meta.png" alt="">
                     </div>
                     <div class="divider mt-4"></div>
-                    <div class="mt-3">
-                        <h3 style="color: #757575;">Competences</h3>
+                    <div class="competence mt-3">
+                        <h3>Competences</h3>
                         <button class="btn-competence" *ngFor="let competence of user.competences">{{competence}}</button>
                     </div>
                 </div>
-                <div class="col-md-9">
+                <div class="col-md-10">
                     <div class="content-right">
                         <div class="chart">
                             <apx-chart [series]="chartOptions.series!" [chart]="chartOptions.chart!"
@@ -69,14 +69,21 @@
                             <div class="col-md-4" *ngFor="let result of dataResult">
                                 <div class="card-finished">
                                     <div class="d-flex justify-content-between align-items-center">
-                                        <div><i class="bi bi-paperclip" style="font-size: 20px;"></i><span
-                                                style="color: #0E3386;">{{result.quizTitle}}</span></div>
+                                        <div class="title-quiz">
+                                            <i class="bi bi-paperclip" style="font-size: 20px;"></i>
+                                            <span>{{result.quizTitle}}</span>
+                                        </div>
                                         <button class="btn btn-success" routerLink="/user/quizzes">Explore</button>
                                     </div>
-                                    <div class="mt-2">
-                                        <i class="bi bi-star-fill"
-                                            style="color: #dd6236;"></i><span>{{result.frequency}}</span>
-                                        <span>max score: <strong>{{result.maxScore+'%'}}</strong></span>
+                                    <div class="result-details mt-2">
+                                        <div>
+                                            <i class="bi bi-star-fill"></i>
+                                            <span>{{result.frequency}}</span>
+                                        </div>
+                                        <div>
+                                            <i class="bi bi-graph-up-arrow"></i>
+                                            <span>max score: {{result.maxScore+'%'}}</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
