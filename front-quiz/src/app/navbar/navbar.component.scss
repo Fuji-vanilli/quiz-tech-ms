@@ -5,29 +5,20 @@
     width: 100%;
     background: transparent;
     padding: 15px 10px 20px 100px;
-    //border-bottom: 1px solid var(--bg-300);
     z-index: 2;
     transition: 0.6s;
 }
 
 .navbar.sticky {
     padding: 5px 20px 5px 100px;
-    background: var(--bg-100);
+    background: var(--text-100);
 
     .nav-link {
-        color: var(--primary-300);
+        color: var(--primary-100);
         i {
-            color: var(--primary-300); 
+            color: var(--primary-100); 
         }
     }
-}
-
-.admin-background {
-    background: #0d1117;
-}
-
-.user-background {
-    background: transparent;
 }
 
 a {
@@ -41,53 +32,58 @@ a {
     font-family: 'Anta';
 }
 
-.content-left a {
-    margin-right: 10px;
-    border-left: 3px solid transparent;
-}
-.content-left .nav-link:hover {
-    background: var(--bg-300);
-    border-radius: 5px;
-    i {
+.content-left {
+    a {
+        margin-right: 10px;
+        border-left: 3px solid transparent;
+    }
+
+    .nav-link {
         color: var(--primary-300);
+        padding-right: 16px;
+        padding-left: 16px;
+        font-family: "Ubuntu", sans-serif;
+        border-radius: 5px;
+        font-size: 16px;
+
+        i {
+            color: var(--primary-300);
+            font-size: 18px;
+            margin-right: 10px;
+        }
+    }
+
+    .nav-link:hover {
+        background: var(--bg-300);
+        border-radius: 5px;
+        i {
+            color: var(--primary-300);
+        }
     }
 }
 
-.content-left .nav-link {
-    color: var(--primary-300);
-    padding-right: 16px;
-    padding-left: 16px;
-    font-family: "Ubuntu", sans-serif;
-    border-radius: 5px;
-    font-size: 16px;
-}
+.right-nav {
+    .nav-link {
+        color: var(--primary-200);
+        padding-right: 16px;
+        padding-left: 16px;
+        border-radius: 5px;
+        font-family: "Ubuntu", sans-serif;
+        font-size: 16px;
+    }
 
-.content-left .nav-link i {
-    color: var(--primary-300);
-    font-size: 18px;
-    margin-right: 10px;
-}
+    .nav-link:hover {
+        background: var(--bg-300);
+        border-radius: 5px;
+        i {
+            color: var(--primary-300);
+        }
+    }
 
-.right-nav .nav-link {
-    color: var(--primary-200);
-    padding-right: 16px;
-    padding-left: 16px;
-    border-radius: 5px;
-    font-family: "Ubuntu", sans-serif;
-    font-size: 16px;
-}
-
-.right-nav i { 
-    color:var(--primary-200);
-    font-size: 18px;
-    margin-right: 10px;
-}
-
-.right-nav .nav-link:hover {
-    background: var(--bg-300);
-    border-radius: 5px;
-    i {
-        color: var(--primary-300);
+    i { 
+        color:var(--primary-200);
+        font-size: 18px;
+        margin-right: 10px;
     }
 }
 
