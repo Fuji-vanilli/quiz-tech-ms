@@ -45,35 +45,34 @@ head {
     border: 1px solid var(--bg-300);
     padding: 8px 20px;
     transition: all 0.5s ease;
-}
 
+    input {
+        background: transparent;
+        border: 0;
+        flex: 1;
+        outline: none;
+        color: var(--primary-100);
+        font-size: 16px;
+    }
 
-.box-search input {
-    background: transparent;
-    border: 0;
-    flex: 1;
-    outline: none;
-    color: var(--primary-100);
-    font-size: 16px;
-}
+    ::placeholder {
+        color: var(--primary-200);
+        font-size: 12px;
+    }
 
-::placeholder {
-    color: var(--primary-200);
-    font-size: 12px;
-}
+    button {
+        border: 0;
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        background: transparent;
+        cursor: pointer;
 
-.box-search button {
-    border: 0;
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    background: transparent;
-    cursor: pointer;
-}
-
-.box-search button i {
-    color: var(--primary-200);
-    font-size: 20px;
+        i {
+            color: var(--primary-200);
+            font-size: 20px;
+        }
+    }
 }
 
 .box-search:hover {
@@ -98,17 +97,17 @@ head {
             color: var(--primary-100);
         }
     }
-}
 
-mat-card-title {
-    color: var(--text-100);
-    font-family: 'Poppins';
-}
-
-mat-card-subtitle {
-    color: var(--primary-300);
-    font-family: 'Poppins';
-    margin-top: 10px;
+    mat-card-title {
+        color: var(--text-100);
+        font-family: 'Poppins';
+    }
+    
+    mat-card-subtitle {
+        color: var(--primary-300);
+        font-family: 'Poppins';
+        margin-top: 10px;
+    }
 }
 
 .image {
@@ -167,65 +166,66 @@ main.row {
 .container-1 {
     background-color: var(--bg-200);
     padding: 35px 16px 35px 35px ;
-}
 
-.col {
-    header.title {
-        padding: 0 0 0 30px;
-        color: var(--primary-200);
-        font-family: helvetica;
-        //text-transform: uppercase;
-    }
-
-    .contents {
-        padding: 0 30px;
-        border-left: 2px solid var(--text-200);
-
-        .box {
-            position: relative;
-            padding: 20px;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            background-color: var(--bg-100);
-            cursor: pointer;
-            transition: all 0.4s ease;
-
-            .icon-category {
-                padding: 4px 5px;
-                border-radius: 50%;
-                background: var(--primary-100);
+    .col {
+        header.title {
+            padding: 0 0 0 30px;
+            color: var(--primary-200);
+            font-family: helvetica;
+            //text-transform: uppercase;
+        }
+    
+        .contents {
+            padding: 0 30px;
+            border-left: 2px solid var(--text-200);
+    
+            .box {
+                position: relative;
+                padding: 20px;
+                margin-bottom: 20px;
                 display: flex;
-                justify-content: center;
                 align-items: center;
-                margin-right: 10px;
-
-                i {
+                background-color: var(--bg-100);
+                cursor: pointer;
+                transition: all 0.4s ease;
+    
+                .icon-category {
+                    padding: 4px 6px;
+                    border-radius: 50%;
+                    background: var(--primary-100);
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin-right: 10px;
+    
+                    i {
+                        color: var(--text-100);
+                        font-weight: 600;
+                   
+                    }
+                }
+    
+                span {
                     color: var(--text-100);
-                    font-weight: 600;
-               
                 }
             }
-
-            span {
-                color: var(--text-100);
+    
+            .box:hover {
+                box-shadow: 0 3px 12px 0 var(--primary-200);
             }
-        }
-
-        .box:hover {
-            box-shadow: 0 3px 12px 0 var(--primary-200);
-        }
-
-        .box::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: calc(100% + 22px);
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            //border: 3px solid var(--bg-300);
-            background-color: var(--primary-100);
+    
+            .box::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                right: calc(100% + 22px);
+                width: 16px;
+                height: 16px;
+                border-radius: 50%;
+                //border: 3px solid var(--bg-300);
+                background-color: var(--primary-100);
+            }
         }
     }
 }
+
