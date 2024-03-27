@@ -97,9 +97,19 @@ h3 {
 }
 
 .content-left mat-card {
-    background: var(--bg-200);
-    border: 0;
+    position: relative;
+    background: transparent;
+    border: 1px solid var(--bg-300);
     border-radius: 10px;
+
+    .tag {
+        position: absolute;
+        top: 6px;
+        right: 6px;
+        i {
+            color: var(--primary-100);
+        }
+    }
 }
 
 mat-card-title {

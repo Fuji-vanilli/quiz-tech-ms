@@ -138,10 +138,28 @@ a {
     font-size: 14px;
 }
 
-.admin i {
-    font-size: 18px;
-    color: #662d91;
-    margin-right: 10px;
+.admin {
+    i {
+        font-size: 18px;
+        color: var(--primary-100);
+        margin-right: 10px;
+    }
+
+    span {
+        color: var(--primary-100);
+    }
+
+    .dropdown-menu {
+        background: var(--primary-100);
+
+        .dropdown-item {
+            color: var(--text-100);
+        }
+
+        .dropdown-item:hover {
+            background: var(--primary-200);
+        }
+    }
 }
 
 .admin a:hover {
