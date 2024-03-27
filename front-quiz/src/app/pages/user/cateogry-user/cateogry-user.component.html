@@ -19,17 +19,20 @@
                         <div class="box" *ngFor="let category of categories">
                             <header class="title">
                                 <i class="bi bi-bookmark-check-fill"></i>
-                                <h4>{{category.title}}</h4>
+                                <h4>Created by: </h4><span>{{category.createdBy}}</span>
                             </header>
-                            <div class="image">
-                                <img src="../../../../assets/background.jpg" alt="">
-                            </div>
-                            <div class="details">
-                                <p>{{category.description}}</p>
-                                <div class="start">
-                                    <button class="btn-quiz" [routerLink]="'/user/quizzes/'+category.id">VIEW QUIZZES
-                                        <i class="bi bi-play-circle ms-2" style="font-size: 16px;"></i>
-                                    </button>
+                            <div class="content">
+                                <div class="image">
+                                    <img src="../../../../assets/background.jpg" alt="">
+                                </div>
+                                <div class="details">
+                                    <h4>{{category.title}}</h4>
+                                    <p>{{category.description}}</p>
+                                    <div class="start">
+                                        <button class="btn-quiz" [routerLink]="'/user/quizzes/'+category.id">VIEW QUIZZES
+                                            <i class="bi bi-play-circle ms-2" style="font-size: 16px;"></i>
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                             <div class="icon">

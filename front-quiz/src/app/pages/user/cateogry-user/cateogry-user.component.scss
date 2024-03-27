@@ -153,56 +153,78 @@ head {
                 
                 header.title {
                     display: flex;
+                    margin-bottom: 6px;
                     i {
                         color: var(--primary-100); 
                         margin-right: 6px;
                     }
 
                     h4 {
-                        color: var(--primary-200);
-                    }
-                }
-
-                .image {
-                    img {
-                        width: 200px;
-                        height: 150px;
-                    }
-                }
-
-                .details {
-                    p {
                         color: var(--text-100);
-                    }
-
-                    
-                    .btn-quiz {
-                        background: var(--accent-200);
-                        color: var(--primary-300);
-                        border: none; 
-                        margin-top: 18px;
-                        border-radius: 5px; 
-                        padding: 10px 24px;
-                        font-weight: 550;
-
-                        i {
-                            color: var(--bg-100);
-                            font-size: 16px;
-                            font-weight: 600;
-                        }
-                    }
-
-                    .btn-quiz:hover {
-                        background: var(--bg-300);
-                        color: var(--text-100);
-
-                        i {
-                            color: var(--primary-100);
+                        span {
+                            color: var(--text-200);
+                            
                         }
                     }
                 }
 
-                
+                .content {
+                    display: flex;
+                    .image {
+                        img {
+                            width: 150px;
+                            height: 100px;
+                            margin-right: 14px;
+                            border-radius: 8px;
+                        }
+                    }
+    
+                    .details {
+                        position: relative;
+
+                        h4 {
+                            color: var(--primary-200);
+                            margin-bottom: 0;
+                        }
+                        
+                        p {
+                            color: var(--text-100);
+                        }
+    
+                        .start {
+                            position: absolute;
+                            bottom: 0;
+                            left: 0;
+                            
+                            .btn-quiz {
+                                background: var(--accent-200);
+                                color: var(--primary-300);
+                                border: none; 
+                                margin-top: 18px;
+                                border-radius: 5px; 
+                                padding: 10px 24px;
+                                font-weight: 550;
+        
+                                i {
+                                    color: var(--bg-100);
+                                    font-size: 16px;
+                                    font-weight: 600;
+                                }
+                            }
+        
+                            .btn-quiz:hover {
+                                background: var(--bg-300);
+                                color: var(--text-100);
+        
+                                i {
+                                    color: var(--primary-100);
+                                }
+                            }
+                        }
+                        
+                    }
+    
+                }               
 
                 .icon {
                     position: absolute;
