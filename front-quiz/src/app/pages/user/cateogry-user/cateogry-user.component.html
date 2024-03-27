@@ -17,8 +17,21 @@
                 <section class="col">
                     <div class="contents">
                         <div class="box" *ngFor="let category of categories">
-                            <h4>{{category.title}}</h4>
-                            <p>{{category.description}}</p>
+                            <header class="title">
+                                <i class="bi bi-bookmark-check-fill"></i>
+                                <h4>{{category.title}}</h4>
+                            </header>
+                            <div class="image">
+                                <img src="../../../../assets/background.jpg" alt="">
+                            </div>
+                            <div class="details">
+                                <p>{{category.description}}</p>
+                                <div class="start">
+                                    <button class="btn-quiz" [routerLink]="'/user/quizzes/'+category.id">VIEW QUIZZES
+                                        <i class="bi bi-play-circle ms-2" style="font-size: 16px;"></i>
+                                    </button>
+                                </div>
+                            </div>
                             <div class="icon">
                                 <i [ngClass]="category.icon"></i>
                             </div>
