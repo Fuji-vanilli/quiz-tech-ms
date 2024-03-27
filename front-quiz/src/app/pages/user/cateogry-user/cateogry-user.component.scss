@@ -157,6 +157,54 @@ head {
         color: var(--primary-100);
     }
 }
+/**/
+
+.container-0 {
+    padding: 35px 10%;
+
+    .col {
+        .contents {
+            border-left: 2px solid var(--text-200);
+            padding: 0 30px;
+            
+            .box {
+                padding: 20px;
+                margin-bottom: 16px;
+                position: relative;
+                background: var(--bg-200);
+                transition: all 0.4s ease;
+    
+                h4 {
+                    color: var(--primary-100);
+                }
+
+                p {
+                    color: var(--text-100);
+                }
+
+                .icon {
+                    background: var(--primary);
+
+                    i {
+                        color: var(--text-100);
+                    }
+                }
+            }
+
+            box::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                right: calc(100% + 20px);
+                width: 25px;
+                height: 25px;
+                border-radius: 50%;
+                background: var(--primary-100);
+            }
+        }
+    }
+}
+
 
 /**/
 

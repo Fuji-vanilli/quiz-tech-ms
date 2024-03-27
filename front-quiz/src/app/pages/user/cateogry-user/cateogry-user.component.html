@@ -19,6 +19,9 @@
                         <div class="box" *ngFor="let category of categories">
                             <h4>{{category.title}}</h4>
                             <p>{{category.description}}</p>
+                            <div class="icon">
+                                <i [ngClass]="category.icon"></i>
+                            </div>
                         </div>
                     </div>
                 </section>
