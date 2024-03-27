@@ -28,22 +28,22 @@ h3 {
     }
 }
 
-.head {
-    background: var(--bg-300);
+head {
+    background: transparent;
     margin: 0 1px 10px 1px;
     padding: 16px;
+    border: 1px solid var(--bg-300);
 }
 
 .box-search {
-    margin-top: 14px; 
     margin-bottom: 24px;
     width: 100%;
     display: flex;
     align-items: center; 
-    border-radius: 24px;
-    background: var(--primary-200); 
+    border-radius: 8px;
+    background: transparent; 
+    border: 1px solid var(--bg-300);
     padding: 8px 20px;
-    //border: 2px solid var(--accent-200);
     transition: all 0.5s ease;
 }
 
@@ -58,7 +58,8 @@ h3 {
 }
 
 ::placeholder {
-    color: var(--text-100);
+    color: var(--primary-200);
+    font-size: 12px;
 }
 
 .box-search button {
@@ -71,29 +72,16 @@ h3 {
 }
 
 .box-search button i {
-    color: var(--text-100);
+    color: var(--primary-200);
     font-size: 20px;
 }
 
 .box-search:hover {
-    background: var(--primary-300);
-    ::placeholder {
-        color: var(--bg-300);
-    }
-    button i {
-        color: var(--primary-100);
-    }
+    border: 1px solid var(--primary-200);
 }
 
 .box-search:focus-within {
-    background: var(--primary-300);
-    button i {
-        color: var(--primary-100);
-    }
-    ::placeholder {
-        color: var(--bg-300);
-    }
-    transition: border-color 0.5s ease;
+    border: 1px solid var(--primary-200);
 }
 
 .content-left mat-card {
@@ -177,7 +165,7 @@ main.row {
 }
 
 .container-1 {
-    background-color: var(--bg-300);
+    background-color: var(--bg-200);
     padding: 35px 16px 35px 35px ;
 }
 
@@ -199,7 +187,7 @@ main.row {
             margin-bottom: 20px;
             display: flex;
             align-items: center;
-            background-color: var(--bg-200);
+            background-color: var(--bg-100);
             cursor: pointer;
             transition: all 0.4s ease;
 
