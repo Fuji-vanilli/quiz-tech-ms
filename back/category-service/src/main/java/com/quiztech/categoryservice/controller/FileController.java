@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 public interface FileController {
-
     @PatchMapping("upload-image")
     ResponseEntity<Response> uploadImage(
             @RequestParam("file") MultipartFile file,

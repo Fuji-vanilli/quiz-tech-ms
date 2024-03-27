@@ -48,6 +48,8 @@ public class FileServiceImpl implements FileService {
             throw new RuntimeException(e);
         }
 
+        log.info("image uploaded successfully!");
+
         return Response.builder()
                 .status(HttpStatus.OK)
                 .statusCode(HttpStatus.OK.value())

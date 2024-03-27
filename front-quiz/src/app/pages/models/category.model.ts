@@ -5,4 +5,5 @@ export interface Category {
     icon: any,
     quizsId?: any,
     createdBy?: any
+    image?: any
 }

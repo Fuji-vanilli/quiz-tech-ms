@@ -35,4 +35,13 @@ export class CategoryApiService {
   deleteCategory(id: string) : Observable<any> {
     return this.httpClient.delete(environment.backEndCategory+'/delete/'+id);
   }
+
+  uploadImage(file: File, categoryId: string): Observable<any> {
+    const formData= new FormData();
+
+    formData.append('file', file, file.name);
+    formData.append('categoryId', categoryId);
+
+    return this.httpClient.patch(environment.backEndCategory+'/upload-image', formData);
+  }
 }

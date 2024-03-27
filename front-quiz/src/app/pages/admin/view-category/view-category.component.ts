@@ -18,6 +18,11 @@ declare var window: any;
 export class ViewCategoryComponent implements OnInit {
   colors: string[]= ['#FF4D4D', '#F18F01', '#2E8B57', '#FF6347', '#71c4ef'];
 
+  
+  selectImage: any;
+  selectedFile!: File;
+  filename: string= '';
+
   categories: Category[]= [];
   categoryId!: string;
   totalElements!: number
@@ -94,6 +99,40 @@ export class ViewCategoryComponent implements OnInit {
       }
     })
   } 
+
+  handleFileInput(event: any) {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (e: any) => {
+        this.selectImage = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+
+    const target= event.target as HTMLInputElement;
+    if (target.files && target.files.length> 0) {
+      this.selectedFile= target.files[0];
+      this.filename= this.selectedFile.name;
+    }
+  }
+
+  uploadProfileImage(categoryId: any) {
+    this.categoryService.uploadImage(this.selectedFile, categoryId).subscribe({
+      next: response=> {
+        console.log('uploaded');
+        window.location.reload();
+      },
+      error: err=> {
+        console.log(err);
+        
+      }
+    })
+  }
+
+  uploadFile() {
+    document.getElementById('fileInput')?.click();
+  }
 
   userByEmail(email: any) {
     let user;
