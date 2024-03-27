@@ -17,6 +17,7 @@ public class CategoryResponse {
     private String icon;
     private String createdBy;
     private Date createdDate;
+    private String image;
     private Date lastUpdateDate;
     private List<String> quizsId;
     private List<Quiz> quizzes;

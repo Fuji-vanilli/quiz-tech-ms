@@ -31,6 +31,7 @@ public class CategoryMapperImpl implements CategoryMapper{
                 .lastUpdateDate(category.getLastUpdateDate())
                 .quizsId(category.getQuizsId())
                 .quizzes(category.getQuizzes())
+                .image(category.getImage())
                 .build();
     }
 }

@@ -19,6 +19,7 @@ public class Category {
     private String title;
     private String description;
     private String icon;
+    private String image;
     private Date createdDate;
     private Date lastUpdateDate;
     private String createdBy;
