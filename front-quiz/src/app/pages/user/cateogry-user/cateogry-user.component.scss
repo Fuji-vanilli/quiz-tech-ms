@@ -29,10 +29,14 @@ h3 {
 }
 
 head {
-    background: transparent;
+    background: red;
     margin: 0 1px 10px 1px;
     padding: 16px;
     border: 1px solid var(--bg-300);
+}
+
+.search {
+    padding: 10px 10%;
 }
 
 .box-search {
@@ -155,16 +159,23 @@ head {
                     display: flex;
                     margin-bottom: 6px;
                     i {
-                        color: var(--primary-100); 
+                        color: var(--text-100); 
                         margin-right: 6px;
                     }
 
                     h4 {
                         color: var(--text-100);
-                        span {
-                            color: var(--text-200);
-                            
-                        }
+                    }
+
+                    a {
+                        color: var(--special-100);
+                        margin-left: 6px;
+                        text-decoration: none;
+                    }
+
+                    a:hover {
+                        color: var(--accent-200);
+                        text-decoration: underline;
                     }
                 }
 
@@ -182,9 +193,22 @@ head {
                     .details {
                         position: relative;
 
-                        h4 {
-                            color: var(--primary-200);
-                            margin-bottom: 0;
+                        .title {
+                            display: flex;
+                            i {
+                                color: var(--text-100);
+                                margin-right: 8px;
+                                padding-left: 12px;
+                                border-left: 1px solid var(--bg-300);
+                            }
+                            h4 {
+                                color: var(--primary-200);
+                                margin-bottom: 0;
+                                margin-right: 8px;
+                            }
+                            span {
+                                color: var(--text-100);
+                            }
                         }
                         
                         p {

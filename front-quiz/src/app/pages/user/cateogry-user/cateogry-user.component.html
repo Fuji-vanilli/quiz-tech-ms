@@ -16,17 +16,21 @@
             <div class="container-0">
                 <section class="col">
                     <div class="contents">
-                        <div class="box" *ngFor="let category of categories">
+                        <div class="box" *ngFor="let category of filterCategoryBySearchTerm">
                             <header class="title">
-                                <i class="bi bi-bookmark-check-fill"></i>
-                                <h4>Created by: </h4><span>{{category.createdBy}}</span>
+                                <i class="bi bi-bookmark-star"></i>
+                                <h4>Created by</h4><a [routerLink]="'/user/profile/'+category.createdBy">{{'@'+category.createdBy}}</a>
                             </header>
                             <div class="content">
                                 <div class="image">
                                     <img src="../../../../assets/background.jpg" alt="">
                                 </div>
                                 <div class="details">
-                                    <h4>{{category.title}}</h4>
+                                    <div class="title">
+                                        <h4>{{category.title}}</h4>
+                                        <i class="bi bi-translate"></i>
+                                        <span>En</span>
+                                    </div>
                                     <p>{{category.description}}</p>
                                     <div class="start">
                                         <button class="btn-quiz" [routerLink]="'/user/quizzes/'+category.id">VIEW QUIZZES
