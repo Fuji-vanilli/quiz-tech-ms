@@ -8,16 +8,24 @@
                         <button><i class="bi bi-search"></i></button>
                     </span>
                 </div>
-                <!--div class="col-md-5">
-                    <div class="all-category">
-                        <span>Available Categories {{'('+totalElements+')'}}</span>
-                    </div>
-                </div-->
             </div>
             <div class="mt-3" *ngIf="filterCategoryBySearchTerm.length=== 0">
                 <h1 style="color: #89929b;">No Quizzes Find.....</h1> 
             </div>
-            <mat-card class="category-card" *ngFor="let category of filterCategoryBySearchTerm; let index= index">
+
+            <div class="container-0">
+                <section class="col">
+                    <div class="contents">
+                        <div class="box" *ngFor="let category of categories">
+                            <h4>{{category.title}}</h4>
+                            <p>{{category.description}}</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+
+            <!--mat-card class="category-card" *ngFor="let category of filterCategoryBySearchTerm; let index= index">
                 <div class="row">
                     <div class="col-md-12">
                         <mat-card-header>
@@ -40,7 +48,7 @@
                 <div class="tag">
                     <i class="bi bi-lightning-fill"></i>
                 </div>
-            </mat-card>
+            </mat-card-->
         </div>
         <div class="col-md-3 mt-3 right-content">
             <main class="row">
