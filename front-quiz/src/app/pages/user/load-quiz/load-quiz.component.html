@@ -1,38 +1,30 @@
 <div class="contain">
     <div class="row">
         <div class="col-md-12">
-            <div class="row mb-3 content-top">
+            <div class="row">
                 <div class="col-md-4">
-                    <div class="dropdown">
-                        <button class="btn-category" [ngClass]="{'active': selectedCategory==='all'}" (click)="filterQuizByCategory('all')"><span>All Quizzes ({{quizzes.length}})</span></button>
-                        <button class="btn btn-sorted dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Sorted by
-                        </button>
-                        <ul class="dropdown-menu dropdown-menu-dark">
-                            <li><a class="dropdown-item" routerLinkActive="active" (click)="sortedByName()">Name</a></li>
-                            <li><a class="dropdown-item" routerLinkActive="active" (click)="sortedByLevel()">Level</a></li>
-                        </ul>
+                    <div class="content-top-1">
+                        <section class="col">
+                            <div class="contents">
+                                <div class="box">
+                                    
+                                </div>
+                            </div>
+                        </section>
                     </div>
                 </div>
-                <div class="col-md-8 d-flex justify-content-end" >
-                    <div class="box-search">
-                        <div id="select" (click)="toggleList()">
-                            <p>{{selectedText}}</p>
-                            <i class="bi bi-caret-down"></i>
-                            <ul [class.open]="isOpen" id="list" class="rowposter">
-                                <li (click)="filterQuizByCategory('all')"><span>All categories</span></li>
-                                <li *ngFor="let category of categories; let i= index" (click)="filterQuizByCategory(category.id)">
-                                    <div class="cat">
-                                            <div class="category d-flex justify-content-center align-items-center" [ngStyle]="{'background': colors[i%5]}" >
-                                                <i [ngClass]="category.icon" ></i>
-                                            </div>
-                                            <span class="title-category">{{category.title+' ('+category.quizsId.length+')'}}</span>
+                <div class="col-md-8" >
+                    <div class="content-top-2">
+                        <section class="col">
+                            <div class="contents">
+                                <div class="box">
+                                    <div class="box-search">
+                                        <input type="text" [(ngModel)]="searchterm" (ngModelChange)="filterBySearchTerm()" placeholder="Search Quiz here ...">
+                                        <button><i class="bi bi-search"></i></button>
                                     </div>
-                                </li>
-                            </ul>
-                        </div>
-                        <input type="text" [(ngModel)]="searchterm" (ngModelChange)="filterBySearchTerm()" placeholder="Search Quiz here ...">
-                        <button><i class="bi bi-search"></i></button>
+                                </div>
+                            </div>
+                        </section>
                     </div>
                 </div>
             </div>
@@ -45,11 +37,11 @@
                                 <div class="head">
                                     <h3>Categories</h3>
                                 </div>
-                                <div class="box" *ngFor="let category of categories">
+                                <div class="box" *ngFor="let category of categories" (click)="filterQuizByCategory(category.id)">
                                     <div class="icon">
                                         <i [ngClass]="category.icon"></i>
                                     </div>
-                                    <div class="content" (click)="filterQuizByCategory(category.id)">
+                                    <div class="content">
                                         <div>
                                             <h4>{{category.title}}</h4>
                                             <span>{{category.description}}</span>
@@ -62,6 +54,22 @@
                     </div>
                 </div>
                 <div class="col-md-8">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="sorted">
+                                <button class="btn-category" [ngClass]="{'active': selectedCategory==='all'}" (click)="filterQuizByCategory('all')"><span>All Quizzes</span></button>
+                                <div class="dropdowns">
+                                    <button class="btn btn-sorted dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                      Sorted by
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-dark">
+                                        <li><a class="dropdown-item" routerLinkActive="active" (click)="sortedByName()">Name</a></li>
+                                        <li><a class="dropdown-item" routerLinkActive="active" (click)="sortedByLevel()">Level</a></li>
+                                    </ul>
+                                </div>
+                            </div>   
+                        </div>
+                    </div>
                     <div class="container-2">
                         <section class="col">
                             <div class="contents">
