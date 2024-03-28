@@ -38,7 +38,7 @@ public class FileServiceImpl implements FileService {
         String newFileName= "IMG_"+ UUID.randomUUID().toString()+"."+filenameExtension;
 
         Path pathFile = Paths.get(localDirectory, newFileName);
-        category.setImage("../../../../assets"+newFileName);
+        category.setImage("../../../../assets/"+newFileName);
 
         categoryRepository.save(category);
 
