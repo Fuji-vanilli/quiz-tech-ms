@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="row mb-3 content-top">
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <div class="dropdown">
                         <button class="btn-category" [ngClass]="{'active': selectedCategory==='all'}" (click)="filterQuizByCategory('all')"><span>All Quizzes ({{quizzes.length}})</span></button>
                         <button class="btn btn-sorted dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -14,7 +14,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-md-6 d-flex justify-content-end" >
+                <div class="col-md-8 d-flex justify-content-end" >
                     <div class="box-search">
                         <div id="select" (click)="toggleList()">
                             <p>{{selectedText}}</p>
@@ -42,15 +42,19 @@
                     <div class="container-1">
                         <section class="col">
                             <div class="contents">
+                                <div class="head">
+                                    <h3>Categories</h3>
+                                </div>
                                 <div class="box" *ngFor="let category of categories">
-                                    <header class="title">
-                                        <span>{{category.title}}</span>
-                                        <i class="bi bi-chevron-right"></i>
-                                    </header>
-                                    <div class="content">
-                                        <div class="icon">
-                                            <i [ngClass]="category.icon"></i>
+                                    <div class="icon">
+                                        <i [ngClass]="category.icon"></i>
+                                    </div>
+                                    <div class="content" (click)="filterQuizByCategory(category.id)">
+                                        <div>
+                                            <h4>{{category.title}}</h4>
+                                            <span>{{category.description}}</span>
                                         </div>
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -61,9 +65,9 @@
                     <div class="container-2">
                         <section class="col">
                             <div class="contents">
-                                <div class="box" *ngFor="let quiz of filterQuizzes">
+                                <div class="box" *ngFor="let quiz of filterQuizzes | searchPipe: searchterm" [routerLink]="'/user/instructions/'+quiz.id">
                                     <header class="title">
-                                        <span>{{quiz.title}}</span>
+                           
                                     </header>
                                     <div class="content">
                                         <div class="details">
@@ -75,23 +79,29 @@
                                                 <span>{{quiz.description}}</span>
                                                 <div class="info">
                                                     <div class="questions">
-                                                        <i class="bi bi-patch-question-fill"></i>
+                                                        <i class="bi bi-patch-question"></i>
                                                         <span>{{quiz.numberOfQuestions}}</span>
                                                     </div>
                                                     <div class="duration">
-                                                        <i class="bi bi-alarm-fill"></i>
-                                                        <span>{{quiz.duration}}</span>
+                                                        <i class="bi bi-alarm"></i>
+                                                        <span>{{quiz.duration+' Minutes'}}</span>
                                                     </div>
                                                     <div class="difficulty">
-                                                        <i class="bi bi-bar-chart-fill"></i>
+                                                        <i class="bi bi-bar-chart"></i>
                                                         <span>{{quiz.difficulty}}</span>
                                                     </div>
                                                 </div>
+                                                <div class="start-quiz">
+                                                    <a [routerLink]="'/user/instructions/'+quiz.id"><i class="bi bi-play-circle"></i></a>
+                                                </div>
+                                            </div>
+                                            <div class="updatedDate">
+                                                <span>{{quiz.lastUpdateDate?.toString()?.substring(0, 10)}}</span>
                                             </div>
                                         </div>
-                                        <div class="icon">
-                                            <i class="bi bi-fire"></i>
-                                        </div>
+                                    </div>
+                                    <div class="icon">
+                                        <i class="bi bi-fire"></i>
                                     </div>
                                 </div>
                             </div>
