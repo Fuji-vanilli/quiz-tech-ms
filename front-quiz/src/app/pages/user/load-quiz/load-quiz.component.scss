@@ -164,20 +164,35 @@
     padding: 20px 10%;
 
     section.col {
-        background: var(--bg-300);
-        padding: 20px;
+        //background: var(--bg-300);
 
         .contents {
+            border-left: 3px solid var(--text-200);
+            border-right: 1px solid var(--bg-300);
+            padding: 0 30px;
+
             .box {
-                background: var(--bg-100);
+                position: relative;
+                padding: 8px 20px 20px 20px;
+                //background: var(--bg-300);
+                margin-bottom: 16px;
+
                 header.title {
                     h4 {
-                        color: var(--primary-200);
+                        color: var(--special-200);
                     }
                 }
 
                 .content {
                     .icon {
+                        position: absolute;
+                        top: 0;
+                        right: calc(100% + 12px);
+                        padding: 8px 10px;
+                        border: 3px solid var(--bg-100);
+                        background: var(--primary-100);
+                        border-radius: 50%;
+
                         i {
                             color: var(--text-100);
                         }
