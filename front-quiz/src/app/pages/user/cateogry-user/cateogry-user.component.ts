@@ -3,6 +3,8 @@ import { CategoryApiService } from 'src/app/services/category-api.service';
 import { Category } from '../../models/category.model';
 import { Quiz } from '../../models/quiz.model';
 import { QuizApiService } from 'src/app/services/quiz-api.service';
+import { UserService } from 'src/app/services/user.service';
+import { User } from '../../models/user.model';
 
 @Component({
   selector: 'app-cateogry-user',
@@ -20,7 +22,8 @@ export class CateogryUserComponent  implements OnInit{
   filterCategoryBySearchTerm: Category[]= [];
 
   constructor(private categoryService: CategoryApiService,
-              private quizService: QuizApiService) {}
+              private quizService: QuizApiService,
+              private userService: UserService) {}
   ngOnInit(): void {
     this.loadCategories();
     this.loadQuiz();
@@ -53,6 +56,22 @@ export class CateogryUserComponent  implements OnInit{
         
       }
     })
+  }
+
+  userByEmail(email: any): User {
+    let user!: User;
+
+    this.userService.fetchByEmail(email).subscribe({
+      next: response=> {
+        user= response.data.user;
+      },
+      error: err=> {
+        console.log(err);
+        
+      }
+    })
+
+    return user;
   }
 
   quizByCategory(categoryId: any): Quiz[] {
