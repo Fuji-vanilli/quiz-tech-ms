@@ -221,7 +221,7 @@
             padding: 0 30px;
             .box {
                 position: relative;
-                background: var(--bg-300);
+                background: var(--bg-200);
                 margin-bottom: 16px;
                 padding: 8px 20px 20px 20px;
 
@@ -232,19 +232,69 @@
                 }
 
                 .content {
-                    .icon {
-                        position: absolute;
-                        top: 0;
-                        right: calc(100% + 14px);
-                        padding: 2px 8px;
-                        background: var(--special-200);
-                        border-radius: 50%;
-
-                        i {
-                            color: var(--text-100);
+                    position: relative;
+                    .details {
+                        display: flex;
+                        .image {
+                            margin-right: 16px;
+                            img {
+                                width: 150px;
+                                height: 100px;
+                                border-radius: 8px;
+                            }
                         }
 
+                        .title {
+                            h4 {
+                                color: var(--primary-100);
+                                margin-bottom: 4px;
+                            }
+
+                            span {
+                                color: var(--text-100);
+                                font-size: 14px;
+                            }
+
+                            .info {
+                                position: absolute;
+                                bottom: 0;
+                                display: flex;
+                                justify-content: space-between;
+
+                                .questions, .duration, .difficulty {
+                                    margin-right: 20px;
+                                    i {
+                                        color: var(--primary-200);
+                                        font-size: 18px;
+                                        margin-right: 10px;
+                                    }
+
+                                    span {
+                                        font-size: 16px;
+                                    }
+                                }
+
+                                .questions {
+                                    
+                                }
+                            }
+                        }
                     }
+                }
+
+                .icon {
+                    position: absolute;
+                    top: 0;
+                    right: calc(100% + 12px);
+                    padding: 8px 10px;
+                    background: var(--special-200);
+                    border: 3px solid var(--bg-100);
+                    border-radius: 50%;
+
+                    i {
+                        color: var(--text-100);
+                    }
+
                 }
             }
         }
