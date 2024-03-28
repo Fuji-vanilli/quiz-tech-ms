@@ -159,7 +159,7 @@ head {
                     display: flex;
                     margin-bottom: 6px;
                     i {
-                        color: var(--primary-300); 
+                        color: var(--special-100); 
                         margin-right: 6px;
                     }
 
@@ -187,11 +187,17 @@ head {
                         padding: 8px;
                         margin-right: 14px;
                         border-radius: 8px;
+                        transition: all 0.4s ease;
+                        
                         img {
                             width: 150px;
                             height: 100px;
                             border-radius: 8px;
                         }
+                    }
+
+                    .image:hover {
+                        box-shadow: 0 3px 12px 0 var(--primary-200);
                     }
     
                     .details {
