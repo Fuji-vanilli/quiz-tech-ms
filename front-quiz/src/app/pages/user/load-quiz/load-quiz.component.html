@@ -36,8 +36,32 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="row">
+                <div class="col-md-4">
+                    <div class="container-1">
+                        <section class="col">
+                            <div class="contents">
+                                <div class="box" *ngFor="let category of categories">
+                                    <header class="title">
+                                        <h4>{{category.title}}</h4>
+                                    </header>
+                                    <div class="content">
+                                        <div class="icon">
+                                            <i [ngClass]="category.icon"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+                <div class="col-md-8">
+
+                </div>
+            </div>
+            
+            <!--div class="row">
                 <div class="mt-3 d-flex justify-content-center align-items-center" *ngIf="filterQuizzesBySearchTerm.length=== 0">
                     <h1 style="color: #89929b;">No Quizzes Find.....</h1>
                 </div>
@@ -87,7 +111,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div-->
         </div>
     </div>
 </div>

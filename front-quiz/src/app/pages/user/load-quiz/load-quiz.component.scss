@@ -160,6 +160,36 @@
 
 /*****/
 
+.container-1 {
+    padding: 20px 10%;
+
+    section.col {
+        background: var(--bg-300);
+        padding: 20px;
+
+        .contents {
+            .box {
+                background: var(--bg-100);
+                header.title {
+                    h4 {
+                        color: var(--primary-200);
+                    }
+                }
+
+                .content {
+                    .icon {
+                        i {
+                            color: var(--text-100);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+/***/
 .content-quiz {
     background: transparent;
 }

@@ -22,7 +22,7 @@
                                 <span>Created by</span><a [routerLink]="'/user/profile/'+category.createdBy">{{'#'+category.createdBy}}</a>
                             </header>
                             <div class="content">
-                                <div class="image">
+                                <div class="image" [routerLink]="'/user/quizzes/'+category.id">
                                     <img [src]="category.image">
                                 </div>
                                 <div class="details">
