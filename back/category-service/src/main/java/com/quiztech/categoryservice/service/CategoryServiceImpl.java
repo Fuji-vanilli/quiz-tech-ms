@@ -228,6 +228,30 @@ public class CategoryServiceImpl implements CategoryService{
         );
     }
 
+    @Override
+    public Response addCreator(Map<String, String> creator) {
+        String email= creator.get("emailUser");
+        String categoryId= creator.get("categoryId");
+
+        Category category = categoryRepository.findById(categoryId).orElseThrow(
+                () -> new IllegalArgumentException("error to fetch category into the database")
+        );
+
+        category.setCreatedBy(email);
+        categoryRepository.save(category);
+
+        log.info("created add successfully!");
+
+        return generateResponse(
+                HttpStatus.OK,
+                null,
+                Map.of(
+                        "category", category
+                ),
+                "created add successfully!"
+        );
+    }
+
     private Response generateResponse(HttpStatus status, URI location, Map<?, ?> data, String message) {
         return Response.builder()
                 .timeStamp(LocalDateTime.now())

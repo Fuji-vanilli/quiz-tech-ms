@@ -14,5 +14,6 @@ public interface CategoryService {
     Response get(String id);
     Response all(int page, int size);
     Response delete(String id);
+    Response addCreator(Map<String, String> creator);
 
 }

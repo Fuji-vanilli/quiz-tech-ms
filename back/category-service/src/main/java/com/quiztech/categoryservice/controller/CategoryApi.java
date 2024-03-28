@@ -40,6 +40,11 @@ public class CategoryApi implements CategoryController{
     }
 
     @Override
+    public ResponseEntity<Response> addCreator(Map<String, String> creator) {
+        return ResponseEntity.ok(categoryService.addCreator(creator));
+    }
+
+    @Override
     public ResponseEntity<Response> update(CategoryRequest request) {
         return ResponseEntity.ok(categoryService.update(request));
     }

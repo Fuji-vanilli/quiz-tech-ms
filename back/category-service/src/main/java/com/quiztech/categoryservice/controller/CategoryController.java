@@ -18,6 +18,8 @@ public interface CategoryController {
     @PatchMapping("addQuiz")
     @PreAuthorize("hasRole('ROLE_app_admin')")
     ResponseEntity<Response> addQuizId(@RequestBody Map<String, String> patchRequest);
+    @PatchMapping("add-creator")
+    ResponseEntity<Response> addCreator(@RequestBody Map<String, String> creator);
     @PutMapping("update")
     @PreAuthorize("hasRole('ROLE_app_admin')")
     ResponseEntity<Response> update(@RequestBody CategoryRequest request);
