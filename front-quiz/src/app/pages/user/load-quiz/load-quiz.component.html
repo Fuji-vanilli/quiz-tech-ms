@@ -44,7 +44,8 @@
                             <div class="contents">
                                 <div class="box" *ngFor="let category of categories">
                                     <header class="title">
-                                        <h4>{{category.title}}</h4>
+                                        <span>{{category.title}}</span>
+                                        <i class="bi bi-chevron-right"></i>
                                     </header>
                                     <div class="content">
                                         <div class="icon">
@@ -57,7 +58,22 @@
                     </div>
                 </div>
                 <div class="col-md-8">
-
+                    <div class="container-2">
+                        <section class="col">
+                            <div class="contents">
+                                <div class="box" *ngFor="let quiz of filterQuizzes">
+                                    <header class="title">
+                                        <span>{{quiz.title}}</span>
+                                    </header>
+                                    <div class="content">
+                                        <div class="icon">
+                                            <i class="bi bi-fire"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
                 </div>
             </div>
             

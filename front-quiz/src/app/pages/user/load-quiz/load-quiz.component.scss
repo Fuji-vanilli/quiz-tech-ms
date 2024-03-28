@@ -178,8 +178,16 @@
                 margin-bottom: 16px;
 
                 header.title {
-                    h4 {
-                        color: var(--special-200);
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    span {
+                        color: var(--text-100);
+                    }
+
+                    i {
+                        color: var(--text-100);
                     }
                 }
 
@@ -191,7 +199,7 @@
                         padding: 8px 10px;
                         border: 3px solid var(--bg-100);
                         background: var(--primary-100);
-                        border-radius: 50%;
+                        border-radius: 12px;
 
                         i {
                             color: var(--text-100);
@@ -203,6 +211,45 @@
     }
 }
 
+
+.container-2 {
+    padding: 20px 5%;
+
+    section.col {
+        .contents {
+            border-left: 3px solid var(--primary-100);
+            padding: 0 30px;
+            .box {
+                position: relative;
+                background: var(--bg-300);
+                margin-bottom: 16px;
+                padding: 8px 20px 20px 20px;
+
+                header.title {
+                    span {
+                        color: var(--primary-100);
+                    }
+                }
+
+                .content {
+                    .icon {
+                        position: absolute;
+                        top: 0;
+                        right: calc(100% + 14px);
+                        padding: 2px 8px;
+                        background: var(--special-200);
+                        border-radius: 50%;
+
+                        i {
+                            color: var(--text-100);
+                        }
+
+                    }
+                }
+            }
+        }
+    }
+}
 
 /***/
 .content-quiz {
