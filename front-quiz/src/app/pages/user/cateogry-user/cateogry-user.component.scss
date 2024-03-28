@@ -159,12 +159,13 @@ head {
                     display: flex;
                     margin-bottom: 6px;
                     i {
-                        color: var(--text-100); 
+                        color: var(--primary-300); 
                         margin-right: 6px;
                     }
 
-                    h4 {
-                        color: var(--text-100);
+                    span {
+                        color: var(--text-200);
+                        font-size: 12px;
                     }
 
                     a {
@@ -182,10 +183,13 @@ head {
                 .content {
                     display: flex;
                     .image {
+                        border: 1px solid var(--primary-100);
+                        padding: 8px;
+                        margin-right: 14px;
+                        border-radius: 8px;
                         img {
                             width: 150px;
                             height: 100px;
-                            margin-right: 14px;
                             border-radius: 8px;
                         }
                     }
@@ -205,6 +209,7 @@ head {
                                 color: var(--primary-200);
                                 margin-bottom: 0;
                                 margin-right: 8px;
+                                font-weight: 550;
                             }
                             span {
                                 color: var(--text-100);

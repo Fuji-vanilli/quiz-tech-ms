@@ -22,6 +22,7 @@ export class ViewCategoryComponent implements OnInit {
   selectImage: any;
   selectedFile!: File;
   filename: string= '';
+  currentCategoryId!: string;
 
   categories: Category[]= [];
   categoryId!: string;
@@ -117,8 +118,8 @@ export class ViewCategoryComponent implements OnInit {
     }
   }
 
-  uploadProfileImage(categoryId: any) {
-    this.categoryService.uploadImage(this.selectedFile, categoryId).subscribe({
+  uploadImage() {
+    this.categoryService.uploadImage(this.selectedFile, this.currentCategoryId).subscribe({
       next: response=> {
         console.log('uploaded');
         window.location.reload();
@@ -132,6 +133,12 @@ export class ViewCategoryComponent implements OnInit {
 
   uploadFile() {
     document.getElementById('fileInput')?.click();
+  }
+
+  updateCategoryId(category: Category) {
+    this.currentCategoryId= category.id!;
+    console.log('category id: '+category.id);
+    
   }
 
   userByEmail(email: any) {

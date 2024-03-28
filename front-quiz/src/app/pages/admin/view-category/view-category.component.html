@@ -20,35 +20,6 @@
                             <mat-card-title>{{category.title}}</mat-card-title>
                             <mat-card-subtitle>{{category.description}}</mat-card-subtitle>
                         </mat-card-header>
-                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                              <div class="modal-content">
-                                  <div class="header">
-                                      <h4 class="modal-title" id="exampleModalLabel">Choose the category Image</h4> 
-                                  </div>
-                                <div class="modal-body">
-                                  <div class="mb-3">
-                                      <input 
-                                          type="file" 
-                                          class="form-control"
-                                          (change)="handleFileInput($event)"
-                                          id="fileInput"
-                                          style="display: none;"
-                                      >
-                                      <button class="btn-upload" type="submit" id="inputGroupFileAddon04" (click)="uploadFile()"><i class="bi bi-plus-lg" style="margin-right: 18px;"></i>Import Image</button>
-                                  </div>
-                                      <p class="mb-3" style="color: #89929b;">File selected: <span style="color: #fff;">{{filename}}</span></p>
-                                      <div class="selected-image d-flex justify-content-center align-items-center " *ngIf="selectImage">
-                                          <img [src]="selectImage" alt="">
-                                      </div>
-                                      <div class="mt-5">
-                                          <button *ngIf="filename" class="btn btn-secondary" (click)="uploadProfileImage(category.id)">Upload</button>
-                                      </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-
                         <div class="d-flex justify-content-between align-items-center">
                             <mat-card-actions class="ms-2">
                                 <div>
@@ -63,7 +34,7 @@
                             <div class="d-flex align-items-center editor">
                                 <a class="nav-link edit" (click)="openUpdate(category)"><i class="bi bi-pen-fill" style="margin-right: 10px;"></i></a>
                                 <a class="nav-link delete ms-3" (click)="deleteCategory(category.id)"><i class="bi bi-trash-fill" style="margin-right: 10px;"></i></a>
-                                <a class="nav-link edit ms-3" data-toggle="modal" data-target="#exampleModal" ><i class="bi bi-camera-fill" style="margin-right: 8px;"></i>Upload Image</a>
+                                <button class="nav-link edit ms-3" data-toggle="modal" data-target="#exampleModal" (click)="updateCategoryId(category)"><i class="bi bi-camera-fill" style="margin-right: 8px;"></i>Upload Image</button>
                             </div>
                         </div>
                     </div>
@@ -72,3 +43,32 @@
         </div>
     </div>
 </div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+          <div class="header">
+              <h4 class="modal-title" id="exampleModalLabel">Choose the category Image</h4> 
+          </div>
+        <div class="modal-body">
+          <div class="mb-3">
+              <input 
+                  type="file" 
+                  class="form-control"
+                  (change)="handleFileInput($event)"
+                  id="fileInput"
+                  style="display: none;"
+              >
+              <button class="btn-upload" type="submit" id="inputGroupFileAddon04" (click)="uploadFile()"><i class="bi bi-plus-lg" style="margin-right: 18px;"></i>Import Image</button>
+          </div>
+              <p class="mb-3" style="color: #89929b;">File selected: <span style="color: #fff;">{{filename}}</span></p>
+              <div class="selected-image d-flex justify-content-center align-items-center " *ngIf="selectImage">
+                  <img [src]="selectImage" alt="">
+              </div>
+              <div class="mt-5">
+                  <button *ngIf="filename" class="btn btn-secondary" (click)="uploadImage()">Upload</button>
+              </div>
+        </div>
+      </div>
+    </div>
+  </div>
