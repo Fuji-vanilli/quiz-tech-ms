@@ -7,13 +7,14 @@
                         <input type="text" [(ngModel)]="searchTerm" (ngModelChange)="filterBySearchTerm()" placeholder="Search Category here ...">
                         <button>
                             <i class="bi bi-search"></i>
-                            <i class="bi bi-search" *ngIf="activeCancel()"></i>
+                            <i class="bi bi-x-lg" *ngIf="activeCancel()" (click)="clearSearchTerm()"></i>
                         </button>
                     </span>
                 </div>
             </div>
-            <div class="mt-3" *ngIf="filterCategoryBySearchTerm.length=== 0">
-                <h1 style="color: #89929b;">No Categories Finded.....</h1> 
+            <div class="mt-3 no-result" *ngIf="filterCategoryBySearchTerm.length=== 0">
+                <img src="../../../../assets/undraw_notify_re_65on.svg" alt=""><br>
+                <h4>No Category finded....!</h4>
             </div>
 
             <div class="container-0">

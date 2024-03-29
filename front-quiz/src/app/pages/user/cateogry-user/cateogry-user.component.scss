@@ -17,55 +17,91 @@ head {
 
 .search {
     padding: 10px 10%;
-}
 
-.box-search {
-    margin-bottom: 24px;
-    width: 100%;
-    display: flex;
-    align-items: center; 
-    border-radius: 8px;
-    background: transparent; 
-    border: 1px solid var(--bg-300);
-    padding: 8px 20px;
-    transition: all 0.5s ease;
-
-    input {
-        background: transparent;
-        border: 0;
-        flex: 1;
-        outline: none;
-        color: var(--primary-100);
-        font-size: 16px;
-    }
-
-    ::placeholder {
-        color: var(--primary-200);
-        font-size: 14px;
-    }
-
-    button {
-        border: 0;
-        border-radius: 50%;
-        width: 30px;
-        height: 30px;
-        background: transparent;
-        cursor: pointer;
-
-        i {
+    .box-search {
+        margin-bottom: 24px;
+        width: 100%;
+        display: flex;
+        align-items: center; 
+        border-radius: 8px;
+        background: transparent; 
+        border: 1px solid var(--bg-300);
+        padding: 8px 20px;
+        transition: all 0.5s ease;
+    
+        input {
+            background: transparent;
+            border: 0;
+            flex: 1;
+            outline: none;
+            color: var(--primary-100);
+            font-size: 16px;
+        }
+    
+        ::placeholder {
             color: var(--primary-200);
-            font-size: 20px;
+            font-size: 14px;
+        }
+    
+        button {
+            border: 0;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            background: transparent;
+            cursor: pointer;
+
+            i.bi-search {
+                display: block;
+                color: var(--primary-200);
+                font-size: 20px;
+            }
+
+            i.bi-x-lg {
+                display: none;
+                color: var(--primary-200);
+                font-size: 20px;
+            }
+        }
+    }
+
+    .box-search:hover {
+        border: 1px solid var(--primary-200);
+    }
+    
+    .box-search:focus-within {
+        border: 1px solid var(--primary-200);
+
+        button {
+            i.bi-search {
+                display: none;
+            }
+
+            i.bi-x-lg {
+                display: block;
+                color: var(--primary-200);
+                font-size: 20px;
+            }
         }
     }
 }
 
-.box-search:hover {
-    border: 1px solid var(--primary-200);
+.no-result {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    img {
+        width: 200px;
+        height: 200px;
+    }
+
+    h4 {
+        color: var(--text-300);
+    }
 }
 
-.box-search:focus-within {
-    border: 1px solid var(--primary-200);
-}
+
 
 /**/
 
