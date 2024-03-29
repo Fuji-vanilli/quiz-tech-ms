@@ -123,11 +123,13 @@ export class LoadQuizComponent implements OnInit, AfterViewInit {
   }
 
   activeCategory() {
-    const humburger= document.querySelector("#toggle-active");
+    const activeElement= document.querySelectorAll(".active");
 
-    humburger?.addEventListener("click", function() {
-      document.querySelector("#category")?.classList.toggle("active")
-    });
+    activeElement.forEach(element=> {
+      element.addEventListener("click", function() {
+        document.querySelector("#box")?.classList.toggle("active");
+      })
+    })
   }
 
   @HostListener('document:click', ['$event'])
