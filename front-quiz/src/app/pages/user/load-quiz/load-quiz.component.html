@@ -4,13 +4,11 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="content-top-1">
-                        <section class="col">
-                            <div class="contents">
+
                                 <div class="box">
-                                    
+                                    <img src="../../../../assets/bendy-man-developer-writing-programming-code.gif" alt="">
                                 </div>
-                            </div>
-                        </section>
+
                     </div>
                 </div>
                 <div class="col-md-8" >
@@ -26,17 +24,35 @@
                             </div>
                         </section>
                     </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="sorted">
+                                <button class="btn-category" [ngClass]="{'active': selectedCategory==='all'}" (click)="filterQuizByCategory('all')"><span>All Quizzes</span></button>
+                                <div class="dropdowns">
+                                    <button class="btn btn-sorted dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                      Sorted by
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-dark">
+                                        <li><a class="dropdown-item" routerLinkActive="active" (click)="sortedByName()">Name</a></li>
+                                        <li><a class="dropdown-item" routerLinkActive="active" (click)="sortedByLevel()">Level</a></li>
+                                    </ul>
+                                </div>
+                            </div>   
+                        </div>
+                    </div>
                 </div>
             </div>
-
+            <div class="row">
+                
+            </div>
             <div class="row">
                 <div class="col-md-4">
+                    <div class="head">
+                        <h3>Categories</h3>
+                    </div>
                     <div class="container-1">
                         <section class="col">
                             <div class="contents">
-                                <div class="head">
-                                    <h3>Categories</h3>
-                                </div>
                                 <div class="box" *ngFor="let category of categories" (click)="filterQuizByCategory(category.id)">
                                     <div class="icon">
                                         <i [ngClass]="category.icon"></i>
@@ -54,28 +70,19 @@
                     </div>
                 </div>
                 <div class="col-md-8">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="sorted">
-                                <button class="btn-category" [ngClass]="{'active': selectedCategory==='all'}" (click)="filterQuizByCategory('all')"><span>All Quizzes</span></button>
-                                <div class="dropdowns">
-                                    <button class="btn btn-sorted dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                      Sorted by
-                                    </button>
-                                    <ul class="dropdown-menu dropdown-menu-dark">
-                                        <li><a class="dropdown-item" routerLinkActive="active" (click)="sortedByName()">Name</a></li>
-                                        <li><a class="dropdown-item" routerLinkActive="active" (click)="sortedByLevel()">Level</a></li>
-                                    </ul>
-                                </div>
-                            </div>   
-                        </div>
-                    </div>
                     <div class="container-2">
                         <section class="col">
+                            <div class="title">
+                                <span>Choose and explore your Quiz</span>
+                            </div>
                             <div class="contents">
                                 <div class="box" *ngFor="let quiz of filterQuizzes | searchPipe: searchterm" [routerLink]="'/user/instructions/'+quiz.id">
-                                    <header class="title">
-                           
+                                    <header class="quiz">
+                                        <i class="bi bi-bookmark-star"></i>
+                                        <span>Max marks</span><strong>{{quiz.marks}}</strong>
+                                        <div class="updatedDate">
+                                            <span>{{quiz.lastUpdateDate?.toString()?.substring(0, 10)}}</span>
+                                        </div>
                                     </header>
                                     <div class="content">
                                         <div class="details">
@@ -102,9 +109,6 @@
                                                 <div class="start-quiz">
                                                     <a [routerLink]="'/user/instructions/'+quiz.id"><i class="bi bi-play-circle"></i></a>
                                                 </div>
-                                            </div>
-                                            <div class="updatedDate">
-                                                <span>{{quiz.lastUpdateDate?.toString()?.substring(0, 10)}}</span>
                                             </div>
                                         </div>
                                     </div>

@@ -8,22 +8,21 @@
   }
 
 .content-top-1 {
-    padding: 10px 10%;
+    padding: 0 10%;
+    //background: var(--bg-200);
+    height: 100%;
 
-    section.col {
-        .contents {
-            //background: var(--bg-200);
-            .box {
-                
-                
-            }
+    .box {
+        img {
+            width: 170px;
         }
     }
+        
 }
 
 .content-top-2 {
     //background: var(--bg-200);
-    padding: 20px 5%;
+    padding: 20px 6%;
 
     section.col {
         .contents {
@@ -96,7 +95,7 @@
 .sorted {
     display: flex;
     justify-content: end;
-    padding: 4px 7%;
+    padding: 0 8%;
 
     .btn-category {
         margin-right: 10px;
@@ -126,14 +125,33 @@
                 a {
                     color: var(--primary-200);
                     font-size: 12px;
+                    cursor: pointer;
                 }
             }
         }
     }
 }
 
+.head {
+    margin: 0 10%;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--special-200);
+    border-radius: 8px 8px 0 0;
+    //border-bottom: 1px solid var(--bg-300);
+
+    h3 {
+        color: var(--text-100);
+        margin-bottom: 0;
+        padding: 12px;
+        font-family: 'Roboto';
+    }
+}
+
 .container-1 {
-    padding: 20px 10%;
+    padding: 0 10%;
 
     section.col {
         //background: var(--bg-300);
@@ -141,34 +159,18 @@
         .contents {
             //border-left: 3px solid var(--text-200);
             border: 1px solid var(--bg-300);
-            border-radius: 8px;
-            padding: 0 10px;
+            padding: 0 10px 20px 10px;
 
-            .head {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                margin-bottom: 12px;
-                border-bottom: 1px solid var(--bg-300);
-
-                h3 {
-                    color: var(--primary-200);
-                    margin-bottom: 0;
-                    padding: 12px;
-                    font-family: 'Roboto';
-                }
-            }
 
             .box {
                 position: relative;
-                padding: 10px;
-                //background: var(--bg-300);
-                margin-bottom: 16px;
+                padding: 10px 20px 10px 10px;
+                margin-top: 16px;
                 display: flex;
                 align-items: center;
-                border-radius: 12px;
+                border-bottom: 1px solid transparent;
                 cursor: pointer;
-                transition: all .5s ease;
+                transition: transform .5s ease;
 
                 .content {
                     display: flex;
@@ -192,9 +194,10 @@
 
                 .icon {
                     padding: 8px 10px;
-                    background: var(--special-100);
-                    border-radius: 10px;
+                    background: var(--primary-100);
+                    border-radius: 50%;
                     margin-right: 16px;
+                    transition: all .5s ease;
 
                     i {
                         color: var(--text-100);
@@ -203,7 +206,19 @@
             }
 
             .box:hover {
-                box-shadow: 0 3px 12px 0 var(--primary-100);
+                transform: translateX(10%);
+
+                .icon {
+                    background: var(--special-200);
+                }
+            }
+
+            .box.active {
+                transform: translateX(10%);
+
+                .icon {
+                    background: var(--special-200);
+                }
             }
         }
     }
@@ -212,23 +227,57 @@
 
 .container-2 {
     padding: 20px 5%;
-
     section.col {
+
+        .header.title {
+            margin-bottom: 14px;
+            margin-left: -18px;
+            span {
+                color: var(--text-200);
+                
+            }
+        }
+
         .contents {
             border-left: 3px solid var(--primary-100);
-            padding: 0 20px;
+            padding: 0 30px;
+            
             .box {
                 position: relative;
                 //background: var(--bg-200);
-                border: 1px solid var(--bg-300);
+                border: 1px solid var(--bg-100);
                 border-radius: 8px;
                 margin-bottom: 16px;
                 padding: 15px;
+                cursor: pointer;
                 transition: all 0.4s ease;
 
-                header.title {
+                header.quiz{
+                    margin-bottom: 10px;
+                    margin-left: 1px;
+                    i {
+                        color: var(--special-100);
+                        margin-right: 4px;
+                    }
+
                     span {
-                        color: var(--primary-100);
+                        color: var(--special-100);
+                        margin-right: 4px;
+                    }
+
+                    strong {
+                        color: var(--text-100);
+                    }
+
+                    .updatedDate {
+                        position: absolute;
+                        top: 15px;
+                        right: 15px;
+
+                        span {
+                            color: var(--accent-100);
+                            font-size: 12px;
+                        }
                     }
                 }
 
@@ -294,17 +343,6 @@
                                 }
                             }
                         }
-
-                        .updatedDate {
-                            position: absolute;
-                            top: 0;
-                            right: 0;
-
-                            span {
-                                color: var(--accent-100);
-                                font-size: 12px;
-                            }
-                        }
                     }
                 }
 
@@ -314,7 +352,7 @@
                     right: calc(100% + 12px);
                     padding: 8px 10px;
                     background: var(--special-200);
-                    border: 3px solid var(--bg-100);
+                    border: 5px solid var(--bg-100);
                     border-radius: 50%;
 
                     i {

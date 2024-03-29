@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 import { QuizApiService } from 'src/app/services/quiz-api.service';
 import { Quiz } from '../../models/quiz.model';
 import { ActivatedRoute } from '@angular/router';
@@ -10,7 +10,7 @@ import { CategoryApiService } from 'src/app/services/category-api.service';
   templateUrl: './load-quiz.component.html',
   styleUrls: ['./load-quiz.component.scss']
 })
-export class LoadQuizComponent implements OnInit {
+export class LoadQuizComponent implements OnInit, AfterViewInit {
 
   @ViewChild('scrollContainer') scrollContainer!: ElementRef;
   selectedText= 'All categories';
@@ -35,6 +35,10 @@ export class LoadQuizComponent implements OnInit {
               private categoryService: CategoryApiService,
               private activeRoute: ActivatedRoute,
               private elementRef: ElementRef) { }
+
+  ngAfterViewInit(): void {
+    this.activeCategory();
+  }
 
   ngOnInit(): void {
     this.categoryId = this.activeRoute.snapshot.params['categoryId'];
@@ -117,10 +121,20 @@ export class LoadQuizComponent implements OnInit {
   selected(option: any) {
     this.selectedText= option;
   }
+
+  activeCategory() {
+    const humburger= document.querySelector("#toggle-active");
+
+    humburger?.addEventListener("click", function() {
+      document.querySelector("#category")?.classList.toggle("active")
+    });
+  }
+
   @HostListener('document:click', ['$event'])
   clickout(event: any) {
     if (!event.target.closest('#select')) {
       this.isOpen= false;
     }
   }
+
 }
