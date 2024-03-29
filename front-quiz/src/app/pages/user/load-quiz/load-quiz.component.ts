@@ -144,6 +144,10 @@ export class LoadQuizComponent implements OnInit, AfterViewInit {
     this.filterQuizzes.sort((a, b)=> a.language!.localeCompare(b.language!));
   }
 
+  sortedByMark() {
+    this.filterQuizzes.sort((a, b)=> a.marks! - b.marks!);
+  }
+
   toggleList() {
     this.isOpen= !this.isOpen;
   }

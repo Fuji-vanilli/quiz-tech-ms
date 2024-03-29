@@ -6,7 +6,7 @@ export interface Quiz {
     title?: string,
     description?: string,
     status?:boolean,
-    marks?: BigInteger,
+    marks?: number,
     imageUrl?: any,
     numberOfQuestions?: BigInteger, 
     active?: boolean,

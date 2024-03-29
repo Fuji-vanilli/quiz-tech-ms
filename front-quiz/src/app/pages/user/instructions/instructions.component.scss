@@ -63,3 +63,53 @@
     color: #21262d;
     border: 1px solid #21262d;
 }
+
+/****/
+
+.container-1 {
+    background: var(--bg-200);
+    padding: 20px 10%;
+
+    section.col {
+        .contents {
+            background: var(--bg-300);
+            padding: 30px;
+
+            .box {
+                background: var(--bg-200);
+                padding: 20px;
+                border-radius: 25px;
+
+                header.title {
+                    display: flex;
+                    align-items: center;
+                    padding-bottom: 16px;
+                    border: 1px solid var(--bg300);
+
+                    .icon {
+                        background: var(--special-300);
+                        padding: 10px;
+                        margin-right: 14px;
+                        border-radius: 50%;
+
+                        i {
+                            color: var(--text-200);
+                            font-size: 28px;
+                        }
+                    }
+
+                    h4 {
+                        color: var(--text-200);
+                        font-family: 'Poppins';
+                        padding-top: 14px;
+                        margin-bottom: 2px;
+                    }
+
+                    h5 {
+                        color: var(--text-300);
+                    }
+                }
+            }
+        }
+    }
+}

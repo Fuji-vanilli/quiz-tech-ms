@@ -281,7 +281,7 @@
         }
 
         .contents {
-            border-left: 3px solid var(--text-300);
+            border-left: 2px solid var(--text-300);
             padding: 0 30px;
             
             .box {
@@ -317,7 +317,7 @@
                         right: 15px;
 
                         span {
-                            color: var(--accent-100);
+                            color: var(--text-300);
                             font-size: 12px;
                         }
                     }
@@ -383,10 +383,6 @@
 
                                     }
                                 }
-
-                                .questions {
-                                    
-                                }
                             }
                             
                             .start-quiz {
@@ -394,7 +390,7 @@
                                 bottom: 0;
                                 right: 0;
                                 i {
-                                    color: var(--special-100);
+                                    color: var(--special-300);
                                     font-size: 20px;
                                 }
                             }

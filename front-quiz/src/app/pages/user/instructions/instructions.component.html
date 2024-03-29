@@ -1,6 +1,29 @@
 <div class="contain">
     <div class="row">
-        <div class="col-md-4 quiz-title-head">
+        <div class="col-md-6 offset-md-2">
+            <div class="container-1">
+                <section class="col">
+                    <div class="contents">
+                        <div class="box">
+                            <header class="title">
+                                <div class="icon">
+                                    <i class="bi bi-gear"></i>
+                                </div>
+                                <div>
+                                    <h4>{{quiz.title}}</h4>
+                                <h5>{{quiz.category?.title}}</h5>
+                                </div>
+                            </header>
+
+                            <div class="content">
+
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <!--div class="col-md-4 quiz-title-head">
             <div class="row">
                 <div class="title-quiz col-md-12 ms-3">
                     <img src="{{quiz.imageUrl}}" alt="">
@@ -50,6 +73,6 @@
                     <button class="button-start" [routerLink]="'/user/start/'+quiz.id">START<i class="bi bi-skip-start-circle-fill ms-3"></i></button>
                 </div>
             </div>
-        </div>
+        </div-->
     </div>
 </div>
