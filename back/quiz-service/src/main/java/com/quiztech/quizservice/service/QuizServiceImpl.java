@@ -141,6 +141,7 @@ public class QuizServiceImpl implements QuizService {
         quiz.setCategoryId(request.getCategoryId());
         quiz.setImageUrl(request.getImageUrl());
         quiz.setTitle(request.getTitle());
+        quiz.setLanguage(request.getLanguage());
         quiz.setDifficulty(request.getDifficulty());
         quiz.setDescription(request.getDescription());
         quiz.setLastUpdateDate(new Date());
