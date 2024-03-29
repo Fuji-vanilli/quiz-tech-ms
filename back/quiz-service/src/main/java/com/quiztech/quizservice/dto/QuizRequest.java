@@ -16,6 +16,7 @@ public class QuizRequest {
     private String imageUrl;
     private String description;
     private String createdBy;
+    private String language;
     private BigDecimal numberOfQuestions;
     private BigDecimal duration;
     private List<String> questionsId;
