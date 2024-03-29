@@ -206,18 +206,29 @@
             }
 
             .box:hover {
-                transform: translateX(10%);
+                transform: translateX(8%);
 
                 .icon {
                     background: var(--special-200);
                 }
             }
-            
+
             .box.active {
-                transform: translateX(10%);
+                transform: translateX(8%);
             
                 .icon {
                     background: var(--special-200);
+                }
+
+                .content {
+                    border-bottom: 1px solid var(--special-100);
+                    h4 {
+                        color: var(--special-100);
+                    }
+
+                    span {
+                        color: var(--text-100);
+                    }
                 }
             }
             
@@ -295,6 +306,20 @@
                         }
 
                         .title {
+                            .info-title {
+                                display: flex;
+                                align-items: center;
+
+                                i {
+                                    border-left: 1px solid var(--bg-300);
+                                    color: var(--special-100);
+                                    margin-left: 6px;
+                                    margin-right: 8px;
+                                    padding-left: 12px;
+
+                                }
+                            }
+
                             h4 {
                                 color: var(--primary-100);
                                 margin-bottom: 4px;
