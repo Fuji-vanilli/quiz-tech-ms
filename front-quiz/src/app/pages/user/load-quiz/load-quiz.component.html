@@ -53,11 +53,11 @@
                     <div class="container-1">
                         <section class="col">
                             <div class="contents">
-                                <div id="box" *ngFor="let category of categories" (click)="filterQuizByCategory(category.id)">
+                                <div class="box" *ngFor="let category of categories" (click)="filterQuizByCategory(category.id)" [class.active]="selectedCategory=== category.id">
                                     <div class="icon">
                                         <i [ngClass]="category.icon"></i>
                                     </div>
-                                    <div class="content active">
+                                    <div class="content">
                                         <div>
                                             <h4>{{category.title}}</h4>
                                             <span>{{category.description}}</span>

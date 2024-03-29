@@ -16,6 +16,7 @@ export class LoadQuizComponent implements OnInit, AfterViewInit {
   selectedText= 'All categories';
 
   isOpen= false;
+  activeCategoryId!: any;
 
   colors: string[]= ['#FF4D4D', '#F18F01', '#2E8B57', '#FF6347', '#71c4ef'];
   selectedCategory!: string;
@@ -123,13 +124,11 @@ export class LoadQuizComponent implements OnInit, AfterViewInit {
   }
 
   activeCategory() {
-    const activeElement= document.querySelectorAll(".active");
+    const activeElement= document.querySelector(".active-category");
 
-    activeElement.forEach(element=> {
-      element.addEventListener("click", function() {
-        document.querySelector("#box")?.classList.toggle("active");
-      })
-    })
+    activeElement?.addEventListener("click", function() {
+      document.querySelector(".box")?.classList.toggle("active")
+    });
   }
 
   @HostListener('document:click', ['$event'])

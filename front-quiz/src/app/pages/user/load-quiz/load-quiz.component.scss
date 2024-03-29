@@ -162,7 +162,7 @@
             padding: 0 10px 20px 10px;
 
 
-            #box {
+            .box {
                 position: relative;
                 padding: 10px 20px 10px 10px;
                 margin-top: 16px;
@@ -205,24 +205,23 @@
                 }
             }
 
-            #box:hover {
+            .box:hover {
                 transform: translateX(10%);
 
                 .icon {
                     background: var(--special-200);
                 }
             }
-
+            
+            .box.active {
+                transform: translateX(10%);
+            
+                .icon {
+                    background: var(--special-200);
+                }
+            }
             
         }
-    }
-}
-
-#box.active {
-    transform: translateX(10%);
-
-    .icon {
-        background: var(--special-200);
     }
 }
 
