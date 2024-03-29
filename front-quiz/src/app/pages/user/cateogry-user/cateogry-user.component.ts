@@ -83,4 +83,12 @@ export class CateogryUserComponent  implements OnInit{
       quiz=> quiz.title?.toLocaleLowerCase().includes(this.searchTerm.toLocaleLowerCase())
     );
   }
+
+  activeCancel(): boolean {
+    return this.searchTerm.length> 0;
+  }
+
+  clearSearchTerm() {
+    this.searchTerm= '';
+  }
 }

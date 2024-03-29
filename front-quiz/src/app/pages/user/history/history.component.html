@@ -2,24 +2,11 @@
     <div class="row">
         <div class="col-md-8 offset-md-2 content">
             <div class="row">
-                <div class="col-md-12 mt-4">
-                    <div class="head-card">
-                        <div class="row" style="margin-right: 16px;">
-                            <div class="col-md-6 history">
-                                <span class="ms-3"><i class="bi bi-clock-history ms-2"></i>History</span>
-                            </div>
-                            <div class="col-md-6 d-flex justify-content-center align-items-center">
-                                <span>Follow your progress Quiz Successfully</span>
-                            </div>
-                        </div>
+                <div class="col-md-12 d-flex justify-content-between align-items-center">
+                    <div class="history">
+                        <i class="bi bi-clock-history ms-2"></i>
+                        <span>History</span>
                     </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-
-                </div>
-                <div class="col-md-6 d-flex justify-content-end align-items-center">
                     <div class="dropdown" (click)="toggleTypeMenu()">
                         <div class="select" id="select">
                             <span>Type</span>
@@ -32,45 +19,49 @@
                     </div>
                 </div>
             </div>
-            <div class="text-result">
-                <strong>{{numberOfResult}}</strong><span>results of quiz that you have finished...</span>
-            </div>
-            <div class="ms-3 mt-3 content-result">
-                <table class="table table-dark">
-                    <thead>
-                        <tr>
-                            <th>Status</th>
-                            <th>Quiz</th>
-                            <th>Difficulty</th>
-                            <th>Rate</th>
-                            <th>Date</th>
-                            <th>Frequency</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let result of resultByQuizTitle">
-                            <td><i class="bi bi-check2-circle" style="color: #22c55e; font-weight: 600; font-size: 18px;"></i></td>
-                            <td>{{result.quiz?.title}}</td>
-                            <td 
-                                [ngStyle]="{'color': result.quiz?.difficulty=== 'Easy' ? '#019b98' : result.quiz?.difficulty=== 'Medium' ? '#FF6600' : '#dd0025'}">{{result.quiz?.difficulty}}
-                            </td>
-                            <td [ngStyle]="{'color': result.rate<50 ? '#ff6366': '#22c55e'}">{{result.rate+' %'}}</td>
-                            <td>{{result.createdDate | date: 'dd-MM-yyyy HH:mm'}}</td>
-                            <td> 
-                                <div class="quiz">
-                                    <span>{{result.frequency}}</span>
-                                    <button class="btn-requiz"
-                                        [routerLink]="'/user/instructions/'+result.quiz?.id"><i class="bi bi-arrow-clockwise"></i>
-                                    </button>
-                                </div>
-                            </td>
-                            <td>
-                                <a class="nav-link" (click)="deleteResult(result.quiz?.id, result.emailUser, result.frequency)"><i class="bi bi-trash-fill"></i></a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="text-result">
+                        <strong>{{numberOfResult}}</strong><span>results of quiz that you have finished...</span>
+                    </div>
+                    <div class="ms-3 mt-3 content-result">
+                        <table class="table table-dark">
+                            <thead>
+                                <tr>
+                                    <th>Status</th>
+                                    <th>Quiz</th>
+                                    <th>Difficulty</th>
+                                    <th>Rate</th>
+                                    <th>Date</th>
+                                    <th>Frequency</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let result of resultByQuizTitle">
+                                    <td><i class="bi bi-check2-circle" style="color: #22c55e; font-weight: 600; font-size: 18px;"></i></td>
+                                    <td>{{result.quiz?.title}}</td>
+                                    <td 
+                                        [ngStyle]="{'color': result.quiz?.difficulty=== 'Easy' ? '#019b98' : result.quiz?.difficulty=== 'Medium' ? '#FF6600' : '#dd0025'}">{{result.quiz?.difficulty}}
+                                    </td>
+                                    <td [ngStyle]="{'color': result.rate<50 ? '#ff6366': '#22c55e'}">{{result.rate+' %'}}</td>
+                                    <td>{{result.createdDate | date: 'dd-MM-yyyy HH:mm'}}</td>
+                                    <td> 
+                                        <div class="quiz">
+                                            <span>{{result.frequency}}</span>
+                                            <button class="btn-requiz"
+                                                [routerLink]="'/user/instructions/'+result.quiz?.id"><i class="bi bi-arrow-clockwise"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <a class="nav-link" (click)="deleteResult(result.quiz?.id, result.emailUser, result.frequency)"><i class="bi bi-trash-fill"></i></a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

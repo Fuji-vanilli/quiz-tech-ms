@@ -112,33 +112,65 @@
     font-size: 14px;
 }
 
-.btn-requiz {
-    background: var(--primary-100);
-    border: 0;
-    color: var(--text-100);
-    font-size: 12px;
-    padding: 4 12px;
-    border-radius: 4px;
-    transition: all .6s ease;
-}
+.table {
+    thead {
+        th {
+            background: transparent;
+            padding: 15px;
+            color: var(--text-300);
+            font-weight: 500;
+        }
+    }
 
-.btn-requiz i {
-    font-size: 16px;
-}
+    tbody {
+        tr {
+            td {
+                background: transparent;
+                border: 0;
+                padding: 15px;
+                font-size: 12px;
+    
+                .quiz {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+    
+                    .btn-requiz {
+                        background: transparent;
+                        border: 0;
+                        color: var(--special-300);
+                        font-size: 12px;
+                        padding: 4 12px;
+                        border-radius: 4px;
+                        transition: all .6s ease;
+    
+                        i {
+                            font-size: 16px;
+                        }
+                    }
+                                    
+                    .btn-requiz:hover  {
+                        opacity: .7;
+                    }
+                }
 
-.btn-requiz:hover  {
-    opacity: .7;
-}
+                .nav-link {
+                    color: var(--delete-100);
+                }
+            }
+        }
 
-.quiz {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+        tr:nth-child(even) {
+            background: var(--bg-200);
+        }
+    }
 
-.table .nav-link i {
-    font-size: 16px;
-    font-weight: 600;
+    .nav-link {
+        i {
+            font-size: 16px;
+            font-weight: 600;
+        }
+    }
 }
 
 .paginator {
@@ -150,7 +182,7 @@
 /***/
 
 .fixed-right {
-    background: var(--bg-200);
+    background: var(--bg-100);
     padding-top: 20px;
     margin-right: 14px;
     border-radius: 10px;
@@ -195,8 +227,8 @@
 .card-quiz .image {
     img {
         height: 32px;
-    width: 32px;
-    margin-right: 14px;
+        width: 32px;
+        margin-right: 14px;
     }
 }
 
@@ -212,7 +244,7 @@
 }
 
 .card-quiz .details .subtitle {
-    color: var(--text-200);
+    color: var(--text-300);
     font-size: 14px;
 }
 
@@ -234,7 +266,7 @@
     top: 10%;
     left: 20px;
     padding: 10px 14px;
-    background: var(--primary-200);
+    background: var(--special-200);
     border-radius: 5px;
     color: var(--text-100);
 
@@ -257,48 +289,48 @@
 /**/
 
 .card {
-    height: 140px;
     margin: 14px 12px;
+    padding: 12px 12px 18px 16px;
     transition: all .6s ease; 
-    background: var(--bg-300);
+    background: var(--bg-200);
+
+    .title{
+        margin-top: 10px;
+        margin-left: 14px;
+        margin-bottom: 10px;
+        color:var(--text-100);
+        font-size: 16px;
+        font-weight: 500;
+        font-family: 'Poppins';
+    }
+
+    .subtitle {
+        margin-left: 12px;
+        margin-bottom: 2px;
+        color: var(--text-200);
+        font-size: 12px;
+    }
+
+    button {
+        border: 0;
+        background: var(--special-300);
+        color: var(--text-100);
+        padding: 6px;
+        border-radius: 8px;
+        margin-left: 12px;
+        margin-top: 14px;
+        width: 40%;
+        font-family: 'Roboto';
+        transition: all 0.6s ease;
+    }
+
+    .card button:hover {
+        opacity: .7s;
+    }
 }
 
 .card:hover {
     opacity: .8;
-}
-
-.card button {
-    border: 0;
-    background: var(--bg-100);
-    color: var(--text-100);
-    padding: 6px;
-    border-radius: 8px;
-    margin-left: 12px;
-    margin-top: 14px;
-    width: 40%;
-    font-family: 'Roboto';
-    transition: all 0.6s ease;
-}
-
-.card button:hover {
-    opacity: .7s;
-}
-
-.card .title{
-    margin-top: 10px;
-    margin-left: 14px;
-    margin-bottom: 10px;
-    color:var(--text-100);
-    font-size: 16px;
-    font-weight: 500;
-    font-family: 'Poppins';
-}
-
-.card .subtitle {
-    margin-left: 12px;
-    margin-bottom: 2px;
-    color: var(--text-200);
-    font-size: 12px;
 }
 
 .btn-all-quizzes {
@@ -314,12 +346,4 @@
 
 .btn-all-quizzes:hover {
     opacity: .6;
-}
-
-.table .nav-link i {
-    color: #fd5732;
-}
-
-.table .nav-link {
-    cursor: pointer;
 }

@@ -5,7 +5,10 @@
                 <div class="col-md-12 search">
                     <span class="box-search">
                         <input type="text" [(ngModel)]="searchTerm" (ngModelChange)="filterBySearchTerm()" placeholder="Search Category here ...">
-                        <button><i class="bi bi-search"></i></button>
+                        <button>
+                            <i class="bi bi-search"></i>
+                            <i class="bi bi-search" *ngIf="activeCancel()"></i>
+                        </button>
                     </span>
                 </div>
             </div>
