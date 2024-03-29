@@ -425,6 +425,23 @@
     }
 }
 
+.no-result {
+    .image-no-result {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        img {
+            width: 200px;
+            height: 200px;
+        }
+    }
+
+    h4 {
+        color: var(--text-300);
+    }
+}
+
 /***/
 .content-quiz {
     background: transparent;

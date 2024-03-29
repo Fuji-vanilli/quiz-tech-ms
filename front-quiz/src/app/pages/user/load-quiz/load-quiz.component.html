@@ -72,9 +72,17 @@
                     </div>
                 </div>
                 <div class="col-md-8">
+                    <div class="no-result" *ngIf="filterQuizzesBySearchTerm.length=== 0">
+                        <div class="image-no-result">
+                            <img src="../../../../assets/undraw_notify_re_65on.svg" alt=""><br>
+                        </div>
+                        <div class="d-flex justify-content-center align-items-center">
+                            <h4>No Quiz found....</h4>
+                        </div>
+                    </div>
                     <div class="container-2">
                         <section class="col">
-                            <div class="header-title">
+                            <div class="header-title" *ngIf="filterQuizzesBySearchTerm.length> 0">
                                 <span>Choose and explore your Quiz</span>
                             </div>
                             <div class="contents">
