@@ -54,9 +54,21 @@
                         </mat-select>
                       </mat-form-field>
                 </div>
-                <div class="col-md-4 d-flex align-items-center">
-                    <mat-slide-toggle color="primary" class="mb-2" formControlName="active">Publish
-                        status</mat-slide-toggle>
+                <div class="col-md-4">
+                    <mat-form-field class="full-width">
+                        <mat-label>Language</mat-label>
+                        <mat-select formControlName="language">
+                          <mat-option *ngFor="let language of languages" [value]="language">{{language}}</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="col-md-4 d-flex align-items-center">
+                            <mat-slide-toggle color="primary" class="mb-2" formControlName="active">Publish
+                                status</mat-slide-toggle>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

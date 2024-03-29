@@ -4,6 +4,7 @@ export interface Category {
     description: string,
     icon: any,
     quizsId?: any,
-    createdBy?: any
+    createdBy?: any,
+    language?: string,
     image?: any
 }

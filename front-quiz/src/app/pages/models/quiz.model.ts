@@ -15,6 +15,7 @@ export interface Quiz {
     category?: Category, 
     duration?: number, 
     createdBy?: any,
+    language?: string,
     createdDate?: Date,
     lastUpdateDate?: Date,
     photo?: any,
