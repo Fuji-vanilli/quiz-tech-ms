@@ -97,6 +97,7 @@ export class ViewQuizzesComponent implements OnInit{
         title: quiz.title,
         description: quiz.description,
         duration: quiz.duration,
+        language: quiz.language,
         imageUrl: quiz.imageUrl,
         marks: quiz.marks,
         numberOfQuestions: quiz.numberOfQuestions,

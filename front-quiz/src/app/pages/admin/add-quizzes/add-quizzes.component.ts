@@ -17,6 +17,7 @@ export class AddQuizzesComponent implements OnInit{
   quizzes: Quiz[]= [];
   categories: Category[]= [];
   durations: number[]= [0.5,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
+  languages: string[]= ['Fr', 'En', 'Esp'];
 
   formGroup!: FormGroup;
 
@@ -41,6 +42,7 @@ export class AddQuizzesComponent implements OnInit{
       description: this.formBuilder.control(''),
       categoryId: this.formBuilder.control(''),
       difficulty: this.formBuilder.control(''),
+      language: this.formBuilder.control(''),
       duration: this.formBuilder.control(5, Validators.required),
       marks: this.formBuilder.control(0, Validators.required),
       imageUrl: this.formBuilder.control(''),
@@ -57,6 +59,7 @@ export class AddQuizzesComponent implements OnInit{
       active: this.formGroup.value.active,
       marks: this.formGroup.value.marks,
       imageUrl: this.formGroup.value.imageUrl,
+      language: this.formGroup.value.language,
       duration: this.formGroup.value.duration,
       difficulty: this.formGroup.value.duration,
       numberOfQuestions: this.formGroup.value.numberOfQuestions 
