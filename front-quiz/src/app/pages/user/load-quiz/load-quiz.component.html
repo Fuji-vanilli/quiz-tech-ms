@@ -29,13 +29,24 @@
                         <div class="col-md-12">
                             <div class="sorted">
                                 <button class="btn-category" [ngClass]="{'active': selectedCategory==='all'}" (click)="filterQuizByCategory('all')"><span>All Quizzes</span></button>
+                                <div class="dropdowns" style="margin-right: 10px;">
+                                    <button class="btn btn-sorted dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                      Filter
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-dark">
+                                        <li><a class="dropdown-item" routerLinkActive="active" (click)="filterByFrench()">French</a></li>
+                                        <li><a class="dropdown-item" routerLinkActive="active" (click)="filterByEnglish()">English</a></li>
+                                        <li><a class="dropdown-item" routerLinkActive="active" (click)="filterBySpain()">Spain</a></li>
+                                    </ul>
+                                </div>
                                 <div class="dropdowns">
                                     <button class="btn btn-sorted dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                      Sorted by
+                                      Sorted
                                     </button>
                                     <ul class="dropdown-menu dropdown-menu-dark">
                                         <li><a class="dropdown-item" routerLinkActive="active" (click)="sortedByName()">Name</a></li>
                                         <li><a class="dropdown-item" routerLinkActive="active" (click)="sortedByLevel()">Level</a></li>
+                                        <li><a class="dropdown-item" routerLinkActive="active" (click)="sortedByLanguage()">Language</a></li>
                                     </ul>
                                 </div>
                             </div>   

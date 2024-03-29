@@ -109,13 +109,31 @@ export class LoadQuizComponent implements OnInit, AfterViewInit {
   }
 */
 
-showCloseIcon(): boolean {
-  return this.searchterm.length> 0;
-}
+  showCloseIcon(): boolean {
+    return this.searchterm.length> 0;
+  }
 
-clearSearchTerm() {
-  this.searchterm= '';
-}
+  clearSearchTerm() {
+    this.searchterm= '';
+  }
+
+  filterByFrench() {
+    this.filterQuizzesBySearchTerm= this.quizzes.filter(quiz=> {
+      quiz.language=== 'Fr';
+    })
+  }
+
+  filterByEnglish() {
+    this.filterQuizzesBySearchTerm= this.quizzes.filter(quiz=> {
+      quiz.language=== 'En';
+    })
+  }
+
+  filterBySpain() {
+    this.filterQuizzesBySearchTerm= this.quizzes.filter(quiz=> {
+      quiz.language=== 'Esp';
+    })
+  }
 
   sortedByName() {
     this.filterQuizzes.sort((a, b)=> a.title!.localeCompare(b.title!));
@@ -123,6 +141,10 @@ clearSearchTerm() {
 
   sortedByLevel() {
     this.filterQuizzes.sort((a, b)=> a.difficulty!.localeCompare(b.difficulty!));
+  }
+
+  sortedByLanguage() {
+    this.filterQuizzes.sort((a, b)=> a.language!.localeCompare(b.language!));
   }
 
   toggleList() {
