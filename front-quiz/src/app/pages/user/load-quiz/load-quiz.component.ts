@@ -93,6 +93,7 @@ export class LoadQuizComponent implements OnInit, AfterViewInit {
     );
   }
 
+  /*
   scrollLeft(): void {
     this.scrollContainer.nativeElement.scrollTo({
       left: this.scrollContainer.nativeElement.scrollLeft - 200,
@@ -106,6 +107,15 @@ export class LoadQuizComponent implements OnInit, AfterViewInit {
       behavior: 'smooth'
     });
   }
+*/
+
+showCloseIcon(): boolean {
+  return this.searchterm.length> 0;
+}
+
+clearSearchTerm() {
+  this.searchterm= '';
+}
 
   sortedByName() {
     this.filterQuizzes.sort((a, b)=> a.title!.localeCompare(b.title!));
