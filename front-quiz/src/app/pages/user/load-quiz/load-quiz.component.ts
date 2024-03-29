@@ -118,21 +118,18 @@ export class LoadQuizComponent implements OnInit, AfterViewInit {
   }
 
   filterByFrench() {
-    this.filterQuizzesBySearchTerm= this.quizzes.filter(quiz=> {
-      quiz.language=== 'Fr';
-    })
+    this.filterQuizzes= this.quizzes.filter(quiz=> quiz.language=== 'Fr');
+
+    console.log('quizz filter: '+this.filterQuizzes);
+    
   }
 
   filterByEnglish() {
-    this.filterQuizzesBySearchTerm= this.quizzes.filter(quiz=> {
-      quiz.language=== 'En';
-    })
+    this.filterQuizzes= this.quizzes.filter(quiz=> quiz.language=== 'En');
   }
 
   filterBySpain() {
-    this.filterQuizzesBySearchTerm= this.quizzes.filter(quiz=> {
-      quiz.language=== 'Esp';
-    })
+    this.filterQuizzes= this.quizzes.filter(quiz=>  quiz.language=== 'Esp');
   }
 
   sortedByName() {

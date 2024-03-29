@@ -83,7 +83,7 @@
                     </div>
                 </div>
                 <div class="col-md-8">
-                    <div class="no-result" *ngIf="filterQuizzesBySearchTerm.length=== 0">
+                    <div class="no-result" *ngIf="filterQuizzesBySearchTerm.length=== 0  || filterQuizzes.length=== 0">
                         <div class="image-no-result">
                             <img src="../../../../assets/undraw_notify_re_65on.svg" alt=""><br>
                         </div>
@@ -93,9 +93,9 @@
                     </div>
                     <div class="container-2">
                         <section class="col">
-                            <div class="header-title" *ngIf="filterQuizzesBySearchTerm.length> 0">
+                            <!--div class="header-title" *ngIf="filterQuizzesBySearchTerm.length> 0  || filterQuizzes.length> 0">
                                 <span>Choose and explore your Quiz</span>
-                            </div>
+                            </div-->
                             <div class="contents">
                                 <div class="box" *ngFor="let quiz of filterQuizzes | searchPipe: searchterm" [routerLink]="'/user/instructions/'+quiz.id">
                                     <header class="quiz">
