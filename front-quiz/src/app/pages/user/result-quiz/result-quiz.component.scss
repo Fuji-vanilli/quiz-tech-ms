@@ -110,19 +110,45 @@
 }
 
 .container-2 {
+    margin-top: 16px;
     main.row {
         section.col {
             header.title {
                 h3 {
-                    color: var(--primary-100);
+                    color: var(--text-100);
+                    background: var(--primary-100);
+                    padding: 12px;
                 }
             }
 
             .contents {
                 .box {
+                    //background: var(--bg-200);
+                    margin-bottom: 28px;
+                    padding: 0 16px 0 0;
+
                     .category {
-                        span {
-                            color: var(--text-100);
+                        display: flex;
+                        align-items: center;
+
+                        .icon {
+                            margin-right: 12px;
+                            i {
+                                color: var(--text-100);
+                                font-size: 24px;
+                            }
+                        }
+
+                        .info-category {
+                            h4 {
+                                color: var(--text-100);
+                                margin-bottom: 4px;
+                            }
+
+                            span {
+                                color: var(--text-300);
+                                font-size: 12px;
+                            }
                         }
                     }
                 }

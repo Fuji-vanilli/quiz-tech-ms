@@ -42,8 +42,10 @@
                         </header>
                         <div class="contents">
                             <div class="box" *ngFor="let category of categories">
-                                <div class="category">
-                                    <i [ngClass]="category.icon"></i>
+                                <div class="category" [routerLink]="'/user/quizzes/'+category.id">
+                                    <div class="icon">
+                                        <i [ngClass]="category.icon"></i>
+                                    </div>
                                     <div class="info-category">
                                         <h4>{{category.title}}</h4>
                                         <span>{{category.description}}</span>
