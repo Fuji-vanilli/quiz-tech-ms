@@ -1,10 +1,14 @@
-<div class="contain mt-1">
+<div class="contain">
     <div class="row">
-        <div class="col-md-12 mt-1">
+        <div class="col-md-12">
             <div class="row">
                 <div class="col-md-9 content">
-                    <div class="user-cards" *ngFor="let user of usersNoSubscriber">
-                        <div class="card-1">
+                    <div class="divider">
+                        <h4 class="mt-3" *ngIf="usersSubscriber.length> 0">Your Subscribers
+                            ({{usersSubscriber.length}})</h4>
+                    </div>
+                    <div class="user-cards subscriber">
+                        <div class="card-1" *ngFor="let user of usersSubscriber">
                             <div class="profile-img">
                                 <img [src]="user.photo" alt="">
                             </div>
@@ -12,7 +16,24 @@
                             <small>{{user.description}}</small>
                             <h3>About me</h3>
                             <p>{{user.biography}}</p>
-                            <button>Subscribe</button>
+                            <button class="unsubscribe" (click)="unsubscribe(user)">Unsubscribe</button>
+                        </div>
+                    </div>
+
+                    <div class="divider">
+                        <h4 class="mt-2">Suggestion to subscribe</h4>
+                    </div>
+
+                    <div class="user-cards not-subscriber">
+                        <div class="card-1" *ngFor="let user of usersNoSubscriber">
+                            <div class="profile-img">
+                                <img [src]="user.photo" alt="">
+                            </div>
+                            <h2>{{user.firstname+' '+user.lastname}}</h2>
+                            <small>{{user.description}}</small>
+                            <h3>About me</h3>
+                            <p>{{user.biography}}</p>
+                            <button class="subscrie" (click)="subscribe(user)">Subscribe</button>
                         </div>
                     </div>
                     <!--div class="row">
