@@ -3,6 +3,7 @@
     width: 90%;
     margin: 16px;
 }
+
 .row .quiz-title-head {
     background: #21262d;
     height: 20vh;
@@ -22,8 +23,8 @@
 .content-quiz {
     padding: 16px 20px;
     font-family: 'Ubuntu';
-    background: #56647b; 
-    color: #fff;  
+    background: #56647b;
+    color: #fff;
     height: 55vh;
     border-radius: 0 0 0 10px;
 }
@@ -68,48 +69,234 @@
 
 .container-1 {
     background: var(--bg-200);
-    padding: 20px 10%;
+    border-radius: 20px;
+    padding: 20px;
+    margin: 0 20px;
+    height: 500px;
 
-    section.col {
-        .contents {
-            background: var(--bg-300);
-            padding: 30px;
+    main.row {
+        section.col {
+            background: var(--bg-200);
+            padding:0 20px;
+            border-radius: 20px;
+            margin-left: 30px;
 
-            .box {
-                background: var(--bg-200);
-                padding: 20px;
-                border-radius: 25px;
+            header.title {
+                display: flex;
+                align-items: center;
+                padding-bottom: 16px;
+                //border-bottom: 1px solid var(--bg-300);
 
-                header.title {
-                    display: flex;
-                    align-items: center;
-                    padding-bottom: 16px;
-                    border: 1px solid var(--bg300);
+                .icon {
+                    background: var(--special-300);
+                    padding: 10px;
+                    margin-right: 14px;
+                    border-radius: 50%;
 
-                    .icon {
-                        background: var(--special-300);
-                        padding: 10px;
-                        margin-right: 14px;
-                        border-radius: 50%;
+                    i {
+                        color: var(--text-200);
+                        font-size: 28px;
+                    }
+                }
 
-                        i {
-                            color: var(--text-200);
-                            font-size: 28px;
+                h4 {
+                    color: var(--text-100);
+                    //background-image: linear-gradient(43deg, #415dbd, #c850cb 46%, #ffcc70 100%);
+                    // -webkit-background-clip: text;
+                    //color: transparent;
+                    font-family: 'Poppins';
+                    padding-top: 14px;
+                    margin-bottom: 2px;
+                    margin-left: -8px;
+                    text-transform: uppercase;
+                }
+
+                h5 {
+                    color: var(--text-300);
+                }
+            }
+
+            .contents {
+                //background: var(--bg-300);
+                padding: 0 30px;
+                border-left: 1px solid var(--special-300);
+
+                .box {
+                    position: relative;
+                    background: var(--bg-200);
+                    padding: 0 20px;
+                    margin-bottom: 20px;
+
+                    .question,
+                    .duration,
+                    .marks,
+                    .level,
+                    .language {
+                        margin-bottom: 30px;
+
+                        .info-icon {
+                            position: absolute;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            top: 0;
+                            right: calc(100% + 16px);
+                            background: var(--special-200);
+                            padding: 2px 4px;
+                            border-radius: 50%;
+                            border: 3px solid var(--bg-200);
+
+                            i {
+                                color: var(--special-300);
+                                font-size: 16px;
+                                font-weight: 900;
+                            }
+                        }
+
+                        .details {
+                            i {
+                                color: var(--text-300);
+                                margin-right: 6px;
+                            }
+                        }
+
+                        span {
+                            color: var(--text-300);
+                            font-family: 'Poppins';
+                            font-size: 12px;
+                        }
+
+                        h4 {
+                            color: var(--text-100);
+                            margin-bottom: 4px;
+                            font-family: 'Poppins';
                         }
                     }
+                }
 
-                    h4 {
+            }
+        }
+    }
+
+}
+
+.container-2 {
+    background: var(--bg-200);
+    border-radius: 20px;
+    padding: 20px;
+    margin: 0 40px 20px 0;
+    height: 500px;
+
+    main.row {
+        section.col {
+            background: var(--bg-200);
+            padding:20px;
+            border-radius: 20px;
+            margin-left: 30px;
+
+            header.title {
+                display: flex;
+                align-items: center;
+                padding-bottom: 16px;
+                //border-bottom: 1px solid var(--bg-300);
+
+                .icon {
+                    background: var(--special-300);
+                    padding: 10px;
+                    margin-right: 14px;
+                    border-radius: 50%;
+
+                    i {
                         color: var(--text-200);
-                        font-family: 'Poppins';
-                        padding-top: 14px;
-                        margin-bottom: 2px;
+                        font-size: 28px;
                     }
+                }
 
-                    h5 {
-                        color: var(--text-300);
+                h4 {
+                    color: var(--text-200);
+                    //background-image: linear-gradient(43deg, #415dbd, #c850cb 46%, #ffcc70 100%);
+                    // -webkit-background-clip: text;
+                    //color: transparent;
+                    font-family: 'Poppins';
+                    padding-top: 14px;
+                    margin-bottom: 2px;
+                    margin-left: -8px;
+                    text-transform: uppercase;
+                }
+
+                h5 {
+                    color: var(--text-300);
+                }
+            }
+
+            .contents {
+                //background: var(--bg-300);
+                position: relative;
+                padding: 0 30px;
+                border-left: 1px solid var(--special-300);
+
+                .box {
+                    position: relative;
+                    background: var(--bg-200);
+                    padding: 0 20px;
+                    margin-bottom: 20px;
+
+                    .question,
+                    .duration,
+                    .marks,
+                    .level,
+                    .language {
+                        margin-bottom: 30px;
+
+                        .info-icon {
+                            position: absolute;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            top: 0;
+                            right: calc(100% + 16px);
+                            background: var(--special-200);
+                            padding: 2px 4px;
+                            border-radius: 50%;
+                            border: 3px solid var(--bg-200);
+
+                            i {
+                                color: var(--special-300);
+                                font-size: 16px;
+                                font-weight: 900;
+                            }
+                        }
+
+                        .details {
+                            i {
+                                color: var(--text-300);
+                                margin-right: 6px;
+                            }
+                        }
+
+                        span {
+                            color: var(--text-300);
+                            font-family: 'Poppins';
+                        }
+
+                        h4 {
+                            color: var(--text-100);
+                            margin-bottom: 4px;
+                            font-family: 'Ubuntu';
+                        }
                     }
+                }
+
+                .btn-start {
+                    width: 100%;
+                    border: 0;
+                    padding: 10px;
+                    background: var(--special-200);
+                    color: var(--text-100);
+                    border-radius: 2px;
                 }
             }
         }
     }
+
 }

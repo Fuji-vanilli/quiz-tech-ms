@@ -1,26 +1,151 @@
 <div class="contain">
     <div class="row">
-        <div class="col-md-6 offset-md-2">
-            <div class="container-1">
-                <section class="col">
-                    <div class="contents">
-                        <div class="box">
-                            <header class="title">
-                                <div class="icon">
-                                    <i class="bi bi-gear"></i>
+        <div class="col-md-8 offset-md-2">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="container-1">
+                        <main class="row">
+                            <section class="col">
+                                <header class="title">
+                                    <div>
+                                        <h4>{{quiz.title}}</h4>
+                                    </div>
+                                </header>
+                                <div class="contents">
+                                    <div class="box">
+                                        <div class="question">
+                                            <div class="info-icon">
+                                                <i class="bi bi-circle"></i>
+                                            </div>
+                                            
+                                            <h4>Number of Questions</h4>
+                                            <div class="details">
+                                                <i class="bi bi-patch-question-fill"></i>
+                                                <span>{{quiz.numberOfQuestions+' Questions'}}</span>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="box">
+                                        <div class="duration">
+                                            <div class="info-icon">
+                                                <i class="bi bi-circle"></i>
+                                            </div>
+                                            <h4>Duration</h4>
+                                            <div class="details">
+                                                <i class="bi bi-alarm-fill"></i>
+                                                <span>{{quiz.duration+' Minutes'}}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="box">
+                                        <div class="marks">
+                                            <div class="info-icon">
+                                                <i class="bi bi-circle"></i>
+                                            </div>
+                                            <h4>Max marks</h4>
+                                            <div class="details">
+                                                <i class="bi bi-bookmark-star-fill"></i>
+                                                <span>{{quiz.marks+' Points'}}</span>
+                                            </div>
+                                        </div>
+                                    </div>   
+                                    <div class="box">
+                                        <div class="level">
+                                            <div class="info-icon">
+                                                <i class="bi bi-circle"></i>
+                                            </div>
+                                            <h4>Difficulty</h4>
+                                            <div class="details">
+                                                <i class="bi bi-bar-chart-fill"></i>
+                                                <span>{{quiz.difficulty}}</span>
+                                            </div>
+                                        </div>
+                                    </div> 
+                                    <div class="box">
+                                        <div class="language">
+                                            <div class="info-icon">
+                                                <i class="bi bi-circle"></i>
+                                            </div>
+                                            <h4>Language</h4>
+                                            <div class="details">
+                                                <i class="bi bi-translate"></i>
+                                                <span>{{quiz.language=== 'Fr'? 'Français': 'English'}}</span>
+                                            </div>   
+                                        </div>
+                                    </div>
                                 </div>
-                                <div>
-                                    <h4>{{quiz.title}}</h4>
-                                <h5>{{quiz.category?.title}}</h5>
-                                </div>
-                            </header>
-
-                            <div class="content">
-
-                            </div>
-                        </div>
+                            </section>
+                        </main>
                     </div>
-                </section>
+                </div>
+        
+                <div class="col-md-6">
+                    <div class="container-2">
+                        <main class="row">
+                            <section class="col">
+                                <header class="title">
+                                    <div>
+                                        <h4>{{quiz.title}}</h4>
+                                    </div>
+                                </header>
+                                <div class="contents">
+                                    <div class="box">
+                                        <div class="question">
+                                            <div class="info-icon">
+                                                <i class="bi bi-circle"></i>
+                                            </div>
+                                            
+                                            <h4>Number of Questions</h4>
+                                            <div class="details">
+                                                <i class="bi bi-patch-question-fill"></i>
+                                                <span>{{quiz.numberOfQuestions+' Questions'}}</span>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="box">
+                                        <div class="duration">
+                                            <div class="info-icon">
+                                                <i class="bi bi-circle"></i>
+                                            </div>
+                                            <h4>Duration</h4>
+                                            <div class="details">
+                                                <i class="bi bi-alarm-fill"></i>
+                                                <span>{{quiz.duration+' Minutes'}}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="box">
+                                        <div class="marks">
+                                            <div class="info-icon">
+                                                <i class="bi bi-circle"></i>
+                                            </div>
+                                            <h4>Max marks</h4>
+                                            <div class="details">
+                                                <i class="bi bi-bookmark-star-fill"></i>
+                                                <span>{{quiz.marks+' Points'}}</span>
+                                            </div>
+                                        </div>
+                                    </div>   
+                                    <div class="box">
+                                        <div class="language">
+                                            <div class="info-icon">
+                                                <i class="bi bi-circle"></i>
+                                            </div>
+                                            <h4>Language</h4>
+                                            <div class="details">
+                                                <i class="bi bi-translate"></i>
+                                                <span>{{quiz.language=== 'Fr'? 'Français': 'English'}}</span>
+                                            </div>   
+                                        </div>
+                                    </div>
+                                    <button class="btn-start">START THE QUIZ</button>
+                                </div>
+                            </section>
+                        </main>
+                    </div>
+                </div>
             </div>
         </div>
         <!--div class="col-md-4 quiz-title-head">
