@@ -1,4 +1,6 @@
 .contain  {
+    position: fixed;
+    width: 96%;
     height: 100vh;
 
 }
@@ -10,10 +12,6 @@
     margin: 0 16px;
 
     main.row {
-        //display: flex;
-        //justify-content: center;
-        border: 1px solid var(--primary-100);
-
         section.col:first-child {
             flex: 1;
         }
