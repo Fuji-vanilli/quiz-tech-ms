@@ -8,11 +8,44 @@
 /**/
 
 .container-1 {
+    padding: 20px 5%;
+
     main.row {
         section.col {
-            header.title {
-                h3 {
-                    color: var(--text-100);
+            //background: var(--bg-300);
+            
+            .contents {
+                border-left: 1px solid var(--primary-100);
+                background: var(--bg-100);
+                padding: 0 20px;
+
+                header.title {
+                    h3 {
+                        color: var(--text-100);
+                    }
+                }
+                
+                .box {
+                    position: relative;
+                    background: var(--bg-200);
+                    margin-bottom: 14px;
+
+                    .option {
+                        span {
+                            color: var(--text-200);
+                        }
+                    }
+
+                    .indice {
+                        position: absolute;
+                        top: 0;
+                        background: var(--primary-100);
+                        padding: 12px;
+
+                        span {
+                            color: var(--text-100);
+                        }
+                    }
                 }
             }
         }

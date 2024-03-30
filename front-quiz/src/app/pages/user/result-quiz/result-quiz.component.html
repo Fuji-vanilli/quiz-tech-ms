@@ -7,13 +7,26 @@
             <div class="container-1">
                 <main class="row">
                     <section class="col">
-                        <header class="title">
-                            <h3>Result Details of the Quiz</h3>
-                        </header>
-
                         <div class="contents">
-                            <div class="box">
-                                <p>Result</p>
+                            <header class="title">
+                                <h3>Result Details of the Quiz</h3>
+                            </header>
+
+                            <div class="box" *ngFor="let question of quiz.questions; let index= index">
+                                <div class="option" *ngFor="let option of question.options">
+                                    <span class="ms-3" *ngIf="question.answer=== option">
+                                        <img src="../../../../assets/correct.png" alt="" style="margin-right: 16px;">{{ option }}
+                                    </span>
+                                    <span class="ms-3" *ngIf="(option=== answer[index]) && (question.answer!== option)">
+                                        <img src="../../../../assets/wrong.png" alt="" style="margin-right: 16px;">{{ option }}
+                                    </span>
+                                    <span class="ms-3" *ngIf="!(question.answer === option || (option === answer[index] && question.answer !== option))">
+                                        <img src="../../../../assets/normal.png" alt="" style="margin-right: 16px;">{{ option }}
+                                    </span>
+                                </div>
+                                <div class="indice">
+                                    <span>{{index+1}}</span>
+                                </div>
                             </div>
                         </div>
                     </section>
