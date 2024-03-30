@@ -68,18 +68,18 @@
 /****/
 
 .container-1 {
-    background: var(--bg-200);
+    background: var(--bg-100);
     border-radius: 20px;
     padding: 20px;
     margin: 0 20px;
-    height: 500px;
 
     main.row {
         section.col {
-            background: var(--bg-200);
-            padding:0 20px;
-            border-radius: 20px;
+            background: radial-gradient(circle at 24.1% 68.8%, rgb(50, 50, 50) 0%, rgb(0, 0, 0) 99.4%);
+            padding: 16px 40px;
+            border-radius: 16px;
             margin-left: 30px;
+            box-shadow: 0 1px 4px 2px var(--primary-100);
 
             header.title {
                 display: flex;
@@ -117,13 +117,13 @@
             }
 
             .contents {
-                //background: var(--bg-300);
+                //background: var(--bg-100);
                 padding: 0 30px;
-                border-left: 1px solid var(--special-300);
+                //border-left: 1px solid var(--special-300);
 
                 .box {
                     position: relative;
-                    background: var(--bg-200);
+                    //background: var(--bg-200);
                     padding: 0 20px;
                     margin-bottom: 20px;
 
@@ -141,13 +141,13 @@
                             align-items: center;
                             top: 0;
                             right: calc(100% + 16px);
-                            background: var(--special-200);
+                            background: var(--primary-100-gradient);
                             padding: 2px 4px;
                             border-radius: 50%;
                             border: 3px solid var(--bg-200);
 
                             i {
-                                color: var(--special-300);
+                                color: var(--text-100);
                                 font-size: 16px;
                                 font-weight: 900;
                             }
@@ -169,134 +169,72 @@
                         h4 {
                             color: var(--text-100);
                             margin-bottom: 4px;
-                            font-family: 'Poppins';
+                            font-family: 'Roboto';
+                            font-size: 14px;
                         }
                     }
                 }
 
+                .box:not(:last-child)::before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: -32px;
+                    width: 1px;
+                    height: 80px;
+                    background: var(--primary-100);
+                }
+
             }
         }
-    }
 
-}
-
-.container-2 {
-    background: var(--bg-200);
-    border-radius: 20px;
-    padding: 20px;
-    margin: 0 40px 20px 0;
-    height: 500px;
-
-    main.row {
-        section.col {
-            background: var(--bg-200);
-            padding:20px;
-            border-radius: 20px;
-            margin-left: 30px;
-
+        section.col.instructions {
+            padding: 15px;
             header.title {
                 display: flex;
+                justify-content: center;
                 align-items: center;
-                padding-bottom: 16px;
-                //border-bottom: 1px solid var(--bg-300);
-
-                .icon {
-                    background: var(--special-300);
-                    padding: 10px;
-                    margin-right: 14px;
-                    border-radius: 50%;
-
-                    i {
-                        color: var(--text-200);
-                        font-size: 28px;
-                    }
-                }
-
-                h4 {
-                    color: var(--text-200);
-                    //background-image: linear-gradient(43deg, #415dbd, #c850cb 46%, #ffcc70 100%);
-                    // -webkit-background-clip: text;
-                    //color: transparent;
-                    font-family: 'Poppins';
-                    padding-top: 14px;
-                    margin-bottom: 2px;
-                    margin-left: -8px;
-                    text-transform: uppercase;
-                }
-
-                h5 {
-                    color: var(--text-300);
-                }
             }
 
             .contents {
-                //background: var(--bg-300);
-                position: relative;
-                padding: 0 30px;
-                border-left: 1px solid var(--special-300);
+                p {
+                    color: var(--text-100);
+                    word-break: break-all;
 
-                .box {
-                    position: relative;
-                    background: var(--bg-200);
-                    padding: 0 20px;
-                    margin-bottom: 20px;
-
-                    .question,
-                    .duration,
-                    .marks,
-                    .level,
-                    .language {
-                        margin-bottom: 30px;
-
-                        .info-icon {
-                            position: absolute;
-                            display: flex;
-                            justify-content: center;
-                            align-items: center;
-                            top: 0;
-                            right: calc(100% + 16px);
-                            background: var(--special-200);
-                            padding: 2px 4px;
-                            border-radius: 50%;
-                            border: 3px solid var(--bg-200);
-
-                            i {
-                                color: var(--special-300);
-                                font-size: 16px;
-                                font-weight: 900;
-                            }
-                        }
-
-                        .details {
-                            i {
-                                color: var(--text-300);
-                                margin-right: 6px;
-                            }
-                        }
-
-                        span {
-                            color: var(--text-300);
-                            font-family: 'Poppins';
-                        }
-
-                        h4 {
-                            color: var(--text-100);
-                            margin-bottom: 4px;
-                            font-family: 'Ubuntu';
-                        }
+                    span {
+                        color: var(--primary-100);
                     }
                 }
 
-                .btn-start {
-                    width: 100%;
-                    border: 0;
-                    padding: 10px;
-                    background: var(--special-200);
-                    color: var(--text-100);
-                    border-radius: 2px;
+                .info {
+                    margin: 20px 0;
+                    display: flex;
+
+                    i {
+                        color: var(--primary-100);
+                        margin-right: 12px;
+                        font-size: 16px;
+                    }
+
+                    span {
+                        color: var(--text-100);
+                        font-size: 12px;
+                    }
                 }
             }
+
+            .btn-start {
+                width: 100%;
+                border: 0;
+                padding: 10px;
+                margin-top: 16px;
+                background: var(--primary-100-gradient);
+                color: var(--text-100);
+                border-radius: 4px;
+            }
         }
+
+        
     }
 
 }
