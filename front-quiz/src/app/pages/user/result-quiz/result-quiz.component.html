@@ -4,7 +4,22 @@
             <div class="chart-result">
                 <canvasjs-chart [options]="chartOptions"></canvasjs-chart>
             </div>
-            <mat-card class="mt-2" *ngFor="let question of quiz.questions; let i= index">
+            <div class="container-1">
+                <main class="row">
+                    <section class="col">
+                        <header class="title">
+                            <h3>Result Details of the Quiz</h3>
+                        </header>
+
+                        <div class="contents">
+                            <div class="box">
+                                <p>Result</p>
+                            </div>
+                        </div>
+                    </section>
+                </main>
+            </div>
+            <!--mat-card class="mt-2" *ngFor="let question of quiz.questions; let i= index">
                 <div class="question-number"><span>{{(i+1)+' - '+question.content}}</span></div>
                 <mat-card-content class="mt-2">
                     <ul class="list-options">
@@ -29,7 +44,7 @@
                             style="color: #11975d;">{{question.answer}}</span>
                     </div>
                 </mat-card-actions>
-            </mat-card>
+            </mat-card-->
         </div>
         <div class="col-md-3">
             <div class="right-content">

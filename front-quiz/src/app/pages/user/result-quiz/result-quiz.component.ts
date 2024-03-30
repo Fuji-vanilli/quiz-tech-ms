@@ -65,7 +65,7 @@ export class ResultQuizComponent implements OnInit {
 
   chartOptions = {
 	  animationEnabled: true,
-	  theme: "light",
+	  theme: "dark1",
 	  exportEnabled: true,
 	  title: {
 		  text: "Result of Your Quiz"

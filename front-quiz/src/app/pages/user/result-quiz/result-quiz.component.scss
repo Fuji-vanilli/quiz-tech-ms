@@ -1,9 +1,26 @@
 .chart-result {
-    background: #fff;
+    background: var(--bg-100);
     padding: 10px;
     border-radius: 10px;
     overflow: hidden;
 }
+
+/**/
+
+.container-1 {
+    main.row {
+        section.col {
+            header.title {
+                h3 {
+                    color: var(--text-100);
+                }
+            }
+        }
+    }
+}
+
+/**/
+
 
 .right-content {
     position: sticky;
