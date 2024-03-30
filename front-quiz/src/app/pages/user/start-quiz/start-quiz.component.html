@@ -1,6 +1,60 @@
 <div class="contain">
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-10 offset-md-1">
+            <div class="container-2">
+                <main class="row">
+                    <section class="col left">
+                        <header class="title">
+                            <div class="image">
+                                <img [src]="quiz.imageUrl" alt="">
+                            </div>
+                            <div class="info-title">
+                                <h1>{{quiz.title}}</h1>
+                                <div class="d-flex">
+                                    <i class="bi bi-bookmark-star"></i>
+                                    <h5>{{quiz.category?.title}}</h5>
+                                </div>
+                            </div>
+                        </header>
+                        <div class="contents">
+                            <mat-spinner
+                                    mode="determinate"
+                                    color="warn"
+                                    style=" margin-top: 40px; "
+                                    [value]="spinnerValue"
+                                    ></mat-spinner>
+                        <div class="time mt-3" >
+                            <p>Time</p>
+                            <i class="bi bi-alarm" style="font-size: 28px;"></i><span class="ms-3">{{(minute< 10 ? '0'+minute : minute)+':'+(second< 10 ? '0'+second : second)+' / '+quiz.duration}} Minutes</span>
+                       </div>
+                       <div class="question mt-5">
+                            <p>Questions</p>
+                            <i class="bi bi-question-circle" style="font-size: 28px;"></i><span class="ms-3">{{(currentQuestion+1)+' / '+quiz.numberOfQuestions}} Questions</span>
+                            <mat-progress-bar mode="determinate" color="warn" [value]="questionValue" class="mt-3"></mat-progress-bar>
+                        </div>
+                        </div>
+                    </section>
+                    <section class="col right">
+                        <header class="title" *ngIf="isCurrent">
+                            <div class="current-question">
+                                <span>{{currentQuestion+1}}</span>
+                            </div>
+                            <div class="questions">
+                                <h4>{{quiz.questions[currentQuestion].content}}</h4>
+                            </div>
+                        </header>
+
+                        <div class="contents">
+                            <div class="" *ngFor="let option of quiz.questions[currentQuestion].options" > 
+                                <div *ngIf="isCurrent" class="choice mt-4" (click)="checkResponse(option)">{{option}}</div>
+                            </div>
+                            <div class="d-flex justify-content-center align-items-center view-result">
+                                <button class="button-submit" *ngIf="!isCurrent" (click)="getResult()">SHOW RESULT<i class="bi bi-eye ms-2"></i></button>
+                            </div>
+                        </div>
+                    </section>
+                </main>
+            </div>
             <!--div class="row content">
                 <div class="col-md-4 quiz-title-head">
                     <div class="row">

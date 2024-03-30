@@ -67,6 +67,9 @@
 
 /****/
 
+
+/****/
+
 .container-1 {
     background: var(--bg-100);
     border-radius: 20px;
@@ -75,7 +78,7 @@
 
     main.row {
         section.col {
-            background: radial-gradient(circle at 24.1% 68.8%, rgb(50, 50, 50) 0%, rgb(0, 0, 0) 99.4%);
+            background: var(--bg-400);
             padding: 16px 40px;
             border-radius: 16px;
             margin-left: 30px;
