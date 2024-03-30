@@ -13,24 +13,38 @@
     main.row {
         section.col {
             //background: var(--bg-300);
-            
+            header.title {
+                h3 {
+                    color: var(--text-100);
+                }
+            }
+                        
             .contents {
                 border-left: 1px solid var(--primary-100);
                 background: var(--bg-100);
-                padding: 0 20px;
+                padding: 0 30px;
 
-                header.title {
-                    h3 {
-                        color: var(--text-100);
-                    }
-                }
-                
                 .box {
                     position: relative;
-                    background: var(--bg-200);
                     margin-bottom: 14px;
+                    padding: 14px 0;
+
+                    .title-question {
+                        margin-bottom: 16px;
+
+                        span {
+                            color: var(--primary-100);
+                        }
+                    }
 
                     .option {
+                        margin-bottom: 16px;
+
+                        i {
+                            color: var(--primary-200);
+                            margin-right: 14px;
+                        }
+
                         span {
                             color: var(--text-200);
                         }
@@ -39,11 +53,15 @@
                     .indice {
                         position: absolute;
                         top: 0;
+                        right: calc(100% + 12px);
                         background: var(--primary-100);
-                        padding: 12px;
+                        padding: 6px 12px;
+                        border-radius: 50%;
+                        border: 5px solid var(--bg-100);
 
                         span {
                             color: var(--text-100);
+                            line-height: 15px;
                         }
                     }
                 }

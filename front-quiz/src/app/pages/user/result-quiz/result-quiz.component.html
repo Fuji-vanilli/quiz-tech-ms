@@ -7,14 +7,20 @@
             <div class="container-1">
                 <main class="row">
                     <section class="col">
+                        <header class="title">
+                            <h3>Result Details of the Quiz</h3>
+                        </header>
                         <div class="contents">
-                            <header class="title">
-                                <h3>Result Details of the Quiz</h3>
-                            </header>
-
                             <div class="box" *ngFor="let question of quiz.questions; let index= index">
+                                <div class="title-question">
+                                    <span>{{question.content}}</span>
+                                </div>
                                 <div class="option" *ngFor="let option of question.options">
-                                    <span class="ms-3" *ngIf="question.answer=== option">
+                                    <i class="bi bi-check-circle" *ngIf="question.answer=== option"></i>
+                                    <i class="bi bi-x-circle" *ngIf="(option=== answer[index]) && (question.answer!== option)"></i>
+                                    <i class="bi bi-circle" *ngIf="!(question.answer === option || (option === answer[index] && question.answer !== option))"></i>
+                                    <span>{{option}}</span>
+                                    <!--span class="ms-3" *ngIf="question.answer=== option">
                                         <img src="../../../../assets/correct.png" alt="" style="margin-right: 16px;">{{ option }}
                                     </span>
                                     <span class="ms-3" *ngIf="(option=== answer[index]) && (question.answer!== option)">
@@ -22,7 +28,7 @@
                                     </span>
                                     <span class="ms-3" *ngIf="!(question.answer === option || (option === answer[index] && question.answer !== option))">
                                         <img src="../../../../assets/normal.png" alt="" style="margin-right: 16px;">{{ option }}
-                                    </span>
+                                    </span-->
                                 </div>
                                 <div class="indice">
                                     <span>{{index+1}}</span>
