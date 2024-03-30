@@ -5,7 +5,7 @@
                 <div class="col-md-9 content">
                     <div class="content-top">
                         <div class="row" style="overflow: hidden;">
-                            <div class="col-md-12 chart">
+                            <div class="col-md-12 chart" *ngIf="dataResult.length> 0">
                                 <apx-chart
                                 [series]="chartOptions.series!"
                                 [chart]="chartOptions.chart!"
@@ -20,7 +20,7 @@
                             <div class="col-md-6">
                                 
                             </div>
-                            <div class="col-md-6 d-flex justify-content-end align-items-center">
+                            <div class="col-md-6 d-flex justify-content-end align-items-center" *ngIf="dataResult.length> 0">
                                 <div class="dropdown" (click)="toggleTypeMenu()">
                                     <div class="select" id="select">
                                         <span>Type</span>
@@ -38,7 +38,7 @@
                         <div class="text-result">
                             <strong>{{numberOfResult}}</strong><span>results of quiz that you have finished...</span>
                         </div>
-                        <div class="ms-3 mt-3 content-result">
+                        <div class="ms-3 mt-3 content-result" *ngIf="dataResult.length> 0">
                             <table class="table table-dark">
                                 <thead>
                                     <tr>
