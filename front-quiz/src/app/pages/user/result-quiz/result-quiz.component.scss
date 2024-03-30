@@ -109,6 +109,28 @@
     }
 }
 
+.container-2 {
+    main.row {
+        section.col {
+            header.title {
+                h3 {
+                    color: var(--primary-100);
+                }
+            }
+
+            .contents {
+                .box {
+                    .category {
+                        span {
+                            color: var(--text-100);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
 /**/
 
 

@@ -32,35 +32,29 @@
                     </section>
                 </main>
             </div>
-            <!--mat-card class="mt-2" *ngFor="let question of quiz.questions; let i= index">
-                <div class="question-number"><span>{{(i+1)+' - '+question.content}}</span></div>
-                <mat-card-content class="mt-2">
-                    <ul class="list-options">
-                        <li class="list-group-item" style="background: #fff;"
-                            *ngFor="let option of question.options"
-                            [ngClass]="question.answer === option ? 'correct-answer' : (answer[i]=== option)&& (answer[i]!== question.answer) ? 'wrong-answer' : 'normal'">
-                            <span class="ms-3" *ngIf="question.answer=== option">
-                                <img src="../../../../assets/correct.png" alt="" style="margin-right: 16px;">{{ option }}
-                            </span>
-                            <span class="ms-3" *ngIf="(option=== answer[i]) && (question.answer!== option)">
-                                <img src="../../../../assets/wrong.png" alt="" style="margin-right: 16px;">{{ option }}
-                            </span>
-                            <span class="ms-3" *ngIf="!(question.answer === option || (option === answer[i] && question.answer !== option))">
-                                <img src="../../../../assets/normal.png" alt="" style="margin-right: 16px;">{{ option }}
-                            </span>
-                        </li>
-                    </ul>
-                </mat-card-content>
-                <mat-card-actions>
-                    <div class="ms-3">
-                        <span style="color: #21262d;">Correct Answer: </span><span
-                            style="color: #11975d;">{{question.answer}}</span>
-                    </div>
-                </mat-card-actions>
-            </mat-card-->
         </div>
         <div class="col-md-3">
-            <div class="right-content">
+            <div class="container-2">
+                <main class="row">
+                    <section class="col">
+                        <header class="title">
+                            <h3>Trending other Category</h3>
+                        </header>
+                        <div class="contents">
+                            <div class="box" *ngFor="let category of categories">
+                                <div class="category">
+                                    <i [ngClass]="category.icon"></i>
+                                    <div class="info-category">
+                                        <h4>{{category.title}}</h4>
+                                        <span>{{category.description}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </main>
+            </div>
+            <!--div class="right-content">
                 <mat-card>
                     <mat-card-header class="text-center">
                         <mat-card-title>Trending other Category</mat-card-title>
@@ -79,7 +73,7 @@
                         </div>
                     </mat-card-content>
                 </mat-card>
-            </div>
+            </div-->
         </div>
     </div>
 </div>
