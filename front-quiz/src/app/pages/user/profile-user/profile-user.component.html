@@ -57,7 +57,7 @@
                 </div>
                 <div class="col-md-9">
                     <div class="content-right">
-                        <div class="chart">
+                        <div class="chart" *ngIf="dataResult.length> 0">
                             <apx-chart [series]="chartOptions.series!" [chart]="chartOptions.chart!"
                             [xaxis]="chartOptions.xaxis!" [stroke]="chartOptions.stroke!" [tooltip]="chartOptions.tooltip!"
                             [dataLabels]="chartOptions.dataLabels!">

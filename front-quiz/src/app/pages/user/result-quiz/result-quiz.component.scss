@@ -34,7 +34,7 @@
                         margin-bottom: 16px;
 
                         span {
-                            color: var(--primary-200);
+                            color: var(--special-100);
                         }
                     }
 
@@ -66,7 +66,7 @@
                         position: absolute;
                         top: 0;
                         right: calc(100% + 10px);
-                        background: var(--accent-200);
+                        background: var(--special-100);
                         border-radius: 50%;
                         border: 5px solid var(--bg-100);
 
@@ -89,7 +89,7 @@
                         right: 12px;
 
                         i {
-                            color: var(--primary-200);
+                            color: var(--special-100);
                             font-size: 16px;
                         }
                     }
@@ -102,7 +102,7 @@
                     left: -30px;
                     width: 1px;
                     height: 105%;
-                    background: var(--accent-200);
+                    background: var(--special-100);
                 }
             }
         }
@@ -122,6 +122,7 @@
             }
 
             .contents {
+                margin-top: 24px;
                 .box {
                     //background: var(--bg-200);
                     margin-bottom: 28px;

@@ -6,6 +6,33 @@ a {
     cursor: pointer;
 }
 
+/***/
+
+.user-cards {
+    .card-1 {
+        margin: 16px 12px 12px 12px;
+        max-width: 35em;
+        background: rgba(171, 171, 171, 0.1);
+        padding: 2em;
+        text-align: center;
+        border-radius: 10px;
+        box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.5);
+        position: relative;
+        backdrop-filter: blur(4px);
+        border: 1px #555 solid;
+    }
+
+    .card-1::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 50%;
+    }
+}
+
+/***/
+
+/**
 .content {
     background: transparent;
     border-radius: 8px;
@@ -152,6 +179,8 @@ a {
     margin-bottom: 16px;
     
 }
+
+*/
 /***/
 .content-right {
     background: transparent;

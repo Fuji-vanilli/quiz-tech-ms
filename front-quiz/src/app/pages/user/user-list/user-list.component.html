@@ -3,7 +3,19 @@
         <div class="col-md-12 mt-1">
             <div class="row">
                 <div class="col-md-9 content">
-                    <div class="row">
+                    <div class="user-cards" *ngFor="let user of usersNoSubscriber">
+                        <div class="card-1">
+                            <div class="profile-img">
+                                <img [src]="user.photo" alt="">
+                            </div>
+                            <h2>{{user.firstname+' '+user.lastname}}</h2>
+                            <small>{{user.description}}</small>
+                            <h3>About me</h3>
+                            <p>{{user.biography}}</p>
+                            <button>Subscribe</button>
+                        </div>
+                    </div>
+                    <!--div class="row">
                         <div>
                             <h4 class="mt-3" *ngIf="usersSubscriber.length> 0">Your Subscribers
                                 ({{usersSubscriber.length}})</h4>
@@ -51,7 +63,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div-->
                 </div>
                 <div class="col-md-3">
                     <div class="row" style="position: sticky; top: 65px;">

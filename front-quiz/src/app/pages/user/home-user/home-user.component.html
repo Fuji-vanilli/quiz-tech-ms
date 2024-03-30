@@ -35,7 +35,7 @@
                                 
                             </div>
                         </div>
-                        <div class="text-result">
+                        <div class="text-result" *ngIf="dataResult.length> 0">
                             <strong>{{numberOfResult}}</strong><span>results of quiz that you have finished...</span>
                         </div>
                         <div class="ms-3 mt-3 content-result" *ngIf="dataResult.length> 0">
