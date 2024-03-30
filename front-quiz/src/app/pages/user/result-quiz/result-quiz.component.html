@@ -16,22 +16,16 @@
                                     <span>{{question.content}}</span>
                                 </div>
                                 <div class="option" *ngFor="let option of question.options">
-                                    <i class="bi bi-check-circle" *ngIf="question.answer=== option"></i>
-                                    <i class="bi bi-x-circle" *ngIf="(option=== answer[index]) && (question.answer!== option)"></i>
+                                    <i class="bi bi-check-circle-fill" *ngIf="question.answer=== option"></i>
+                                    <i class="bi bi-x-circle-fill" *ngIf="(option=== answer[index]) && (question.answer!== option)"></i>
                                     <i class="bi bi-circle" *ngIf="!(question.answer === option || (option === answer[index] && question.answer !== option))"></i>
                                     <span>{{option}}</span>
-                                    <!--span class="ms-3" *ngIf="question.answer=== option">
-                                        <img src="../../../../assets/correct.png" alt="" style="margin-right: 16px;">{{ option }}
-                                    </span>
-                                    <span class="ms-3" *ngIf="(option=== answer[index]) && (question.answer!== option)">
-                                        <img src="../../../../assets/wrong.png" alt="" style="margin-right: 16px;">{{ option }}
-                                    </span>
-                                    <span class="ms-3" *ngIf="!(question.answer === option || (option === answer[index] && question.answer !== option))">
-                                        <img src="../../../../assets/normal.png" alt="" style="margin-right: 16px;">{{ option }}
-                                    </span-->
                                 </div>
                                 <div class="indice">
                                     <span>{{index+1}}</span>
+                                </div>
+                                <div class="correct-answer">
+                                    <i class="bi bi-tags"></i>
                                 </div>
                             </div>
                         </div>

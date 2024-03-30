@@ -1,6 +1,6 @@
 .chart-result {
     background: var(--bg-100);
-    padding: 10px;
+    padding: 10px 8%;
     border-radius: 10px;
     overflow: hidden;
 }
@@ -20,50 +20,89 @@
             }
                         
             .contents {
-                border-left: 1px solid var(--primary-100);
                 background: var(--bg-100);
                 padding: 0 30px;
 
                 .box {
                     position: relative;
                     margin-bottom: 14px;
-                    padding: 14px 0;
+                    padding: 14px 24px;
+                    border: 1px solid var(--bg-300);
+                    border-radius: 8px;
 
                     .title-question {
                         margin-bottom: 16px;
 
                         span {
-                            color: var(--primary-100);
+                            color: var(--special-300);
                         }
                     }
 
                     .option {
+                        display: flex;
                         margin-bottom: 16px;
 
                         i {
-                            color: var(--primary-200);
+                            color: var(--primary-100);
                             margin-right: 14px;
+                            font-size: 16px;
+                        }
+
+                        i.bi-x-circle-fill {
+                            color: var(--delete-100);
+                        }
+
+                        i.bi-circle {
+                            color: var(--text-100);
                         }
 
                         span {
-                            color: var(--text-200);
+                            color: var(--text-100);
+                            font-size: 13px;
                         }
                     }
 
                     .indice {
                         position: absolute;
                         top: 0;
-                        right: calc(100% + 12px);
-                        background: var(--primary-100);
-                        padding: 6px 12px;
+                        right: calc(100% + 10px);
+                        background: var(--special-300);
                         border-radius: 50%;
                         border: 5px solid var(--bg-100);
 
                         span {
                             color: var(--text-100);
-                            line-height: 15px;
+                            border-radius: 50%;
+                            -moz-border-radius: 50%;
+                            -webkit-border-radius: 50%;
+                            display: inline-block;
+                            width: 30px;
+                            line-height: 30px;
+                            text-align: center;
+                            
                         }
                     }
+
+                    .correct-answer {
+                        position: absolute;
+                        top: 12px;
+                        right: 12px;
+
+                        i {
+                            color: var(--primary-200);
+                            font-size: 16px;
+                        }
+                    }
+                }
+
+                .box:not(:last-child)::before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: -30px;
+                    width: 1px;
+                    height: 105%;
+                    background: var(--special-300);
                 }
             }
         }
@@ -127,15 +166,6 @@
     margin-top: 14px;
 }
 
-.correct-answer {
-    background: #fff;
-    color: #2a9235;
-}
-
-.wrong-answer {
-    background: #fff;
-    color: #D90429;
-}
 
 .normal {
     background: #fff;
