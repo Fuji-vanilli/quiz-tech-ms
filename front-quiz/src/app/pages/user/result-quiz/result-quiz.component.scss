@@ -164,9 +164,9 @@
                     }
                 }
 
-                .box:hover h4, span{
+                .category:hover .info-category h4{
                     text-decoration: underline;
-                    color: var(--special-100);
+                    color: var(--primary-100);
                 }
             }
         }

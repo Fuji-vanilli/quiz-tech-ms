@@ -55,8 +55,7 @@
                                 <tbody>
                                     <tr *ngFor="let result of dataResult; let index= index">
                                         <td>{{pageIndex*pageSize+index+1}}</td>
-                                        <td class="text-center"><i class="bi bi-check2-circle"
-                                                style="color: #22c55e; font-weight: 600; font-size: 18px;"></i></td>
+                                        <td class="text-center check"><i class="bi bi-check2-circle"></i></td>
                                         <td>{{result.quiz?.title}}</td>
                                         <td
                                             [ngStyle]="{'color': result.quiz?.difficulty=== 'Easy' ? '#019b98' : result.quiz?.difficulty=== 'Medium' ? '#FF6600' : '#dd0025'}">
@@ -69,8 +68,7 @@
                                             <div class="quiz">
                                                 <span>{{result.frequency}}</span>
                                                 <button class="btn-requiz"
-                                                    [routerLink]="'/user/instructions/'+result.quiz?.id"><i
-                                                        class="bi bi-arrow-clockwise"></i>
+                                                    [routerLink]="'/user/instructions/'+result.quiz?.id">Requiz
                                                 </button>
                                             </div>
                                         </td>
