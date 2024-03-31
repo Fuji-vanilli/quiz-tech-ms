@@ -11,9 +11,13 @@ a {
 .content {
     .divider {
         margin-left: 14px;
+        margin-right: 80px;
         margin-bottom: 28px;
+        //border-top: 1px solid var(--bg-300);
+        border-bottom: 1px solid var(--bg-300);
+
         h4 {
-            color: var(--primary-100);
+            color: var(--primary-300);
         }
     }
 }
@@ -60,6 +64,12 @@ a {
         h2 {
             color: var(--text-100);
             margin: 1em 0 0 0;
+            cursor: pointer;
+        }
+
+        h2:hover {
+            color: var(--bg-100);
+            text-decoration: underline;
         }
 
         small {
@@ -82,7 +92,20 @@ a {
             transition: .2s;
         }
 
-        button {
+        button.unsubscribe {
+            transform: translateX(50%);
+            position: relative;
+            background: var(--primary-100);
+            border: 0;
+            border-radius: 3em;
+            padding: 0.8em 2em;
+            color: var(--text-100);
+            cursor: pointer;
+            width: 50%;
+            transition: .3s;
+        }
+
+        button.subscribe {
             background: rgba(171, 171, 171, 0.1);
             border: 0;
             border-radius: 3em;
@@ -99,6 +122,10 @@ a {
         color: var(--bg-100);
     }
 
+    .card-1:hover button.unsubscribe {
+        background: var(--bg-100);
+        color: var(--text-100);
+    }
     .card-1:hover p {
         color: var(--text-100);
     }
