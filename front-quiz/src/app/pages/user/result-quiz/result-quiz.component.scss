@@ -111,18 +111,27 @@
 
 .container-2 {
     margin-top: 16px;
+    padding: 0 20px 0 0;
+
     main.row {
         section.col {
+
             header.title {
                 h3 {
                     color: var(--text-100);
-                    background: var(--primary-100);
+                    background: var(--bg-300);
                     padding: 12px;
+                    border: 1px solid var(--bg-200);
+                    border-radius: 8px;
                 }
             }
 
             .contents {
-                margin-top: 24px;
+                margin-top: 12px;
+                border: 1px solid var(--bg-200);
+                padding: 16px;
+                border-radius: 8px;
+
                 .box {
                     //background: var(--bg-200);
                     margin-bottom: 28px;
@@ -148,11 +157,16 @@
                             }
 
                             span {
-                                color: var(--text-300);
+                                color: var(--text-200);
                                 font-size: 12px;
                             }
                         }
                     }
+                }
+
+                .box:hover h4, span{
+                    text-decoration: underline;
+                    color: var(--special-100);
                 }
             }
         }
@@ -161,71 +175,3 @@
 
 /**/
 
-
-.right-content {
-    position: sticky;
-    top: 0;
-    margin-right: 16px;
-}
-
-.right-content mat-card {
-    background: #fff;
-    border-radius: 10px 10px 0 0;
-    position: sticky;
-}
-
-.right-content mat-card-title {
-    color: #21262d;
-    font-size: 14px;
-    margin-bottom: 12px;
-    border-bottom: 1px solid #525252;
-}
-
-.right-content .btn-category {
-    padding: 4px 6px 4px 8px;
-    margin-top: 16px;
-    background: #f2f2f2;
-    border: 0;
-    border-radius: 16px;
-    color: #21262d;
-}
-
-.right-content .btn-category span {
-    border-radius: 16px;
-    background: #f59e0b;
-    color: #fff;
-    padding-left: 6px;
-    padding-right: 6px;
-    margin-left: 8px;
-}
-
-.right-content .all-quizzes .btn-view-all {
-    border: 0;
-    background: transparent;
-    color: #faa356;
-}
-
-.content mat-card {
-    background: #fff;
-    border-radius: 10px 10px 10px 10px;
-    box-shadow: 0 0 10px #21262d;
-    margin-bottom: 14px;
-}
-
-.list-options li {
-    margin-top: 14px;
-}
-
-
-.normal {
-    background: #fff;
-    color: #333333;
-}
-
-.question-number {
-    padding: 10px 12px;
-    background: #21262d;
-    color: #fff;
-    border: none;
-    border-radius: 10px 10px 0 0; 
-}

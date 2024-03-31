@@ -53,7 +53,7 @@ head {
 
             i.bi-search {
                 display: block;
-                color: var(--bg-200);
+                color: var(--text-200);
                 font-size: 20px;
             }
 
@@ -79,7 +79,7 @@ head {
 
             i.bi-x-lg {
                 display: block;
-                color: var(--primary-200);
+                color: var(--text-200);
                 font-size: 20px;
             }
         }
@@ -112,7 +112,6 @@ head {
 
     .col {
         .contents {
-            border-left: 2px solid var(--text-200);
             padding: 0 30px;
             
             .box {
@@ -120,10 +119,12 @@ head {
                 margin-bottom: 16px;
                 position: relative;
                 transition: all 0.4s ease;
+                //border: 1px solid var(--bg-200);
                 
                 header.title {
                     display: flex;
                     margin-bottom: 6px;
+
                     i {
                         color: var(--special-100); 
                         margin-right: 6px;
@@ -148,6 +149,7 @@ head {
 
                 .content {
                     display: flex;
+
                     .image {
                         border: 1px solid var(--primary-100);
                         padding: 8px;
@@ -182,7 +184,8 @@ head {
                         }
                         
                         p {
-                            color: var(--text-100);
+                            color: var(--text-200);
+                            font-size: 12px;
                         }
     
                         .start {
@@ -235,15 +238,15 @@ head {
                 }
             }
 
-            box::before {
+            .box:not(:last-child):before {
                 content: '';
                 position: absolute;
                 top: 0;
-                right: calc(100% + 20px);
-                width: 25px;
-                height: 25px;
+                left: -32px;
+                width: 1px;
+                height: 110%;
                 border-radius: 50%;
-                background: var(--primary-100);
+                background: var(--text-100);
             }
         }
     }
@@ -262,66 +265,55 @@ main.row {
 }
 
 .container-1 {
-    background-color: var(--bg-200);
-    padding: 35px 16px 35px 35px ;
+    padding: 10px 16px 35px 0 ;
 
     .col {
         header.title {
-            padding: 0 0 0 30px;
-            color: var(--primary-200);
+            display: flex;
+            padding: 15px 0 0 20px;
+            color: var(--text-100);
             font-family: helvetica;
-            //text-transform: uppercase;
+            border: 1px solid var(--bg-200);
+            border-radius: 8px 8px 0 0;
+            background: var(--bg-300);
+
+            i {
+                margin-right: 10px;
+                color: var(--primary-100);
+                font-size: 16px;
+            }
         }
     
         .contents {
-            padding: 0 30px;
-            border-left: 2px solid var(--text-200);
+            padding: 20px;
+            margin-bottom: 16px;
+            border: 1px solid var(--bg-200);
+            border-radius: 0 0 8px 8px;
     
             .box {
                 position: relative;
-                padding: 20px;
                 margin-bottom: 20px;
                 display: flex;
                 align-items: center;
-                background-color: var(--bg-100);
                 cursor: pointer;
                 transition: all 0.4s ease;
     
-                .icon-category {
-                    padding: 4px 6px;
-                    border-radius: 50%;
-                    background: var(--primary-100);
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    margin-right: 10px;
-    
+                .category {
                     i {
-                        color: var(--text-100);
-                        font-weight: 600;
-                   
+                        color: var(--text-200);
+                        margin-right: 14px;
+                        font-size: 10px;
+                    }
+
+                    span {
+                        color: var(--text-200);
                     }
                 }
-    
-                span {
-                    color: var(--text-100);
-                }
             }
     
-            .box:hover {
-                box-shadow: 0 3px 12px 0 var(--primary-200);
-            }
-    
-            .box::before {
-                content: '';
-                position: absolute;
-                top: 0;
-                right: calc(100% + 20px);
-                width: 22px;
-                height: 22px;
-                border-radius: 50%;
-                border: 4px solid var(--bg-200);
-                background-color: var(--primary-100);
+            .box:hover .category span{
+                text-decoration: underline;
+                color: var(--special-100);
             }
         }
     }

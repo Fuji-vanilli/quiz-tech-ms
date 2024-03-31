@@ -55,22 +55,25 @@ a {
     }
 }
 
-.profile .username {
-    margin-top: 18px;
-    font-size: 24px;
-    color: var(--text-100);
-    font-family: 'Inter';
-}
+.profile {
+    .username {
+        margin-top: 18px;
+        font-size: 24px;
+        color: var(--text-100);
+        font-family: 'Inter';
+    }
 
-.profile .email {
-    font-size: 14px;
-    color: var(--text-200);
+    .email {
+        font-size: 14px;
+        color: var(--text-200);
+    }
+    
 }
 
 .competence {
     margin-top: 16px;
-    color: var(--bg-300);
-    font-size: 12px;
+    color: var(--text-200);
+    font-size: 13px;
 }
 
 .edit-profile .btn-edit-profile {

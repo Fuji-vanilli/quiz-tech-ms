@@ -121,7 +121,26 @@
                 </div>
                 <div class="col-md-3 mt-3">
                     <div class="fixed-right">
-                        <div class="d-flex justify-content-between align-items-center" style="margin-right: 16px;">
+                        <main class="row">
+                            <div class="container-1">
+                                <section class="col" *ngFor="let category of categories.slice(0, 5)">
+                                    <header class="title">
+                                        <i [ngClass]="category.icon"></i>
+                                        <h4>{{category.title}}</h4>
+                                    </header>
+                    
+                                    <div class="contents">
+                                        <div class="box" *ngFor="let quizByCategory of quizByCategory(category.id)" [routerLink]="'/user/instructions/'+quizByCategory.id">
+                                            <div class="category">
+                                                <i class="bi bi-circle-fill"></i>
+                                                <span>{{quizByCategory.title}}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                        </main>
+                        <!--div class="d-flex justify-content-between align-items-center" style="margin-right: 16px;">
                             <span class="title-right">Suggestions categories</span><i class="bi bi-sliders"></i>
                         </div>
                         <div class="card" *ngFor="let quiz of homeQuizzes">
@@ -131,7 +150,7 @@
                         </div>
                         <button class="btn-all-quizzes" routerLink="/user/categories">View all Categories
                             <i class="bi bi-arrow-right ms-3"></i>
-                        </button>
+                        </button-->
                     </div>
                 </div>
             </div>

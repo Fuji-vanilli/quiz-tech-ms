@@ -162,7 +162,7 @@
         }
 
         tr:nth-child(even) {
-            background: var(--bg-200);
+            background: var(--bg-300);
         }
     }
 
@@ -220,7 +220,7 @@
 }
 
 .card-quiz{
-    background: var(--bg-200);
+    background: var(--bg-300);
     border-radius: 8px;
     padding: 16px;
 }
@@ -348,4 +348,60 @@
 
 .btn-all-quizzes:hover {
     opacity: .6;
+}
+
+
+.container-1 {
+    padding: 0 30px 35px 10px ;
+
+    .col {
+        header.title {
+            display: flex;
+            padding: 15px 0 0 20px;
+            color: var(--text-100);
+            font-family: helvetica;
+            border: 1px solid var(--bg-200);
+            border-radius: 8px 8px 0 0;
+            background: var(--bg-300);
+
+            i {
+                margin-right: 10px;
+                color: var(--primary-100);
+                font-size: 16px;
+            }
+        }
+    
+        .contents {
+            padding: 20px;
+            margin-bottom: 16px;
+            border: 1px solid var(--bg-200);
+            border-radius: 0 0 8px 8px;
+    
+            .box {
+                position: relative;
+                margin-bottom: 20px;
+                display: flex;
+                align-items: center;
+                cursor: pointer;
+                transition: all 0.4s ease;
+    
+                .category {
+                    i {
+                        color: var(--text-200);
+                        margin-right: 14px;
+                        font-size: 10px;
+                    }
+
+                    span {
+                        color: var(--text-200);
+                    }
+                }
+            }
+    
+            .box:hover .category span{
+                text-decoration: underline;
+                color: var(--special-100);
+            }
+        }
+    }
 }

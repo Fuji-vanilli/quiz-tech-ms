@@ -14,6 +14,8 @@ import { MatTableDataSource } from '@angular/material/table';
 
 import { ApexAxisChartSeries, ApexChart, ApexDataLabels, ApexStroke, ApexTooltip, ApexXAxis, ChartComponent, ChartType } from 'ng-apexcharts';
 import { UserService } from 'src/app/services/user.service';
+import { CategoryApiService } from 'src/app/services/category-api.service';
+import { Category } from '../../models/category.model';
 
 export type ChartOptions = {
   series: ApexAxisChartSeries;
@@ -41,6 +43,7 @@ export class HomeUserComponent implements OnInit{
   resultQuizNoDuplicate: any[]= [];
   dataResult: any[]= [];
   quizzes: Quiz[]= [];
+  categories: Category[]= [];
 
   numberOfResult: number= 0;
 
@@ -98,6 +101,7 @@ export class HomeUserComponent implements OnInit{
               private keycloakService: KeycloakService,
               private userService: UserService,
               private quizService: QuizApiService,
+              private categoryService: CategoryApiService,
               private route: Router) {
   
                 this.chartOptions = {
@@ -128,6 +132,7 @@ export class HomeUserComponent implements OnInit{
     this.loadProfile();   
     this.loadQuiz();
     this.removeDuplicateResult();
+    this.loadCategory();
   }
 
   handlePageEvent(e: PageEvent) {
@@ -197,6 +202,18 @@ export class HomeUserComponent implements OnInit{
     this.quizService.fetchAll(0, 20).subscribe({
       next: response=> {
         this.quizzes= response.data.quizzes;
+      },
+      error: err=> {
+        console.log(err);
+        
+      }
+    })
+  }
+
+  loadCategory() {
+    this.categoryService.fetchAll(0, 20).subscribe({
+      next: response=> {
+        this.categories= response.data.categories;
       },
       error: err=> {
         console.log(err);
@@ -280,6 +297,9 @@ export class HomeUserComponent implements OnInit{
     this.resultQuizNoDuplicate= Array.from(new Set(temp));
   }
 
+  quizByCategory(categoryId: any): Quiz[] {
+    return this.quizzes.filter(quiz=> quiz.categoryId=== categoryId);
+  }
   filterByQuizTitle (quizTitle: any){
     this.dataResult= this.resultQuizzes.filter(
       (result)=> result.quiz?.title=== quizTitle

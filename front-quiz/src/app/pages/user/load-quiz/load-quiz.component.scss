@@ -118,29 +118,30 @@
         margin-right: 10px;
         font-size: 12px;
         padding: 6px 10px;
-        border: 1px solid transparent;
+        border: 1px solid var(--bg-200);
         border-radius: 6px;
-        background:var(--bg-200);
+        background:var(--bg-300);
         color: var(--text-100);
         transition: all 0.6s ease;
     }
 
     .dropdowns {    
         .btn-sorted {
-            background: var(--bg-200);
+            background: var(--bg-300);
             color: var(--text-100);
             font-size: 12px;
             border-radius: 6px;
             padding: 6px 10px;
+            border: 1px solid var(--bg-200);
         }
 
         ul {
-            background: var(--bg-200);
+            background: var(--bg-300);
             margin-top: 8px;
 
             li {
                 a {
-                    color: var(--primary-100);
+                    color: var(--text-100);
                     font-size: 12px;
                     cursor: pointer;
                 }
@@ -157,7 +158,7 @@
     display: flex;
     justify-content: start;
     align-items: center;
-    background: var(--bg-100);
+    background: var(--bg-300);
     border: 1px solid var(--bg-200);
     border-radius: 6px;
 
@@ -177,10 +178,7 @@
     padding: 0 10%;
 
     section.col {
-        //background: var(--bg-300);
-
         .contents {
-            //border-left: 3px solid var(--text-200);
             border: 1px solid var(--bg-200);
             padding: 0 10px 20px 10px;
             border-radius: 6px;
@@ -217,13 +215,13 @@
 
                 .icon {
                     padding: 10px 12px;
-                    background: var(--bg-200);
+                    background: var(--bg-300);
                     border-radius: 50%;
                     margin-right: 16px;
                     transition: all .5s ease;
 
                     i {
-                        color: var(--bg-300);
+                        color: var(--text-300);
                     }
                 }
             }
@@ -320,7 +318,7 @@
                         position: absolute;
                         top: 15px;
                         right: 15px;
-                        background: var(--bg-200);
+                        background: var(--bg-300);
                         border-radius: 4px;
                         padding: 0 6px;
 
@@ -424,7 +422,7 @@
             }
 
             .box:hover {
-                border: 1px solid var(--primary-100);
+                border: 1px solid var(--text-200);
             }
 
             .box:not(:last-child):before {
@@ -432,7 +430,7 @@
                 position: absolute;
                 top: 0;
                 left: -35px;
-                background: var(--bg-300);
+                background: var(--text-200);
                 width: 1px;
                 height: 108%;
             }
