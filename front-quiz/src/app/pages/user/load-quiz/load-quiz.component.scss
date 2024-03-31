@@ -281,7 +281,7 @@
         }
 
         .contents {
-            border-left: 2px solid var(--text-300);
+            //border-left: 2px solid var(--text-300);
             padding: 0 30px;
             
             .box {
@@ -419,6 +419,16 @@
 
             .box:hover {
                 border: 1px solid var(--primary-100);
+            }
+
+            .box:not(:last-child):before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: -35px;
+                background: var(--special-300);
+                width: 2px;
+                height: 108%;
             }
         }
     }
