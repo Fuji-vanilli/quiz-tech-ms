@@ -97,8 +97,8 @@
 }
 
 .text-result {
-    border-top: 1px solid var(--bg-300);
-    border-bottom: 1px solid var(--bg-300);
+    border-top: 1px solid var(--bg-200);
+    border-bottom: 1px solid var(--bg-200);
     margin-left: 16px;
     margin-top: 12px;
     padding: 16px;
@@ -190,20 +190,20 @@
     position: sticky;
     top: 0;
     width: 95%;
+
+    i {
+        color: var(--primary-300);
+        font-size: 16px;
+    }
+    
+    .title-right {
+        margin-left: 14px;
+        margin-right: 14px;
+        font-size: 16px;
+        color: var(--primary-300);
+    } 
 }
 
-.fixed-right i {
-    color: var(--primary-300);
-    font-size: 16px;
-}
-
-.title-right {
-    margin-left: 14px;
-    margin-right: 14px;
-    font-size: 16px;
-    color: var(--primary-300);
-
-}
 
 /**/
 
@@ -212,7 +212,7 @@
     padding-bottom: 14px;
     padding-left: 10px;
     color: var(--primary-300);
-    border-bottom: 1px solid var(--bg-300);
+    border-bottom: 1px solid var(--bg-200);
 }
 
 .content-quiz {

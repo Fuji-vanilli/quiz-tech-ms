@@ -21,7 +21,7 @@
     background-color: var(--bg-100);
     padding: 24px;
     gap: 10px;
-    border-right: 1px solid var(--bg-300);
+    border-right: 1px solid var(--bg-200);
     transition: all .5s ease;
     z-index: 9999;
 }
@@ -30,7 +30,7 @@
     display: flex; 
     gap: 20px;
     padding-bottom: 10px;
-    border-bottom: 1px solid #656565;
+    border-bottom: 1px solid var(--bg-200);
 }
 
 .user-img {
@@ -116,7 +116,7 @@
 .menu:not(:last-child) {
     padding-bottom: 10px;
     margin-bottom: 10px;
-    border-bottom: 1px solid var(--bg-300);
+    border-bottom: 1px solid var(--bg-200);
 }
 
 .menu-btn {

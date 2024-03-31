@@ -36,7 +36,7 @@
                     align-items: center;
                     background: transparent;
                     padding: 8px 0 8px 0;
-                    border: 1px solid var(--bg-300);
+                    border: 1px solid var(--bg-200);
                     border-radius: 5px;
                     transition: all 0.5s ease;
             
@@ -47,11 +47,11 @@
                         margin-left: 16px;
                         outline: none;
                         font-size: 16px;
-                        color: var(--primary-200);
+                        color: var(--text-200);
                     }
             
                     ::placeholder {
-                        color: var(--primary-200);
+                        color: var(--text-200);
                         font-size: 14px;
                     }
             
@@ -64,13 +64,13 @@
             
                         i.bi-search {
                             display: block;
-                            color: var(--primary-200);
+                            color: var(--text-200);
                             font-size: 20px;
                         }
 
                         i.bi-x-lg {
                             display: none;
-                            color: var(--primary-200);
+                            color: var(--text-200);
                             font-size: 20px;
                         }
                     }
@@ -78,11 +78,11 @@
                 }
             
                 .box-search:hover {
-                    border: 1px solid var(--primary-100);
+                    border: 1px solid var(--text-200);
                 }
             
                 .box-search:focus-within {
-                    border: 1px solid var(--primary-100);
+                    border: 1px solid var(--text-200);
 
                     button {
                         i.bi-search {
@@ -140,7 +140,7 @@
 
             li {
                 a {
-                    color: var(--primary-200);
+                    color: var(--primary-100);
                     font-size: 12px;
                     cursor: pointer;
                 }
@@ -152,16 +152,17 @@
 .head {
     margin: 0 10%;
     margin-top: 20px;
+    margin-bottom: 14px;
     padding: 0 15px;
     display: flex;
-    justify-content: space-between;
+    justify-content: start;
     align-items: center;
     background: var(--bg-100);
-    border: 1px solid var(--bg-300);
-    border-radius: 6px 6px 0 0;
+    border: 1px solid var(--bg-200);
+    border-radius: 6px;
 
     h3 {
-        color: var(--primary-200);
+        color: var(--text-100);
         margin-bottom: 0;
         padding: 12px;
         font-family: 'Roboto';
@@ -180,8 +181,9 @@
 
         .contents {
             //border-left: 3px solid var(--text-200);
-            //border: 1px solid var(--bg-300);
+            border: 1px solid var(--bg-200);
             padding: 0 10px 20px 10px;
+            border-radius: 6px;
 
 
             .box {
@@ -190,7 +192,6 @@
                 margin-top: 16px;
                 display: flex;
                 align-items: center;
-                border-bottom: 1px solid transparent;
                 cursor: pointer;
                 transition: transform .5s ease;
 
@@ -205,7 +206,7 @@
                     }
 
                     span {
-                        color: var(--text-300);
+                        color: var(--text-200);
                         font-size: 12px;
                     }
 
@@ -222,7 +223,7 @@
                     transition: all .5s ease;
 
                     i {
-                        color: var(--text-300);
+                        color: var(--bg-300);
                     }
                 }
             }
@@ -231,7 +232,8 @@
                 transform: translateX(8%);
 
                 .icon {
-                    background: var(--special-300);
+                    background: var(--bg-100);
+                    border: 1px solid var(--bg-200);
 
                     i {
                         color: var(--text-100);
@@ -243,7 +245,8 @@
                 transform: translateX(8%);
             
                 .icon {
-                    background: var(--special-300);
+                    background: var(--bg-100);
+                    border: 1px solid var(--bg-200);
 
                     i {
                         color: var(--text-100);
@@ -281,13 +284,12 @@
         }
 
         .contents {
-            //border-left: 2px solid var(--text-300);
             padding: 0 30px;
             
             .box {
                 position: relative;
                 //background: var(--bg-200);
-                border: 1px solid var(--bg-100);
+                border: 1px solid var(--bg-200);
                 border-radius: 8px;
                 margin-bottom: 16px;
                 padding: 15px;
@@ -297,13 +299,14 @@
                 header.quiz{
                     margin-bottom: 10px;
                     margin-left: 1px;
+
                     i {
-                        color: var(--text-300);
+                        color: var(--text-200);
                         margin-right: 4px;
                     }
 
                     span {
-                        color: var(--text-300);
+                        color: var(--text-200);
                         margin-right: 4px;
                         font-size: 12px;
                     }
@@ -322,8 +325,8 @@
                         padding: 0 6px;
 
                         span {
-                            color: var(--text-300);
-                            font-size: 12px;
+                            color: var(--text-200);
+                            font-size: 11px;
                         }
                     }
                 }
@@ -347,7 +350,7 @@
                                 align-items: center;
 
                                 i {
-                                    border-left: 1px solid var(--bg-300);
+                                    border-left: 1px solid var(--bg-200);
                                     color: var(--special-100);
                                     margin-left: 6px;
                                     margin-right: 8px;
@@ -356,7 +359,7 @@
                                 }
 
                                 h3 {
-                                    color: var(--primary-200);
+                                    color: var(--primary-100);
                                     margin-bottom: 4px;
                                     font-weight: 550px;
                                     font-family: 'Roboto';
@@ -396,7 +399,7 @@
                                 bottom: 0;
                                 right: 0;
                                 i {
-                                    color: var(--special-300);
+                                    color: var(--special-200);
                                     font-size: 20px;
                                 }
                             }
@@ -429,7 +432,7 @@
                 position: absolute;
                 top: 0;
                 left: -35px;
-                background: var(--text-100);
+                background: var(--bg-300);
                 width: 1px;
                 height: 108%;
             }

@@ -33,11 +33,10 @@ a {
         justify-content: space-between;
         margin: 16px 14px 34px 14px;
         width: 22em;
-        background: rgba(171, 171, 171, 0.1);
+        background:var(--bg-200);
         padding: 2em;
         text-align: center;
         border-radius: 10px;
-        box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.5);
         position: relative;
         backdrop-filter: blur(4px);
         border: 1px #555 solid;
@@ -104,7 +103,7 @@ a {
         }
 
         button.subscribe {
-            background: rgba(171, 171, 171, 0.1);
+            background: var(--bg-100);
             border: 0;
             border-radius: 3em;
             padding: 0.8em 2em;

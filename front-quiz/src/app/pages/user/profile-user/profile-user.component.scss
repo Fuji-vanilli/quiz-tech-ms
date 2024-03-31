@@ -37,15 +37,22 @@ a {
     position: absolute;
     bottom: 17%;
     right: 0;
-    background: var(--bg-300);
+    background: var(--bg-200);
     padding: 6px 8px;
     border-radius: 50%;
     border: 3px solid var(--bg-100);
+
+    i {
+        color: var(--text-100);
+    }
 }
 
 .image-profile a:hover {
     background: #cccbc8;
-    color: #21262d;
+    
+    i {
+        color: var(--bg-100);
+    }
 }
 
 .profile .username {
@@ -62,12 +69,12 @@ a {
 
 .competence {
     margin-top: 16px;
-    color: var(--primary-300);
+    color: var(--bg-300);
     font-size: 12px;
 }
 
 .edit-profile .btn-edit-profile {
-    background: var(--primary-100);
+    background: var(--bg-200);
     color: var(--text-100);
     width: 100%;
     padding: 8px 18px;
@@ -95,7 +102,8 @@ a {
 }
 
 .btn-unsubscribe {
-    background: var(--primary-300);
+    background: var(--bg-100);
+    border: 1px solid var(--bg-200);
     color: var(--accent-200);
     width: 100%;
     padding: 8px 18px;
@@ -152,7 +160,7 @@ a {
 
 .btn-competence {
     border: 0;
-    background: var(--bg-300);
+    background: var(--bg-200);
     color: var(--text-100);
     border-radius: 24px;
     font-size: 13px; 
@@ -181,7 +189,7 @@ a {
 
 .card-finished {
     margin-bottom: 12px;
-    border: 1px solid var(--bg-300);
+    border: 1px solid var(--bg-200);
     border-radius: 6px;
     padding: 12px 16px;
 
@@ -190,18 +198,23 @@ a {
         color: var(--text-200);
     }
 
-}
+    .frequency {
+        color: #faa356;
+        font-size: 18px;
+    }
 
-.card-finished .frequency {
-    color: #faa356;
-    font-size: 18px;
 }
 
 .result-details {
     display: flex;
     justify-content: space-between;
+
     i {
         color: #faa356;
+    }
+
+    span {
+        font-size: 12px;
     }
 }
 
