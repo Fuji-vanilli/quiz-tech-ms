@@ -190,10 +190,17 @@
 
             header.header {
                 display: flex;
-                
+                margin-bottom: 14px;
+                justify-content: space-between;
+
+                .box-search, .sorted {
+                    flex-grow: 1;
+                    display: flex;
+                    justify-content: space-between;
+                }
+
                 .box-search {
-                    width: 50%;
-                    height: 50px;
+                    height: 35px;
                     display: flex;
                     align-items: center;
                     background: transparent;
@@ -259,12 +266,11 @@
     
                 .sorted {
                     display: flex;
-                    justify-content: end;
-                    padding: 0 8%;
                 
                     .btn-category {
                         font-size: 12px;
                         padding: 6px 10px;
+                        height: 35px;
                         border: 1px solid var(--bg-200);
                         border-radius: 6px;
                         background:var(--bg-300);
@@ -279,6 +285,7 @@
                             background: var(--bg-300);
                             color: var(--text-100);
                             font-size: 12px;
+                            height: 35px;
                             border-radius: 6px;
                             padding: 6px 10px;
                             border: 1px solid var(--bg-200);
