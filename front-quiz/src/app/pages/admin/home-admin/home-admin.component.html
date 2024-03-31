@@ -90,7 +90,7 @@
                             <th>Email</th>
                             <th>Description</th>
                             <th>Followers</th>
-                            <th>Role</th>
+                            <th>Created</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -102,9 +102,9 @@
                             </td>
                             <td>{{user.username}}</td>
                             <td>{{user.email}}</td>
-                            <td>{{user.description}}</td>
+                            <td>{{user.competences?.[0]}}</td>
                             <td>{{user.subscribers?.length}}</td>
-                            <td>{{user.roles}}</td>
+                            <td>{{user.createdDate.slice(0, 10)}}</td>
                         </tr>
                     </tbody>
                 </table>

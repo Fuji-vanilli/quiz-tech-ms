@@ -49,18 +49,48 @@
 
 .table {
     thead {
+        tr {
+            border-bottom: 1px solid var(--bg-200);
+            border-radius: 8px;
+            //border: 1px solid var(--bg-200);
+
+            th {
+                background: transparent;
+                color: var(--text-100);
+                font-weight: 500;
+                padding: 16px 0;
+            }
+        }
 
     }
 
     tbody {
-        td {
-            .profile-image {
-                border-radius: 50%;
-                img {
-                    width: 20px;
-                    height: 20px;
+        //border: 1px solid var(--bg-200);
+        border-radius: 8px;
+
+        tr {
+            td {
+                background: transparent;
+                color: var(--text-200);
+                border: 0;
+                padding: 14px 8px;
+
+                .profile-image {
+                    border-radius: 50%;
+                    height: 30px;
+                    width: 30px;
+                    margin-left: 16px;
+    
+                    img {
+                        width: 100%;
+                        border-radius: inherit;
+                    }
                 }
             }
+        }
+
+        tr:nth-child(even) {
+            background: var(--bg-300);
         }
     }
 }
