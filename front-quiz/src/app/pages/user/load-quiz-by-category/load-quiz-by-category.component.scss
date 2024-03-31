@@ -221,9 +221,14 @@
                             }
                         }
                     }
+
+                    .category.active h4{
+                        color: var(--special-100);
+                        text-decoration: underline;
+                    }
                 }
 
-                .box:hover .info-category h4{
+                .box:hover h4{
                     color: var(--special-100);
                     text-decoration: underline;
                 }

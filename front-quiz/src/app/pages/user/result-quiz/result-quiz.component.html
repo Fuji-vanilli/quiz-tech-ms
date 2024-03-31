@@ -7,8 +7,14 @@
             <div class="container-1">
                 <main class="row">
                     <section class="col">
+                        <div class="partition-bar">
+                            <ng-container *ngFor="let item of data">
+                                <div class="partition-item" [style.width.%]="item.value" [style.background]="item.color"></div>
+                            </ng-container>
+                        </div>
                         <header class="title">
                             <h3>Result Details of the Quiz</h3>
+
                         </header>
                         <div class="contents">
                             <div class="box" *ngFor="let question of quiz.questions; let index= index">

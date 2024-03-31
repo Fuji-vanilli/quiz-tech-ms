@@ -29,6 +29,12 @@ export class ResultQuizComponent implements OnInit {
   rateCorrect= 0;
   rateWrong= 0;
 
+  data= [
+    {value: 30, color: 'red'},
+    {value: 15, color: 'green'},
+    {value: 55, color: 'blue'}
+  ]
+
   profile!: KeycloakProfile | null;
 
   constructor(private resultService: ResultQuizService,
