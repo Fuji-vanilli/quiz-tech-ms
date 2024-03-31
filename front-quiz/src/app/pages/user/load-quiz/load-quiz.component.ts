@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, HostListener, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { QuizApiService } from 'src/app/services/quiz-api.service';
 import { Quiz } from '../../models/quiz.model';
 import { ActivatedRoute } from '@angular/router';
@@ -35,7 +35,8 @@ export class LoadQuizComponent implements OnInit, AfterViewInit {
   constructor(private quizService: QuizApiService,
               private categoryService: CategoryApiService,
               private activeRoute: ActivatedRoute,
-              private elementRef: ElementRef) { }
+              private elementRef: ElementRef,
+              private renderer: Renderer2) { }
 
   ngAfterViewInit(): void {
     this.activeCategory();
@@ -181,5 +182,22 @@ export class LoadQuizComponent implements OnInit, AfterViewInit {
       this.isOpen= false;
     }
   }
+
+  onScroll(event: Event) {
+    const target = event.target as HTMLElement;
+    const section1 = this.elementRef.nativeElement.querySelector('#section1');
+    const section2 = this.elementRef.nativeElement.querySelector('#section2');
+
+    if (true) {
+      // Fixe la position de la première section
+      this.renderer.setStyle(section1, 'position', 'sticky');
+      this.renderer.setStyle(section1, 'top', '0');
+      // Laisse la deuxième section se déplacer librement
+      this.renderer.setStyle(section2, 'position', 'relative');
+    } else {
+      // Réinitialise la position de la première section
+      this.renderer.setStyle(section1, 'position', 'static');
+    }
+ }
 
 }

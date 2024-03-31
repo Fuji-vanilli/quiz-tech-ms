@@ -193,14 +193,9 @@
                 margin-bottom: 14px;
                 justify-content: space-between;
 
-                .box-search, .sorted {
-                    flex-grow: 1;
-                    display: flex;
-                    justify-content: space-between;
-                }
-
                 .box-search {
                     height: 35px;
+                    width: 60%;
                     display: flex;
                     align-items: center;
                     background: transparent;
@@ -234,13 +229,13 @@
                         i.bi-search {
                             display: block;
                             color: var(--text-200);
-                            font-size: 20px;
+                            font-size: 16px;
                         }
     
                         i.bi-x-lg {
                             display: none;
                             color: var(--text-200);
-                            font-size: 20px;
+                            font-size: 16px;
                         }
                     }
             
@@ -260,6 +255,7 @@
     
                         i.bi-x-lg {
                             display: block;
+                            font-size: 16px;
                         }
                     }
                 }
@@ -273,9 +269,15 @@
                         height: 35px;
                         border: 1px solid var(--bg-200);
                         border-radius: 6px;
-                        background:var(--bg-300);
-                        color: var(--text-100);
+                        background:var(--primary-200);
+                        color: var(--bg-100);
+                        font-weight: 550;
                         transition: all 0.6s ease;
+
+                        i {
+                            margin-right: 4px;
+                            font-size: 16px;
+                        }
                     }
                 
                     .dropdowns {
@@ -289,6 +291,12 @@
                             border-radius: 6px;
                             padding: 6px 10px;
                             border: 1px solid var(--bg-200);
+
+                            i {
+                                margin-right: 4px;
+                                font-size: 16px;
+                                padding: 0;
+                            }
                         }
                 
                         ul {

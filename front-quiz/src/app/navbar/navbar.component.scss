@@ -131,34 +131,6 @@ a {
     font-size: 14px;
 }
 
-.admin {
-    i {
-        font-size: 18px;
-        color: var(--primary-100);
-        margin-right: 10px;
-    }
-
-    span {
-        color: var(--primary-100);
-    }
-
-    .dropdown-menu {
-        background: var(--primary-100);
-
-        .dropdown-item {
-            color: var(--text-100);
-        }
-
-        .dropdown-item:hover {
-            background: var(--primary-200);
-        }
-    }
-}
-
-.admin a:hover {
-    opacity: .6;
-}
-
 .btn-profile {
     width: 40px; 
     height: 40px; 
@@ -199,6 +171,37 @@ a {
 
 .btn-secondary {
     background: #fff; 
+}
+
+/***/
+
+.dropdowns {
+    .btn-sorted {
+        background: var(--bg-300);
+        border: 1px solid var(--bg-200);
+        color: var(--text-100);
+        font-size: 13px;
+
+        i {
+            font-size: 16px;
+            color: var(--primary-200);
+            margin-right: 12px;
+        }
+    }
+
+    ul {
+        margin-top: 12px;
+        background: var(--bg-300);
+        border: 1px solid var(--bg-200);
+
+        li {
+            font-size: 12px;
+        }
+
+        li:hover {
+            background: var(--bg-200);
+        }
+    }
 }
 
 /****/

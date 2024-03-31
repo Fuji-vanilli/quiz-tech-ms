@@ -1,71 +1,12 @@
 <div class="contain">
     <div class="row">
         <div class="col-md-12">
-            <!--div class="row">
-                <div class="col-md-4">
-                    <div class="content-top-1">
-                        <div class="box">
-                                <img src="../../../../assets/bendy-man-developer-writing-programming-code.gif" alt="">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-8" >
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="content-top-2">
-                                <main class="row">
-                                    <section class="col">
-                                        <div class="contents">
-                                            <div class="box">
-                                                <div class="box-search">
-                                                    <input type="text" [(ngModel)]="searchterm" (ngModelChange)="filterBySearchTerm()" placeholder="Search Quiz here ...">
-                                                    <button>
-                                                        <i class="bi bi-search"></i>
-                                                        <i class="bi bi-x-lg" *ngIf="showCloseIcon()" (click)="clearSearchTerm()"></i>
-                                                    </button>
-                                                </div>
-    
-                                                <div class="sorted">
-                                                    <button class="btn-category" [ngClass]="{'active': selectedCategory==='all'}" (click)="filterQuizByCategory('all')"><span>All Quizzes</span></button>
-                                                    <div class="dropdowns">
-                                                        <button class="btn btn-sorted dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                          Filter
-                                                        </button>
-                                                        <ul class="dropdown-menu dropdown-menu-dark">
-                                                            <li><a class="dropdown-item" routerLinkActive="active" (click)="filterByFrench()">French</a></li>
-                                                            <li><a class="dropdown-item" routerLinkActive="active" (click)="filterByEnglish()">English</a></li>
-                                                            <li><a class="dropdown-item" routerLinkActive="active" (click)="filterBySpain()">Spain</a></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="dropdowns">
-                                                        <button class="btn btn-sorted dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                          Sorted
-                                                        </button>
-                                                        <ul class="dropdown-menu dropdown-menu-dark">
-                                                            <li><a class="dropdown-item" routerLinkActive="active" (click)="sortedByName()">Name</a></li>
-                                                            <li><a class="dropdown-item" routerLinkActive="active" (click)="sortedByLevel()">Level</a></li>
-                                                            <li><a class="dropdown-item" routerLinkActive="active" (click)="sortedByLanguage()">Language</a></li>
-                                                            <li><a class="dropdown-item" routerLinkActive="active" (click)="sortedByMark()">Mark</a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>  
-                                            </div>
-                                        </div>
-                                    </section>
-                                </main>
-                            </div> 
-                        </div>
-                    </div>
-                </div>
-            </div-->
-            <div class="row">
-                
-            </div>
             <div class="row">
                 <div class="col-md-4">
                     <div class="head">
                         <i class="bi bi-columns-gap"></i>
                         <h3>Categories</h3>
+                        <small>Choose an category!</small>
                     </div>
                     <div class="container-1">
                         <section class="col">
@@ -87,14 +28,6 @@
                     </div>
                 </div>
                 <div class="col-md-8">
-                    <div class="no-result" *ngIf="filterQuizzesBySearchTerm.length=== 0  || filterQuizzes.length=== 0">
-                        <div class="image-no-result">
-                            <img src="../../../../assets/undraw_notify_re_65on.svg" alt=""><br>
-                        </div>
-                        <div class="d-flex justify-content-center align-items-center">
-                            <h4>No Quiz found....</h4>
-                        </div>
-                    </div>
                     <div class="container-2">
                         <section class="col">
                             <div class="contents">
@@ -110,7 +43,7 @@
                                         
                                         <div class="dropdowns">
                                             <button class="btn btn-sorted dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                              Filter
+                                                <i class="bi bi-filter"></i>Filter
                                             </button>
                                             <ul class="dropdown-menu dropdown-menu-dark">
                                                 <li><a class="dropdown-item" routerLinkActive="active" (click)="filterByFrench()">French</a></li>
@@ -120,7 +53,7 @@
                                         </div>
                                         <div class="dropdowns">
                                             <button class="btn btn-sorted dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                              Sorted
+                                                <i class="bi bi-sort-down"></i>Sorted
                                             </button>
                                             <ul class="dropdown-menu dropdown-menu-dark">
                                                 <li><a class="dropdown-item" routerLinkActive="active" (click)="sortedByName()">Name</a></li>
@@ -130,7 +63,10 @@
                                             </ul>
                                         </div>
                                         <div class="dropdowns">
-                                            <button class="btn-category" [ngClass]="{'active': selectedCategory==='all'}" (click)="filterQuizByCategory('all')"><span>All Quizzes</span></button>
+                                            <button class="btn-category" [ngClass]="{'active': selectedCategory==='all'}" (click)="filterQuizByCategory('all')">
+                                                <i class="bi bi-arrow-repeat"></i>
+                                                <span>All Quizzes</span>
+                                            </button>
                                         </div>
                                     </div> 
                                 </header>
@@ -180,6 +116,14 @@
                                 </div>
                             </div>
                         </section>
+                    </div>
+                    <div class="no-result" *ngIf="filterQuizzesBySearchTerm.length=== 0  || filterQuizzes.length=== 0">
+                        <div class="image-no-result">
+                            <img src="../../../../assets/undraw_notify_re_65on.svg" alt=""><br>
+                        </div>
+                        <div class="d-flex justify-content-center align-items-center">
+                            <h4>No Quiz found....</h4>
+                        </div>
                     </div>
                 </div>
             </div>
