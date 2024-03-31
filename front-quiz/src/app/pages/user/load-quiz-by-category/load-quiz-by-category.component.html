@@ -147,7 +147,7 @@
                             <h3>Trending other Category</h3>
                         </header>
                         <div class="contents">
-                            <div class="box" *ngFor="let category of categories">
+                            <div class="box" *ngFor="let category of categories" (click)="moveToTop(category)">
                                 <div class="category" [routerLink]="'/user/quizzes/'+category.id">
                                     <div class="icon">
                                         <i [ngClass]="category.icon"></i>

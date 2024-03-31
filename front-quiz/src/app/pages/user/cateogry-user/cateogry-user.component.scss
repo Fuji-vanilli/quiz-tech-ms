@@ -194,8 +194,9 @@ head {
                             left: 0;
                             
                             .btn-quiz {
-                                background: var(--accent-200);
-                                color: var(--primary-300);
+                                background: var(--primary-200);
+                                color: var(--bg-100);
+                                font-weight: 550;
                                 border: none; 
                                 margin-top: 18px;
                                 border-radius: 5px; 
@@ -254,15 +255,6 @@ head {
 
 
 /**/
-
-main.row {
-    display: grid;
-    //grid-template-columns: 1fr 1fr;
-    grid-column-gap: 20px;
-    margin-right: 20px;
-    position: sticky;
-    top: 0;
-}
 
 .container-1 {
     padding: 10px 16px 35px 0 ;

@@ -85,4 +85,13 @@ export class LoadQuizByCategoryComponent {
   toggleList() {
     this.isOpen= !this.isOpen;
   }
+
+  moveToTop(category: Category) {
+    const index= this.categories.indexOf(category);
+
+    if (index> -1) {
+      this.categories= this.categories.slice(index, 1);
+      this.categories.unshift(category);
+    }
+  }
 }

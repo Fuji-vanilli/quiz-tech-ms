@@ -1,12 +1,3 @@
-.contain {
-    padding-top: 16px;
-    margin-bottom: 12px;
-    background: transparent;
-    padding-bottom: 30px;
-}
-
-/*****/
-
 .container-1 {
     padding: 20px 5%;
 
@@ -30,8 +21,7 @@
             
             .box {
                 position: relative;
-                //background: var(--bg-200);
-                border: 1px solid var(--bg-100);
+                border: 1px solid var(--bg-200);
                 border-radius: 8px;
                 margin-bottom: 16px;
                 padding: 15px;
@@ -42,12 +32,12 @@
                     margin-bottom: 10px;
                     margin-left: 1px;
                     i {
-                        color: var(--special-100);
+                        color: var(--text-200);
                         margin-right: 4px;
                     }
 
                     span {
-                        color: var(--special-100);
+                        color: var(--text-200);
                         margin-right: 4px;
                     }
 
@@ -59,12 +49,12 @@
                         position: absolute;
                         top: 15px;
                         right: 15px;
-                        background: var(--bg-200);
+                        background: var(--bg-300);
                         border-radius: 4px;
                         padding: 0 6px;
 
                         span {
-                            color: var(--text-300);
+                            color: var(--text-200);
                             font-size: 12px;
                         }
                     }
@@ -74,6 +64,7 @@
                     position: relative;
                     .details {
                         display: flex;
+
                         .image {
                             margin-right: 16px;
                             img {
@@ -126,7 +117,7 @@
 
                                     span {
                                         font-size: 12px;
-                                        color: var(--accent-100);
+                                        color: var(--text-100);
 
                                     }
                                 }
@@ -137,7 +128,7 @@
                                 bottom: 0;
                                 right: 0;
                                 i {
-                                    color: var(--special-300);
+                                    color: var(--special-200);
                                     font-size: 20px;
                                 }
                             }
@@ -150,7 +141,7 @@
                     top: -4px;
                     right: calc(100% + 12px);
                     padding: 8px 10px;
-                    background: var(--special-300);
+                    background: var(--special-200);
                     border: 5px solid var(--bg-100);
                     border-radius: 50%;
 
@@ -170,8 +161,8 @@
                 position: absolute;
                 top: 0;
                 left: -35px;
-                background: var(--special-300);
-                width: 2px;
+                background: var(--text-100);
+                width: 1px;
                 height: 108%;
             }
         }
@@ -182,20 +173,26 @@
 
 .container-2 {
     margin-top: 16px;
+
     main.row {
         section.col {
+            padding: 0 35px 0 0;
+
             header.title {
                 h3 {
                     color: var(--text-100);
-                    background: var(--primary-100);
+                    background: var(--bg-300);
+                    border: 1px solid var(--bg-200);
+                    border-radius: 8px 8px 0 0;
                     padding: 12px;
                 }
             }
 
             .contents {
-                margin-top: 24px;
+                border: 1px solid var(--bg-200);
+                padding: 20px;
+
                 .box {
-                    //background: var(--bg-200);
                     margin-bottom: 28px;
                     padding: 0 16px 0 0;
 
@@ -225,59 +222,12 @@
                         }
                     }
                 }
+
+                .box:hover .info-category h4{
+                    color: var(--special-100);
+                    text-decoration: underline;
+                }
             }
         }
     }
-}
-
-
-
-/****/
-
-.right-content mat-card {
-    position: sticky;
-    top: 0;
-    background: #fff;
-    border-radius: 10px;
-    margin-right: 16px;
-}
-
-.right-content mat-card-title {
-    color: #89929b;
-    font-size: 14px;
-    margin-bottom: 12px;
-    border-bottom: 1px solid #525252;
-}
-
-.right-content .btn-category {
-    padding: 4px 6px 4px 8px;
-    margin-top: 16px;
-    background: #f2f2f2;
-    border: 0;
-    border-radius: 16px;
-    color: #21262d;
-
-    i {
-        color: #5200ae;
-        font-weight: 600;
-    }
-}
-
-.right-content .btn-category span {
-    border-radius: 16px;
-    background: #FEBE10;
-    color: #fff;
-    padding-left: 6px;
-    padding-right: 6px;
-    margin-left: 8px;
-}
-
-.right-content .all-quizzes .btn-view-all {
-    border: 0;
-    background: transparent;
-    color: #89929b;
-}
-
-.back {
-    color: #89929b;
 }
