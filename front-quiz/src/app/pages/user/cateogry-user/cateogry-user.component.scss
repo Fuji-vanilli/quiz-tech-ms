@@ -34,7 +34,7 @@ head {
             border: 0;
             flex: 1;
             outline: none;
-            color: var(--primary-100);
+            color: var(--text-200);
             font-size: 16px;
         }
     
@@ -59,18 +59,18 @@ head {
 
             i.bi-x-lg {
                 display: none;
-                color: var(--primary-200);
+                color: var(--bg-200);
                 font-size: 20px;
             }
         }
     }
 
     .box-search:hover {
-        border: 1px solid var(--primary-200);
+        border: 1px solid var(--text-200);
     }
     
     .box-search:focus-within {
-        border: 1px solid var(--primary-200);
+        border: 1px solid var(--text-200);
 
         button {
             i.bi-search {
@@ -113,7 +113,6 @@ head {
     .col {
         .contents {
             border-left: 2px solid var(--text-200);
-            border-right: 1px solid var(--bg-300);
             padding: 0 30px;
             
             .box {

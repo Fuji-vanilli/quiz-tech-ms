@@ -34,7 +34,7 @@
                             <div class="profile-img">
                                 <img [src]="user.photo" alt="">
                             </div>
-                            <h2>{{user.firstname+' '+user.lastname}}</h2>
+                            <h2 [routerLink]="'/user/profile/'+user.email">{{user.firstname+' '+user.lastname}}</h2>
                             <small>{{user.description}}</small>
                             <h3>About me</h3>
                             <p>{{user.biography}}</p>

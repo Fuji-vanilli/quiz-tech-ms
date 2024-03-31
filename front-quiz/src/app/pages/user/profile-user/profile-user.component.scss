@@ -104,12 +104,18 @@ a {
 .btn-unsubscribe {
     background: var(--bg-100);
     border: 1px solid var(--bg-200);
-    color: var(--accent-200);
+    color: var(--text-200);
     width: 100%;
     padding: 8px 18px;
     font-weight: 600;
-    border: 0;
     border-radius: 8px;
+    transition: all .5s ease;
+}
+
+.btn-unsubscribe:hover {
+    background: var(--bg-200);
+    border: 1px solid transparent;
+    color: var(--text-100);
 }
 
 .btn-subscribe:hover {
@@ -121,11 +127,14 @@ a {
     color: var(--text-100);
 
     i {
-        color: var(--primary-100);
+        color: var(--text-200);
     }
+
     span {
         margin-left: 12px;
+        color: var(--text-200);
     }
+
     strong {
         color: var(--text-200);
         margin-right: 4px;
@@ -161,9 +170,9 @@ a {
 .btn-competence {
     border: 0;
     background: var(--bg-200);
-    color: var(--text-100);
+    color: var(--text-200);
     border-radius: 24px;
-    font-size: 13px; 
+    font-size: 12px; 
     margin-left: 8px;
     margin-top: 10px;
     padding: 0 8px;
