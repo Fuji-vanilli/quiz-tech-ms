@@ -1,69 +1,68 @@
-.contain {
-    background: transparent;
-    margin-right: 24px;
+.container-1 {
+    .contents {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+
+        .box {
+            border: 1px solid var(--bg-200);
+            background: var(--bg-300);
+            margin-right: 16px;
+            margin-bottom: 16px;
+            border-radius: 8px;
+            padding: 20px;
+            width: 30%;
+
+            i {
+                color: var(--text-100);
+                margin-right: 14px;
+                font-size: 18px;
+            }
+
+            span {
+                color: var(--text-100);
+            }
+
+            h1 {
+                color: var(--special-100);
+                margin-top: 18px;
+            }
+
+            .rate {
+                i {
+                    color: var(--primary-200);
+                }
+
+                span {
+                    color: var(--primary-100);
+                    margin-right: 8px;
+                }
+
+                p {
+                    color: var(--text-200);
+                }
+            }
+        }
+    }
 }
 
-a {
-    cursor: pointer;
-    text-decoration: none;
-}
+.table {
+    thead {
 
-.content-left {
-    margin-bottom: 14px;
-    background: transparent;
-    
-}
+    }
 
-.card-visit {
-    padding: 16px;
-    background: #21262d;
-    border-radius: 8px;
-    margin-bottom: 28px;
-}
-
-.card-visit h1 {
-    color: #fff;
-}
-
-.card-visit span {
-    color: #89929b;
-}
-
-.card-visit i {
-    font-size: 16px;
-    margin-right: 8px;
-}
-
-.card-visit .rate p {
-    color: #89929b;
-    margin-left: 14px;
-}
-
-
-/***/
-.card-users {
-    padding: 16px;
-    background: #21262d;
-    border-radius: 8px;
-    margin-bottom: 28px;
-}
-
-.card-users .card-title span {
-    color: #89929b;
-}
-
-.card-title i {
-    font-size: 18px;
-    margin-right: 14px;
-}
-
-.card-users h1 {
-    color: #fff;
-} 
-
-.card-users p {
-    color: #89929b;
-    margin-left: 8px;
+    tbody {
+        td {
+            .profile-image {
+                border-radius: 50%;
+                img {
+                    width: 20px;
+                    height: 20px;
+                }
+            }
+        }
+    }
 }
 
 /**/
@@ -82,7 +81,8 @@ a {
     background: rgba(#21262d, 1);
 }
 
-.modal-content h4, h3 {
+.modal-content h4,
+h3 {
     color: #89929b;
 }
 
@@ -142,12 +142,12 @@ a {
     border-radius: 8px;
 }
 
-.btn-success{
+.btn-success {
     font-size: 12px;
     padding: 0 8px;
 }
 
-.content-right .card-user .header  img {
+.content-right .card-user .header img {
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -166,4 +166,3 @@ a {
     text-decoration: underline;
     color: #77bdfb;
 }
-
