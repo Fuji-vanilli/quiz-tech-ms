@@ -137,7 +137,8 @@
                     align-items: center;
     
                     .btn-requiz {
-                        background: transparent;
+                        background: var(--bg-300);
+                        border: 1px solid var(--bg-200);
                         border: 0;
                         color: var(--special-300);
                         font-size: 12px;
@@ -157,6 +158,14 @@
 
                 .nav-link {
                     color: var(--delete-100);
+                }
+            }
+
+            
+            .check {
+                i {
+                    color: var(--primary-100);
+                    font-size: 18px;
                 }
             }
         }

@@ -1,7 +1,7 @@
 <div class="contain">
     <div class="row">
         <div class="col-md-12">
-            <div class="row">
+            <!--div class="row">
                 <div class="col-md-4">
                     <div class="content-top-1">
                         <div class="box">
@@ -10,51 +10,54 @@
                     </div>
                 </div>
                 <div class="col-md-8" >
-                    <div class="content-top-2">
-                        <section class="col">
-                            <div class="contents">
-                                <div class="box">
-                                    <div class="box-search">
-                                        <input type="text" [(ngModel)]="searchterm" (ngModelChange)="filterBySearchTerm()" placeholder="Search Quiz here ...">
-                                        <button>
-                                            <i class="bi bi-search"></i>
-                                            <i class="bi bi-x-lg" *ngIf="showCloseIcon()" (click)="clearSearchTerm()"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
-                    </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="sorted">
-                                <button class="btn-category" [ngClass]="{'active': selectedCategory==='all'}" (click)="filterQuizByCategory('all')"><span>All Quizzes</span></button>
-                                <div class="dropdowns" style="margin-right: 10px;">
-                                    <button class="btn btn-sorted dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                      Filter
-                                    </button>
-                                    <ul class="dropdown-menu dropdown-menu-dark">
-                                        <li><a class="dropdown-item" routerLinkActive="active" (click)="filterByFrench()">French</a></li>
-                                        <li><a class="dropdown-item" routerLinkActive="active" (click)="filterByEnglish()">English</a></li>
-                                        <li><a class="dropdown-item" routerLinkActive="active" (click)="filterBySpain()">Spain</a></li>
-                                    </ul>
-                                </div>
-                                <div class="dropdowns">
-                                    <button class="btn btn-sorted dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                      Sorted
-                                    </button>
-                                    <ul class="dropdown-menu dropdown-menu-dark">
-                                        <li><a class="dropdown-item" routerLinkActive="active" (click)="sortedByName()">Name</a></li>
-                                        <li><a class="dropdown-item" routerLinkActive="active" (click)="sortedByLevel()">Level</a></li>
-                                        <li><a class="dropdown-item" routerLinkActive="active" (click)="sortedByLanguage()">Language</a></li>
-                                        <li><a class="dropdown-item" routerLinkActive="active" (click)="sortedByMark()">Mark</a></li>
-                                    </ul>
-                                </div>
-                            </div>   
+                            <div class="content-top-2">
+                                <main class="row">
+                                    <section class="col">
+                                        <div class="contents">
+                                            <div class="box">
+                                                <div class="box-search">
+                                                    <input type="text" [(ngModel)]="searchterm" (ngModelChange)="filterBySearchTerm()" placeholder="Search Quiz here ...">
+                                                    <button>
+                                                        <i class="bi bi-search"></i>
+                                                        <i class="bi bi-x-lg" *ngIf="showCloseIcon()" (click)="clearSearchTerm()"></i>
+                                                    </button>
+                                                </div>
+    
+                                                <div class="sorted">
+                                                    <button class="btn-category" [ngClass]="{'active': selectedCategory==='all'}" (click)="filterQuizByCategory('all')"><span>All Quizzes</span></button>
+                                                    <div class="dropdowns">
+                                                        <button class="btn btn-sorted dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                          Filter
+                                                        </button>
+                                                        <ul class="dropdown-menu dropdown-menu-dark">
+                                                            <li><a class="dropdown-item" routerLinkActive="active" (click)="filterByFrench()">French</a></li>
+                                                            <li><a class="dropdown-item" routerLinkActive="active" (click)="filterByEnglish()">English</a></li>
+                                                            <li><a class="dropdown-item" routerLinkActive="active" (click)="filterBySpain()">Spain</a></li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="dropdowns">
+                                                        <button class="btn btn-sorted dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                          Sorted
+                                                        </button>
+                                                        <ul class="dropdown-menu dropdown-menu-dark">
+                                                            <li><a class="dropdown-item" routerLinkActive="active" (click)="sortedByName()">Name</a></li>
+                                                            <li><a class="dropdown-item" routerLinkActive="active" (click)="sortedByLevel()">Level</a></li>
+                                                            <li><a class="dropdown-item" routerLinkActive="active" (click)="sortedByLanguage()">Language</a></li>
+                                                            <li><a class="dropdown-item" routerLinkActive="active" (click)="sortedByMark()">Mark</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>  
+                                            </div>
+                                        </div>
+                                    </section>
+                                </main>
+                            </div> 
                         </div>
                     </div>
                 </div>
-            </div>
+            </div-->
             <div class="row">
                 
             </div>
@@ -94,10 +97,40 @@
                     </div>
                     <div class="container-2">
                         <section class="col">
-                            <!--div class="header-title" *ngIf="filterQuizzesBySearchTerm.length> 0  || filterQuizzes.length> 0">
-                                <span>Choose and explore your Quiz</span>
-                            </div-->
                             <div class="contents">
+                                <header class="header">
+                                    <div class="box-search">
+                                        <input type="text" [(ngModel)]="searchterm" (ngModelChange)="filterBySearchTerm()" placeholder="Search Quiz here ...">
+                                        <button>
+                                            <i class="bi bi-search"></i>
+                                            <i class="bi bi-x-lg" *ngIf="showCloseIcon()" (click)="clearSearchTerm()"></i>
+                                        </button>
+                                    </div>
+                                    <div class="sorted">
+                                        <button class="btn-category" [ngClass]="{'active': selectedCategory==='all'}" (click)="filterQuizByCategory('all')"><span>All Quizzes</span></button>
+                                        <div class="dropdowns">
+                                            <button class="btn btn-sorted dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                              Filter
+                                            </button>
+                                            <ul class="dropdown-menu dropdown-menu-dark">
+                                                <li><a class="dropdown-item" routerLinkActive="active" (click)="filterByFrench()">French</a></li>
+                                                <li><a class="dropdown-item" routerLinkActive="active" (click)="filterByEnglish()">English</a></li>
+                                                <li><a class="dropdown-item" routerLinkActive="active" (click)="filterBySpain()">Spain</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="dropdowns">
+                                            <button class="btn btn-sorted dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                              Sorted
+                                            </button>
+                                            <ul class="dropdown-menu dropdown-menu-dark">
+                                                <li><a class="dropdown-item" routerLinkActive="active" (click)="sortedByName()">Name</a></li>
+                                                <li><a class="dropdown-item" routerLinkActive="active" (click)="sortedByLevel()">Level</a></li>
+                                                <li><a class="dropdown-item" routerLinkActive="active" (click)="sortedByLanguage()">Language</a></li>
+                                                <li><a class="dropdown-item" routerLinkActive="active" (click)="sortedByMark()">Mark</a></li>
+                                            </ul>
+                                        </div>
+                                    </div> 
+                                </header>
                                 <div class="box" *ngFor="let quiz of filterQuizzes | searchPipe: searchterm" [routerLink]="'/user/instructions/'+quiz.id">
                                     <header class="quiz">
                                         <i class="bi bi-bookmark-star"></i>
