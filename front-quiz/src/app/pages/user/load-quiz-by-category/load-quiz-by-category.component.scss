@@ -183,13 +183,14 @@
                     color: var(--text-100);
                     background: var(--bg-300);
                     border: 1px solid var(--bg-200);
-                    border-radius: 8px 8px 0 0;
+                    border-radius: 8px;
                     padding: 12px;
                 }
             }
 
             .contents {
                 border: 1px solid var(--bg-200);
+                border-radius: 8px;
                 padding: 20px;
 
                 .box {

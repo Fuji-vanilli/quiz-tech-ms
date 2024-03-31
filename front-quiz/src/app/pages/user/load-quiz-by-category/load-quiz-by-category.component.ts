@@ -30,6 +30,8 @@ export class LoadQuizByCategoryComponent {
               private routerActive: ActivatedRoute) {}
 
   ngOnInit(): void {
+    window.scrollTo({top: 0, behavior: 'smooth'})
+    
     this.routerActive.paramMap.subscribe(
       params=> {
         const categoryId= params.get('categoryId');

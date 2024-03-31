@@ -28,6 +28,7 @@ export class ResultQuizComponent implements OnInit {
   noAnswer= 0;
   rateCorrect= 0;
   rateWrong= 0;
+  rateNoAnswer= 0;
 
   data= [
     {value: 30, color: 'red'},
@@ -49,6 +50,8 @@ export class ResultQuizComponent implements OnInit {
     this.quizId= this.activeRoute.snapshot.params['quizId'];
     this.loadQuiz();    
     this.loadCategory();
+
+    window.scrollTo({top: 0, behavior: 'smooth'})
 
     this.keycloakService.loadUserProfile().then(
       profile=> {
@@ -99,6 +102,7 @@ export class ResultQuizComponent implements OnInit {
         
         this.rateCorrect= (this.correctAnswer*100)/this.quiz.questions.length; 
         this.rateWrong= (this.wrongAnswer*100)/this.quiz.questions.length; 
+        this.rateNoAnswer= 100 - (this.rateCorrect+ this.rateWrong);
 
         this.updateChartData();
       },

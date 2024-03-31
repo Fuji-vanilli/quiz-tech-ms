@@ -397,7 +397,7 @@
 
 
                             span {
-                                color: var(--text-100);
+                                color: var(--text-200);
                                 font-size: 12px;
                             }
 
@@ -428,8 +428,9 @@
                                 position: absolute;
                                 bottom: 0;
                                 right: 0;
+
                                 i {
-                                    color: var(--special-200);
+                                    color: var(--primary-200);
                                     font-size: 20px;
                                 }
                             }
