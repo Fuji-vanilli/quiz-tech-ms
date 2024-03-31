@@ -164,6 +164,17 @@ export class LoadQuizComponent implements OnInit, AfterViewInit {
     });
   }
 
+  upCategory(category: Category) {
+    const index= this.categories.indexOf(category);
+
+    if (index> -1) {
+      this.categories.splice(index, 1);
+      this.categories.unshift(category);
+
+      window.scrollTo({top: 0, behavior: 'smooth'})
+    }
+  }
+
   @HostListener('document:click', ['$event'])
   clickout(event: any) {
     if (!event.target.closest('#select')) {

@@ -93,15 +93,13 @@ a {
         }
 
         button.unsubscribe {
-            transform: translateX(50%);
             position: relative;
-            background: var(--primary-100);
+            background: var(--green-500);
             border: 0;
             border-radius: 3em;
             padding: 0.8em 2em;
             color: var(--text-100);
             cursor: pointer;
-            width: 50%;
             transition: .3s;
         }
 
@@ -113,6 +111,15 @@ a {
             color: var(--text-100);
             cursor: pointer;
             transition: .3s;
+        }
+
+        .subscribe-check {
+            position: absolute;
+            top: 10px;
+            right: 6px;
+            i {
+                color: var(--special-100);
+            }
         }
 
     }
@@ -139,7 +146,7 @@ a {
     }
 
     .card-1:nth-child(even) .profile-img, 
-    .card-1:nth-child(2)::before {
+    .card-1:nth-child(even)::before {
         background: linear-gradient(0deg, #ffc15d, #ff4e57);
     }
 

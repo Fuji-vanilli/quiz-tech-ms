@@ -180,7 +180,7 @@
 
         .contents {
             //border-left: 3px solid var(--text-200);
-            border: 1px solid var(--bg-300);
+            //border: 1px solid var(--bg-300);
             padding: 0 10px 20px 10px;
 
 
@@ -298,17 +298,19 @@
                     margin-bottom: 10px;
                     margin-left: 1px;
                     i {
-                        color: var(--special-100);
+                        color: var(--text-300);
                         margin-right: 4px;
                     }
 
                     span {
-                        color: var(--special-100);
+                        color: var(--text-300);
                         margin-right: 4px;
+                        font-size: 12px;
                     }
 
                     strong {
                         color: var(--text-100);
+                        font-size: 12px;
                     }
 
                     .updatedDate {
@@ -352,14 +354,15 @@
                                     padding-left: 12px;
 
                                 }
+
+                                h3 {
+                                    color: var(--primary-200);
+                                    margin-bottom: 4px;
+                                    font-weight: 550px;
+                                    font-family: 'Roboto';
+                                }
                             }
 
-                            h4 {
-                                color: var(--primary-100);
-                                margin-bottom: 4px;
-                                font-weight: 550px;
-                                font-family: 'Roboto';
-                            }
 
                             span {
                                 color: var(--text-200);
@@ -406,7 +409,7 @@
                     top: -4px;
                     right: calc(100% + 12px);
                     padding: 8px 10px;
-                    background: var(--special-300);
+                    background: var(--special-200);
                     border: 5px solid var(--bg-100);
                     border-radius: 50%;
 
@@ -426,8 +429,8 @@
                 position: absolute;
                 top: 0;
                 left: -35px;
-                background: var(--special-300);
-                width: 2px;
+                background: var(--text-100);
+                width: 1px;
                 height: 108%;
             }
         }

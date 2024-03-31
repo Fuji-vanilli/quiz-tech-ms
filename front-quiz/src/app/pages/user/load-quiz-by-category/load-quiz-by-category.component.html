@@ -140,7 +140,29 @@
         </div>
 
         <div class="col-md-3 right-content">
-            <mat-card>
+            <div class="container-2">
+                <main class="row">
+                    <section class="col">
+                        <header class="title">
+                            <h3>Trending other Category</h3>
+                        </header>
+                        <div class="contents">
+                            <div class="box" *ngFor="let category of categories">
+                                <div class="category" [routerLink]="'/user/quizzes/'+category.id">
+                                    <div class="icon">
+                                        <i [ngClass]="category.icon"></i>
+                                    </div>
+                                    <div class="info-category">
+                                        <h4>{{category.title}}</h4>
+                                        <span>{{category.description}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </main>
+            </div>
+            <!--mat-card>
                 <mat-card-header class="text-center">
                     <mat-card-title>Trending other Category</mat-card-title>
                 </mat-card-header>
@@ -157,7 +179,7 @@
                         </button>
                     </div>
                 </mat-card-content>
-            </mat-card>
+            </mat-card-->
 
         </div>
     </div>

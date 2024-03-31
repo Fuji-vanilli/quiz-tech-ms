@@ -71,7 +71,7 @@
                                     <div class="icon">
                                         <i [ngClass]="category.icon"></i>
                                     </div>
-                                    <div class="content">
+                                    <div class="content" (click)="upCategory(category)">
                                         <div>
                                             <h4>{{category.title}}</h4>
                                             <span>{{category.description}}</span>
@@ -113,7 +113,7 @@
                                             </div>
                                             <div class="title">
                                                 <div class="info-title">
-                                                    <h4>{{quiz.title}}</h4>
+                                                    <h3>{{quiz.title}}</h3>
                                                     <i class="bi bi-translate"></i>
                                                     <span>{{quiz.language}}</span>
                                                 </div>
@@ -133,7 +133,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="start-quiz">
-                                                    <a [routerLink]="'/user/instructions/'+quiz.id"><i class="bi bi-play-circle"></i></a>
+                                                    <a [routerLink]="'/user/instructions/'+quiz.id"><i class="bi bi-trophy-fill"></i></a>
                                                 </div>
                                             </div>
                                         </div>
@@ -147,58 +147,6 @@
                     </div>
                 </div>
             </div>
-            
-            <!--div class="row">
-                <div class="mt-3 d-flex justify-content-center align-items-center" *ngIf="filterQuizzesBySearchTerm.length=== 0">
-                    <h1 style="color: #89929b;">No Quizzes Find.....</h1>
-                </div>
-
-                <div class="col-md-3 content-quiz" *ngFor="let quiz of filterQuizzes | searchPipe: searchterm">
-                    <div class="card" [routerLink]="'/user/instructions/'+quiz.id">
-                        <div class="card-image">
-                            <img [src]="quiz.photo" alt="">
-                        </div> 
-                        <div class="card-quiz">
-                            <img [src]="quiz.imageUrl" alt="">
-                            <span class="title">{{quiz.title}}</span>
-                            <span class="description truncate">{{quiz.description}}</span>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="info">
-                                        <div class="question">
-                                            <i class="bi bi-question-square-fill"></i>
-                                            <span>{{quiz.numberOfQuestions+' Questions'}}</span> 
-                                       </div>
-                                       <div class="score">
-                                        <i class="bi bi-star-fill checked"></i>
-                                        <i class="bi bi-star-fill checked"></i>
-                                        <i class="bi bi-star-fill checked"></i>
-                                        <i class="bi bi-star-fill checked"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        </div>
-                                       
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="info">
-                                        <div class="duration">
-                                            <i class="bi bi-stopwatch-fill"></i>
-                                            <span>{{quiz.duration+' Minutes'}}</span>
-                                        </div>
-                                       <div class="level">
-                                            <i class="bi bi-bar-chart-fill"></i>
-                                            <span>{{quiz.difficulty}}</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="start">
-                            <button class="btn-start">START THIS QUIZ<i class="bi bi-play-circle ms-2"></i></button>
-                        </div>
-                    </div>
-                </div>
-            </div-->
         </div>
     </div>
 </div>
