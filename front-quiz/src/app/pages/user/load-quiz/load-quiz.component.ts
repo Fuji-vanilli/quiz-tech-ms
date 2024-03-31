@@ -183,21 +183,4 @@ export class LoadQuizComponent implements OnInit, AfterViewInit {
     }
   }
 
-  onScroll(event: Event) {
-    const target = event.target as HTMLElement;
-    const section1 = this.elementRef.nativeElement.querySelector('#section1');
-    const section2 = this.elementRef.nativeElement.querySelector('#section2');
-
-    if (true) {
-      // Fixe la position de la première section
-      this.renderer.setStyle(section1, 'position', 'sticky');
-      this.renderer.setStyle(section1, 'top', '0');
-      // Laisse la deuxième section se déplacer librement
-      this.renderer.setStyle(section2, 'position', 'relative');
-    } else {
-      // Réinitialise la position de la première section
-      this.renderer.setStyle(section1, 'position', 'static');
-    }
- }
-
 }
