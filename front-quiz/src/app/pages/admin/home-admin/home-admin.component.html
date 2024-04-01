@@ -82,32 +82,34 @@
                     </div>
                 </div>
 
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th></th>
-                            <th>Fullname</th>
-                            <th>Email</th>
-                            <th>Description</th>
-                            <th>Followers</th>
-                            <th>Created</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let user of users">
-                            <td>
-                                <div class="profile-image">
-                                    <img [src]="user.photo" alt="">
-                                </div>
-                            </td>
-                            <td>{{user.username}}</td>
-                            <td>{{user.email}}</td>
-                            <td>{{user.competences?.[0]}}</td>
-                            <td>{{user.subscribers?.length}}</td>
-                            <td>{{user.createdDate.slice(0, 10)}}</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div class="user-list">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Fullname</th>
+                                <th>Email</th>
+                                <th>Description</th>
+                                <th>Followers</th>
+                                <th>Created</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let user of users">
+                                <td>
+                                    <div class="profile-image">
+                                        <img [src]="user.photo" alt="">
+                                    </div>
+                                </td>
+                                <td><a [routerLink]="'/user/profile/'+user.email">{{user.username}}</a></td>
+                                <td>{{user.email}}</td>
+                                <td>{{user.competences?.[0]}}</td>
+                                <td>{{user.subscribers?.length}}</td>
+                                <td>{{user.createdDate.slice(0, 10)}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
         <!--div class="col-md-3 content-right">

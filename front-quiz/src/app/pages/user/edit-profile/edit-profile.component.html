@@ -3,6 +3,7 @@
         <div class="col-md-6 offset-md-3 content">
             <div class="container-1">
                 <div class="contents">
+                    <h3>Edit Your Profile</h3>
                     <form [formGroup]="formGroup" (ngSubmit)="updateUser()">
                         <label>Firstname</label>
                         <div class="field">
@@ -22,7 +23,7 @@
                         <label>Email</label>
                         <div class="field">
                             <i class="bi bi-envelope-at-fill"></i>
-                            <input type="email" placeholder="Email" formControlName="email">
+                            <input type="email" placeholder="Email" formControlName="email" readonly>
                         </div>
                         <label>Title</label>
                         <div class="field">
@@ -36,13 +37,13 @@
                         </div>
                         <label>Give your Competences</label>
                         <div class="field">
-                            <div id="comptences" class="chip-grid">
+                            <div class="chip-grid">
                                 <div class="chip" *ngFor="let competence of competences; let index= index">
                                     {{competence}}
-                                    <button class="chip-remove" (click)="removeCompetence(index)"><i class="bi bi-x-lg"></i></button>
+                                    <button class="chip-remove" (click)="removeCompetence(index)">x</button>
                                 </div>
                             </div>
-                            <input type="text" id="add-competence" placeholder="Add competence..." (keyup.enter)="addCompetence($event.target)">
+                            <input type="text" id="add-competence" placeholder="Add competence..." #inputElement (keyup.enter)="addCompetence(inputElement)">
                         </div>
                         <div class="update">
                             <button class="submit"><i class="bi bi-arrow-repeat"></i>Update</button>

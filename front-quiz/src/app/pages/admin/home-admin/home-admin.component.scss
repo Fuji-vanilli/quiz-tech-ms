@@ -44,55 +44,70 @@
             }
         }
     }
-}
 
-.table {
-    thead {
-        tr {
-            border-bottom: 1px solid var(--bg-200);
-            border-radius: 8px;
-            //border: 1px solid var(--bg-200);
+    .user-list {
+        padding-right: 70px;
 
-            th {
-                background: transparent;
-                color: var(--text-100);
-                font-weight: 500;
-                padding: 16px 0;
-            }
-        }
+        .table {
+            thead {
+                tr {
+                    border-bottom: 1px solid var(--bg-200);
+                    border: 1px solid var(--bg-200);
 
-    }
-
-    tbody {
-        //border: 1px solid var(--bg-200);
-        border-radius: 8px;
-
-        tr {
-            td {
-                background: transparent;
-                color: var(--text-200);
-                border: 0;
-                padding: 14px 8px;
-
-                .profile-image {
-                    border-radius: 50%;
-                    height: 30px;
-                    width: 30px;
-                    margin-left: 16px;
-    
-                    img {
-                        width: 100%;
-                        border-radius: inherit;
+                    th {
+                        background: transparent;
+                        color: var(--text-100);
+                        font-weight: 500;
+                        padding: 16px 0;
                     }
+                }
+
+            }
+
+            tbody {
+                border: 1px solid var(--bg-200);
+                border-radius: 8px;
+
+                tr {
+                    td {
+                        background: transparent;
+                        color: var(--text-200);
+                        border: 0;
+                        padding: 14px 8px;
+                        font-size: 12px;
+
+                        .profile-image {
+                            border-radius: 50%;
+                            height: 30px;
+                            width: 30px;
+                            margin-left: 16px;
+            
+                            img {
+                                width: 100%;
+                                border-radius: inherit;
+                            }
+                        }
+
+                        a {
+                            color: var(--text-200);
+                            text-decoration: none;
+                        }
+
+                        a:hover {
+                            color: var(--special-100);
+                            text-decoration: underline;
+                        }
+                    }
+                }
+
+                tr:nth-child(even) {
+                    background: var(--bg-300);
                 }
             }
         }
-
-        tr:nth-child(even) {
-            background: var(--bg-300);
-        }
     }
 }
+
 
 /**/
 .content-chart {

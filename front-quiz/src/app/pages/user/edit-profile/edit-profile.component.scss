@@ -1,11 +1,26 @@
 .container-1 {
     padding: 30px 5%;
     .contents {
+        position: relative;
+        border: 1px solid var(--primary-200);
+        padding: 20px;
+        border-radius: 8px;
+
+        h3 {
+            color: var(--text-100);
+            background: var(--bg-100);
+            padding: 0 16px;
+            position: absolute;
+            top: -16px;
+            left: 40%;
+        }
+
         form {
             label {
                 color: var(--text-100);
                 margin-bottom: 12px;
             }
+
             .field {
                 border: 1px solid var(--bg-200);
                 padding: 8px 12px;
@@ -13,7 +28,7 @@
                 margin-bottom: 16px;
 
                 i {
-                    color: var(--text-200);
+                    color: var(--primary-200);
                     margin-right: 12px;
                 }
 
@@ -28,6 +43,34 @@
                 ::placeholder {
                     color: var(--text-200);
                 }
+
+                .chip-grid {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 8px;
+
+                    .chip {
+                        display: inline-flex;
+                        align-items: center;
+                        margin-bottom: 14px;
+                        background: var(--bg-300);
+                        padding: 4px 8px;
+                        color: var(--text-100);
+                        font-size: 12px;
+                        border-radius: 16px;
+
+                        button.chip-remove {
+                            color: var(--text-100);
+                            border: 0;
+                            border-radius: 30px;
+                            background: transparent;
+                        }
+                    }
+                }
+            }
+
+            .field:focus-within {
+                border: 1px solid var(--primary-200);
             }
 
             .full-width {
@@ -47,10 +90,15 @@
                     background: var(--primary-200);
                     border-radius: 6px;
                     font-weight: 550;
+                    transition: all 0.4s ease;
     
                     i {
                         margin-right: 4px;
                     }
+                }
+
+                button.submit:hover {
+                    opacity: .6;
                 }
             }
         }

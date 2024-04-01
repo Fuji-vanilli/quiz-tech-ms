@@ -35,6 +35,8 @@ export class EditProfileComponent implements OnInit {
   ngOnInit(): void {
     this.user= this.userService.userTemp;
     this.competences= this.userService.userTemp.competences!;
+    window.scrollTo({top: 0, behavior: 'smooth'});
+
     this.keycloakService.loadUserProfile().then(
       profile=> {
         this.profile= profile;
@@ -70,15 +72,20 @@ export class EditProfileComponent implements OnInit {
     })
   }
 
-  addCompetence(inputElement: any) {
+  addCompetence(inputElement: HTMLInputElement) {
     const competence= inputElement.value.trim();
     if (competence!== '') {
       this.competences.push(competence);
     }
+
+    console.log('comptences: '+this.competences);
+    
+    inputElement.value= '';
   }
 
   removeCompetence(index: number) {
     this.competences.splice(index, 1);
+    console.log('comptences: '+this.competences);
   }
 
 /*
