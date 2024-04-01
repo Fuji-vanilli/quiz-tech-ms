@@ -3,17 +3,19 @@
     main.row {
         section.col {
             header.title {
+                display: flex;
+                justify-content: space-between;
+
                 h3 {
                     color: var(--text-100);
                     font-family: 'Poppins';
+                    font-weight: 550;
                 }
 
                 .action {
-                    display: flex;
-                    
                     button {
                         border: 0;
-                        padding: 6px 12px;
+                        padding: 6px 20px;
                         border-radius: 6px;
                     }
 
@@ -35,6 +37,13 @@
             }
 
             .contents {
+                .step-add {
+                    ul.step-list {
+                        li.step-item {
+                            color: var(--text-200);
+                        }
+                    }
+                }
                 .box {
 
                 }
