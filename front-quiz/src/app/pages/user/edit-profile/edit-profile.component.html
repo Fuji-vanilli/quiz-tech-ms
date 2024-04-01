@@ -3,30 +3,36 @@
         <div class="col-md-6 offset-md-3 content">
             <div class="container-1">
                 <div class="contents">
-                    <form action="">
+                    <form [formGroup]="formGroup", (ngSubmit)="updateUser()">
+                        <label>Firstname</label>
                         <div class="field">
                             <i class="bi bi-person-fill"></i>
-                            <input type="text" placeholder="Firstname">
+                            <input type="text" placeholder="Firstname" formControlName="firstname">
                         </div>
+                        <label>Lastname</label>
                         <div class="field">
                             <i class="bi bi-person-fill"></i>
-                            <input type="text" placeholder="Lastname">
+                            <input type="text" placeholder="Lastname" formControlName="lastname">
                         </div>
+                        <label>Username</label>
                         <div class="field">
                             <i class="bi bi-person-fill"></i>
-                            <input type="text" placeholder="Username">
+                            <input type="text" placeholder="Username" formControlName="username">
                         </div>
+                        <label>Email</label>
                         <div class="field">
                             <i class="bi bi-envelope-at-fill"></i>
-                            <input type="email" placeholder="Email">
+                            <input type="email" placeholder="Email" formControlName="email">
                         </div>
+                        <label>Title</label>
                         <div class="field">
                             <i class="bi bi-pencil-square"></i>
-                            <input type="text" placeholder="Title">
+                            <input type="text" placeholder="Title" formControlName="description">
                         </div>
+                        <label>Biography</label>
                         <div class="field">
                             <i class="bi bi-person-circle"></i>
-                            <input type="text" placeholder="Biography">
+                            <input type="text" placeholder="Biography" formControlName="biography">
                         </div>
                     </form>
                 </div>

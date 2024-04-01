@@ -1,10 +1,16 @@
 .container-1 {
+    padding: 30px 5%;
     .contents {
         form {
+            label {
+                color: var(--text-100);
+                margin-bottom: 12px;
+            }
             .field {
                 border: 1px solid var(--bg-200);
                 padding: 8px 12px;
                 border-radius: 8px;
+                margin-bottom: 16px;
 
                 i {
                     color: var(--text-200);
