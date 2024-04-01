@@ -70,6 +70,18 @@ export class EditProfileComponent implements OnInit {
     })
   }
 
+  addCompetence(inputElement: any) {
+    const competence= inputElement.value.trim();
+    if (competence!== '') {
+      this.competences.push(competence);
+    }
+  }
+
+  removeCompetence(index: number) {
+    this.competences.splice(index, 1);
+  }
+
+/*
   removeComptence(competence: string) {
     const index = this.competences.indexOf(competence);
     if (index >= 0) {
@@ -88,7 +100,7 @@ export class EditProfileComponent implements OnInit {
 
     event.chipInput!.clear();
   }
-
+*/
   removeOrganisation(competence: string) {
     const index = this.competences.indexOf(competence);
     if (index >= 0) {

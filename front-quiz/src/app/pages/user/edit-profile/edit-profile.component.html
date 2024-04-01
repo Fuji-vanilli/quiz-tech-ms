@@ -34,6 +34,16 @@
                             <i class="bi bi-person-circle"></i>
                             <input type="text" placeholder="Biography" formControlName="biography">
                         </div>
+                        <label>Give your Competences</label>
+                        <div class="field">
+                            <div id="comptences" class="chip-grid">
+                                <div class="chip" *ngFor="let competence of competences; let index= index">
+                                    {{competence}}
+                                    <button class="chip-remove" (click)="removeCompetence(index)"><i class="bi bi-x-lg"></i></button>
+                                </div>
+                            </div>
+                            <input type="text" id="add-competence" placeholder="Add competence..." (keyup.enter)="addCompetence($event.target)">
+                        </div>
                         <div class="update">
                             <button class="submit"><i class="bi bi-arrow-repeat"></i>Update</button>
                         </div>
