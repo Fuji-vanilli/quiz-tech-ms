@@ -22,6 +22,10 @@
                     button.cancel {
                         margin-right: 6px;
                         font-weight: 550;
+
+                        i {
+                            margin-right: 6px;
+                        }
                     }
 
                     button.next {
@@ -129,9 +133,10 @@
                     margin:16px 3%;
 
                     .box {
-                        margin-top: 20px;
 
                         .course-title {
+                            margin-bottom: 30px;
+
                             h4 {
                                 font-size: 13px;
 
