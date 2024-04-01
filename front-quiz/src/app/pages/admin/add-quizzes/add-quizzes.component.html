@@ -7,7 +7,7 @@
                         <header class="title">
                             <h3>Create new Quiz</h3>
                             <div class="action">
-                                <button class="cancel">Cancel</button>
+                                <button class="cancel" (click)="backStep()">Back</button>
                                 <button class="next" (click)="nextStep()">Next<i class="bi bi-chevron-right"></i></button>
                             </div>
                         </header>
@@ -38,9 +38,9 @@
                                         </div>
                                         <span class="description">Create Quiz</span>
                                     </li>
-                                    <li [class.active]="activeSteps[3]">
+                                    <li [class.active]="activeSteps[3]" class="end">
                                         <i class="bi bi-check2-square"></i>
-                                        <div class="progress1 end">
+                                        <div class="progress1">
                                             <span>4</span>
                                             <i class="bi bi-check"></i>
                                         </div>
@@ -48,29 +48,26 @@
                                     </li>
                                 </ul>
                             </div>
-                            <!--section class="step-add">
-                                <ul class="step-list">
-                                    <li class="step-item">
-                                        <span class="progress-count">1</span>
-                                        <span class="item-info">Course & Lesson</span>
-                                    </li>
-                                    <li class="step-item current-item">
-                                        <span class="progress-count">2</span>
-                                        <span class="item-info">Info Quiz</span>
-                                    </li>
-                                    <li class="step-item">
-                                        <span class="progress-count">3</span>
-                                        <span class="item-info">Create Quiz</span>
-                                    </li>
-                                    <li class="step-item">
-                                        <span class="progress-count">4</span>
-                                        <span class="item-info">Finish</span>
-                                    </li>
-                                </ul>
-                            </section-->
-                            <div class="box">
+                            
+                            <form action="">
+                                <div class="box">
+                                    <div class="course-title">
+                                        <h4>You can upload or make an course or lesson so that the <span>Student</span> read before to start the <span>Quiz</span></h4>
+                                    </div>
 
-                            </div>
+                                    <label>Title</label>
+                                    <div class="field">
+                                        <i class="bi bi-card-heading"></i>
+                                        <input type="text" placeholder="Title" formControlName="title">
+                                    </div>
+
+                                    <label>Description</label>
+                                    <div class="field">
+                                        <i class="bi bi-pencil-square"></i>
+                                        <input type="text" placeholder="description" formControlName="description">
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </section>
                 </main>
