@@ -55,16 +55,21 @@
                                         <h4>You can upload or make an course or lesson so that the <span>Student</span> read before to start the <span>Quiz</span></h4>
                                     </div>
 
-                                    <label>Title</label>
+                                    <label>Title <span>*</span></label>
                                     <div class="field">
                                         <i class="bi bi-card-heading"></i>
                                         <input type="text" placeholder="Title" formControlName="title">
                                     </div>
 
-                                    <label>Description</label>
+                                    <label>Description <span>*</span></label>
                                     <div class="field">
                                         <i class="bi bi-pencil-square"></i>
                                         <input type="text" placeholder="description" formControlName="description">
+                                    </div>
+
+                                    <label>Upload course or lesson <span>*</span></label>
+                                    <div>
+                                        <input type="file" class="upload" placeholder="No file choosen" formControlName="description">
                                     </div>
                                 </div>
                             </form>

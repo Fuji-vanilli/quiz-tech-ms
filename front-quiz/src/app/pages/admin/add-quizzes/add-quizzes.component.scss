@@ -129,6 +129,8 @@
                     margin:16px 3%;
 
                     .box {
+                        margin-top: 20px;
+
                         .course-title {
                             h4 {
                                 font-size: 13px;
@@ -143,6 +145,10 @@
                         label {
                             color: var(--text-100);
                             margin-bottom: 14px;
+
+                            span {
+                                color: var(--delete-100);
+                            }
                         }
 
                         .field {
@@ -168,6 +174,42 @@
                             ::placeholder {
                                 color: var(--text-200);
                             }
+                        }
+
+                        .upload {
+                            background: transparent;
+                            border: 1px solid var(--bg-200);
+                            color: var(--text-200);
+                            border-radius: 8px;
+                            width: 50%;
+                            outline: none;
+                        }
+
+                        ::-webkit-file-upload-button {
+                            background: var(--primary-200);
+                            border: 0;
+                            color: var(--bg-100);
+                            font-weight: 550;
+                            padding: 8px 12px;
+                            margin-right: 10px;
+                            border-right: 1px solid var(--bg-300);
+                            cursor: pointer;
+                        }
+
+                        .upload-file {
+                            padding: 0;
+                            border-radius: 8px;
+                            display: flex;
+                            
+                                span {
+                                    color: var(--text-100);
+                                    background: var(--bg-300);
+                                    padding: 8px 12px;
+                                    width: 30%;
+                                    margin-right: 14px;
+                                    border-right: 1px solid var(--bg-200);
+                                    border-radius: 8px 0 0 8px;
+                                }
                         }
             
                         .field:focus-within {
