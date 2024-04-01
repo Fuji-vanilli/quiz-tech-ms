@@ -36,6 +36,8 @@ export class AddQuizzesComponent implements OnInit{
       this.categories= response.data.categories;
     }
    })
+
+   window.scrollTo({top: 0, behavior: 'smooth'});
   }
 
   loadFormGoup() {

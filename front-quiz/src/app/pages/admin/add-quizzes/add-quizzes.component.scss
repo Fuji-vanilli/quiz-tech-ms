@@ -132,7 +132,8 @@
                 form {
                     margin:16px 3%;
 
-                    .box {
+                    .box-course {
+                        display: none;
 
                         .course-title {
                             margin-bottom: 30px;
@@ -220,6 +221,70 @@
                         .field:focus-within {
                             border: 1px solid var(--primary-200);
                         }
+                    }
+
+                    .box-course.active {
+                        display: block;
+                    }
+
+                    .box-info {
+                        .info-title {
+                            margin-bottom: 30px;
+
+                            h4 {
+                                font-size: 13px;
+
+                                color: var(--text-100);
+                                span {
+                                    color: var(--primary-200);
+                                }
+                            }
+
+                            
+                        }
+
+                        main.row {
+                            section.col {
+                                label {
+                                    color: var(--text-100);
+                                    margin-bottom: 14px;
+        
+                                    span {
+                                        color: var(--delete-100);
+                                    }
+                                }
+                                
+                                .field {
+                                    border: 1px solid var(--bg-200);
+                                    padding: 8px 12px;
+                                    border-radius: 8px;
+                                    margin-bottom: 16px;
+                                    width: 100%;
+                    
+                                    i {
+                                        color: var(--primary-200);
+                                        margin-right: 12px;
+                                    }
+                    
+                                    input {
+                                        background: transparent;
+                                        color: var(--text-200);
+                                        outline: none;
+                                        border: 0;
+                                        width: 90%;
+                                    }
+                    
+                                    ::placeholder {
+                                        color: var(--text-200);
+                                    }
+                                }
+                            }
+
+                            section.col.one {
+                                width: 100%;
+                            }
+                        }
+                        
                     }
                 }
             }
