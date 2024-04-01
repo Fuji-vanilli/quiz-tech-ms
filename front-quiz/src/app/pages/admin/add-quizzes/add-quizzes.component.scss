@@ -1,4 +1,49 @@
-.content {
+.container-1 {
+    font-family: 'Poppins';
+    main.row {
+        section.col {
+            header.title {
+                h3 {
+                    color: var(--text-100);
+                    font-family: 'Poppins';
+                }
+
+                .action {
+                    display: flex;
+                    
+                    button {
+                        border: 0;
+                        padding: 6px 12px;
+                        border-radius: 6px;
+                    }
+
+                    button.cancel {
+                        margin-right: 6px;
+                        font-weight: 550;
+                    }
+
+                    button.next {
+                        background: var(--primary-200);
+                        color: var(--bg-100);
+                        font-weight: 550;
+
+                        i {
+                            margin-left: 6px;
+                        }
+                    }
+                }
+            }
+
+            .contents {
+                .box {
+
+                }
+            }
+        }
+    }
+}
+
+/***.content {
     background: #21262d;
     padding: 24px;
     border-radius: 12px;
@@ -47,3 +92,5 @@ mat-form-field input {
 .nav-link:hover {
     color: #ea580c;
 }
+
+***/
