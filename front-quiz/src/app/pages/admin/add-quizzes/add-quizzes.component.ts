@@ -18,6 +18,7 @@ export class AddQuizzesComponent implements OnInit{
   categories: Category[]= [];
   durations: number[]= [0.5,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
   languages: string[]= ['Fr', 'En', 'Esp'];
+  activeStep: number= 1;
 
   formGroup!: FormGroup;
 
@@ -87,6 +88,12 @@ export class AddQuizzesComponent implements OnInit{
         
       }
     })
+  }
+
+  nextStep() {
+    if (this.activeStep< 4) {
+      this.activeStep++;
+    }
   }
 
 }
