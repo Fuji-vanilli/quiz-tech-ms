@@ -29,6 +29,25 @@
                     color: var(--text-200);
                 }
             }
+
+            .update {
+                display: flex;
+                justify-content: end;
+
+                button.submit {
+                    border: 0;
+                    padding: 8px 16px;
+                    margin-top: 12px;
+                    color: var(--bg-100);
+                    background: var(--primary-200);
+                    border-radius: 6px;
+                    font-weight: 550;
+    
+                    i {
+                        margin-right: 4px;
+                    }
+                }
+            }
         }
     }
 }

@@ -3,7 +3,7 @@
         <div class="col-md-6 offset-md-3 content">
             <div class="container-1">
                 <div class="contents">
-                    <form [formGroup]="formGroup", (ngSubmit)="updateUser()">
+                    <form [formGroup]="formGroup" (ngSubmit)="updateUser()">
                         <label>Firstname</label>
                         <div class="field">
                             <i class="bi bi-person-fill"></i>
@@ -17,7 +17,7 @@
                         <label>Username</label>
                         <div class="field">
                             <i class="bi bi-person-fill"></i>
-                            <input type="text" placeholder="Username" formControlName="username">
+                            <input type="text" placeholder="Username" formControlName="firstname">
                         </div>
                         <label>Email</label>
                         <div class="field">
@@ -33,6 +33,9 @@
                         <div class="field">
                             <i class="bi bi-person-circle"></i>
                             <input type="text" placeholder="Biography" formControlName="biography">
+                        </div>
+                        <div class="update">
+                            <button class="submit"><i class="bi bi-arrow-repeat"></i>Update</button>
                         </div>
                     </form>
                 </div>
