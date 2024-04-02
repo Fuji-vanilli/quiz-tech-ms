@@ -89,7 +89,9 @@
                                                 <label>Category <span>*</span></label>
                                                 <div class="select-container">
                                                     <div class="select-option">
+                                                        <i class="bi bi-cart-check"></i>
                                                         <input type="text" placeholder="Category" formControlName="title" readonly>
+                                                        <i class="bi bi-caret-down-fill"></i>
                                                     </div>
                                                     <div class="select-content">
                                                         <div class="option-search">
@@ -98,10 +100,6 @@
                                                         <ul class="options">
                                                             <li *ngFor="let category of categories">{{category.title}}</li>
                                                         </ul>
-                                                    </div>
-                                                    
-                                                    <div class="icon-select">
-                                                        <i class="bi bi-caret-down-fill"></i>
                                                     </div>
 
                                                     <!--i class="bi bi-cart-check"></i>

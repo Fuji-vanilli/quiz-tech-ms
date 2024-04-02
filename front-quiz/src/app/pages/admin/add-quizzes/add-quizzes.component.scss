@@ -225,30 +225,52 @@
                         .select-container {
                             position: relative;
                             margin-bottom: 16px;
-                            display: flex;
-                            align-items: center;
 
-                            .box-select {
-                                 width: 100%;
-                                 background: transparent;
-                                 color: var(--text-200);
-                                 padding: 8px 12px;
-                                 border: 1px solid var(--bg-200);
-                                 border-radius: 8px;
-                                 appearance: none;
-                            }
-
-                            .icon-select {
-                                position: absolute;
-                                right: 10px;
+                            .select-option {
+                                border: 1px solid var(--bg-200);
+                                padding: 8px 12px;
+                                border-radius: 8px;
+                                margin-bottom: 16px;
+                                width: 100%;
                                 display: flex;
-                                justify-content: center;
-                                align-items: center;
 
                                 i {
+                                    color: var(--primary-200);
+                                    margin-right: 12px;
+                                }
+                
+                                input {
+                                    background: transparent;
+                                    color: var(--text-200);
+                                    outline: none;
+                                    border: 0;
+                                    width: 90%;
+                                }
+                
+                                ::placeholder {
                                     color: var(--text-200);
                                 }
                             }
+
+                            .select-content {
+                                background: var(--bg-300);
+                                position: absolute;
+                                border-radius: 8px;
+                                width: 100%;
+                                z-index: 999;
+
+                                .option-search {
+                                    input {
+                                        width: 100%;
+                                        padding: 12px;
+                                        outline: 0;
+                                        border: 1px solid var(--primary-200);
+                                        background: transparent;
+                                        color: var(--primary-200);
+                                    }
+                                }
+                            }
+                            
                         }
                     }
 
