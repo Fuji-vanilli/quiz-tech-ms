@@ -23,6 +23,8 @@ export class AddQuizzesComponent implements OnInit{
 
   formGroup!: FormGroup;
 
+  selectOpen: boolean= false;
+
   constructor(private quizService: QuizApiService,
               private categoryService: CategoryApiService,
               private formBuilder: FormBuilder,
@@ -105,6 +107,10 @@ export class AddQuizzesComponent implements OnInit{
   backStep() {
     this.activestepCount--;
     this.activeSteps[this.activestepCount]= false;
+  }
+
+  toggleSelect() {
+    this.selectOpen= true;
   }
 
 }

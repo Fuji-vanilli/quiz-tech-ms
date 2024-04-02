@@ -88,12 +88,12 @@
 
                                                 <label>Category <span>*</span></label>
                                                 <div class="select-container">
-                                                    <div class="select-option">
+                                                    <div class="select-option" (click)="toggleSelect()">
                                                         <i class="bi bi-cart-check"></i>
                                                         <input type="text" placeholder="Category" formControlName="title" readonly>
                                                         <i class="bi bi-caret-down-fill"></i>
                                                     </div>
-                                                    <div class="select-content">
+                                                    <div class="select-content" [class.open]="selectOpen">
                                                         <div class="option-search">
                                                             <input type="text" placeholder="Search category...">
                                                         </div>
@@ -101,9 +101,6 @@
                                                             <li *ngFor="let category of categories">{{category.title}}</li>
                                                         </ul>
                                                     </div>
-
-                                                    <!--i class="bi bi-cart-check"></i>
-                                                    <input type="text" placeholder="category" formControlName="category"-->
                                                 </div>
 
                                                 <label>Level <span>*</span></label>

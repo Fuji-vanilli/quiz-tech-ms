@@ -233,6 +233,7 @@
                                 margin-bottom: 16px;
                                 width: 100%;
                                 display: flex;
+                                cursor: pointer;
 
                                 i {
                                     color: var(--primary-200);
@@ -260,6 +261,7 @@
                                 width: 100%;
                                 z-index: 999;
                                 padding: 12px;
+                                display: none;
 
                                 .option-search {
                                     input {
@@ -293,11 +295,13 @@
                                     }
                                 }
 
-                                ul::-webkit-scrollbar-thumb {
-                                    background: #dc2626;
-                                    border-radius: 12px;
-                                    border: 6px solid #000000;
+                                ul::-webkit-scrollbar {
+                                    display: none;
                                   }
+                            }
+
+                            select-content.open {
+                                display: block;
                             }
                             
                         }
