@@ -3,6 +3,16 @@
     margin-bottom: 60px;
     main.row {
         section.col {
+            i.instruction {
+                color: var(--text-200);
+                margin-left: 28px;
+                font-size: 12px;
+                
+                span {
+                    color: var(--delete-100);
+                }
+            }
+
             header.title {
                 display: flex;
                 justify-content: space-between;
@@ -155,6 +165,11 @@
 
                             span {
                                 color: var(--delete-100);
+                            }
+
+                            small {
+                                font-size: 12px;
+                                color: var(--text-200);
                             }
                         }
 
@@ -338,14 +353,6 @@
                         }
 
                         main.row {
-                            i.instruction {
-                                color: var(--text-200);
-                                font-size: 12px;
-                                
-                                span {
-                                    color: var(--delete-100);
-                                }
-                            }
                             section.col {
                                 label {
                                     color: var(--text-100);

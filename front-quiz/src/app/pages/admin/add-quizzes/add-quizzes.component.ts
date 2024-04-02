@@ -16,7 +16,7 @@ export class AddQuizzesComponent implements OnInit{
 
   quizzes: Quiz[]= [];
   categories: Category[]= [];
-  durations: number[]= [0.5,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
+  durations: number[]= [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
   languages: string[]= ['French', 'English', 'Espagnol'];
   levels: string[]= ['Easy', 'Medium', 'Hard'];
   activeSteps: boolean[]= [false, false, false, false];
@@ -30,17 +30,22 @@ export class AddQuizzesComponent implements OnInit{
   selectCategory= {
     open: false,
     cateogryId: '',
-    text: 'Select Category'
+    value: 'Select Category'
   }
 
   selectLevel= {
     open: false,
-    text: 'Select Level'
+    value: 'Select Level'
   }
 
   selectDuration= {
     open: false,
     value: 2
+  }
+
+  selectLanguage= {
+    open: false,
+    value: 'En'
   }
 
   constructor(private quizService: QuizApiService,
@@ -146,16 +151,20 @@ export class AddQuizzesComponent implements OnInit{
     this.selectDuration.open= !this.selectDuration.open;
   }
 
+  toggleLanguage() {
+    this.selectLanguage.open= !this.selectLanguage.open;
+  }
+
   selectOptionCategory(category: Category) {
     this.selectCategory.cateogryId= category.id!;
-    this.selectCategory.text= category.title;
+    this.selectCategory.value= category.title;
 
     this.selectCategory.open= false;
   }
 
   selectOptionLevel(level: any) {
     this.selectLevel.open= false;
-    this.selectLevel.text= level;
+    this.selectLevel.value= level;
   }
 
   selectOptionDuration(duration: number) {
@@ -163,6 +172,10 @@ export class AddQuizzesComponent implements OnInit{
     this.selectDuration.value= duration;
   }
 
+  selectOptionLanguage(language: any) {
+    this.selectLanguage.open= false;
+    this.selectLanguage.value= language;
+  }
 
   @HostListener('document:click', ['$event'])
   click(event: any) {
@@ -176,6 +189,10 @@ export class AddQuizzesComponent implements OnInit{
 
     if (!event.target.closest('.select-container.duration')) {
       this.selectDuration.open= false;
+    }
+
+    if (!event.target.closest('.select-container.language')) {
+      this.selectLanguage.open= false;
     }
   }
 

@@ -50,7 +50,7 @@
                             </div>
                             
                             <form action="">
-                                <div [class.active]="activestepCount=== 0" class="box course">
+                                <div class="box course" [class.active]="activestepCount=== 0">
                                     <div class="course-title">
                                         <h4>You can upload or make an course or lesson so that the <span>Student</span> read before to start the <span>Quiz</span></h4>
                                     </div>
@@ -90,7 +90,7 @@
                                                 <div class="select-container category">
                                                     <div class="select-option" (click)="toggleCategorySelect()">
                                                         <i class="bi bi-cart-check"></i>
-                                                        <input type="text" [placeholder]="selectCategory.text" formControlName="cateogryId" readonly>
+                                                        <input type="text" [placeholder]="selectCategory.value" formControlName="cateogryId" readonly>
                                                         <i class="bi bi-caret-down-fill"></i>
                                                     </div>
                                                     <div class="select-content" [class.open]="selectCategory.open">
@@ -110,15 +110,12 @@
                                                 <div class="select-container level">
                                                     <div class="select-option" (click)="toggleLevel()">
                                                         <i class="bi bi-cart-check"></i>
-                                                        <input type="text" [placeholder]="selectLevel.text" formControlName="difficulty" readonly>
+                                                        <input type="text" [placeholder]="selectLevel.value" formControlName="difficulty" readonly>
                                                         <i class="bi bi-caret-down-fill"></i>
                                                     </div>
                                                     <div class="select-content" [class.open]="selectLevel.open">
-                                                        <div class="option-search">
-                                                            <input type="text" placeholder="Search Language...">
-                                                        </div>
                                                         <ul class="options">
-                                                            <li *ngFor="let level of languages" (click)="selectOptionLevel(level)" >
+                                                            <li *ngFor="let level of levels" (click)="selectOptionLevel(level)" >
                                                                 {{level}}
                                                             </li>
                                                         </ul>
@@ -145,11 +142,11 @@
                                             </div>
 
                                             
-                                            <label>Duration<span>*</span></label>
+                                            <label>Duration<span> *</span> <small class="info"> (Minutes)</small></label>
                                             <div class="select-container duration">
                                                 <div class="select-option" (click)="toggleDuration()">
                                                     <i class="bi bi-cart-check"></i>
-                                                    <input type="text" [placeholder]="selectDuration.value< 3? 'Select Duration': selectDuration.value" formControlName="duration" readonly>
+                                                    <input type="text" [placeholder]="selectDuration.value" formControlName="duration" readonly>
                                                     <i class="bi bi-caret-down-fill"></i>
                                                 </div>
                                                 <div class="select-content" [class.open]="selectDuration.open">
@@ -162,18 +159,34 @@
                                             </div>
 
                                             <label>Language<span>*</span></label>
-                                            <div class="field">
-                                                <i class="bi bi-translate"></i>
-                                                <input type="text" placeholder="language" formControlName="language">
+                                            <div class="select-container language">
+                                                <div class="select-option" (click)="toggleLanguage()">
+                                                    <i class="bi bi-cart-check"></i>
+                                                    <input type="text" [placeholder]="selectLanguage.value" formControlName="language" readonly>
+                                                    <i class="bi bi-caret-down-fill"></i>
+                                                </div>
+                                                <div class="select-content" [class.open]="selectLanguage.open">
+                                                    <ul class="options">
+                                                        <li *ngFor="let language of languages" (click)="selectOptionLanguage(language)" >
+                                                            {{language}}
+                                                        </li>
+                                                    </ul>
+                                                </div>
                                             </div>
 
                                         </section>
-                                        <i class="instruction">All field with <span>*</span> are required!</i>
                                     </main>
 
                                 </div>
+
+                                <div class="box create-quiz" [class.active]="activestepCount=== 2">
+                                    <div class="info-title">
+                                        <h4>Create the <span>Quiz</span> now....First, let's create the <span>Questions</span> of your <span>Quiz</span></h4>
+                                    </div>
+                                </div>
                             </form>
                         </div>
+                        <i class="instruction">All field with <span>*</span> are required!</i>
                     </section>
                 </main>
             </div>
