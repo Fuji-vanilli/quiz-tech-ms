@@ -225,6 +225,8 @@
                         .select-container {
                             position: relative;
                             margin-bottom: 16px;
+                            display: flex;
+                            align-items: center;
 
                             .box-select {
                                  width: 100%;
@@ -234,6 +236,18 @@
                                  border: 1px solid var(--bg-200);
                                  border-radius: 8px;
                                  appearance: none;
+                            }
+
+                            .icon-select {
+                                position: absolute;
+                                right: 10px;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+
+                                i {
+                                    color: var(--text-200);
+                                }
                             }
                         }
                     }

@@ -88,9 +88,18 @@
 
                                                 <label>Category <span>*</span></label>
                                                 <div class="select-container">
-                                                    <select class="box-select">
-                                                        <option *ngFor="let category of categories" [value]="category.id">{{category.title}}</option>
-                                                    </select>
+                                                    <div class="select-option">
+                                                        <input type="text" placeholder="Category" formControlName="title" readonly>
+                                                    </div>
+                                                    <div class="select-content">
+                                                        <div class="option-search">
+                                                            <input type="text" placeholder="Search category...">
+                                                        </div>
+                                                        <ul class="options">
+                                                            <li *ngFor="let category of categories">{{category.title}}</li>
+                                                        </ul>
+                                                    </div>
+                                                    
                                                     <div class="icon-select">
                                                         <i class="bi bi-caret-down-fill"></i>
                                                     </div>
