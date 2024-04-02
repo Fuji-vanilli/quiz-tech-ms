@@ -18,18 +18,24 @@ export class AddQuizzesComponent implements OnInit{
   categories: Category[]= [];
   durations: number[]= [0.5,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
   languages: string[]= ['Fr', 'En', 'Esp'];
+  levels: string[]= ['Easy', 'Medium', 'Hard'];
   activeSteps: boolean[]= [false, false, false, false];
   activestepCount: number= 0;
 
   formGroup!: FormGroup;
 
-  searchTermCategory= '';
-  categoriesFilter: Category[]= [];
+  searchTerm: string= '';
+  filterCategoryBySearchTerm: Category[]= [];
 
   selectCategory= {
     open: false,
     cateogryId: '',
     text: 'Select category'
+  }
+
+  selectLevel= {
+    open: false,
+    text: 'Select Level'
   }
 
   selectLanguageText: string= '';
@@ -46,6 +52,7 @@ export class AddQuizzesComponent implements OnInit{
     next: response=> {
       console.log(response.data.categories);
       this.categories= response.data.categories;
+      this.filterCategoryBySearchTerm= response.data.categories;
     }
    })
 
@@ -105,12 +112,10 @@ export class AddQuizzesComponent implements OnInit{
     })
   }
 
-  filterCategoryBySearchTerm() {
-    if (this.searchTermCategory= '') {
-      this.categoriesFilter= this.categories;
-    } else {
-      this.categoriesFilter= this.categories.filter(category=> category.title.includes(this.searchTermCategory));
-    }
+  filterBySearchTerm() {
+    this.filterCategoryBySearchTerm= this.categories.filter(category=> category.title.toLowerCase().includes(this.searchTerm.toLowerCase()));
+    console.log('search: '+this.searchTerm);
+    
   }
 
   nextStep() {
@@ -132,6 +137,10 @@ export class AddQuizzesComponent implements OnInit{
 
   }
 
+  toggleLevel() {
+    this.selectLevel.open= !this.selectLevel.open;
+  }
+
   selectOptionCategory(category: Category) {
     this.selectCategory.cateogryId= category.id!;
     this.selectCategory.text= category.title;
@@ -139,11 +148,20 @@ export class AddQuizzesComponent implements OnInit{
     this.selectCategory.open= false;
   }
 
+  selectOptionLevel(level: any) {
+    this.selectLevel.open= !this.selectLevel;
+    this.selectLevel.text= level;
+  }
+
 
   @HostListener('document:click', ['$event'])
   click(event: any) {
     if (!event.target.closest('.select-container.category')) {
       this.selectCategory.open= false
+    }
+
+    if (!event.target.closest('.select-container.level')) {
+      this.selectLevel.open= false;
     }
   }
 

@@ -90,34 +90,35 @@
                                                 <div class="select-container category">
                                                     <div class="select-option" (click)="toggleCategorySelect()">
                                                         <i class="bi bi-cart-check"></i>
-                                                        <input type="text" [placeholder]="selectCategory.text" [formControlName]="selectCategory.cateogryId" readonly>
+                                                        <input type="text" [placeholder]="selectCategory.text" formControlName="cateogryId" readonly>
                                                         <i class="bi bi-caret-down-fill"></i>
                                                     </div>
                                                     <div class="select-content" [class.open]="selectCategory.open">
                                                         <div class="option-search">
-                                                            <input type="text" placeholder="Search category..." [(ngModel)]="searchTermCategory">
+                                                            <input type="text" placeholder="Search category..." [(ngModel)]="searchTerm" (ngModelChange)="filterBySearchTerm()">
                                                         </div>
+                                                        <div>{{searchTerm}}</div>
                                                         <ul class="options">
-                                                            <li *ngFor="let category of categoriesFilter" (click)="selectOptionCategory(category)">
+                                                            <li *ngFor="let category of filterCategoryBySearchTerm" (click)="selectOptionCategory(category)">
                                                                 <i [ngClass]="category.icon"></i>{{category.title}}</li>
                                                         </ul>
                                                     </div>
                                                 </div>
 
                                                 <label>Level <span>*</span></label>
-                                                <div class="select-container">
-                                                    <div class="select-option">
+                                                <div class="select-container level">
+                                                    <div class="select-option" (click)="toggleLevel()">
                                                         <i class="bi bi-cart-check"></i>
-                                                        <input type="text" [placeholder]="selectLanguageText===''? 'Select Level': selectLanguageText" readonly>
+                                                        <input type="text" [placeholder]="selectLevel.text" formControlName="difficulty" readonly>
                                                         <i class="bi bi-caret-down-fill"></i>
                                                     </div>
-                                                    <div class="select-content" [class.open]="false">
+                                                    <div class="select-content" [class.open]="selectLevel.open">
                                                         <div class="option-search">
                                                             <input type="text" placeholder="Search Language...">
                                                         </div>
                                                         <ul class="options">
-                                                            <li *ngFor="let language of languages" >
-                                                                {{language}}</li>
+                                                            <li *ngFor="let level of languages" (click)="selectOptionLevel(level)" >
+                                                                {{level}}</li>
                                                         </ul>
                                                     </div>
                                                 </div>

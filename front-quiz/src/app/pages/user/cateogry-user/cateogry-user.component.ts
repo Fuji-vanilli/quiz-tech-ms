@@ -80,7 +80,7 @@ export class CateogryUserComponent  implements OnInit{
 
   filterBySearchTerm() {
     this.filterCategoryBySearchTerm= this.categories.filter(
-      quiz=> quiz.title?.toLocaleLowerCase().includes(this.searchTerm.toLocaleLowerCase())
+      category=> category.title?.toLocaleLowerCase().includes(this.searchTerm.toLocaleLowerCase())
     );
   }
 
