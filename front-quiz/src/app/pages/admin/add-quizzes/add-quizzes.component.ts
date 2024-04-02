@@ -23,9 +23,12 @@ export class AddQuizzesComponent implements OnInit{
 
   formGroup!: FormGroup;
 
-  selectOpen: boolean= false;
-  selectCategoryId!: string;
-  selectCategoryText: string= '';
+  selectCategory= {
+    open: false,
+    cateogryId: '',
+    text: 'Select category'
+  }
+
   selectLanguageText: string= '';
   selectDurationText: number= 1;
 
@@ -114,26 +117,18 @@ export class AddQuizzesComponent implements OnInit{
   }
 
   toggleSelect() {
-    this.selectOpen= !this.selectOpen;
+    
   }
 
-  selectCategory(category: Category) {
-    this.selectCategoryId= category.id!;
-    this.selectCategoryText= category.title;
+  selectOptionCategory(category: Category) {
+    
   }
 
-  selectLanguage(language: any) {
-    this.selectCategoryText= language;
-  }
-
-  selectDuration(duration: number) {
-    this.selectDurationText= duration;
-  }
 
   @HostListener('document:click', ['$event'])
   click(event: any) {
-    if (!event.target.closest('.select-option')) {
-      this.selectOpen= false;
+    if (!event.target.closest('.select-container')) {
+
     }
   }
 
