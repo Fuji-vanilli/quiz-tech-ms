@@ -90,7 +90,7 @@
                                                 <div class="select-container">
                                                     <div class="select-option" (click)="toggleSelect()">
                                                         <i class="bi bi-cart-check"></i>
-                                                        <input type="text" placeholder="Select category" [formControlName]="selectCategoryId" readonly>
+                                                        <input type="text" [placeholder]="selectCategoryText===''? 'Select category': selectCategoryText" [formControlName]="selectCategoryId" readonly>
                                                         <i class="bi bi-caret-down-fill"></i>
                                                     </div>
                                                     <div class="select-content" [class.open]="selectOpen">
@@ -98,7 +98,7 @@
                                                             <input type="text" placeholder="Search category...">
                                                         </div>
                                                         <ul class="options">
-                                                            <li *ngFor="let category of categories">{{category.title}}</li>
+                                                            <li *ngFor="let category of categories" (click)="selectCategory(category)">{{category.title}}</li>
                                                         </ul>
                                                     </div>
                                                 </div>
