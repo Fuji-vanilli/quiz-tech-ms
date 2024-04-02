@@ -17,7 +17,7 @@ export class AddQuizzesComponent implements OnInit{
   quizzes: Quiz[]= [];
   categories: Category[]= [];
   durations: number[]= [0.5,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
-  languages: string[]= ['Fr', 'En', 'Esp'];
+  languages: string[]= ['French', 'English', 'Espagnol'];
   levels: string[]= ['Easy', 'Medium', 'Hard'];
   activeSteps: boolean[]= [false, false, false, false];
   activestepCount: number= 0;
@@ -30,7 +30,7 @@ export class AddQuizzesComponent implements OnInit{
   selectCategory= {
     open: false,
     cateogryId: '',
-    text: 'Select category'
+    text: 'Select Category'
   }
 
   selectLevel= {
@@ -38,8 +38,10 @@ export class AddQuizzesComponent implements OnInit{
     text: 'Select Level'
   }
 
-  selectLanguageText: string= '';
-  selectDurationText: number= 1;
+  selectDuration= {
+    open: false,
+    value: 2
+  }
 
   constructor(private quizService: QuizApiService,
               private categoryService: CategoryApiService,
@@ -134,11 +136,14 @@ export class AddQuizzesComponent implements OnInit{
 
   toggleCategorySelect() {
     this.selectCategory.open= !this.selectCategory.open;
-
   }
 
   toggleLevel() {
     this.selectLevel.open= !this.selectLevel.open;
+  }
+
+  toggleDuration() {
+    this.selectDuration.open= !this.selectDuration.open;
   }
 
   selectOptionCategory(category: Category) {
@@ -149,8 +154,13 @@ export class AddQuizzesComponent implements OnInit{
   }
 
   selectOptionLevel(level: any) {
-    this.selectLevel.open= !this.selectLevel;
+    this.selectLevel.open= false;
     this.selectLevel.text= level;
+  }
+
+  selectOptionDuration(duration: number) {
+    this.selectDuration.open= false;
+    this.selectDuration.value= duration;
   }
 
 
@@ -162,6 +172,10 @@ export class AddQuizzesComponent implements OnInit{
 
     if (!event.target.closest('.select-container.level')) {
       this.selectLevel.open= false;
+    }
+
+    if (!event.target.closest('.select-container.duration')) {
+      this.selectDuration.open= false;
     }
   }
 

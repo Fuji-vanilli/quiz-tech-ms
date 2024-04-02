@@ -100,7 +100,8 @@
                                                         <div>{{searchTerm}}</div>
                                                         <ul class="options">
                                                             <li *ngFor="let category of filterCategoryBySearchTerm" (click)="selectOptionCategory(category)">
-                                                                <i [ngClass]="category.icon"></i>{{category.title}}</li>
+                                                                <i [ngClass]="category.icon"></i>{{category.title}}
+                                                            </li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -118,7 +119,8 @@
                                                         </div>
                                                         <ul class="options">
                                                             <li *ngFor="let level of languages" (click)="selectOptionLevel(level)" >
-                                                                {{level}}</li>
+                                                                {{level}}
+                                                            </li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -144,9 +146,19 @@
 
                                             
                                             <label>Duration<span>*</span></label>
-                                            <div class="field">
-                                                <i class="bi bi-translate"></i>
-                                                <input type="text" placeholder="language" formControlName="language">
+                                            <div class="select-container duration">
+                                                <div class="select-option" (click)="toggleDuration()">
+                                                    <i class="bi bi-cart-check"></i>
+                                                    <input type="text" [placeholder]="selectDuration.value< 3? 'Select Duration': selectDuration.value" formControlName="duration" readonly>
+                                                    <i class="bi bi-caret-down-fill"></i>
+                                                </div>
+                                                <div class="select-content" [class.open]="selectDuration.open">
+                                                    <ul class="options">
+                                                        <li *ngFor="let duration of durations" (click)="selectOptionDuration(duration*2)" >
+                                                            {{duration*2}}
+                                                        </li>
+                                                    </ul>
+                                                </div>
                                             </div>
 
                                             <label>Language<span>*</span></label>
