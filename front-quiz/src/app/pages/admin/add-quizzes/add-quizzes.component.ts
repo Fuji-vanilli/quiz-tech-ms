@@ -23,6 +23,9 @@ export class AddQuizzesComponent implements OnInit{
 
   formGroup!: FormGroup;
 
+  searchTermCategory= '';
+  categoriesFilter: Category[]= [];
+
   selectCategory= {
     open: false,
     cateogryId: '',
@@ -102,6 +105,14 @@ export class AddQuizzesComponent implements OnInit{
     })
   }
 
+  filterCategoryBySearchTerm() {
+    if (this.searchTermCategory= '') {
+      this.categoriesFilter= this.categories;
+    } else {
+      this.categoriesFilter= this.categories.filter(category=> category.title.includes(this.searchTermCategory));
+    }
+  }
+
   nextStep() {
     this.activeSteps[this.activestepCount]= true;
     this.activestepCount++;
@@ -116,19 +127,23 @@ export class AddQuizzesComponent implements OnInit{
     this.activeSteps[this.activestepCount]= false;
   }
 
-  toggleSelect() {
-    
+  toggleCategorySelect() {
+    this.selectCategory.open= !this.selectCategory.open;
+
   }
 
   selectOptionCategory(category: Category) {
-    
+    this.selectCategory.cateogryId= category.id!;
+    this.selectCategory.text= category.title;
+
+    this.selectCategory.open= false;
   }
 
 
   @HostListener('document:click', ['$event'])
   click(event: any) {
-    if (!event.target.closest('.select-container')) {
-
+    if (!event.target.closest('.select-container.category')) {
+      this.selectCategory.open= false
     }
   }
 

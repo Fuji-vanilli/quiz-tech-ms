@@ -87,18 +87,18 @@
                                                 </div>
 
                                                 <label>Category <span>*</span></label>
-                                                <div class="select-container">
-                                                    <div class="select-option" (click)="toggleSelect()">
+                                                <div class="select-container category">
+                                                    <div class="select-option" (click)="toggleCategorySelect()">
                                                         <i class="bi bi-cart-check"></i>
                                                         <input type="text" [placeholder]="selectCategory.text" [formControlName]="selectCategory.cateogryId" readonly>
                                                         <i class="bi bi-caret-down-fill"></i>
                                                     </div>
                                                     <div class="select-content" [class.open]="selectCategory.open">
                                                         <div class="option-search">
-                                                            <input type="text" placeholder="Search category...">
+                                                            <input type="text" placeholder="Search category..." [(ngModel)]="searchTermCategory">
                                                         </div>
                                                         <ul class="options">
-                                                            <li *ngFor="let category of categories" (click)="selectOptionCategory(category)">
+                                                            <li *ngFor="let category of categoriesFilter" (click)="selectOptionCategory(category)">
                                                                 <i [ngClass]="category.icon"></i>{{category.title}}</li>
                                                         </ul>
                                                     </div>
