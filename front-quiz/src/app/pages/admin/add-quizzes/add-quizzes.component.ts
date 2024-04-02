@@ -103,8 +103,8 @@ export class AddQuizzesComponent implements OnInit{
   }
 
   backStep() {
-    this.activeSteps[this.activestepCount]= false;
     this.activestepCount--;
+    this.activeSteps[this.activestepCount]= false;
   }
 
 }

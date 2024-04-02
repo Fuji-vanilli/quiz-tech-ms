@@ -132,7 +132,7 @@
                 form {
                     margin:16px 3%;
 
-                    .box-course {
+                    .box {
                         display: none;
 
                         .course-title {
@@ -220,14 +220,18 @@
             
                         .field:focus-within {
                             border: 1px solid var(--primary-200);
-                        }
+                        } 
                     }
 
-                    .box-course.active {
+                    .box.course {
+                        
+                    }
+
+                    .box.active {
                         display: block;
                     }
 
-                    .box-info {
+                    .box.info {
                         .info-title {
                             margin-bottom: 30px;
 
@@ -244,6 +248,14 @@
                         }
 
                         main.row {
+                            i.instruction {
+                                color: var(--text-200);
+                                font-size: 12px;
+                                
+                                span {
+                                    color: var(--delete-100);
+                                }
+                            }
                             section.col {
                                 label {
                                     color: var(--text-100);
@@ -253,30 +265,13 @@
                                         color: var(--delete-100);
                                     }
                                 }
-                                
+
                                 .field {
-                                    border: 1px solid var(--bg-200);
-                                    padding: 8px 12px;
-                                    border-radius: 8px;
-                                    margin-bottom: 16px;
                                     width: 100%;
-                    
-                                    i {
-                                        color: var(--primary-200);
-                                        margin-right: 12px;
-                                    }
-                    
-                                    input {
-                                        background: transparent;
-                                        color: var(--text-200);
-                                        outline: none;
-                                        border: 0;
-                                        width: 90%;
-                                    }
-                    
-                                    ::placeholder {
-                                        color: var(--text-200);
-                                    }
+                                }
+
+                                .upload {
+                                    width: 100%;
                                 }
                             }
 

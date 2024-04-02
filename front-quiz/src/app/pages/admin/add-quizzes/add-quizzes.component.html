@@ -50,7 +50,7 @@
                             </div>
                             
                             <form action="">
-                                <div [class.active]="activestepCount=== 0" class="box-course">
+                                <div [class.active]="activestepCount=== 0" class="box course">
                                     <div class="course-title">
                                         <h4>You can upload or make an course or lesson so that the <span>Student</span> read before to start the <span>Quiz</span></h4>
                                     </div>
@@ -73,7 +73,7 @@
                                     </div>
                                 </div>
 
-                                <div class="box-info" [class.active]="activestepCount=== 1">
+                                <div class="box info" [class.active]="activestepCount=== 1">
                                     <div class="info-title">
                                         <h4>Complete the informations about your <span>Quiz</span></h4>
                                     </div>
@@ -88,14 +88,23 @@
 
                                                 <label>Category <span>*</span></label>
                                                 <div class="field">
-                                                    <i class="bi bi-cart-check"></i>
-                                                    <input type="text" placeholder="category" formControlName="category">
+                                                    <select name="" id="" class="box-select">
+                                                        <option *ngFor="let category of categories" value="">{{category.title}}</option>
+                                                    </select>
+
+                                                    <!--i class="bi bi-cart-check"></i>
+                                                    <input type="text" placeholder="category" formControlName="category"-->
                                                 </div>
 
                                                 <label>Level <span>*</span></label>
                                                 <div class="field">
                                                     <i class="bi bi-bar-chart"></i>
                                                     <input type="text" placeholder="level" formControlName="level">
+                                                </div>
+                                                
+                                                <label>Upload image<span>*</span></label>
+                                                <div>
+                                                    <input type="file" class="upload" placeholder="No file choosen" formControlName="description">
                                                 </div>
                                         </section>
 
@@ -113,6 +122,12 @@
                                             </div>
 
                                             
+                                            <label>Duration<span>*</span></label>
+                                            <div class="field">
+                                                <i class="bi bi-translate"></i>
+                                                <input type="text" placeholder="language" formControlName="language">
+                                            </div>
+
                                             <label>Language<span>*</span></label>
                                             <div class="field">
                                                 <i class="bi bi-translate"></i>
@@ -120,6 +135,7 @@
                                             </div>
 
                                         </section>
+                                        <i class="instruction">All field with <span>*</span> are required!</i>
                                     </main>
 
                                 </div>
