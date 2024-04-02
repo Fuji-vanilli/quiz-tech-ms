@@ -87,10 +87,13 @@
                                                 </div>
 
                                                 <label>Category <span>*</span></label>
-                                                <div class="field">
-                                                    <select name="" id="" class="box-select">
-                                                        <option *ngFor="let category of categories" value="">{{category.title}}</option>
+                                                <div class="select-container">
+                                                    <select class="box-select">
+                                                        <option *ngFor="let category of categories" [value]="category.id">{{category.title}}</option>
                                                     </select>
+                                                    <div class="icon-select">
+                                                        <i class="bi bi-caret-down-fill"></i>
+                                                    </div>
 
                                                     <!--i class="bi bi-cart-check"></i>
                                                     <input type="text" placeholder="category" formControlName="category"-->

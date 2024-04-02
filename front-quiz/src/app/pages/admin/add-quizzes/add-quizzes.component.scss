@@ -221,6 +221,21 @@
                         .field:focus-within {
                             border: 1px solid var(--primary-200);
                         } 
+
+                        .select-container {
+                            position: relative;
+                            margin-bottom: 16px;
+
+                            .box-select {
+                                 width: 100%;
+                                 background: transparent;
+                                 color: var(--text-200);
+                                 padding: 8px 12px;
+                                 border: 1px solid var(--bg-200);
+                                 border-radius: 8px;
+                                 appearance: none;
+                            }
+                        }
                     }
 
                     .box.course {
