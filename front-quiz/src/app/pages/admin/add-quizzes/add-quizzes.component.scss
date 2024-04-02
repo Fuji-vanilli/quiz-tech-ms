@@ -54,6 +54,7 @@
             .contents {
                 .step-add {
                     margin-top: 16px;
+
                     ul {
                         display: flex;
                         justify-content: space-between;
@@ -75,6 +76,7 @@
 
                             span {
                                 color: var(--text-200);
+                                font-size: 12px;
                             }
 
                             .progress1 {
@@ -146,7 +148,7 @@
                     .box {
                         display: none;
 
-                        .course-title {
+                        .box-title {
                             margin-bottom: 30px;
 
                             h4 {
@@ -156,6 +158,10 @@
                                 span {
                                     color: var(--primary-200);
                                 }
+                            }
+
+                            h2 {
+                                color: var(--primary-200);
                             }
                         }
 
@@ -203,7 +209,7 @@
                             border: 1px solid var(--bg-200);
                             color: var(--text-200);
                             border-radius: 8px;
-                            width: 50%;
+                            width: 100%;
                             outline: none;
                         }
 
@@ -326,10 +332,6 @@
                             }
                             
                         }
-                    }
-
-                    .box.course {
-                        
                     }
 
                     .box.active {

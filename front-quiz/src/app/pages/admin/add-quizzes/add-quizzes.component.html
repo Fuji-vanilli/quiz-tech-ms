@@ -51,7 +51,7 @@
                             
                             <form action="">
                                 <div class="box course" [class.active]="activestepCount=== 0">
-                                    <div class="course-title">
+                                    <div class="box-title">
                                         <h4>You can upload or make an course or lesson so that the <span>Student</span> read before to start the <span>Quiz</span></h4>
                                     </div>
 
@@ -74,7 +74,7 @@
                                 </div>
 
                                 <div class="box info" [class.active]="activestepCount=== 1">
-                                    <div class="info-title">
+                                    <div class="box-title">
                                         <h4>Complete the informations about your <span>Quiz</span></h4>
                                     </div>
 
@@ -180,9 +180,18 @@
                                 </div>
 
                                 <div class="box create-quiz" [class.active]="activestepCount=== 2">
-                                    <div class="info-title">
+                                    <div class="box-title">
+                                        <h2>Questions</h2>
                                         <h4>Create the <span>Quiz</span> now....First, let's create the <span>Questions</span> of your <span>Quiz</span></h4>
                                     </div>
+                                    <div class="questions" *ngFor="let index of categories; let i= index">
+                                        <label>Question {{i+1}} <span>*</span></label>
+                                        <div class="field">
+                                            <i class="bi bi-pencil-square"></i>
+                                            <input type="text" placeholder="Add Question" formControlName="description">
+                                        </div>
+                                    </div>
+
                                 </div>
                             </form>
                         </div>
@@ -190,106 +199,5 @@
                     </section>
                 </main>
             </div>
-
-            <!--h2 class="text-center" style="color: #89929b;">Add new Quiz</h2>
-            <form [formGroup]="formGroup" (ngSubmit)="addQuiz()">
-                <div class="mb-2">
-                    <i class="bi bi-paragraph" style="color: #89929b;"></i><strong class="ms-2" style="color: #89929b;">Enter the title of the Quiz</strong>
-                </div>
-                <mat-form-field class="w-100" appearance="outline">
-                    <mat-label>Enter the title</mat-label>
-                    <input autofocus matInput placeholder="new quiz..." formControlName="title" required style="color: aliceblue;">
-                </mat-form-field>
-                <div class="mb-2">
-                    <i class="bi bi-question-diamond-fill" style="color: #89929b;"></i><strong class="ms-2" style="color: #89929b;">Enter the description here</strong>
-                </div>
-                <mat-form-field class="w-100" appearance="outline">
-                    <mat-label>Description</mat-label>
-                    <textarea matInput rows="5" formControlName="description" style="color: aliceblue;"></textarea>
-                </mat-form-field>
-                <div class="mb-2">
-                    <i class="bi bi-question-diamond-fill" style="color: #89929b;"></i><strong class="ms-2" style="color: #89929b;">Enter the image url here</strong>
-                </div>
-                <mat-form-field class="w-100" appearance="outline">
-                    <mat-label>Enter the image url</mat-label>
-                    <input autofocus matInput placeholder="image url" formControlName="imageUrl" required style="color: aliceblue;">
-                </mat-form-field>
-                <div class="mb-2">
-                    <i class="bi bi-bookmark-check-fill" style="color: #89929b;"></i><strong class="ms-2" style="color: #89929b;">Choose the category</strong>
-                </div>
-                <mat-form-field class="w-100 category" appearance="outline">
-                    <mat-label>Category</mat-label>
-                    <mat-select formControlName="categoryId">
-                        <mat-option *ngFor="let category of categories" [value]="category.id">{{category.title}}</mat-option>
-                    </mat-select>
-                </mat-form-field>
-
-                
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="mb-2">
-                            <i class="bi bi-check-square-fill" style="color: #89929b;"></i><strong class="ms-2" style="color: #89929b;">Give the maximum marks</strong>
-                        </div>
-                        <mat-form-field class="w-100" appearance="outline">
-                            <mat-label>Maximum marks</mat-label>
-                            <input autofocus matInput placeholder="new quiz..." formControlName="marks" required>
-                        </mat-form-field>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="mb-2">
-                            <i class="bi bi-question-circle-fill" style="color: #89929b;"></i><strong class="ms-2" style="color: #89929b;">Give the number of Question</strong>
-                        </div>
-                        <mat-form-field class="w-100" appearance="outline">
-                            <mat-label>Number of questions</mat-label>
-                            <input autofocus matInput placeholder="new quiz..." formControlName="numberOfQuestions" required>
-                        </mat-form-field>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <mat-form-field class="full-width">
-                            <mat-label>Duration</mat-label>
-                            <mat-select formControlName="duration">
-                              <mat-option *ngFor="let duration of durations" [value]="duration*2">{{duration*2}}</mat-option>
-                            </mat-select>
-                          </mat-form-field>
-                    </div>
-                    <div class="col-md-4">
-                        <mat-form-field class="full-width">
-                            <mat-label>Difficulty</mat-label>
-                            <mat-select formControlName="difficulty">
-                              <mat-option value="Easy">Easy</mat-option>
-                              <mat-option value="Medium">Medium</mat-option>
-                              <mat-option value="Hard">Hard</mat-option>
-                            </mat-select>
-                          </mat-form-field>
-                    </div>
-                    <div class="col-md-4">
-                        <mat-form-field class="full-width">
-                            <mat-label>Language</mat-label>
-                            <mat-select formControlName="language">
-                              <mat-option *ngFor="let language of languages" [value]="language">{{language}}</mat-option>
-                            </mat-select>
-                          </mat-form-field>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="col-md-4 d-flex align-items-center">
-                                <mat-slide-toggle color="primary" class="mb-2" formControlName="active">Publish status</mat-slide-toggle>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="container d-flex justify-content-between align-items-center">
-                    <button class=" btn-save mt-3" [disabled]="formGroup.invalid">Save new Quizz<i class="bi bi-cloud-download-fill ms-2"></i></button>
-                    <a class="nav-link" routerLink="/admin/quizzes"><i class="bi bi-arrow-left-circle-fill" style="color: #89929b;"></i><strong class="ms-2" style="color: #89929b;">Back to Quiz List</strong></a>
-                </div>
-            </form>
-            <div class="mb-3">
-                <i style="color: #89929b;">* This field is requiered!</i>
-            </div>
-        </div-->
     </div>
 </div>
