@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { QuizApiService } from 'src/app/services/quiz-api.service';
 import { Quiz } from '../../models/quiz.model';
 import { Category } from '../../models/category.model';
@@ -24,6 +24,8 @@ export class AddQuizzesComponent implements OnInit{
   formGroup!: FormGroup;
 
   selectOpen: boolean= false;
+  selectCategoryId!: string;
+  selectCategoryText: string= '';
 
   constructor(private quizService: QuizApiService,
               private categoryService: CategoryApiService,
@@ -110,7 +112,19 @@ export class AddQuizzesComponent implements OnInit{
   }
 
   toggleSelect() {
-    this.selectOpen= true;
+    this.selectOpen= !this.selectOpen;
+  }
+
+  selectCategory(category: Category) {
+    this.selectCategoryId= category.id!;
+    this.selectCategoryText= category.title;
+  }
+
+  @HostListener('document:click', ['$event'])
+  click(event: any) {
+    if (!event.target.closest('.select-option')) {
+      this.selectOpen= false;
+    }
   }
 
 }
