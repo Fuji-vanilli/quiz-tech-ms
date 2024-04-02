@@ -254,10 +254,12 @@
 
                             .select-content {
                                 background: var(--bg-300);
+                                border: 1px solid var(--bg-200);
                                 position: absolute;
                                 border-radius: 8px;
                                 width: 100%;
                                 z-index: 999;
+                                padding: 12px;
 
                                 .option-search {
                                     input {
@@ -267,8 +269,35 @@
                                         border: 1px solid var(--primary-200);
                                         background: transparent;
                                         color: var(--primary-200);
+                                        border-radius: 8px;
                                     }
                                 }
+
+                                ul.options {
+                                    margin-top: 14px;
+                                    max-height: 250px;
+                                    overflow-y: auto;
+                                    padding: 0;
+
+                                    li {
+                                        color: var(--text-100);
+                                        list-style: none;
+                                        font-size: 12px;
+                                        padding: 10px 12px;
+                                        border-bottom: 1px solid var(--bg-200);
+                                        cursor: pointer;
+                                    }
+
+                                    li:hover {
+                                        background: var(--bg-100);
+                                    }
+                                }
+
+                                ul::-webkit-scrollbar-thumb {
+                                    background: #dc2626;
+                                    border-radius: 12px;
+                                    border: 6px solid #000000;
+                                  }
                             }
                             
                         }
