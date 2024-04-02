@@ -104,9 +104,20 @@
                                                 </div>
 
                                                 <label>Level <span>*</span></label>
-                                                <div class="field">
-                                                    <i class="bi bi-bar-chart"></i>
-                                                    <input type="text" placeholder="level" formControlName="level">
+                                                <div class="select-container">
+                                                    <div class="select-option" (click)="toggleSelect()">
+                                                        <i class="bi bi-cart-check"></i>
+                                                        <input type="text" [placeholder]="selectLanguageText===''? 'Select Level': selectLanguageText" [formControlName]="selectCategoryId" readonly>
+                                                        <i class="bi bi-caret-down-fill"></i>
+                                                    </div>
+                                                    <div class="select-content" [class.open]="selectOpen">
+                                                        <div class="option-search">
+                                                            <input type="text" placeholder="Search Language...">
+                                                        </div>
+                                                        <ul class="options">
+                                                            <li *ngFor="let language of languages" (click)="selectLanguage(language)">{{language}}</li>
+                                                        </ul>
+                                                    </div>
                                                 </div>
                                                 
                                                 <label>Upload image<span>*</span></label>

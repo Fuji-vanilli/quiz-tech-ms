@@ -26,6 +26,8 @@ export class AddQuizzesComponent implements OnInit{
   selectOpen: boolean= false;
   selectCategoryId!: string;
   selectCategoryText: string= '';
+  selectLanguageText: string= '';
+  selectDurationText: number= 1;
 
   constructor(private quizService: QuizApiService,
               private categoryService: CategoryApiService,
@@ -118,6 +120,14 @@ export class AddQuizzesComponent implements OnInit{
   selectCategory(category: Category) {
     this.selectCategoryId= category.id!;
     this.selectCategoryText= category.title;
+  }
+
+  selectLanguage(language: any) {
+    this.selectCategoryText= language;
+  }
+
+  selectDuration(duration: number) {
+    this.selectDurationText= duration;
   }
 
   @HostListener('document:click', ['$event'])
