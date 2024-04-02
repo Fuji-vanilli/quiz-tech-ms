@@ -184,7 +184,7 @@
                             padding: 8px 12px;
                             border-radius: 8px;
                             margin-bottom: 16px;
-                            width: 50%;
+                            width: 100%;
             
                             i {
                                 color: var(--primary-200);
@@ -379,6 +379,52 @@
                             }
                         }
                         
+                    }
+
+                    .box.create-quiz {
+                        .questions {
+                            margin-bottom: 20px;
+                            border: 1px solid var(--bg-200);
+                            border-radius: 8px;
+                            padding: 16px;
+
+                            main.row {
+                                .field {
+                                    background: var(--bg-300);
+                                }
+
+                                ::placeholder {
+                                    font-size: 12px;
+                                }
+                            }
+                        }
+
+                        .option-number {
+                            color: var(--primary-100);
+                            margin-bottom: 16px;
+                            width: 50%;
+
+                            .radio {
+                                display: inline-block;
+                                vertical-align: middle;
+                                color: var(--primary-100);
+
+                                input[type="radio"] {
+                                    display: none;
+                                }
+
+                                span {
+                                    width: 20px;
+                                    height: 20px;
+                                    border-radius: 50%;
+                                    border: 3px solid var(--primary-100);
+                                }
+                            }
+
+                            .radio + .radio {
+                                margin-left: 25px;
+                            }
+                        }
                     }
                 }
             }

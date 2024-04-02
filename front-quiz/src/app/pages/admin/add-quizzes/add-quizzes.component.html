@@ -184,12 +184,46 @@
                                         <h2>Questions</h2>
                                         <h4>Create the <span>Quiz</span> now....First, let's create the <span>Questions</span> of your <span>Quiz</span></h4>
                                     </div>
+                                    <div class="option-number">
+                                        <label class="radio">
+                                            <input type="radio" value="2"> 2
+                                            <span></span>
+                                        </label>
+                                        <label class="radio">
+                                            <input type="radio" value="2"> 4
+                                        </label>
+                                        <label class="radio">
+                                            <input type="radio" value="2"> 6
+                                        </label>
+                                    </div>
                                     <div class="questions" *ngFor="let index of categories; let i= index">
                                         <label>Question {{i+1}} <span>*</span></label>
                                         <div class="field">
-                                            <i class="bi bi-pencil-square"></i>
-                                            <input type="text" placeholder="Add Question" formControlName="description">
+                                            <i class="bi bi-patch-question"></i>
+                                            <input type="text" placeholder="Add Question" formControlName="question">
                                         </div>
+                                        <main class="row">
+                                            <section class="col question-one">
+                                                <div class="field">
+                                                    <i class="bi bi-patch-question"></i>
+                                                    <input type="text" placeholder="Option n°1" formControlName="description">
+                                                </div>
+                                                <div class="field">
+                                                    <i class="bi bi-patch-question"></i>
+                                                    <input type="text" placeholder="Option n°3" formControlName="description">
+                                                </div>
+                                            </section>
+                                            <section class="col question-two">
+                                                <div class="field">
+                                                    <i class="bi bi-patch-question"></i>
+                                                    <input type="text" placeholder="Option n°2" formControlName="description">
+                                                </div>
+                                                <div class="field">
+                                                    <i class="bi bi-patch-question"></i>
+                                                    <input type="text" placeholder="Option n°4" formControlName="description">
+                                                </div>
+                                            </section>
+                                        </main>
                                     </div>
 
                                 </div>
