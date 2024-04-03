@@ -9,6 +9,7 @@ import Swal from 'sweetalert2';
 import { Course } from '../../models/course.model';
 import { Question } from '../../models/question.model';
 import { QuestionApiService } from 'src/app/services/question-api.service';
+import { CourseApiService } from 'src/app/services/course-api.service';
 
 @Component({
   selector: 'app-add-quizzes',
@@ -61,6 +62,7 @@ export class AddQuizzesComponent implements OnInit{
   constructor(private quizService: QuizApiService,
               private categoryService: CategoryApiService,
               private questionService: QuestionApiService,
+              private courseService: CourseApiService,
               private formBuilder: FormBuilder,
               private route: Router) {}
 
@@ -77,8 +79,8 @@ export class AddQuizzesComponent implements OnInit{
 
   loadFormGroupCourse() {
     this.formGroupCourse= this.formBuilder.group({
-      title: this.formBuilder.control(''),
-      description: this.formBuilder.control('')
+      title1: this.formBuilder.control(''),
+      description1: this.formBuilder.control('')
     })
   }
 
@@ -96,7 +98,7 @@ export class AddQuizzesComponent implements OnInit{
   }
 
   loadFormGroupQuestion() {
-    this.formGroupCourse= this.formBuilder.group({
+    this.formGroupQuestion= this.formBuilder.group({
       content: this.formBuilder.control('', Validators.required),
       option1: this.formBuilder.control('', Validators.required),
       option2: this.formBuilder.control('', Validators.required),
@@ -120,9 +122,22 @@ export class AddQuizzesComponent implements OnInit{
   addCourse() {
 
     const course: Course= {
-      title: this.formGroupCourse.value.title,
-      description: this.formGroupCourse.value.description
+      title: this.formGroupCourse.value.title1,
+      description: this.formGroupCourse.value.description1
     }
+
+    this.courseService.addCourse(course).subscribe({
+      next: response=> {
+        console.log('course added successfully!');
+        console.log(course);
+        
+        
+      },
+      error: err=> {
+        console.log(err);
+        
+      }
+    })
 
   }
 
