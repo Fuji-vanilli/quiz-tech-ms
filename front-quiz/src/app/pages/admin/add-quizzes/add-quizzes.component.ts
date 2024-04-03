@@ -39,7 +39,7 @@ export class AddQuizzesComponent implements OnInit{
 
   selectLevel= {
     open: false,
-    value: 'Select Level'
+    value: 'Easy'
   }
 
   selectDuration= {

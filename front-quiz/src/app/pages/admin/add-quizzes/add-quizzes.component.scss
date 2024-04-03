@@ -412,8 +412,21 @@
                         h2 {
                             color: var(--text-200);
                         }
+                    }
 
+                    .box.resume {
+                        h2 {
+                            color: var(--primary-100);
+                        }
                         
+                        h3 {
+                            color: var(--text-100);
+                            margin-bottom: 4px;
+                        }
+
+                        span {
+                            color: var(--text-200);
+                        }
                     }
                 }
             }
