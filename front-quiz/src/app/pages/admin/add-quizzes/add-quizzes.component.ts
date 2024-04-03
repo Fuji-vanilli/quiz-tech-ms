@@ -22,7 +22,9 @@ export class AddQuizzesComponent implements OnInit{
   activeSteps: boolean[]= [false, false, false, false];
   activestepCount: number= 0;
 
-  formGroup!: FormGroup;
+  formGroupCourse!: FormGroup;
+  formGroupQuiz!: FormGroup;
+  formGroupQuestion!: FormGroup;
 
   searchTerm: string= '';
   filterCategoryBySearchTerm: Category[]= [];
@@ -56,45 +58,70 @@ export class AddQuizzesComponent implements OnInit{
               private route: Router) {}
 
   ngOnInit(): void {
-    this.loadFormGoup();
-    this.categoryService.fetchAll(0, 10).subscribe({
-    next: response=> {
-      console.log(response.data.categories);
-      this.categories= response.data.categories;
-      this.filterCategoryBySearchTerm= response.data.categories;
-    }
-   })
+    this.loadFormGroupCourse();
+    this.loadFormGoupQuiz();
+    this.loadFormGroupQuestion();
 
+    this.loadCategory();
+    
    window.scrollTo({top: 0, behavior: 'smooth'});
+
   }
 
-  loadFormGoup() {
-    this.formGroup= this.formBuilder.group({
+  loadFormGroupCourse() {
+    this.formGroupCourse= this.formBuilder.group({
+      title: this.formBuilder.control(''),
+      description: this.formBuilder.control('')
+    })
+  }
+
+  loadFormGoupQuiz() {
+    this.formGroupQuiz= this.formBuilder.group({
       title: this.formBuilder.control('', Validators.required),
       description: this.formBuilder.control(''),
-      categoryId: this.formBuilder.control(''),
-      difficulty: this.formBuilder.control(''),
-      language: this.formBuilder.control(''),
+      categoryId: this.formBuilder.control('', Validators.required),
+      difficulty: this.formBuilder.control('', Validators.required),
+      language: this.formBuilder.control('', Validators.required),
       duration: this.formBuilder.control(5, Validators.required),
       marks: this.formBuilder.control(0, Validators.required),
-      imageUrl: this.formBuilder.control(''),
-      numberOfQuestions: this.formBuilder.control(0, Validators.required),
-      active: this.formBuilder.control(false)
+      numberOfQuestions: this.formBuilder.control(0, Validators.required)
     })
+  }
+
+  loadFormGroupQuestion() {
+    this.formGroupCourse= this.formBuilder.group({
+      content: this.formBuilder.control('', Validators.required),
+      option1: this.formBuilder.control('', Validators.required),
+      option2: this.formBuilder.control('', Validators.required),
+      option3: this.formBuilder.control('', Validators.required),
+      option4: this.formBuilder.control('', Validators.required),
+      answer: this.formBuilder.control('', Validators.required)
+    })
+  }
+
+  loadCategory() {
+    this.categoryService.fetchAll(0, 10).subscribe({
+      next: response=> {
+        console.log(response.data.categories);
+        this.categories= response.data.categories;
+        this.filterCategoryBySearchTerm= response.data.categories;
+      }
+     })
+  
   }
 
   addQuiz() {
     const quiz: Quiz= {
-      title: this.formGroup.value.title,
-      description: this.formGroup.value.description,
-      categoryId: this.formGroup.value.categoryId,
-      active: this.formGroup.value.active,
-      marks: this.formGroup.value.marks,
-      imageUrl: this.formGroup.value.imageUrl,
-      language: this.formGroup.value.language,
-      duration: this.formGroup.value.duration,
-      difficulty: this.formGroup.value.duration,
-      numberOfQuestions: this.formGroup.value.numberOfQuestions 
+      title: this.formGroupQuiz.value.title,
+      description: this.formGroupQuiz.value.description,
+      categoryId: this.formGroupQuiz.value.categoryId,
+      active: this.formGroupQuiz.value.active,
+      marks: this.formGroupQuiz.value.marks,
+      imageUrl: this.formGroupQuiz.value.imageUrl,
+      language: this.formGroupQuiz.value.language,
+      duration: this.formGroupQuiz.value.duration,
+      difficulty: this.formGroupQuiz.value.duration,
+      numberOfQuestions: this.formGroupQuiz.value.numberOfQuestions 
       
     }
 

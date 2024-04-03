@@ -218,6 +218,17 @@
                                     </div>
                                     <h2 *ngIf="currentQuestionAdd=== categories.length">All Questions added successfully...You have finished this Step</h2>
                                 </div>
+
+                                <div class="box resume" [class.active]="activestepCount=== 3">
+                                    <div class="course-resume">
+                                        <h2>Course or Lesson</h2>
+                                        <h3>Title</h3>
+                                        <span>{{formGroupCourse.value.title}}</span>
+                                        <h3>Description</h3>
+                                        <span>{{formGroupCourse.value.description}}</span>
+                                    </div>
+
+                                </div>
                             </form>
                         </div>
                         <i class="instruction">All field with <span>*</span> are required!</i>
