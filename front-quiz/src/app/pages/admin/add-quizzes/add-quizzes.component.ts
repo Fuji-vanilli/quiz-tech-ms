@@ -25,6 +25,7 @@ export class AddQuizzesComponent implements OnInit{
   activeSteps: boolean[]= [false, false, false, false];
   activestepCount: number= 0;
 
+  quiz!: Quiz; 
   quizId!: string;
   
   formGroupCourse!: FormGroup;
@@ -126,7 +127,7 @@ export class AddQuizzesComponent implements OnInit{
   }
 
   addQuiz() {
-    const quiz: Quiz= {
+    this.quiz= {
       title: this.formGroupQuiz.value.title,
       description: this.formGroupQuiz.value.description,
       categoryId: this.selectCategory.cateogryId,
@@ -140,7 +141,7 @@ export class AddQuizzesComponent implements OnInit{
       
     }
 
-    this.quizService.addQuiz(quiz).subscribe({
+    this.quizService.addQuiz(this.quiz).subscribe({
       next: response=> {
 
         if (response.statusCode== 400) {
@@ -165,6 +166,7 @@ export class AddQuizzesComponent implements OnInit{
       this.formGroupQuestion.value.option3,
       this.formGroupQuestion.value.option4
     ]
+
     const question: Question= {
       content: this.formGroupQuestion.value.content,
       options: options,
