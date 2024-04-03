@@ -397,34 +397,23 @@
                                     font-size: 12px;
                                 }
                             }
-                        }
 
-                        .option-number {
-                            color: var(--primary-100);
-                            margin-bottom: 16px;
-                            width: 50%;
-
-                            .radio {
-                                display: inline-block;
-                                vertical-align: middle;
-                                color: var(--primary-100);
-
-                                input[type="radio"] {
-                                    display: none;
-                                }
-
-                                span {
-                                    width: 20px;
-                                    height: 20px;
-                                    border-radius: 50%;
-                                    border: 3px solid var(--primary-100);
-                                }
+                            button.submit {
+                                border: 0;
+                                background: var(--primary-100);
+                                color: var(--bg-100);
+                                font-weight: 550;
+                                padding: 8px 24px;
+                                border-radius: 8px;
                             }
 
-                            .radio + .radio {
-                                margin-left: 25px;
-                            }
                         }
+
+                        h2 {
+                            color: var(--text-200);
+                        }
+
+                        
                     }
                 }
             }

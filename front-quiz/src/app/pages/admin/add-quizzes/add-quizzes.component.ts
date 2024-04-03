@@ -27,6 +27,8 @@ export class AddQuizzesComponent implements OnInit{
   searchTerm: string= '';
   filterCategoryBySearchTerm: Category[]= [];
 
+  currentQuestionAdd: number= 0;
+
   selectCategory= {
     open: false,
     cateogryId: '',
@@ -175,6 +177,10 @@ export class AddQuizzesComponent implements OnInit{
   selectOptionLanguage(language: any) {
     this.selectLanguage.open= false;
     this.selectLanguage.value= language;
+  }
+
+  showNextQuestionAdd() {
+    this.currentQuestionAdd++;
   }
 
   @HostListener('document:click', ['$event'])

@@ -1,6 +1,6 @@
 <div class="contain">
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-8 offset-md-2">
             <div class="container-1">
                 <main class="row">
                     <section class="col">
@@ -141,7 +141,6 @@
                                                 <input type="text" placeholder="Number of Questions" formControlName="numberOfQuestions">
                                             </div>
 
-                                            
                                             <label>Duration<span> *</span> <small class="info"> (Minutes)</small></label>
                                             <div class="select-container duration">
                                                 <div class="select-option" (click)="toggleDuration()">
@@ -184,24 +183,14 @@
                                         <h2>Questions</h2>
                                         <h4>Create the <span>Quiz</span> now....First, let's create the <span>Questions</span> of your <span>Quiz</span></h4>
                                     </div>
-                                    <div class="option-number">
-                                        <label class="radio">
-                                            <input type="radio" value="2"> 2
-                                            <span></span>
-                                        </label>
-                                        <label class="radio">
-                                            <input type="radio" value="2"> 4
-                                        </label>
-                                        <label class="radio">
-                                            <input type="radio" value="2"> 6
-                                        </label>
-                                    </div>
-                                    <div class="questions" *ngFor="let index of categories; let i= index">
+                                    
+                                    <div class="questions" *ngFor="let index of categories let i= index" [hidden]="currentQuestionAdd!== i">
                                         <label>Question {{i+1}} <span>*</span></label>
                                         <div class="field">
                                             <i class="bi bi-patch-question"></i>
                                             <input type="text" placeholder="Add Question" formControlName="question">
                                         </div>
+                                        
                                         <main class="row">
                                             <section class="col question-one">
                                                 <div class="field">
@@ -224,8 +213,10 @@
                                                 </div>
                                             </section>
                                         </main>
-                                    </div>
 
+                                        <button class="submit" (click)="showNextQuestionAdd()">Submit</button>
+                                    </div>
+                                    <h2 *ngIf="currentQuestionAdd=== categories.length">All Questions added successfully...You have finished this Step</h2>
                                 </div>
                             </form>
                         </div>
