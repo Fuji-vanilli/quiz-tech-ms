@@ -27,7 +27,12 @@ export class AddQuizzesComponent implements OnInit{
   activestepCount: number= 0;
 
   quiz!: Quiz; 
+  course!: Course;
+
   quizId!: string;
+
+  disabledNext: boolean= true;
+  questionCountAdd: number= 1;
   
   formGroupCourse!: FormGroup;
   formGroupQuiz!: FormGroup;
@@ -56,7 +61,7 @@ export class AddQuizzesComponent implements OnInit{
 
   selectLanguage= {
     open: false,
-    value: 'En'
+    value: 'English'
   }
 
   constructor(private quizService: QuizApiService,
@@ -79,21 +84,21 @@ export class AddQuizzesComponent implements OnInit{
 
   loadFormGroupCourse() {
     this.formGroupCourse= this.formBuilder.group({
-      title1: this.formBuilder.control(''),
-      description1: this.formBuilder.control('')
+      title1: this.formBuilder.control('', Validators.required),
+      description1: this.formBuilder.control('', Validators.required)
     })
   }
 
   loadFormGoupQuiz() {
     this.formGroupQuiz= this.formBuilder.group({
       title: this.formBuilder.control('', Validators.required),
-      description: this.formBuilder.control(''),
-      categoryId: this.formBuilder.control('', Validators.required),
-      difficulty: this.formBuilder.control('', Validators.required),
-      language: this.formBuilder.control('', Validators.required),
-      duration: this.formBuilder.control(5, Validators.required),
-      marks: this.formBuilder.control(0, Validators.required),
-      numberOfQuestions: this.formBuilder.control(0, Validators.required)
+      description: this.formBuilder.control('', Validators.required),
+      categoryId: this.formBuilder.control(''), 
+      difficulty: this.formBuilder.control(''),
+      language: this.formBuilder.control(''),
+      duration: this.formBuilder.control(''),
+      marks: this.formBuilder.control('', Validators.required),
+      numberOfQuestions: this.formBuilder.control('', Validators.required)
     })
   }
 
@@ -121,15 +126,15 @@ export class AddQuizzesComponent implements OnInit{
 
   addCourse() {
 
-    const course: Course= {
+    this.course= {
       title: this.formGroupCourse.value.title1,
       description: this.formGroupCourse.value.description1
     }
 
-    this.courseService.addCourse(course).subscribe({
+    this.courseService.addCourse(this.course).subscribe({
       next: response=> {
         console.log('course added successfully!');
-        console.log(course);
+        console.log(this.course);
         
         
       },
@@ -203,9 +208,9 @@ export class AddQuizzesComponent implements OnInit{
   }
 
   nextStep() {
-    if (this.activestepCount=== 0) {
+    if (this.activestepCount=== 0 && this.formGroupCourse.valid) {
       this.addCourse();
-    } else if (this.activestepCount=== 1) {
+    } else if (this.activestepCount=== 1 && this.formGroupQuiz.valid) {
       this.addQuiz();
     }
  
@@ -220,6 +225,18 @@ export class AddQuizzesComponent implements OnInit{
   backStep() {
     this.activestepCount--;
     this.activeSteps[this.activestepCount]= false;
+  }
+
+  isValidForm() {
+    switch (this.activestepCount) {
+      case 0: 
+        return this.formGroupCourse.valid;
+      case 1:
+        return this.formGroupQuiz.valid;
+      default:
+        return false;
+
+    }
   }
 
   toggleCategorySelect() {

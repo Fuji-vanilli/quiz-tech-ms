@@ -8,7 +8,8 @@
                             <h3>Create new Quiz</h3>
                             <div class="action">
                                 <button class="cancel" (click)="backStep()"><i class="bi bi-chevron-left"></i>Back</button>
-                                <button class="next" (click)="nextStep()">Next<i class="bi bi-chevron-right"></i></button>
+                                <button class="next" (click)="nextStep()" [disabled]="!isValidForm()">Next<i class="bi bi-chevron-right"></i>
+                                </button>
                             </div>
                         </header>
                         <div class="contents">
@@ -123,10 +124,11 @@
                                                             </ul>
                                                         </div>
                                                     </div>
-                                                    
-                                                    <label>Upload image<span>*</span></label>
-                                                    <div>
-                                                        <input type="file" class="upload" placeholder="No file choosen" formControlName="description">
+
+                                                    <label>Max marks (points) <span>*</span></label>
+                                                    <div class="field">
+                                                        <i class="bi bi-bookmark-star"></i>
+                                                        <input type="number" placeholder="Max marks" formControlName="marks">
                                                     </div>
                                             </section>
     
@@ -177,6 +179,12 @@
                                             </section>
                                         </main>
                                     </form>
+                                                                                        
+                                    <label>Upload image<span>*</span></label>
+                                    <div class="upload-image">
+                                        <input type="file" class="upload" placeholder="No file choosen" formControlName="description">
+                                        <button>Upload</button>
+                                    </div>
 
                                 </div>
 
@@ -186,7 +194,7 @@
                                         <h4>Create the <span>Quiz</span> now....First, let's create the <span>Questions</span> of your <span>Quiz</span></h4>
                                     </div>
                                     
-                                    <div class="questions" *ngFor="let index of categories let i= index" [hidden]="currentQuestionAdd!== i">
+                                    <div class="questions" *ngFor="let index of categories; let i= index" [hidden]="currentQuestionAdd!== i">
                                         <label>Question {{i+1}} <span>*</span></label>
                                         <div class="field">
                                             <i class="bi bi-patch-question"></i>
@@ -227,9 +235,9 @@
                                     <div class="course-resume">
                                         <h2>Course or Lesson</h2>
                                         <h3>Title</h3>
-                                        <span>{{formGroupCourse.value.title}}</span>
+                                        <span>{{formGroupCourse.value.title1}}</span>
                                         <h3>Description</h3>
-                                        <span>{{formGroupCourse.value.description}}</span>
+                                        <span>{{formGroupCourse.value.description1}}</span>
                                     </div>
 
                                     <div class="info-quiz-resume">
