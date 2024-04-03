@@ -6,6 +6,9 @@ import { CategoryApiService } from 'src/app/services/category-api.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { Course } from '../../models/course.model';
+import { Question } from '../../models/question.model';
+import { QuestionApiService } from 'src/app/services/question-api.service';
 
 @Component({
   selector: 'app-add-quizzes',
@@ -22,6 +25,8 @@ export class AddQuizzesComponent implements OnInit{
   activeSteps: boolean[]= [false, false, false, false];
   activestepCount: number= 0;
 
+  quizId!: string;
+  
   formGroupCourse!: FormGroup;
   formGroupQuiz!: FormGroup;
   formGroupQuestion!: FormGroup;
@@ -54,6 +59,7 @@ export class AddQuizzesComponent implements OnInit{
 
   constructor(private quizService: QuizApiService,
               private categoryService: CategoryApiService,
+              private questionService: QuestionApiService,
               private formBuilder: FormBuilder,
               private route: Router) {}
 
@@ -110,17 +116,26 @@ export class AddQuizzesComponent implements OnInit{
   
   }
 
+  addCourse() {
+
+    const course: Course= {
+      title: this.formGroupCourse.value.title,
+      description: this.formGroupCourse.value.description
+    }
+
+  }
+
   addQuiz() {
     const quiz: Quiz= {
       title: this.formGroupQuiz.value.title,
       description: this.formGroupQuiz.value.description,
-      categoryId: this.formGroupQuiz.value.categoryId,
+      categoryId: this.selectCategory.cateogryId,
       active: this.formGroupQuiz.value.active,
       marks: this.formGroupQuiz.value.marks,
       imageUrl: this.formGroupQuiz.value.imageUrl,
       language: this.formGroupQuiz.value.language,
-      duration: this.formGroupQuiz.value.duration,
-      difficulty: this.formGroupQuiz.value.duration,
+      duration: this.selectDuration.value,
+      difficulty: this.selectLevel.value,
       numberOfQuestions: this.formGroupQuiz.value.numberOfQuestions 
       
     }
@@ -128,22 +143,38 @@ export class AddQuizzesComponent implements OnInit{
     this.quizService.addQuiz(quiz).subscribe({
       next: response=> {
 
-        
         if (response.statusCode== 400) {
-          Swal.fire('Error', 'Quiz already exist...Try again!!!', 'error')
-          this.route.navigateByUrl('/admin/add-quiz')
+          console.log('Error', 'Quiz already exist...Try again!!!', 'error')
         } else {
-          Swal.fire('Success', 'new Quiz added successfully!', 'success')
-          this.route.navigateByUrl('/admin/quizzes');        
-  
-          console.log('duration: ',quiz.duration);
-          console.log('status', response.statusCode);
+          console.log('Success', 'new Quiz added successfully!', 'success')
+          this.quizId= response.data.id
         }
       
       },
       error: err=> {
         console.log(err);
         
+      }
+    })
+  }
+
+  addQuestion() {
+    const options: string[]= [
+      this.formGroupQuestion.value.option1,
+      this.formGroupQuestion.value.option2,
+      this.formGroupQuestion.value.option3,
+      this.formGroupQuestion.value.option4
+    ]
+    const question: Question= {
+      content: this.formGroupQuestion.value.content,
+      options: options,
+      answer: this.formGroupQuestion.value.answer,
+      quizId: this.quizId
+    };
+
+    this.questionService.addQuestion(question).subscribe({
+      next: response=> {
+        console.log('Success', 'Question added successfully!', 'success');       
       }
     })
   }
@@ -155,6 +186,12 @@ export class AddQuizzesComponent implements OnInit{
   }
 
   nextStep() {
+    if (this.activestepCount=== 0) {
+      this.addCourse();
+    } else if (this.activestepCount=== 1) {
+      this.addQuiz();
+    }
+ 
     this.activeSteps[this.activestepCount]= true;
     this.activestepCount++;
 
