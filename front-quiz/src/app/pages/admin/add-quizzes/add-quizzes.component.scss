@@ -211,6 +211,7 @@
                             border-radius: 8px;
                             width: 100%;
                             outline: none;
+                            margin-bottom: 16px;
                         }
 
                         ::-webkit-file-upload-button {
@@ -376,21 +377,6 @@
 
                             section.col.one {
                                 width: 100%;
-                            }
-                        }
-
-                        .upload-image {
-                            display: flex;
-
-                            button {
-                                border: 0;
-                                border-radius: 8px;
-                                background: var(--bg-200);
-                                color: var(--text-100);
-                                font-weight: 550;
-                                margin-left: 20px;
-                                font-size: 13px;
-                                padding: 0 16px;
                             }
                         }
                         

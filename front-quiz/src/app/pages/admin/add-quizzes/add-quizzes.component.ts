@@ -67,6 +67,20 @@ export class AddQuizzesComponent implements OnInit{
     value: 'English'
   }
 
+  selectAnswer= {
+    open: false,
+    value: 'select answer'    
+  };
+
+  options: any= {
+    option1: '',
+    option2: '',
+    option3: '',
+    option4: ''
+  };
+
+  answer: string= '';
+
   constructor(private quizService: QuizApiService,
               private categoryService: CategoryApiService,
               private questionService: QuestionApiService,
@@ -107,12 +121,12 @@ export class AddQuizzesComponent implements OnInit{
 
   loadFormGroupQuestion() {
     this.formGroupQuestion= this.formBuilder.group({
-      content: this.formBuilder.control('', Validators.required),
-      option1: this.formBuilder.control('', Validators.required),
-      option2: this.formBuilder.control('', Validators.required),
-      option3: this.formBuilder.control('', Validators.required),
-      option4: this.formBuilder.control('', Validators.required),
-      answer: this.formBuilder.control('', Validators.required)
+      content: this.formBuilder.control(''),
+      option1: this.formBuilder.control(''),
+      option2: this.formBuilder.control(''),
+      option3: this.formBuilder.control(''),
+      option4: this.formBuilder.control(''),
+      answer: this.formBuilder.control('')
     })
   }
 
@@ -150,7 +164,7 @@ export class AddQuizzesComponent implements OnInit{
   }
 
   addQuiz() {
-    this.quiz= {
+    const quiz: Quiz= {
       title: this.formGroupQuiz.value.title,
       description: this.formGroupQuiz.value.description,
       categoryId: this.selectCategory.cateogryId,
@@ -164,16 +178,14 @@ export class AddQuizzesComponent implements OnInit{
       
     }
 
-    this.quizService.addQuiz(this.quiz).subscribe({
+    this.quizService.addQuiz(quiz).subscribe({
       next: response=> {
 
         if (response.statusCode== 400) {
           console.log('Error', 'Quiz already exist...Try again!!!', 'error')
         } else {
           console.log('Success', 'new Quiz added successfully!', 'success')
-          this.quizId= response.data.id
-
-          this.uploadProfileImage(response.data.id);
+          this.quiz= response.data.quiz;
         }
       
       },
@@ -234,7 +246,7 @@ export class AddQuizzesComponent implements OnInit{
 
     this.questionService.addQuestion(question).subscribe({
       next: response=> {
-        console.log('Success', 'Question added successfully!', 'success');       
+        console.log('Success', 'Question added successfully!', 'success');     
       }
     })
   }
@@ -250,6 +262,8 @@ export class AddQuizzesComponent implements OnInit{
       this.addCourse();
     } else if (this.activestepCount=== 1 && this.formGroupQuiz.valid) {
       this.addQuiz();
+    } else if (this.activestepCount=== 2) {
+      this.uploadProfileImage(this.quiz.id);
     }
  
     this.activeSteps[this.activestepCount]= true;
@@ -271,6 +285,8 @@ export class AddQuizzesComponent implements OnInit{
         return this.formGroupCourse.valid;
       case 1:
         return this.formGroupQuiz.valid;
+      case 2:
+        return this.formGroupQuestion.valid;
       default:
         return false;
 
@@ -293,6 +309,10 @@ export class AddQuizzesComponent implements OnInit{
     this.selectLanguage.open= !this.selectLanguage.open;
   }
 
+  toggleOptions() {
+    this.selectAnswer.open= !this.selectAnswer.open
+  }
+
   selectOptionCategory(category: Category) {
     this.selectCategory.cateogryId= category.id!;
     this.selectCategory.value= category.title;
@@ -301,18 +321,23 @@ export class AddQuizzesComponent implements OnInit{
   }
 
   selectOptionLevel(level: any) {
-    this.selectLevel.open= false;
     this.selectLevel.value= level;
+    this.selectLevel.open= false;
   }
 
   selectOptionDuration(duration: number) {
-    this.selectDuration.open= false;
     this.selectDuration.value= duration;
+    this.selectDuration.open= false;
   }
 
   selectOptionLanguage(language: any) {
-    this.selectLanguage.open= false;
     this.selectLanguage.value= language;
+    this.selectLanguage.open= false;
+  }
+
+  selectCorrectAnswer(answer: any) {
+    this.selectAnswer.value= answer;
+    this.selectAnswer.open= false;
   }
 
   showNextQuestionAdd() {
@@ -335,6 +360,10 @@ export class AddQuizzesComponent implements OnInit{
 
     if (!event.target.closest('.select-container.language')) {
       this.selectLanguage.open= false;
+    }
+
+    if (!event.target.closest('.select-container.answer')) {
+      this.selectAnswer.open= false;
     }
   }
 

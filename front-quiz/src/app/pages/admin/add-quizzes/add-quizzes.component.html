@@ -178,19 +178,18 @@
                                                 </div>
                                             </section>
                                         </main>
-                                    </form>
-                                                                                        
-                                    <label>Upload image<span>*</span></label>
-                                    <div class="upload-image">
-                                        <input type="file" class="upload" (change)="handleFileInput($event)" placeholder="No file choosen" formControlName="description">
-                                    </div>
-
+                                    </form>                                          
                                 </div>
 
                                 <div class="box create-quiz" [class.active]="activestepCount=== 2">
                                     <div class="box-title">
                                         <h2>Questions</h2>
                                         <h4>Create the <span>Quiz</span> now....First, let's create the <span>Questions</span> of your <span>Quiz</span></h4>
+                                    </div>
+
+                                    <label>Upload image<span>*</span></label>
+                                    <div class="upload-image">
+                                        <input type="file" class="upload" (change)="handleFileInput($event)" placeholder="No file choosen" formControlName="description">
                                     </div>
                                     
                                     <div class="questions" *ngFor="let index of categories; let i= index" [hidden]="currentQuestionAdd!== i">
@@ -223,7 +222,21 @@
                                                     </div>
                                                 </section>
                                             </main>
-    
+
+                                            <div class="select-container answer">
+                                                <div class="select-option" (click)="toggleOptions()"> 
+                                                    <i class="bi bi-clock"></i>
+                                                    <input type="text" [placeholder]="selectDuration.value" formControlName="answer" readonly>
+                                                    <i class="bi bi-caret-down-fill"></i>
+                                                </div>
+                                                <div class="select-content" [class.open]="selectDuration.open">
+                                                    <ul class="options">
+                                                        <li *ngFor="let answer of durations" (click)="selectCorrectAnswer(answer)" >
+                                                            {{answer}}
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
                                             <button class="submit" (click)="showNextQuestionAdd()">Submit</button>
                                         </form>
                                     </div>
