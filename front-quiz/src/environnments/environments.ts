@@ -3,5 +3,6 @@ export const environment= {
     backEndQuiz: 'http://localhost:6110/api/quiz',
     backEndQuestion: 'http://localhost:6120/api/question',
     backEndResultQuiz: 'http://localhost:6130/api/result',
-    backEndUser: 'http://localhost:6140/api/user'
+    backEndUser: 'http://localhost:6140/api/user',
+    backEndCorse: 'http://localhost:6450/api/course'
 }
