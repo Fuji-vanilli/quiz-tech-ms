@@ -112,7 +112,7 @@
                                                     <label>Level <span>*</span></label>
                                                     <div class="select-container level">
                                                         <div class="select-option" (click)="toggleLevel()">
-                                                            <i class="bi bi-cart-check"></i>
+                                                            <i class="bi bi-bar-chart"></i>
                                                             <input type="text" [placeholder]="selectLevel.value" formControlName="difficulty" readonly>
                                                             <i class="bi bi-caret-down-fill"></i>
                                                         </div>
@@ -148,7 +148,7 @@
                                                 <label>Duration<span> *</span> <small class="info"> (Minutes)</small></label>
                                                 <div class="select-container duration">
                                                     <div class="select-option" (click)="toggleDuration()">
-                                                        <i class="bi bi-cart-check"></i>
+                                                        <i class="bi bi-clock"></i>
                                                         <input type="text" [placeholder]="selectDuration.value" formControlName="duration" readonly>
                                                         <i class="bi bi-caret-down-fill"></i>
                                                     </div>
@@ -164,7 +164,7 @@
                                                 <label>Language<span>*</span></label>
                                                 <div class="select-container language">
                                                     <div class="select-option" (click)="toggleLanguage()">
-                                                        <i class="bi bi-cart-check"></i>
+                                                        <i class="bi bi-translate"></i>
                                                         <input type="text" [placeholder]="selectLanguage.value" formControlName="language" readonly>
                                                         <i class="bi bi-caret-down-fill"></i>
                                                     </div>
@@ -182,8 +182,7 @@
                                                                                         
                                     <label>Upload image<span>*</span></label>
                                     <div class="upload-image">
-                                        <input type="file" class="upload" placeholder="No file choosen" formControlName="description">
-                                        <button>Upload</button>
+                                        <input type="file" class="upload" (change)="handleFileInput($event)" placeholder="No file choosen" formControlName="description">
                                     </div>
 
                                 </div>

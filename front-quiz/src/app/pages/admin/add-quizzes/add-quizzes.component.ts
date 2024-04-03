@@ -31,6 +31,9 @@ export class AddQuizzesComponent implements OnInit{
 
   quizId!: string;
 
+  selectImage: any;
+  selectedFile!: File;
+
   disabledNext: boolean= true;
   questionCountAdd: number= 1;
   
@@ -169,8 +172,43 @@ export class AddQuizzesComponent implements OnInit{
         } else {
           console.log('Success', 'new Quiz added successfully!', 'success')
           this.quizId= response.data.id
+
+          this.uploadProfileImage(response.data.id);
         }
       
+      },
+      error: err=> {
+        console.log(err);
+        
+      }
+    })
+
+
+  }
+
+  
+  handleFileInput(event: any) {
+    const file = event.target.files[0];
+
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (e: any) => {
+        this.selectImage = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+
+    const target= event.target as HTMLInputElement;
+    if (target.files && target.files.length> 0) {
+      this.selectedFile= target.files[0]; 
+    }
+  }
+
+  uploadProfileImage(quizId: any) {
+    this.quizService.updatePhotoQuiz(this.selectedFile, quizId).subscribe({
+      next: response=> {
+        console.log('uploaded');
+        window.location.reload();
       },
       error: err=> {
         console.log(err);

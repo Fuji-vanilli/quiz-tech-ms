@@ -381,6 +381,17 @@
 
                         .upload-image {
                             display: flex;
+
+                            button {
+                                border: 0;
+                                border-radius: 8px;
+                                background: var(--bg-200);
+                                color: var(--text-100);
+                                font-weight: 550;
+                                margin-left: 20px;
+                                font-size: 13px;
+                                padding: 0 16px;
+                            }
                         }
                         
                     }
