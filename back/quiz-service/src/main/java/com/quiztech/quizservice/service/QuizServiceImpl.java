@@ -61,6 +61,8 @@ public class QuizServiceImpl implements QuizService {
 
         Quiz quiz= quizMapper.mapToQuiz(request);
         quiz.setId(UUID.randomUUID().toString());
+        quiz.setCreatedDate(new Date());
+        quiz.setLastUpdateDate(new Date());
 
         String s = webClient.addQuizToCategory(Map.of(
                 "idCategory", quiz.getCategoryId(),

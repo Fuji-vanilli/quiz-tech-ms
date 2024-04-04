@@ -1,14 +1,16 @@
 <div class="contain">
     <div class="row">
-        <div class="col-md-8 offset-md-2">
+        <div class="col-md-8">
             <div class="container-1">
                 <main class="row">
                     <section class="col">
                         <header class="title">
                             <h3>Create new Quiz</h3>
                             <div class="action">
-                                <button class="cancel" (click)="backStep()"><i class="bi bi-chevron-left"></i>Back</button>
-                                <button class="next" (click)="nextStep()" [disabled]="!isValidForm()">Next<i class="bi bi-chevron-right"></i>
+                                <button class="cancel" (click)="backStep()"><i
+                                        class="bi bi-chevron-left"></i>Back</button>
+                                <button class="next" (click)="nextStep()" [disabled]="!isValidForm()">Next<i
+                                        class="bi bi-chevron-right"></i>
                                 </button>
                             </div>
                         </header>
@@ -53,15 +55,16 @@
                                 <div class="box course" [class.active]="activestepCount=== 0">
                                     <form [formGroup]="formGroupCourse" (ngSubmit)="addCourse()">
                                         <div class="box-title">
-                                            <h4>You can upload or make an course or lesson so that the <span>Student</span> read before to start the <span>Quiz</span></h4>
+                                            <h4>You can upload or make an course or lesson so that the
+                                                <span>Student</span> read before to start the <span>Quiz</span></h4>
                                         </div>
-    
+
                                         <label>Title <span>*</span></label>
                                         <div class="field">
                                             <i class="bi bi-card-heading"></i>
                                             <input type="text" placeholder="Title" formControlName="title1">
                                         </div>
-    
+
                                         <label>Description <span>*</span></label>
                                         <div class="field">
                                             <i class="bi bi-pencil-square"></i>
@@ -71,7 +74,8 @@
 
                                     <label>Upload course or lesson <span>*</span></label>
                                     <div>
-                                        <input type="file" class="upload" placeholder="No file choosen" formControlName="description">
+                                        <input type="file" class="upload" placeholder="No file choosen"
+                                            formControlName="description">
                                     </div>
                                 </div>
 
@@ -84,93 +88,107 @@
                                         <main class="row">
                                             <section class="col one">
                                                 <label>Title <span>*</span></label>
-                                                    <div class="field">
-                                                        <i class="bi bi-card-heading"></i>
-                                                        <input type="text" placeholder="title" formControlName="title">
-                                                    </div>
-    
-                                                    <label>Category <span>*</span></label>
-                                                    <div class="select-container category">
-                                                        <div class="select-option" (click)="toggleCategorySelect()">
-                                                            <i class="bi bi-cart-check"></i>
-                                                            <input type="text" [placeholder]="selectCategory.value" formControlName="cateogryId" readonly>
-                                                            <i class="bi bi-caret-down-fill"></i>
-                                                        </div>
-                                                        <div class="select-content" [class.open]="selectCategory.open">
-                                                            <div class="option-search">
-                                                                <input type="text" placeholder="Search category..." [(ngModel)]="searchTerm" (ngModelChange)="filterBySearchTerm()">
-                                                            </div>
-                                                            <div>{{searchTerm}}</div>
-                                                            <ul class="options">
-                                                                <li *ngFor="let category of filterCategoryBySearchTerm" (click)="selectOptionCategory(category)">
-                                                                    <i [ngClass]="category.icon"></i>{{category.title}}
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-    
-                                                    <label>Level <span>*</span></label>
-                                                    <div class="select-container level">
-                                                        <div class="select-option" (click)="toggleLevel()">
-                                                            <i class="bi bi-bar-chart"></i>
-                                                            <input type="text" [placeholder]="selectLevel.value" formControlName="difficulty" readonly>
-                                                            <i class="bi bi-caret-down-fill"></i>
-                                                        </div>
-                                                        <div class="select-content" [class.open]="selectLevel.open">
-                                                            <ul class="options">
-                                                                <li *ngFor="let level of levels" (click)="selectOptionLevel(level)" >
-                                                                    {{level}}
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
+                                                <div class="field">
+                                                    <i class="bi bi-card-heading"></i>
+                                                    <input type="text" placeholder="title" formControlName="title">
+                                                </div>
 
-                                                    <label>Max marks (points) <span>*</span></label>
-                                                    <div class="field">
-                                                        <i class="bi bi-bookmark-star"></i>
-                                                        <input type="number" placeholder="Max marks" formControlName="marks">
+                                                <label>Category <span>*</span></label>
+                                                <div class="select-container category">
+                                                    <div class="select-option" (click)="toggleCategorySelect()">
+                                                        <i class="bi bi-cart-check"></i>
+                                                        <input type="text" [placeholder]="selectCategory.value"
+                                                            formControlName="cateogryId" readonly>
+                                                        <i class="bi bi-caret-down-fill"></i>
                                                     </div>
+                                                    <div class="select-content" [class.open]="selectCategory.open">
+                                                        <div class="option-search">
+                                                            <input type="text" placeholder="Search category..."
+                                                                [(ngModel)]="searchTerm"
+                                                                (ngModelChange)="filterBySearchTerm()">
+                                                        </div>
+                                                        <div>{{searchTerm}}</div>
+                                                        <ul class="options">
+                                                            <li *ngFor="let category of filterCategoryBySearchTerm"
+                                                                (click)="selectOptionCategory(category)">
+                                                                <i [ngClass]="category.icon"></i>{{category.title}}
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+
+                                                <label>Level <span>*</span></label>
+                                                <div class="select-container level">
+                                                    <div class="select-option" (click)="toggleLevel()">
+                                                        <i class="bi bi-bar-chart"></i>
+                                                        <input type="text" [placeholder]="selectLevel.value"
+                                                            formControlName="difficulty" readonly>
+                                                        <i class="bi bi-caret-down-fill"></i>
+                                                    </div>
+                                                    <div class="select-content" [class.open]="selectLevel.open">
+                                                        <ul class="options">
+                                                            <li *ngFor="let level of levels"
+                                                                (click)="selectOptionLevel(level)">
+                                                                {{level}}
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+
+                                                <label>Max marks (points) <span>*</span></label>
+                                                <div class="field">
+                                                    <i class="bi bi-bookmark-star"></i>
+                                                    <input type="number" placeholder="Max marks"
+                                                        formControlName="marks">
+                                                </div>
                                             </section>
-    
+
                                             <section class="col two">
                                                 <label>Description <span>*</span></label>
                                                 <div class="field">
                                                     <i class="bi bi-pencil-square"></i>
-                                                    <input type="text" placeholder="Description" formControlName="description">
+                                                    <input type="text" placeholder="Description"
+                                                        formControlName="description">
                                                 </div>
-    
+
                                                 <label>Number of Questions <span>*</span></label>
                                                 <div class="field">
                                                     <i class="bi bi-list-ol"></i>
-                                                    <input type="text" placeholder="Number of Questions" formControlName="numberOfQuestions">
+                                                    <input type="text" placeholder="Number of Questions"
+                                                        formControlName="numberOfQuestions">
                                                 </div>
-    
-                                                <label>Duration<span> *</span> <small class="info"> (Minutes)</small></label>
+
+                                                <label>Duration<span> *</span> <small class="info">
+                                                        (Minutes)</small></label>
                                                 <div class="select-container duration">
                                                     <div class="select-option" (click)="toggleDuration()">
                                                         <i class="bi bi-clock"></i>
-                                                        <input type="text" [placeholder]="selectDuration.value" formControlName="duration" readonly>
+                                                        <input type="text" [placeholder]="selectDuration.value"
+                                                            formControlName="duration" readonly>
                                                         <i class="bi bi-caret-down-fill"></i>
                                                     </div>
                                                     <div class="select-content" [class.open]="selectDuration.open">
                                                         <ul class="options">
-                                                            <li *ngFor="let duration of durations" (click)="selectOptionDuration(duration*2)" >
+                                                            <li *ngFor="let duration of durations"
+                                                                (click)="selectOptionDuration(duration*2)">
                                                                 {{duration*2}}
                                                             </li>
                                                         </ul>
                                                     </div>
                                                 </div>
-    
+
                                                 <label>Language<span>*</span></label>
                                                 <div class="select-container language">
                                                     <div class="select-option" (click)="toggleLanguage()">
                                                         <i class="bi bi-translate"></i>
-                                                        <input type="text" [placeholder]="selectLanguage.value" formControlName="language" readonly>
+                                                        <input type="text" [placeholder]="selectLanguage.value"
+                                                            formControlName="language" readonly>
                                                         <i class="bi bi-caret-down-fill"></i>
                                                     </div>
                                                     <div class="select-content" [class.open]="selectLanguage.open">
                                                         <ul class="options">
-                                                            <li *ngFor="let language of languages" (click)="selectOptionLanguage(language)" >
+                                                            <li *ngFor="let language of languages"
+                                                                (click)="selectOptionLanguage(language)">
                                                                 {{language}}
                                                             </li>
                                                         </ul>
@@ -178,70 +196,82 @@
                                                 </div>
                                             </section>
                                         </main>
-                                    </form>                                          
+                                    </form>
                                 </div>
 
                                 <div class="box create-quiz" [class.active]="activestepCount=== 2">
                                     <div class="box-title">
                                         <h2>Questions</h2>
-                                        <h4>Create the <span>Quiz</span> now....First, let's create the <span>Questions</span> of your <span>Quiz</span></h4>
+                                        <h4>Create the <span>Quiz</span> now....First, let's create the
+                                            <span>Questions</span> of your <span>Quiz</span></h4>
                                     </div>
 
                                     <label>Upload image<span>*</span></label>
                                     <div class="upload-image">
-                                        <input type="file" class="upload" (change)="handleFileInput($event)" placeholder="No file choosen" formControlName="description">
+                                        <input type="file" class="upload" (change)="handleFileInput($event)"
+                                            placeholder="No file choosen" formControlName="description">
                                     </div>
-                                    
-                                    <div class="questions" *ngFor="let index of questions; let i= index" [hidden]="currentQuestionAdd!== i">
+
+                                    <div class="questions" *ngFor="let index of questions; let i= index"
+                                        [hidden]="currentQuestionAdd!== i">
                                         <label>Question {{i+1}} <span>*</span></label>
-                                        <div class="field">
-                                            <i class="bi bi-patch-question"></i>
-                                            <input type="text" placeholder="Add Question" formControlName="content">
-                                        </div>
-                                        
                                         <form [formGroup]="formGroupQuestion" (ngSubmit)="addQuestion()">
+                                            <div class="field">
+                                                <i class="bi bi-patch-question"></i>
+                                                <input type="text" placeholder="Add Question" formControlName="content">
+                                            </div>
                                             <main class="row">
                                                 <section class="col question-one">
                                                     <div class="field">
                                                         <i class="bi bi-patch-question"></i>
-                                                        <input type="text" [(ngModel)]="options.option1" placeholder="Option 1" formControlName="option1">
+                                                        <input type="text" [(ngModel)]="options.option1"
+                                                            placeholder="Option 1" formControlName="option1">
                                                     </div>
                                                     <div class="field">
                                                         <i class="bi bi-patch-question"></i>
-                                                        <input type="text" [(ngModel)]="options.option3" placeholder="Option 3" formControlName="option3">
+                                                        <input type="text" [(ngModel)]="options.option3"
+                                                            placeholder="Option 3" formControlName="option3">
                                                     </div>
                                                 </section>
                                                 <section class="col question-two">
                                                     <div class="field">
                                                         <i class="bi bi-patch-question"></i>
-                                                        <input type="text" [(ngModel)]="options.option2" placeholder="Option 2" formControlName="option2">
+                                                        <input type="text" [(ngModel)]="options.option2"
+                                                            placeholder="Option 2" formControlName="option2">
                                                     </div>
                                                     <div class="field">
                                                         <i class="bi bi-patch-question"></i>
-                                                        <input type="text" [(ngModel)]="options.option4" placeholder="Option 4" formControlName="option4">
+                                                        <input type="text" [(ngModel)]="options.option4"
+                                                            placeholder="Option 4" formControlName="option4">
                                                     </div>
                                                 </section>
                                             </main>
                                             <label>The correct Answer<span>*</span></label>
                                             <div class="select-container answer">
-                                                <div class="select-option" (click)="toggleOptions()"> 
+                                                <div class="select-option" (click)="toggleOptions()">
                                                     <i class="bi bi-check-square-fill"></i>
-                                                    <input type="text" [placeholder]="selectAnswer.value" formControlName="answer" readonly>
+                                                    <input type="text" [placeholder]="selectAnswer.value"
+                                                        formControlName="answer" readonly>
                                                     <i class="bi bi-caret-down-fill"></i>
                                                 </div>
                                                 <div class="select-content" [class.open]="selectAnswer.open">
                                                     <ul class="options">
-                                                        <li (click)="selectCorrectAnswer(options.option1)">{{options.option1}}</li>
-                                                        <li (click)="selectCorrectAnswer(options.option2)">{{options.option2}}</li>
-                                                        <li (click)="selectCorrectAnswer(options.option3)">{{options.option3}}</li>
-                                                        <li (click)="selectCorrectAnswer(options.option4)">{{options.option4}}</li>
+                                                        <li (click)="selectCorrectAnswer(options.option1)">
+                                                            {{options.option1}}</li>
+                                                        <li (click)="selectCorrectAnswer(options.option2)">
+                                                            {{options.option2}}</li>
+                                                        <li (click)="selectCorrectAnswer(options.option3)">
+                                                            {{options.option3}}</li>
+                                                        <li (click)="selectCorrectAnswer(options.option4)">
+                                                            {{options.option4}}</li>
                                                     </ul>
                                                 </div>
                                             </div>
                                             <button class="submit" (click)="showNextQuestionAdd()">Submit</button>
                                         </form>
                                     </div>
-                                    <h2 *ngIf="currentQuestionAdd=== categories.length">All Questions added successfully...You have finished this Step</h2>
+                                    <h2 *ngIf="currentQuestionAdd=== categories.length">All Questions added
+                                        successfully...You have finished this Step</h2>
                                 </div>
 
                                 <div class="box resume" [class.active]="activestepCount=== 3">
@@ -277,5 +307,8 @@
                     </section>
                 </main>
             </div>
+            <div class="container-2">
+                <p>test</p>
+            </div>
+        </div>
     </div>
-</div>

@@ -173,7 +173,7 @@ export class AddQuizzesComponent implements OnInit{
       active: this.formGroupQuiz.value.active,
       marks: this.formGroupQuiz.value.marks,
       imageUrl: this.formGroupQuiz.value.imageUrl,
-      language: this.formGroupQuiz.value.language,
+      language: this.selectLanguage.value,
       duration: this.selectDuration.value,
       difficulty: this.selectLevel.value,
       numberOfQuestions: this.formGroupQuiz.value.numberOfQuestions 
