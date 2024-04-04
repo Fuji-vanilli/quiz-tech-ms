@@ -5,7 +5,6 @@ import { Category } from '../../models/category.model';
 import { CategoryApiService } from 'src/app/services/category-api.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import Swal from 'sweetalert2';
 import { Course } from '../../models/course.model';
 import { Question } from '../../models/question.model';
 import { QuestionApiService } from 'src/app/services/question-api.service';
@@ -20,7 +19,7 @@ export class AddQuizzesComponent implements OnInit{
 
   quizzes: Quiz[]= [];
   categories: Category[]= [];
-  durations: number[]= [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
+  durations: number[]= [1,2,2.5,3,4,5,6,7,7.5,8,9,10,11,12,12.5,13,14,15];
   languages: string[]= ['French', 'English', 'Espagnol'];
   levels: string[]= ['Easy', 'Medium', 'Hard'];
   activeSteps: boolean[]= [false, false, false, false];
@@ -30,6 +29,7 @@ export class AddQuizzesComponent implements OnInit{
   course!: Course;
 
   quizId!: string;
+  questions: number[]= [];
 
   selectImage: any;
   selectedFile!: File;
@@ -78,6 +78,8 @@ export class AddQuizzesComponent implements OnInit{
     option3: '',
     option4: ''
   };
+
+  option1= '';
 
   answer: string= '';
 
@@ -178,6 +180,10 @@ export class AddQuizzesComponent implements OnInit{
       
     }
 
+    for (let i= 0; i< this.formGroupQuiz.value.numberOfQuestions; i++) {
+      this.questions[i]= i;
+    }
+
     this.quizService.addQuiz(quiz).subscribe({
       next: response=> {
 
@@ -197,7 +203,6 @@ export class AddQuizzesComponent implements OnInit{
 
 
   }
-
   
   handleFileInput(event: any) {
     const file = event.target.files[0];
@@ -240,8 +245,15 @@ export class AddQuizzesComponent implements OnInit{
     const question: Question= {
       content: this.formGroupQuestion.value.content,
       options: options,
-      answer: this.formGroupQuestion.value.answer,
-      quizId: this.quizId
+      answer: this.selectAnswer.value,
+      quizId: this.quiz.id
+    };
+
+    this.options= {
+      option1: '',
+      option2: '',
+      option3: '',
+      option4: ''
     };
 
     this.questionService.addQuestion(question).subscribe({
