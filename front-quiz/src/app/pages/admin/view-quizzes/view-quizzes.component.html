@@ -1,24 +1,93 @@
 <div class="contain mt-4">
     <div class="container-1">
-        <main class="row">
-            <section class="col">
-                <header class="title">
-
-                </header>
-
-                <div class="contents">
-                    <div class="box">
-                        <div class="box-search">
-                            <input type="text" [(ngModel)]="searchTerm" (ngModelChange)="filterBySearchTerm()" placeholder="Search Quiz here ...">
-                            <button>
-                                <i class="bi bi-search"></i>
-                                <i class="bi bi-x-lg" *ngIf="showCloseIcon()" (click)="clearSearchTerm()"></i>
+        <section class="col">
+            <div class="contents">
+                <header class="header">
+                    <div class="box-search">
+                        <input type="text" [(ngModel)]="searchTerm" (ngModelChange)="filterBySearchTerm()" placeholder="Search Quiz here ...">
+                        <button>
+                            <i class="bi bi-search"></i>
+                            <i class="bi bi-x-lg" *ngIf="showCloseIcon()" (click)="clearSearchTerm()"></i>
+                        </button>
+                    </div>
+                    <div class="sorted">
+                        
+                        <div class="dropdowns">
+                            <button class="btn btn-sorted dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="bi bi-filter"></i>Filter
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-dark">
+                                <li><a class="dropdown-item" routerLinkActive="active" (click)="filterByFrench()">French</a></li>
+                                <li><a class="dropdown-item" routerLinkActive="active" (click)="filterByEnglish()">English</a></li>
+                                <li><a class="dropdown-item" routerLinkActive="active" (click)="filterBySpain()">Spain</a></li>
+                            </ul>
+                        </div>
+                        <div class="dropdowns">
+                            <button class="btn btn-sorted dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="bi bi-sort-down"></i>Sorted
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-dark">
+                                <li><a class="dropdown-item" routerLinkActive="active" (click)="sortedByName()">Name</a></li>
+                                <li><a class="dropdown-item" routerLinkActive="active" (click)="sortedByLevel()">Level</a></li>
+                                <li><a class="dropdown-item" routerLinkActive="active" (click)="sortedByLanguage()">Language</a></li>
+                                <li><a class="dropdown-item" routerLinkActive="active" (click)="sortedByMark()">Mark</a></li>
+                            </ul>
+                        </div>
+                        <div class="dropdowns">
+                            <button class="btn-category" (click)="loadQuizzes()">
+                                <i class="bi bi-arrow-repeat"></i>
+                                <span>All Quizzes</span>
                             </button>
                         </div>
+                    </div> 
+                </header>
+                <div class="box" *ngFor="let quiz of filterQuizzes | searchPipe: searchTerm" [routerLink]="'/user/instructions/'+quiz.id">
+                    <header class="quiz">
+                        <i class="bi bi-bookmark-star"></i>
+                        <span>Max marks</span><strong>{{quiz.marks}}</strong>
+                        <div class="updatedDate">
+                            <span>{{quiz.lastUpdateDate?.toString()?.substring(0, 10)}}</span>
+                        </div>
+                    </header>
+                    <div class="content">
+                        <div class="details">
+                            <div class="image">
+                                <img [src]="quiz.photo" alt="">
+                            </div>
+                            <div class="title">
+                                <div class="info-title">
+                                    <h3>{{quiz.title}}</h3>
+                                    <i class="bi bi-translate"></i>
+                                    <span>{{quiz.language}}</span>
+                                </div>
+                                <span>{{quiz.description}}</span>
+                                <div class="info">
+                                    <div class="questions">
+                                        <i class="bi bi-patch-question"></i>
+                                        <span>{{quiz.numberOfQuestions}}</span>
+                                    </div>
+                                    <div class="duration">
+                                        <i class="bi bi-alarm"></i>
+                                        <span>{{quiz.duration+' Minutes'}}</span>
+                                    </div>
+                                    <div class="difficulty">
+                                        <i class="bi bi-bar-chart"></i>
+                                        <span>{{quiz.difficulty}}</span>
+                                    </div>
+                                </div>
+                                <div class="start-quiz">
+                                    <a [routerLink]="'/user/instructions/'+quiz.id"><i class="bi bi-trophy"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="icon">
+                        <i class="bi bi-fire"></i>
                     </div>
                 </div>
-            </section>
-        </main>
+            </div>
+        </section>
+
     </div>
     <!--div class="d-flex justify-content-between align-items-center">
         <div class="title-question text-center">
@@ -135,4 +204,3 @@
         </mat-card>
     </div-->
 </div>
-

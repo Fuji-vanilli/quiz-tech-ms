@@ -22,12 +22,15 @@ export class ViewQuizzesComponent implements OnInit{
   selectedFile!: File;
   filename: string= '';
 
+  isOpen: boolean= false;
+  selectedText= 'All categories';
+
   quizzes: Quiz[]= [];
   quizzesByTitleKeyword: Quiz[]= [];
   totalQuizzes!: number;
 
   searchTerm: string= '';
-  filterQuizBySearchTerm: Quiz[]= [];
+  filterQuizzes: Quiz[]= [];
 
   constructor(private quizService: QuizApiService, 
               private categoryService: CategoryApiService,
@@ -38,7 +41,7 @@ export class ViewQuizzesComponent implements OnInit{
 
   ngOnInit(): void {
     this.loadQuizzes();
-    console.log('quiz by search: ',this.filterQuizBySearchTerm);
+    console.log('quiz by search: ',this.filterQuizzes);
     
   }
 
@@ -47,7 +50,7 @@ export class ViewQuizzesComponent implements OnInit{
       next: response=> {
         this.quizzes= response.data.quizzes;
         this.totalQuizzes= response.data.totalQuizzes;
-        this.filterQuizBySearchTerm= this.quizzes;
+        this.filterQuizzes= this.quizzes;
         console.log('total elements:', response.data.totalQuizzes);
       },
       error: err=> {
@@ -111,7 +114,7 @@ export class ViewQuizzesComponent implements OnInit{
   }
 
   filterBySearchTerm() {
-    this.filterQuizBySearchTerm= this.quizzes.filter(
+    this.filterQuizzes= this.quizzes.filter(
       quiz=> quiz.title?.toLowerCase().includes(this.searchTerm.toLowerCase())
     )
   }
@@ -153,6 +156,8 @@ export class ViewQuizzesComponent implements OnInit{
     document.getElementById('fileInput')?.click();
   }
 
+  /****/
+  
   showCloseIcon(): boolean {
     return this.searchTerm.length> 0;
   }
@@ -161,6 +166,44 @@ export class ViewQuizzesComponent implements OnInit{
     this.searchTerm= '';
   }
 
+  filterByFrench() {
+    this.filterQuizzes= this.quizzes.filter(quiz=> quiz.language=== 'Fr');
+
+    console.log('quizz filter: '+this.filterQuizzes);
+    
+  }
+
+  filterByEnglish() {
+    this.filterQuizzes= this.quizzes.filter(quiz=> quiz.language=== 'En');
+  }
+
+  filterBySpain() {
+    this.filterQuizzes= this.quizzes.filter(quiz=>  quiz.language=== 'Esp');
+  }
+
+  sortedByName() {
+    this.filterQuizzes.sort((a, b)=> a.title!.localeCompare(b.title!));
+  }
+
+  sortedByLevel() {
+    this.filterQuizzes.sort((a, b)=> a.difficulty!.localeCompare(b.difficulty!));
+  }
+
+  sortedByLanguage() {
+    this.filterQuizzes.sort((a, b)=> a.language!.localeCompare(b.language!));
+  }
+
+  sortedByMark() {
+    this.filterQuizzes.sort((a, b)=> a.marks! - b.marks!);
+  }
+
+  toggleList() {
+    this.isOpen= !this.isOpen;
+  }
+
+  selected(option: any) {
+    this.selectedText= option;
+  }
 
 
 }
