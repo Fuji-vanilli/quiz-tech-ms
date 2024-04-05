@@ -1,4 +1,50 @@
-.container {
+.container-1 {
+    main.row {
+        section.col {
+            font-family: 'Poppins';
+
+            header.title {
+                h2 {
+                    color: var(--text-100);
+                    span {
+                        color: var(--primary-200)
+                    }
+                }
+            }
+
+            .contents {
+                .table {
+                    thead {
+
+                        th {
+                            color: var(--text-100);
+                            padding: 14px 0;
+                            font-weight: 500;
+                            border-bottom: 1px solid var(--bg-200);
+                        }
+                    }
+
+                    tbody {
+                        tr {
+
+                            td {
+                                background: transparent;
+                                color: var(--text-200);
+                                border: 0;
+                            }
+                        }
+
+                        tr:nth-child(even) {
+                            background: var(--bg-300);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/**.container {
     background: #f3f4f6;
     padding-top: 12px;
     padding-bottom: 20px;
@@ -74,3 +120,5 @@ span {
 mat-card {
     background: #89929b;
 }
+
+*/
