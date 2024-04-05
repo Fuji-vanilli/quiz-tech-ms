@@ -1,5 +1,20 @@
 <div class="contain">
-    <div class="row">
+    <div class="container-1">
+        <main class="row">
+            <section class="col">
+                <header class="title">
+                    <span class="box-search">
+                        <input type="text" [(ngModel)]="searchTerm" (ngModelChange)="filterBySearchTerm()" placeholder="Search Category here ...">
+                        <button>
+                            <i class="bi bi-search"></i>
+                            <i class="bi bi-x-lg" *ngIf="activeCancel()" (click)="clearSearchTerm()"></i>
+                        </button>
+                    </span>
+                </header>
+            </section>
+        </main>
+    </div>
+    <!--div class="row">
         <div class="col-md-12 content">
             <div class="d-flex justify-content-between align-items-center ">
                 <div class="title-question">
@@ -70,5 +85,5 @@
               </div>
         </div>
       </div>
-    </div>
+    </div-->
   </div>

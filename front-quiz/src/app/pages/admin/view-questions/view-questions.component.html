@@ -9,25 +9,27 @@
                 <div class="contents">
                     <table class="table">
                         <thead>
-                            <th>N°</th>
+                            <th class="text-center">N°</th>
                             <th>Question</th>
                             <th>Options</th>
                             <th>Answer</th>
-                            <th>Action</th>
+                            <th></th>
                         </thead>
                         <tbody>
                             <tr *ngFor="let question of questions; let index= index">
-                                <td>{{index+1}}</td>
+                                <td class="text-center">{{index+1}}</td>
                                 <td>{{question.content}}</td>
                                 <td>
                                     <div class="option" *ngFor="let option of question.options">
-                                        <span>{{option}}</span>
+                                        <i class="bi bi-caret-right-fill"></i><span>{{option}}</span>
                                     </div>
                                 </td>
                                 <td>{{question.answer}}</td>
                                 <td>
-                                    <button>Edit</button>
-                                    <button>Delete</button>
+                                    <div class="action">
+                                        <button (click)="openUpdate(question)"><i class="bi bi-pencil"></i></button>
+                                        <button (click)="deleteQuestion(question.id)"><i class="bi bi-trash3"></i></button>
+                                    </div>
                                 </td>
                             </tr>
                         </tbody>

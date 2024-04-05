@@ -25,8 +25,11 @@ export class ViewCategoryComponent implements OnInit {
   currentCategoryId!: string;
 
   categories: Category[]= [];
+  categoriesBySearchTerm: Category[]= [];
   categoryId!: string;
   totalElements!: number
+
+  searchTerm: string= '';
 
   constructor(private categoryService: CategoryApiService, 
               private userService: UserService,
@@ -156,4 +159,16 @@ export class ViewCategoryComponent implements OnInit {
 
     return user;
   } 
+
+  filterBySearchTerm() {
+    this.categoriesBySearchTerm= this.categories.filter(category=> category.title.includes(this.searchTerm));
+  }
+
+  activeCancel() {
+    return this.searchTerm!== '';
+  }
+
+  clearSearchTerm() {
+    this.searchTerm= '';
+  }
 }

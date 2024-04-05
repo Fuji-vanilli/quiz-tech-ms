@@ -14,11 +14,13 @@
 
             .contents {
                 .table {
+                    border: 1px solid var(--bg-200);
+
                     thead {
 
                         th {
-                            color: var(--text-100);
-                            padding: 14px 0;
+                            padding: 16px 18px;
+                            color: var(--primary-200);
                             font-weight: 500;
                             border-bottom: 1px solid var(--bg-200);
                         }
@@ -31,6 +33,44 @@
                                 background: transparent;
                                 color: var(--text-200);
                                 border: 0;
+                                font-size: 13px;
+                                padding: 16px 18px;
+
+                                .option {
+                                    display: flex;
+                                    line-height: 2.5;
+
+                                    i {
+                                        margin-right: 12px;
+                                        color: var(--primary-200);
+                                    }
+                                }
+
+                                .action {
+                                    display: flex;
+                                    justify-content: space-between;
+
+                                    button {
+                                        background: transparent;
+                                        border: 0;
+                                        padding: 0px 18px 0 0;
+
+                                        i {
+                                            color: var(--text-100);
+                                            font-size: 16px;
+                                        }
+
+                                        i.bi-trash3 {
+                                            color: var(--delete-100);
+                                        }
+                                    }
+                                }
+                            }
+
+                            .text-center {
+                                color: var(--text-100);
+                                font-size: 14px;
+                                font-weight: 550;
                             }
                         }
 

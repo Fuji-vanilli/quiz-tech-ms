@@ -274,7 +274,7 @@
                                     background: var(--bg-300);
                                     border: 1px solid var(--bg-200);
                                     padding: 8px 10px;
-                                    border-radius: 50%;
+                                    border-radius: 6px;
 
                                     i {
                                         color: var(--text-100);
@@ -282,7 +282,7 @@
                                 }
 
                                 a:not(:last-child) {
-                                    margin-right: 16px;
+                                    margin-right: 10px;
                                 }
 
                                 a:hover {
@@ -301,6 +301,10 @@
                                         margin-right: 14px;
                                         font-size: 16px;
                                     }
+                                }
+
+                                button.view-question:hover {
+                                    opacity: .6;
                                 }
                             }
 
