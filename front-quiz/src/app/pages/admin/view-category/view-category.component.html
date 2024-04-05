@@ -3,13 +3,21 @@
         <main class="row">
             <section class="col">
                 <header class="title">
-                    <span class="box-search">
+                    <div class="box-search">
                         <input type="text" [(ngModel)]="searchTerm" (ngModelChange)="filterBySearchTerm()" placeholder="Search Category here ...">
                         <button>
                             <i class="bi bi-search" *ngIf="searchTerm===''"></i>
                             <i class="bi bi-x-lg" *ngIf="activeCancel()" (click)="clearSearchTerm()"></i>
                         </button>
-                    </span>
+                    </div>
+                    <div class="dropdowns">
+                        <button class="btn btn-sorted dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="bi bi-sort-down"></i>Sorted
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" routerLinkActive="active" (click)="sortedByName()">Name</a></li>
+                        </ul>
+                    </div>
                 </header>
             </section>
         </main>

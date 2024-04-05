@@ -171,4 +171,8 @@ export class ViewCategoryComponent implements OnInit {
   clearSearchTerm() {
     this.searchTerm= '';
   }
+
+  sortedByName() {
+    this.categoriesBySearchTerm= this.categories.sort((a, b)=> a.title.localeCompare(b.title));
+  }
 }

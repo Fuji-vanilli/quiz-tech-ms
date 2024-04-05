@@ -7,12 +7,14 @@
                     border: 1px solid var(--bg-200);
                     border-radius: 8px;
                     padding: 8px;
+                    display: flex;
 
                     input {
                         background: transparent;
                         outline: none;
                         border: 0;
                         color: var(--text-200);
+                        width: 100%;
                     }
 
                     button {
