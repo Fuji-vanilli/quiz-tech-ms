@@ -137,7 +137,7 @@ export class ViewQuizzesComponent implements OnInit{
     }
   }
 
-  uploadProfileImage(quizId: string) {
+  uploadImage(quizId: string) {
     this.quizService.updatePhotoQuiz(this.selectedFile, quizId).subscribe({
       next: response=> {
         console.log('updated');
@@ -157,7 +157,7 @@ export class ViewQuizzesComponent implements OnInit{
   }
 
   /****/
-  
+
   showCloseIcon(): boolean {
     return this.searchTerm.length> 0;
   }

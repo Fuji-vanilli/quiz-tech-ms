@@ -41,7 +41,7 @@
                         </div>
                     </div> 
                 </header>
-                <div class="box" *ngFor="let quiz of filterQuizzes | searchPipe: searchTerm" [routerLink]="'/user/instructions/'+quiz.id">
+                <div class="box" *ngFor="let quiz of filterQuizzes | searchPipe: searchTerm">
                     <header class="quiz">
                         <i class="bi bi-bookmark-star"></i>
                         <span>Max marks</span><strong>{{quiz.marks}}</strong>
@@ -79,9 +79,40 @@
                                 </div>
                                 <div class="edit">
                                     <a (click)="openUpdate(quiz)"><i class="bi bi-pencil-square"></i></a>
-                                    <a (click)="uploadProfileImage(quiz.id)"><i class="bi bi-camera"></i></a>
+                                    <a data-toggle="modal" data-target="#exampleModal"><i class="bi bi-camera"></i></a>
                                     <a (click)="deleteQuiz(quiz.id)"><i class="bi bi-trash3"></i></a>
                                 </div>
+
+                                <!-- Modla -->
+                                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                      <div class="modal-content">
+                                          <div class="header">
+                                              <h4 class="modal-title" id="exampleModalLabel">Choose your profile Image</h4> 
+                                          </div>
+                                        <div class="modal-body">
+                                          <div class="mb-3">
+                                              <input 
+                                                  type="file" 
+                                                  class="form-control"
+                                                  (change)="handleFileInput($event)"
+                                                  id="fileInput"
+                                                  style="display: none;"
+                                              >
+                                              <button class="btn-upload" type="submit" id="inputGroupFileAddon04" (click)="uploadFile()"><i class="bi bi-plus-lg" style="margin-right: 18px;"></i>Import Image</button>
+                                          </div>
+                                              <p class="mb-3" style="color: #89929b;">File selected: <span style="color: #fff;">{{filename}}</span></p>
+                                              <div class="selected-image d-flex justify-content-center align-items-center " *ngIf="selectImage">
+                                                  <img [src]="selectImage" alt="">
+                                              </div>
+                                              <div class="mt-5">
+                                                  <button *ngIf="filename" class="btn btn-secondary" (click)="uploadImage(quiz.id)">Upload</button>
+                                              </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                </div>
+                                <!-- End modal -->
                             </div>
                         </div>
                     </div>
@@ -176,35 +207,6 @@
                             </div>
                         </div>
                 </div>
-            </div>
-            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                      <div class="header">
-                          <h4 class="modal-title" id="exampleModalLabel">Choose your profile Image</h4> 
-                      </div>
-                    <div class="modal-body">
-                      <div class="mb-3">
-                          <input 
-                              type="file" 
-                              class="form-control"
-                              (change)="handleFileInput($event)"
-                              id="fileInput"
-                              style="display: none;"
-                          >
-                          <button class="btn-upload" type="submit" id="inputGroupFileAddon04" (click)="uploadFile()"><i class="bi bi-plus-lg" style="margin-right: 18px;"></i>Import Image</button>
-                      </div>
-                          <p class="mb-3" style="color: #89929b;">File selected: <span style="color: #fff;">{{filename}}</span></p>
-                          <div class="selected-image d-flex justify-content-center align-items-center " *ngIf="selectImage">
-                              <img [src]="selectImage" alt="">
-                          </div>
-                          <div class="mt-5">
-                              <button *ngIf="filename" class="btn btn-secondary" (click)="uploadProfileImage(quiz.id)">Upload</button>
-                          </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-        </mat-card>
-    </div-->
+            </div-->
+            
 </div>
