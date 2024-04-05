@@ -25,8 +25,15 @@ export class AddQuizzesComponent implements OnInit{
   activeSteps: boolean[]= [false, false, false, false];
   activestepCount: number= 0;
 
-  quiz!: Quiz; 
-  course!: Course;
+  quiz: Quiz = {
+    title: '',
+    description: ''
+  }; 
+
+  course: Course= {
+    title: 'title',
+    description: 'description'
+  };
 
   quizId!: string;
   questions: number[]= [];
@@ -225,7 +232,6 @@ export class AddQuizzesComponent implements OnInit{
     this.quizService.updatePhotoQuiz(this.selectedFile, quizId).subscribe({
       next: response=> {
         console.log('uploaded');
-        window.location.reload();
       },
       error: err=> {
         console.log(err);
@@ -276,14 +282,14 @@ export class AddQuizzesComponent implements OnInit{
       this.addQuiz();
     } else if (this.activestepCount=== 2) {
       this.uploadProfileImage(this.quiz.id);
+    } else if (this.activestepCount=== 3) {
+      this.route.navigateByUrl('/admin/quizzes');
     }
  
     this.activeSteps[this.activestepCount]= true;
     this.activestepCount++;
 
-    if (this.activestepCount=== 4) {
-      window.location.reload();
-    }
+    
   }
 
   backStep() {
@@ -299,6 +305,8 @@ export class AddQuizzesComponent implements OnInit{
         return this.formGroupQuiz.valid;
       case 2:
         return this.formGroupQuestion.valid;
+      case 3:
+        return true;
       default:
         return false;
 
