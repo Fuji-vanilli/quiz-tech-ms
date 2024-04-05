@@ -39,6 +39,12 @@
                                 <span>All Quizzes</span>
                             </button>
                         </div>
+                        <div class="dropdowns">
+                            <button class="btn-new" (click)="loadQuizzes()">
+                                <i class="bi bi-plus-lg"></i>
+                                <span>New</span>
+                            </button>
+                        </div>
                     </div> 
                 </header>
                 <div class="box" *ngFor="let quiz of filterQuizzes | searchPipe: searchTerm">
