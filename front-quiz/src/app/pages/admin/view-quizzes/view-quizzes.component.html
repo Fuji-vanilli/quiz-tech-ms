@@ -6,7 +6,7 @@
                     <div class="box-search">
                         <input type="text" [(ngModel)]="searchTerm" (ngModelChange)="filterBySearchTerm()" placeholder="Search Quiz here ...">
                         <button>
-                            <i class="bi bi-search"></i>
+                            <i class="bi bi-search" *ngIf="searchTerm===''"></i>
                             <i class="bi bi-x-lg" *ngIf="showCloseIcon()" (click)="clearSearchTerm()"></i>
                         </button>
                     </div>

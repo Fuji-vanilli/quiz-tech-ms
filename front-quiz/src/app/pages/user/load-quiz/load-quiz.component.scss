@@ -225,18 +225,7 @@
                         padding: 14px;
                         background: transparent;
                         cursor: pointer;
-            
-                        i.bi-search {
-                            display: block;
-                            color: var(--text-200);
-                            font-size: 16px;
-                        }
-    
-                        i.bi-x-lg {
-                            display: none;
-                            color: var(--text-200);
-                            font-size: 16px;
-                        }
+                        color: var(--text-200);
                     }
             
                 }
@@ -247,17 +236,6 @@
             
                 .box-search:focus-within {
                     border: 1px solid var(--text-200);
-    
-                    button {
-                        i.bi-search {
-                            display: none;
-                        }
-    
-                        i.bi-x-lg {
-                            display: block;
-                            font-size: 16px;
-                        }
-                    }
                 }
     
                 .sorted {
