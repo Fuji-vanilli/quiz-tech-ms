@@ -251,6 +251,33 @@
                                 }
                             }
                             
+                            .edit {
+                                position: absolute;
+                                bottom: 0;
+                                right: 0;
+                                display: flex;
+                                justify-content: space-between;
+                                margin-left: 50px;
+                                border: 1px solid var(--bg-200);
+                                background: var(--bg-300);
+                                border-radius: 8px;
+                                padding: 6px 13px;
+                                
+                                a {
+                                    i {
+                                        color: var(--special-100);
+                                    }
+                                }
+
+                                a:not(:last-child) {
+                                    margin-right: 16px;
+                                }
+
+                                a:hover {
+                                    color: var(--primary-200);
+                                }
+                            }
+
                             .start-quiz {
                                 position: absolute;
                                 bottom: 0;
