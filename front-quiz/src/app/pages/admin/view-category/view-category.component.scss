@@ -1,4 +1,40 @@
-.contain {
+.container-1 {
+    main.row {
+        section.col {
+            header.title {
+                .box-search {
+                    background: transparent;
+                    border: 1px solid var(--bg-200);
+                    border-radius: 8px;
+                    padding: 8px;
+
+                    input {
+                        background: transparent;
+                        outline: none;
+                        border: 0;
+                        color: var(--text-200);
+                    }
+
+                    button {
+                        background: transparent;
+                        border: 0;
+                        color: var(--text-200);
+                    }
+
+
+                }
+            }
+
+            .contents {
+                
+            }
+        }
+    }
+}
+
+
+
+/*.contain {
     background: transparent;
     padding-bottom: 24px;
     margin-bottom: 24px;
@@ -148,8 +184,6 @@ mat-card-subtitle {
     opacity: .7;
 }
 
-/**/
-
 .modal-content {
     background: #21262d;
 }
@@ -190,3 +224,4 @@ mat-card-subtitle {
     width: 100%;
     font-size: 14px;
 }
+*/
