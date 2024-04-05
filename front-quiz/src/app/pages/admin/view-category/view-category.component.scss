@@ -2,12 +2,15 @@
     main.row {
         section.col {
             header.title {
+                display: flex;
+
                 .box-search {
                     background: transparent;
                     border: 1px solid var(--bg-200);
                     border-radius: 8px;
                     padding: 8px;
                     display: flex;
+                    justify-content: space-between;
 
                     input {
                         background: transparent;
@@ -24,6 +27,30 @@
                     }
 
 
+                }
+            }
+
+            .dropdowns {
+                .btn-sorted {
+                    border: 1px solid var(--bg-200);
+                    border-radius: 8px;
+                    margin-left: 12px;
+                    color: var(--text-100);
+                    font-size: 13px;
+                    padding: 10px;
+                    background: var(--bg-300);
+
+                    i {
+                        margin-right: 8px;
+                    }
+
+                    ul {
+                        background: var(--bg-300);
+                        li {
+                            color: var(--text-200);
+                            font-size: 12px;
+                        }
+                    }
                 }
             }
 
