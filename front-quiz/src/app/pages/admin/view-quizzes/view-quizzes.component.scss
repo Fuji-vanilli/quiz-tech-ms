@@ -90,11 +90,11 @@
                 .sorted {
                     display: flex;
                 
-                    .btn-category {
+                    .btn-category, .btn-new {
                         font-size: 12px;
                         padding: 6px 10px;
                         height: 35px;
-                        border: 1px solid var(--bg-200);
+                        border: 0;
                         border-radius: 6px;
                         background:var(--primary-200);
                         color: var(--bg-100);
@@ -104,6 +104,16 @@
                         i {
                             margin-right: 4px;
                             font-size: 16px;
+                        }
+                    }
+
+                    .btn-new {
+                        background: var(--special-300);
+                        color: var(--text-100);
+                        padding: 6px 16px;
+
+                        i {
+                           margin-right: 8px;
                         }
                     }
 
@@ -259,15 +269,15 @@
                                 right: 0;
                                 display: flex;
                                 justify-content: space-between;
-                                margin-left: 50px;
-                                border: 1px solid var(--bg-200);
-                                background: var(--primary-100);
-                                border-radius: 8px;
-                                padding: 6px 13px;
                                 
                                 a {
+                                    background: var(--bg-300);
+                                    border: 1px solid var(--bg-200);
+                                    padding: 8px 10px;
+                                    border-radius: 50%;
+
                                     i {
-                                        color: var(--bg-100);
+                                        color: var(--text-100);
                                     }
                                 }
 
@@ -276,7 +286,7 @@
                                 }
 
                                 a:hover {
-                                    color: var(--primary-200);
+                                    opacity: .6;
                                 }
                             }
 
@@ -310,10 +320,6 @@
                 }
             }
 
-            .box:hover {
-                border: 1px solid var(--text-200);
-            }
-
             .box:not(:last-child):before {
                 content: '';
                 position: absolute;
@@ -344,43 +350,45 @@
     }
 }
 
-.modal-content {
-    background: #21262d;
-}
-
-.btn-upload {
-    width: 100%;
-    border: 0;
-    padding: 10px;
-    background: #77bdfb;
-    border-radius: 8px;
-    transition: all 0.6 ease;
-}
-
-.btn-upload:hover {
-    opacity: .7;
-}
-
-.header {
-    padding: 16px;
-    border-bottom: 1px solid #3b3c3d;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.header h4 {
-    color: #fff;
-    font-family: 'Roboto';
-}
-
-.selected-image img{
-    width: 100px;
-    height: 100px;
-    border-radius: 8px;
-}
-
-.btn-secondary {
-    width: 100%;
-    font-size: 14px;
+.modal {
+    .modal-content {
+        background: #21262d;
+    }
+    
+    .btn-upload {
+        width: 100%;
+        border: 0;
+        padding: 10px;
+        background: #77bdfb;
+        border-radius: 8px;
+        transition: all 0.6 ease;
+    }
+    
+    .btn-upload:hover {
+        opacity: .7;
+    }
+    
+    .header {
+        padding: 16px;
+        border-bottom: 1px solid #3b3c3d;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .header h4 {
+        color: #fff;
+        font-family: 'Roboto';
+    }
+    
+    .selected-image img{
+        width: 100px;
+        height: 100px;
+        border-radius: 8px;
+    }
+    
+    .btn-secondary {
+        width: 100%;
+        font-size: 14px;
+    }
 }
