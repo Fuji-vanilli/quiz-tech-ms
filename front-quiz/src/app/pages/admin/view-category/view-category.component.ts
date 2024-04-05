@@ -48,6 +48,7 @@ export class ViewCategoryComponent implements OnInit {
       next: response=> {
         this.categories= response.data.categories;
         this.totalElements= response.data.totalElement;
+        this.categoriesBySearchTerm= this.categories;
         console.log(response.data);
         console.log('total elements: ', this.totalElements);
         

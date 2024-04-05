@@ -3,22 +3,50 @@
         <main class="row">
             <section class="col">
                 <header class="title">
-                    <div class="box-search">
-                        <input type="text" [(ngModel)]="searchTerm" (ngModelChange)="filterBySearchTerm()" placeholder="Search Category here ...">
-                        <button>
-                            <i class="bi bi-search" *ngIf="searchTerm===''"></i>
-                            <i class="bi bi-x-lg" *ngIf="activeCancel()" (click)="clearSearchTerm()"></i>
-                        </button>
-                    </div>
-                    <div class="dropdowns">
-                        <button class="btn btn-sorted dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="bi bi-sort-down"></i>Sorted
-                        </button>
-                        <ul class="dropdown-menu dropdown-menu-dark">
-                            <li><a class="dropdown-item" routerLinkActive="active" (click)="sortedByName()">Name</a></li>
-                        </ul>
+                    <div class="head">
+                        <div class="box-search">
+                            <input type="text" [(ngModel)]="searchTerm" (ngModelChange)="filterBySearchTerm()" placeholder="Search Category here ...">
+                            <button>
+                                <i class="bi bi-search" *ngIf="searchTerm===''"></i>
+                                <i class="bi bi-x-lg" *ngIf="activeCancel()" (click)="clearSearchTerm()"></i>
+                            </button>
+                        </div>
+                        <div class="dropdowns">
+                            <button class="btn btn-sorted dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="bi bi-sort-down"></i>Sorted
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-dark">
+                                <li><a class="dropdown-item" routerLinkActive="active" (click)="sortedByName()">Name</a></li>
+                            </ul>
+                        </div>
+                        <div class="new">
+                            <button class="new-category">
+                                <i class="bi bi-plus-lg"></i>New
+                            </button> 
+                        </div>
                     </div>
                 </header>
+
+                <div class="contents">
+                    <div class="box" *ngFor="let category of categoriesBySearchTerm">
+                        <i class="bi bi-check-circle-fill"></i><span>Created by </span><a [routerLink]="'/user/profile/'+category.createdBy">{{category.createdBy}}</a>
+                        <div class="content">
+                            <div class="left">
+                                <div class="image">
+                                    <img [src]="category.image" alt="">
+                                </div>
+                            </div>
+                            <div class="right">
+                                <h3>{{category.title}}</h3>
+                                <span>{{category.description}}</span>
+    
+                                <button class="view-quiz">
+                                    QUIZZES
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </section>
         </main>
     </div>

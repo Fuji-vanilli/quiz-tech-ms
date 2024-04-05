@@ -1,61 +1,120 @@
 .container-1 {
+    padding: 20px 20%;
+
     main.row {
         section.col {
-            header.title {
-                display: flex;
 
-                .box-search {
-                    background: transparent;
-                    border: 1px solid var(--bg-200);
-                    border-radius: 8px;
-                    padding: 8px;
+            header.title {
+                .head {
                     display: flex;
                     justify-content: space-between;
 
-                    input {
+                    .box-search {
                         background: transparent;
-                        outline: none;
-                        border: 0;
-                        color: var(--text-200);
-                        width: 100%;
-                    }
+                        border: 1px solid var(--bg-200);
+                        border-radius: 8px;
+                        padding: 8px;
+                        display: flex;
+                        justify-content: space-between;
+                        width: 72%;
 
-                    button {
-                        background: transparent;
-                        border: 0;
-                        color: var(--text-200);
-                    }
-
-
-                }
-            }
-
-            .dropdowns {
-                .btn-sorted {
-                    border: 1px solid var(--bg-200);
-                    border-radius: 8px;
-                    margin-left: 12px;
-                    color: var(--text-100);
-                    font-size: 13px;
-                    padding: 10px;
-                    background: var(--bg-300);
-
-                    i {
-                        margin-right: 8px;
-                    }
-
-                    ul {
-                        background: var(--bg-300);
-                        li {
+                        input {
+                            background: transparent;
+                            outline: none;
+                            border: 0;
                             color: var(--text-200);
-                            font-size: 12px;
+                            width: 100%;
+                        }
+
+                        button {
+                            background: transparent;
+                            border: 0;
+                            color: var(--text-200);
+                        }
+
+
+                    }
+
+                    .dropdowns {
+                        .btn-sorted {
+                            border: 1px solid var(--bg-200);
+                            border-radius: 8px;
+                            margin-left: 12px;
+                            color: var(--text-100);
+                            font-size: 13px;
+                            padding: 10px;
+                            background: var(--bg-300);
+        
+                            i {
+                                margin-right: 8px;
+                            }
+                        }
+        
+                        ul {
+                            margin-top: 6px;
+                            background: var(--bg-300);
+                            li {
+                                color: var(--text-200);
+                                font-size: 12px;
+                            }
+                        }
+                    }
+        
+                    .new {
+                        margin-left: 12px;
+        
+                        button.new-category {
+                            padding: 10px 16px;
+                            border: 0;
+                            background: var(--special-200);
+                            color: var(--text-100);
+                            border-radius: 8px;
+        
+                            i {
+                                margin-right: 10px;
+                                font-size: 16px;
+                            }
                         }
                     }
                 }
             }
 
             .contents {
-                
+                margin-top: 16px;
+
+                .box {
+                    margin-bottom: 16px;
+                    border: 1px solid var(--bg-200);
+                    border-radius: 8px;
+                    padding: 12px;
+
+                    i {
+                        color: var(--special-100);
+                        margin-right: 6px;
+                    }
+                    span {
+                        color: var(--text-200);
+                        font-size: 12px;
+                    }
+
+                    .content {
+                        display: flex;
+
+                        .left {
+                        
+                            .image {
+                                margin-top: 16px;
+                                img {
+                                    width: 150px;
+                                }
+                            }
+                        }
+
+                        .right {
+                            margin-left: 20px;
+                        }
+                    }
+                }
             }
         }
     }
