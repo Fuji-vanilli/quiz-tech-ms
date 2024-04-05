@@ -1,4 +1,86 @@
-.contain {
+.container-1 {
+    main.row {
+        section.col {
+            header.title {
+
+            }
+
+            .contents {
+                .box {
+                    .box-search {
+                        height: 35px;
+                        width: 60%;
+                        display: flex;
+                        align-items: center;
+                        background: transparent;
+                        padding: 8px 0 8px 0;
+                        border: 1px solid var(--bg-200);
+                        border-radius: 5px;
+                        transition: all 0.5s ease;
+                
+                        input {
+                            background: transparent;
+                            border: 0;
+                            flex: 1;
+                            margin-left: 16px;
+                            outline: none;
+                            font-size: 16px;
+                            color: var(--text-200);
+                        }
+                
+                        ::placeholder {
+                            color: var(--text-200);
+                            font-size: 14px;
+                        }
+                
+                        button {
+                            border: 0;
+                            border-radius: 0 5px 5px 0;
+                            padding: 14px;
+                            background: transparent;
+                            cursor: pointer;
+                
+                            i.bi-search {
+                                display: block;
+                                color: var(--text-200);
+                                font-size: 16px;
+                            }
+        
+                            i.bi-x-lg {
+                                display: none;
+                                color: var(--text-200);
+                                font-size: 16px;
+                            }
+                        }
+                
+                    }
+                
+                    .box-search:hover {
+                        border: 1px solid var(--text-200);
+                    }
+                
+                    .box-search:focus-within {
+                        border: 1px solid var(--text-200);
+        
+                        button {
+                            i.bi-search {
+                                display: none;
+                            }
+        
+                            i.bi-x-lg {
+                                display: block;
+                                font-size: 16px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+/*.contain {
     padding-top: 16px;
     margin-bottom: 12px;
     margin-left: 18px;
@@ -91,7 +173,7 @@ mat-card-subtitle {
     background: #0e223e;
 }
 
-/****/
+
 .article-quizz .quizz-details {
     width: 30.304%;
     flex: 0 0 auto;
@@ -224,7 +306,7 @@ h4, .h4 {
 }
 
 
-/*****/
+
 
 .box-search {
     margin-top: 14px; 
@@ -315,3 +397,4 @@ h4, .h4 {
     font-size: 14px;
 }
 
+*/

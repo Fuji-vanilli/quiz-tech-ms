@@ -9,6 +9,7 @@ import { Course } from '../../models/course.model';
 import { Question } from '../../models/question.model';
 import { QuestionApiService } from 'src/app/services/question-api.service';
 import { CourseApiService } from 'src/app/services/course-api.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-add-quizzes',
@@ -283,6 +284,7 @@ export class AddQuizzesComponent implements OnInit{
     } else if (this.activestepCount=== 2) {
       this.uploadProfileImage(this.quiz.id);
     } else if (this.activestepCount=== 3) {
+      Swal.fire('Added', 'new Quiz added successfully', 'success');
       this.route.navigateByUrl('/admin/quizzes');
     }
  

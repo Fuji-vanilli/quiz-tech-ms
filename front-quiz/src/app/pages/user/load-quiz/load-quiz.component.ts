@@ -29,7 +29,7 @@ export class LoadQuizComponent implements OnInit, AfterViewInit {
   totalQuizzes!: number;
 
 
-  searchterm: string= '';
+  searchTerm: string= '';
   showList: boolean= false;
 
   constructor(private quizService: QuizApiService,
@@ -90,7 +90,7 @@ export class LoadQuizComponent implements OnInit, AfterViewInit {
 
   filterBySearchTerm() {
     this.filterQuizzesBySearchTerm= this.quizzes.filter(
-      quiz=> quiz.title?.toLocaleLowerCase().includes(this.searchterm.toLocaleLowerCase())
+      quiz=> quiz.title?.toLocaleLowerCase().includes(this.searchTerm.toLocaleLowerCase())
     );
   }
 
@@ -111,11 +111,11 @@ export class LoadQuizComponent implements OnInit, AfterViewInit {
 */
 
   showCloseIcon(): boolean {
-    return this.searchterm.length> 0;
+    return this.searchTerm.length> 0;
   }
 
   clearSearchTerm() {
-    this.searchterm= '';
+    this.searchTerm= '';
   }
 
   filterByFrench() {

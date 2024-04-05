@@ -32,7 +32,7 @@
                             <div class="contents">
                                 <header class="header">
                                     <div class="box-search">
-                                        <input type="text" [(ngModel)]="searchterm" (ngModelChange)="filterBySearchTerm()" placeholder="Search Quiz here ...">
+                                        <input type="text" [(ngModel)]="searchTerm" (ngModelChange)="filterBySearchTerm()" placeholder="Search Quiz here ...">
                                         <button>
                                             <i class="bi bi-search"></i>
                                             <i class="bi bi-x-lg" *ngIf="showCloseIcon()" (click)="clearSearchTerm()"></i>
@@ -69,7 +69,7 @@
                                         </div>
                                     </div> 
                                 </header>
-                                <div class="box" *ngFor="let quiz of filterQuizzes | searchPipe: searchterm" [routerLink]="'/user/instructions/'+quiz.id">
+                                <div class="box" *ngFor="let quiz of filterQuizzes | searchPipe: searchTerm" [routerLink]="'/user/instructions/'+quiz.id">
                                     <header class="quiz">
                                         <i class="bi bi-bookmark-star"></i>
                                         <span>Max marks</span><strong>{{quiz.marks}}</strong>

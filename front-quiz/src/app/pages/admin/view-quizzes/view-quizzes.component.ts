@@ -153,5 +153,14 @@ export class ViewQuizzesComponent implements OnInit{
     document.getElementById('fileInput')?.click();
   }
 
+  showCloseIcon(): boolean {
+    return this.searchTerm.length> 0;
+  }
+
+  clearSearchTerm() {
+    this.searchTerm= '';
+  }
+
+
 
 }
