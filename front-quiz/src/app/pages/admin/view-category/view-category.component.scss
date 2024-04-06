@@ -112,6 +112,49 @@
 
                         .right {
                             margin-left: 20px;
+                            position: relative;
+                            width: 100%;
+
+                            h3 {
+                                color: var(--primary-200);
+                                margin-bottom: 0;
+                            }
+
+                            .view-quiz {
+                                position: absolute;
+                                bottom: 0;
+                                display: flex;
+
+                                button {
+                                    padding: 8px 16px;
+                                    background: var(--primary-200);
+                                    border: 0;
+                                    color: var(--bg-100);
+                                    font-weight: 550;
+                                    border-radius: 8px;
+
+                                    i {
+                                        color: var(--bg-100);
+                                    }
+                                }
+                            }
+
+                            .edit {
+                                position: absolute;
+                                bottom: 0;
+                                right: 0;
+
+                                a {
+                                    margin-bottom: 10px;
+                                    padding: 8px;
+                                    cursor: pointer;
+
+                                    i {
+                                        color: var(--text-100);
+                                        font-size: 16px;
+                                    }
+                                }
+                            }
                         }
                     }
                 }
