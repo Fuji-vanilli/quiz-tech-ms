@@ -28,6 +28,8 @@ export class SidebarComponent implements OnInit, AfterViewInit{
       profile=> {
         const username= profile.username;
         const userEmail= profile.email;
+        this.userEmail= profile.email;
+        
         this.username= username?.charAt(0).toUpperCase()+username?.slice(1)!;
 
         this.loadUser(userEmail);

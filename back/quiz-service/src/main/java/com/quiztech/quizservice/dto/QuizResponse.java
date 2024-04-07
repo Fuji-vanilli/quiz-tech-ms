@@ -28,8 +28,7 @@ public class QuizResponse {
     private BigDecimal duration;
     private List<String> questionsId;
     private List<Question> questions= new ArrayList<Question>();
-    private boolean active;
-    private boolean status;
+    private boolean finish;
     private String categoryId;
     private Category category;
 }

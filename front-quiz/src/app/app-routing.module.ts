@@ -66,7 +66,7 @@ const routes: Routes = [
       { path: 'edit-profile', component: EditProfileComponent },
       { path: 'questions/:id/:title', component: ViewQuestionsComponent },
       { path: 'add-question/:id', component: AddQuestionComponent },
-      { path: 'profile', component: ProfileComponent }
+      { path: 'profile/:email', component: ProfileUserComponent }
     ]
   }
 ];

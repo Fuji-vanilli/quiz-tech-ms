@@ -22,7 +22,6 @@ public class Quiz {
     private String title;
     private String description;
     private String difficulty;
-    private boolean status;
     private Date createdDate;
     private Date lastUpdateDate;
     private String photo;
@@ -34,7 +33,7 @@ public class Quiz {
     private String createdBy;
     private List<String> questionsId= new ArrayList<>();
     private List<Question> questions= new ArrayList<>();
-    private boolean active;
+    private boolean finish;
     private String categoryId;
     private Category category;
 }

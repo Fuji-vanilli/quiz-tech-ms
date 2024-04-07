@@ -50,6 +50,7 @@ public class ResultQuizServiceImpl implements ResultQuizService {
 
         ResultQuiz resultQuiz = resultQuizMapper.mapToResultQuiz(request);
         Quiz quiz = webClient.getQuiz(resultQuiz.getQuizId());
+        quiz.setFinish(true);
 
         resultQuiz.setCreatedDate(new Date());
         resultQuiz.setId(UUID.randomUUID().toString());

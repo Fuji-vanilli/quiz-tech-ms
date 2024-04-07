@@ -137,7 +137,6 @@ public class QuizServiceImpl implements QuizService {
                 ()-> new IllegalArgumentException("error to fetch quiz into the database!")
         );
 
-        quiz.setActive(request.isActive());
         quiz.setMarks(request.getMarks());
         quiz.setNumberOfQuestions(request.getNumberOfQuestions());
         quiz.setCategoryId(request.getCategoryId());
@@ -168,7 +167,7 @@ public class QuizServiceImpl implements QuizService {
                 () -> new IllegalArgumentException("error to fetch quiz into the database")
         );
 
-        quiz.setStatus(true);
+        quiz.setFinish(true);
         quizRepository.save(quiz);
 
         log.info("quiz playing successfully!!!");

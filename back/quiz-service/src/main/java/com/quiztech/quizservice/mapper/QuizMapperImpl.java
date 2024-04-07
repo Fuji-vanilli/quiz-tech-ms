@@ -21,7 +21,6 @@ public class QuizMapperImpl implements QuizMapper{
                 .imageUrl(request.getImageUrl())
                 .numberOfQuestions(request.getNumberOfQuestions())
                 .duration(request.getDuration())
-                .active(request.isActive())
                 .categoryId(request.getCategoryId())
                 .build();
     }
@@ -33,9 +32,8 @@ public class QuizMapperImpl implements QuizMapper{
                 .title(quiz.getTitle())
                 .description(quiz.getDescription())
                 .difficulty(quiz.getDifficulty())
-                .active(quiz.isActive())
+                .finish(quiz.isFinish())
                 .language(quiz.getLanguage())
-                .status(quiz.isStatus())
                 .createdDate(quiz.getCreatedDate())
                 .lastUpdateDate(quiz.getLastUpdateDate())
                 .marks(quiz.getMarks())
