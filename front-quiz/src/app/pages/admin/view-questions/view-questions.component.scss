@@ -72,6 +72,10 @@
                                 font-size: 14px;
                                 font-weight: 550;
                             }
+
+                            .answer {
+                                color: var(--primary-200);
+                            }
                         }
 
                         tr:nth-child(even) {
