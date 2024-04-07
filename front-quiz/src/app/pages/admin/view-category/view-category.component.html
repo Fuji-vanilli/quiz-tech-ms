@@ -41,7 +41,7 @@
                                 <span>{{category.description}}</span>
     
                                 <div class="view-quiz">
-                                    <button>
+                                    <button [routerLink]="'/user/quizzes/'+category.id">
                                         <i class="bi bi-patch-check"></i>QUIZZES
                                     </button>
                                 </div>
