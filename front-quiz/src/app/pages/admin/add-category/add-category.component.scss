@@ -1,4 +1,49 @@
-.contain {
+.container-1 {
+    padding: 20px 20%;
+    section {
+        header.title {
+
+        }
+
+        .contents {
+            .box {
+                form {
+                    label {
+                        color: var(--text-100);
+                        margin-bottom: 14px;
+
+                        span {
+                            color: var(--delete-100);
+                        }
+                    }
+
+                    .field {
+                        border: 1px solid var(--bg-200);
+                        border-radius: 8px;
+                        padding: 8px 14px;
+
+                        i {
+                            color: var(--primary-200);
+                        }
+
+                        input {
+                            padding: 8px 16px;
+                            background: transparent;
+                            color: var(--text-200);
+                            border: 0;
+                            outline: none;
+                            width: 98%;
+                        }
+
+
+                    }
+                }
+            }
+        }
+    }
+}
+
+/*.contain {
     background: #0d1117;
     height: 100vh;
 }
@@ -60,4 +105,4 @@ mat-form-field i {
 
 mat-label {
     color: #fff;
-}
+}*/
