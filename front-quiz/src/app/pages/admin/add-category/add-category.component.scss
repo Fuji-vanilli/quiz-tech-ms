@@ -1,8 +1,21 @@
 .container-1 {
     padding: 20px 20%;
     section {
-        header.title {
+        border: 1px solid var(--bg-200);
+        padding: 20px;
+        border-radius: 6px;
+        position: relative;
 
+        header.title {
+            position: absolute;
+            background: var(--bg-100);
+            padding: 0 8px;
+            top: -14px;
+            left: 40%;
+
+            h3 {
+                color: var(--primary-200);
+            }
         }
 
         .contents {
@@ -21,6 +34,7 @@
                         border: 1px solid var(--bg-200);
                         border-radius: 8px;
                         padding: 8px 14px;
+                        margin-bottom: 16px;
 
                         i {
                             color: var(--primary-200);
@@ -36,6 +50,53 @@
                         }
 
 
+                    }
+
+                    .field:focus-within {
+                        border: 1px solid var(--primary-200);
+                    }
+
+                    .image-upload {
+                        margin-bottom: 16px;
+
+                        .upload {
+                            border-radius: 8px;
+                            border: 1px solid var(--bg-200);
+                            color: var(--text-200);    
+                            width: 100%;
+                        }
+
+                        ::-webkit-file-upload-button {
+                            background: var(--primary-200);
+                            color: var(--bg-100);
+                            font-weight: 550;
+                            border: 0;
+                            padding: 8px 14px;
+                            margin-right: 14px;
+                        }
+                    }
+
+
+
+                    .save {
+                        display: flex;
+                        justify-content: end;
+
+                        button.submit {
+                            border: 0;
+                            padding: 8px 16px;
+                            background: var(--primary-200);
+                            border-radius: 8px;
+                            font-weight: 550;
+
+                            i {
+                                margin-right: 6px;
+                            }
+                        }
+
+                        button.submit:hover {
+                            opacity: .6;
+                        }
                     }
                 }
             }

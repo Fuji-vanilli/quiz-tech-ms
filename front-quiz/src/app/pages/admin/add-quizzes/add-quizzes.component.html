@@ -74,8 +74,7 @@
 
                                     <label>Upload course or lesson <span>*</span></label>
                                     <div>
-                                        <input type="file" class="upload" placeholder="No file choosen"
-                                            formControlName="description">
+                                        <input type="file" class="upload" placeholder="No file choosen">
                                     </div>
                                 </div>
 
@@ -203,7 +202,7 @@
 
                                     <label>Upload image<span>*</span></label>
                                     <div class="upload-image">
-                                        <input type="file" class="upload" (change)="handleFileInput($event)" placeholder="No file choosen" formControlName="description">
+                                        <input type="file" class="upload" (change)="handleFileInput($event)" placeholder="No file choosen">
                                     </div>
 
                                     <div class="questions" *ngFor="let index of questions; let i= index"

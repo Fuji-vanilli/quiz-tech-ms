@@ -18,6 +18,10 @@ export class AddCategoryComponent implements OnInit{
   formGroup!: FormGroup;
   emailUser!: string;
 
+  selectFile: any;
+  selectedFile!: File;
+  filename: string= '';
+
   constructor(private formBuilder: FormBuilder,
               private categoryService: CategoryApiService,
               private route: Router,
@@ -35,6 +39,26 @@ export class AddCategoryComponent implements OnInit{
       description: this.formBuilder.control('', Validators.required),
       icon: this.formBuilder.control('')
     });
+  }
+
+  handleFileInput(event: any) {
+    const target= event.target as HTMLInputElement;
+     if (target.files && target.files.length> 0) {
+      this.selectFile= target.files[0];
+     }
+  }
+
+  uplodaImage(categoryId: any) {
+    this.categoryService.uploadImage(this.selectFile, categoryId).subscribe({
+      next: response=> {
+        console.log("uploaded successfully!");
+        
+      },
+      error: err=> {
+        console.log(err);
+        
+      }
+    })
   }
 
   addCategory() {

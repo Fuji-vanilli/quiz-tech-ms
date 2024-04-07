@@ -2,15 +2,36 @@
     <div class="container-1">
         <section>
             <header class="title">
-
+                <h3>Create new Category</h3>
             </header>
             <div class="contents">
                 <div class="box">
                     <form action="">
-                        <label>Title</label>
+                        <label>Title <span>*</span></label>
                         <div class="field">
                             <i class="bi bi-pencil"></i>
                             <input type="text" placeholder="Title" formControlName="title">
+                        </div>
+
+                        <label>Description <span>*</span></label>
+                        <div class="field">
+                            <i class="bi bi-pencil-square"></i>
+                            <input type="text" placeholder="Description" formControlName="description">
+                        </div>
+
+                        <label>Icon <span>*</span></label>
+                        <div class="field">
+                            <i class="bi bi-emoji-smile"></i>
+                            <input type="text" placeholder="Icon" formControlName="icon">
+                        </div>
+
+                        <label>Upload image</label>
+                        <div class="image-upload">
+                            <input type="file" class="upload" placeholder="No file choosen" (change)="handleFileInput($event)">
+                        </div>
+
+                        <div class="save">
+                            <button class="submit" [disabled]="formGroup.valid"><i class="bi bi-floppy"></i>Submit</button>
                         </div>
                     </form>
                 </div>
