@@ -48,7 +48,7 @@
 
                                 <div class="edit">
                                     <a (click)="openUpdate(category)"><i class="bi bi-pencil-square"></i></a>
-                                    <a data-toggle="modal" data-target="#exampleModal"><i class="bi bi-camera"></i></a>
+                                    <a data-toggle="modal" data-target="#exampleModal" (click)="updateImage(category)"><i class="bi bi-camera"></i></a>
                                     <a (click)="deleteCategory(category.id)"><i class="bi bi-trash3"></i></a>
                                 </div>
                             </div>
@@ -70,7 +70,7 @@
                                           id="fileInput"
                                           style="display: none;"
                                       >
-                                      <button class="btn-upload" type="submit" id="inputGroupFileAddon04" (click)="uploadFile()"><i class="bi bi-plus-lg" style="margin-right: 18px;"></i>Import Image</button>
+                                      <button class="btn-upload" type="submit" id="inputGroupFileAddon04" (click)="uploadFile(category)"><i class="bi bi-plus-lg" style="margin-right: 18px;"></i>Import Image</button>
                                   </div>
                                       <p class="mb-3" style="color: #89929b;">File selected: <span style="color: #fff;">{{filename}}</span></p>
                                       <div class="selected-image d-flex justify-content-center align-items-center " *ngIf="selectImage">

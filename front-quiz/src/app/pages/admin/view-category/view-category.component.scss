@@ -1,5 +1,5 @@
 .container-1 {
-    padding: 20px 20%;
+    padding: 20px 5%;
 
     main.row {
         section.col {
@@ -16,7 +16,7 @@
                         padding: 8px;
                         display: flex;
                         justify-content: space-between;
-                        width: 72%;
+                        width: 80%;
 
                         input {
                             background: transparent;
@@ -75,6 +75,10 @@
                                 font-size: 16px;
                             }
                         }
+                    }
+
+                    .new:hover {
+                        opacity: .6;
                     }
                 }
             }
@@ -163,158 +167,6 @@
     }
 }
 
-
-
-/*.contain {
-    background: transparent;
-    padding-bottom: 24px;
-    margin-bottom: 24px;
-    border-radius: 12px;
-    width: 100%;
-}
-
-.content {
-
-    margin-right: 20px;
-    padding: 20px;
-    width: 98%;
-}
-
-.title-question h1 {
-    color: #f6f6f6;
-    font-family: 'Anta';
-}
-
-.editor {
-    margin-right: 24px;
-}
-
-h3, p{
-    font-family: 'Ubuntu';
-}
-
-h3 {
-    font-weight: 60;
-    font-size: 20px;
-}
-
-.card-body-cat {
-    display: flex;
-    align-items: center; 
-    font-family: 'Ubuntu';
-    margin-top: 40px;
-}
-.created a {
-    color: #77bdfb;
-}
-
-.created a:hover {
-    color: #0066b2;
-    text-decoration: underline;
-}
-.card-header {
-    color: #e11d48;
-    font-weight: 500;
-    font-size: 18px;
-}
-
-.header-category {
-    margin: 24px;
-}
-.category-details h3 {
-    font-weight: 500;
-    color: #e11d48;
-}
-.category-details h3, p{
-    font-family: 'Roboto';
-    margin-top: 0px;
-    margin-bottom: 0px;
-}
-
-.icon-category {
-    color: #e11d48;
-    font-size: 26px;
-}
-
-.btn-add {
-    padding: 12px 20px;
-    margin-bottom: 16px;
-    background: #f6f6f6;
-    border: 0;
-    color: #21262d;
-    font-family: 'Ubuntu';
-    border: 0;
-    border-radius: 8px;
-}
-
-.btn-add:hover {
-    background: #e11d48;
-    transition: all 0.3s;
-    color: #fff;
-}
-
-.category-card {
-    padding: 16px 16px;
-    margin-bottom: 14px;
-    background: #34373b;
-}
-
-.image-category  {
-    background-image: url('../../../../assets/examen-en-ligne.png');
-    background-size: cover;
-}
-
-.icon-category {
-    color: #fff;
-    padding: 12px;
-    font-size: 22px;
-    background: #e11d48;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-mat-card-title {
-    color: #fff;
-    margin-bottom: 10px;
-}
-
-mat-card-subtitle {
-    color: #89929d;
-}
-
-.btn-question {
-    background: #f6f6f6;
-    color: #0e223e;
-    border: 0;
-    padding: 10px 24px;
-    font-weight: 550;
-    border-radius: 5px;
-}
-
-.btn-question:hover {
-    background: #e11d48;
-    color: #fff;
-}
-
-.nav-link {
-    cursor: pointer;
-}
-
-.editor .edit {
-    color: #faa356;
-    font-size: 18px;
-}
-
-.editor .delete {
-    color: #fa7970;
-    font-size: 18px;
-}
-
-.nav-link:hover {
-    opacity: .7;
-}
-*/
 .modal-content {
     background: #21262d;
 

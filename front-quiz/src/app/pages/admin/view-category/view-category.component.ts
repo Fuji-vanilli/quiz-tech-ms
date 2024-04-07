@@ -136,7 +136,7 @@ export class ViewCategoryComponent implements OnInit {
     })
   }
 
-  uploadFile() {
+  uploadFile(category: any) {
     document.getElementById('fileInput')?.click();
   }
 
@@ -144,6 +144,10 @@ export class ViewCategoryComponent implements OnInit {
     this.currentCategoryId= category.id!;
     console.log('category id: '+category.id);
     
+  }
+
+  updateImage(cateogry: Category) {
+    this.currentCategoryId= cateogry.id!;
   }
 
   userByEmail(email: any) {
