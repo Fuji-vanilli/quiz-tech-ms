@@ -62,7 +62,6 @@ export class AddCategoryComponent implements OnInit{
   }
 
   addCategory() {
-    console.log(this.formGroup.value.title);
 
     const category: Category= {
       title: this.formGroup.value.title,
@@ -74,6 +73,8 @@ export class AddCategoryComponent implements OnInit{
     this.categoryService.addCategory(category).subscribe({
       next: response=> {
         console.log(response.data.category);
+        this.uplodaImage(response.data.category.id);
+        
         Swal.fire('Success', 'new Category added successfully!', 'success')
         this.route.navigateByUrl('admin/categories');
       },
