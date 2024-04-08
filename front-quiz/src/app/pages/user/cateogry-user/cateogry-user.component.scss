@@ -16,7 +16,7 @@ head {
 }
 
 .search {
-    padding: 10px 10%;
+    padding: 10px 6%;
 
     .box-search {
         margin-bottom: 24px;
@@ -108,18 +108,19 @@ head {
 /**/
 
 .container-0 {
-    padding: 35px 10%;
+    padding: 0 5%;
 
     .col {
         .contents {
-            padding: 0 30px;
+            padding: 0 0 0 30px;
             
             .box {
                 padding: 8px 20px 20px 20px;
                 margin-bottom: 16px;
                 position: relative;
                 transition: all 0.4s ease;
-                //border: 1px solid var(--bg-200);
+                border: 1px solid var(--bg-200);
+                border-radius: 8px;
                 
                 header.title {
                     display: flex;
