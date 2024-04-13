@@ -15,4 +15,5 @@ public class CourseResponse {
     private String description;
     private Date createdDate;
     private Date lastUpdateDate;
+    private String pathLesson;
 }

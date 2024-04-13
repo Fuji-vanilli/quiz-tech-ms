@@ -1,5 +1,5 @@
 .contain {
-    background: var(--text-100);
+    background: #fff;
     width: 100%;
     height: 100vh;
     overflow: hidden;
@@ -19,18 +19,17 @@
 }
 
 .card-left {
-    margin-top: 150px;
+    margin-top: 100px;
     border-radius: 6px;
     width: 80%;
     padding-top: 16px;
     padding-bottom: 16px;
     margin-left: 30px;
-    font-family: 'Poppins';
 }
 
 .card-left h1, p {
-    color: var(--bg-100);
-    //font-family: 'Roboto';
+    color: var(--bg-300);
+    font-family: 'Roboto';
 }
 
 .card-left h1 {
@@ -40,10 +39,10 @@
 
 .card-left span {
     background: #EE1D52;
-    color: var(--text-100);
     padding: 10px 10px;
     border-radius: 10px;
     font-family: 'Anta';
+    color: var(--text-100);
 }
 
 .card-left p {
@@ -168,4 +167,10 @@
 
 .btn-register:hover {
     opacity: .6;
+}
+
+/*****/
+
+.card-right {
+    margin-top: 100px;
 }
