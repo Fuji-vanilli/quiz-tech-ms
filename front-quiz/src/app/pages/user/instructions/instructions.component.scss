@@ -232,9 +232,10 @@
                 border: 0;
                 padding: 10px;
                 margin: 16px 0;
-                background: var(--primary-100-gradient);
-                color: var(--text-100);
-                border-radius: 4px;
+                background: var(--primary-200);
+                color: var(--bg-100);
+                font-weight: 550;
+                border-radius: 8px;
                 transition: all .5s ease;
             }
 
