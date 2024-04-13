@@ -1,5 +1,5 @@
 .contain {
-    background: var(--bg-300);
+    background: var(--text-100);
     width: 100%;
     height: 100vh;
     overflow: hidden;
@@ -24,18 +24,18 @@
 }
 
 .card-left {
-    margin-top: 100px;
+    margin-top: 150px;
     border-radius: 6px;
     width: 80%;
-    //background: rgba(255, 255, 255, .1);
     padding-top: 16px;
     padding-bottom: 16px;
     margin-left: 30px;
+    font-family: 'Poppins';
 }
 
 .card-left h1, p {
-    color: #e5e5e5;
-    font-family: 'Roboto';
+    color: var(--bg-100);
+    //font-family: 'Roboto';
 }
 
 .card-left h1 {
@@ -45,6 +45,7 @@
 
 .card-left span {
     background: #EE1D52;
+    color: var(--text-100);
     padding: 10px 10px;
     border-radius: 10px;
     font-family: 'Anta';
