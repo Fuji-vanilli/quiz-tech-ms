@@ -98,9 +98,10 @@ a {
 .btn-login {
     border-radius: 5px;
     border: 0;
-    padding: 6px 16px ; 
+    padding: 8px 24px ; 
     background: var(--primary-200);
-    color: var(--text-100);
+    color: var(--bg-100);
+    font-weight: 550;
     font-family: 'Ubuntu';
     margin-right: 14px;
     transition: all 0.6s ease;
@@ -114,8 +115,8 @@ a {
     margin-left: 12px;
     border-radius: 5px;
     border: 0;
-    padding: 6px 14px ; 
-    background: var(--bg-100);
+    padding: 8px 24px ; 
+    background: var(--bg-200);
     color: var(--text-100);
     font-family: 'Ubuntu';
     transition: all 0.6s ease;
