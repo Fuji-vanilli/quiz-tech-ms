@@ -90,7 +90,7 @@
                     span {
                         color: var(--primary-200);
                         padding: 8px 12px;
-                        font-size: 16px;
+                        font-size: 16px; 
                         font-weight: 600;
                         border: 1px solid var(--primary-200);
                         border-radius: 4px;
@@ -110,8 +110,8 @@
                 height: 100%;
                 
                 .choice {
-                    color: var(--primary-200);
-                    border: 2px solid var(--primary-200);
+                    color: var(--text-100);
+                    border: 2px solid var(--primary-100);
                     border-radius: 30px;
                     padding: 14px 18px;
                     margin-bottom: 30px;
