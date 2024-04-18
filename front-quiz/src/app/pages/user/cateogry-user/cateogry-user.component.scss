@@ -51,17 +51,12 @@ head {
             background: transparent;
             cursor: pointer;
 
-            i.bi-search {
+            i {
                 display: block;
                 color: var(--text-200);
                 font-size: 20px;
             }
 
-            i.bi-x-lg {
-                display: none;
-                color: var(--bg-200);
-                font-size: 20px;
-            }
         }
     }
 
@@ -71,18 +66,6 @@ head {
     
     .box-search:focus-within {
         border: 1px solid var(--text-200);
-
-        button {
-            i.bi-search {
-                display: none;
-            }
-
-            i.bi-x-lg {
-                display: block;
-                color: var(--text-200);
-                font-size: 20px;
-            }
-        }
     }
 }
 
