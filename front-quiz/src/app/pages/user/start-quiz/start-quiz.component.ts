@@ -161,7 +161,7 @@ export class StartQuizComponent {
 
     if (this.correctAnswer>= this.quiz.numberOfQuestions/2) {
       Swal.fire({
-        title: "You are finished the Quiz successfully",
+        title: "You have finished the Quiz successfully",
         width: 600,
         padding: "3em",
         color: "#cee8ff",
