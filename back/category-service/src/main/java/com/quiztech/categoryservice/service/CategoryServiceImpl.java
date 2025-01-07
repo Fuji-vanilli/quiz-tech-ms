@@ -1,7 +1,6 @@
 package com.quiztech.categoryservice.service;
 
 import com.quiztech.categoryservice.dto.CategoryRequest;
-import com.quiztech.categoryservice.dto.CategoryResponse;
 import com.quiztech.categoryservice.entities.Category;
 import com.quiztech.categoryservice.mapper.CategoryMapper;
 import com.quiztech.categoryservice.models.Quiz;
@@ -14,9 +13,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationToken;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -33,6 +29,7 @@ public class CategoryServiceImpl implements CategoryService{
     private final CategoryRepository categoryRepository;
     private final CategoryMapper categoryMapper;
     private final WebClientGetter webClient;
+
     @Override
     public Response add(CategoryRequest request) {
         List<String> errors= CategoryValidator.isValid(request);
@@ -251,6 +248,10 @@ public class CategoryServiceImpl implements CategoryService{
                 "created add successfully!"
         );
     }
+    @Override
+    public List<Category> allCategories() {
+        return categoryRepository.findAll();
+    }
 
     private Response generateResponse(HttpStatus status, URI location, Map<?, ?> data, String message) {
         return Response.builder()
@@ -262,5 +263,4 @@ public class CategoryServiceImpl implements CategoryService{
                 .message(message)
                 .build();
     }
-
 }

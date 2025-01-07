@@ -31,14 +31,14 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth-> auth.anyRequest().authenticated());
 
         httpSecurity
-                //.cors(Customizer.withDefaults())
+                .cors(Customizer.withDefaults())
                 .sessionManagement(session-> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .oauth2ResourceServer(auth-> auth.jwt(jwt-> jwt.jwtAuthenticationConverter(authConverter)));
 
         return httpSecurity.build();
     }
 
-    //@Bean
+    @Bean
     CorsConfigurationSource corsConfiguration() {
         CorsConfiguration corsConfiguration= new CorsConfiguration();
         corsConfiguration.setAllowedOrigins(List.of("*"));

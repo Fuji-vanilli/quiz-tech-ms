@@ -2,6 +2,7 @@ package com.quiztech.categoryservice.service;
 
 import com.quiztech.categoryservice.dto.CategoryRequest;
 import com.quiztech.categoryservice.dto.CategoryResponse;
+import com.quiztech.categoryservice.entities.Category;
 import com.quiztech.categoryservice.utils.Response;
 
 import java.util.List;
@@ -14,6 +15,7 @@ public interface CategoryService {
     Response get(String id);
     Response all(int page, int size);
     Response delete(String id);
+    List<Category> allCategories();
     Response addCreator(Map<String, String> creator);
 
 }

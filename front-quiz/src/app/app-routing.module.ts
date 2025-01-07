@@ -43,7 +43,7 @@ const routes: Routes = [
       { path: 'categories', component: CateogryUserComponent },
       { path: 'quizzes', component: LoadQuizComponent },
       { path: 'quizzes/:categoryId', component: LoadQuizByCategoryComponent },
-      { path: 'instructions/:quizId', component: InstructionsComponent },
+      { path: 'instructions/:quizId', component: InstructionsComponent }, 
       { path: 'start/:quizId', component: StartQuizComponent },
       { path: 'result/:quizId', component: ResultQuizComponent },
       { path: 'history', component: HistoryComponent },
